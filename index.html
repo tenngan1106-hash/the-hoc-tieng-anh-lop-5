@@ -23,13 +23,6 @@
       color: #4f46e5;
       font-weight: 800;
     }
-    .flashcard {
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .flashcard:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08);
-    }
     .pulse-btn:active {
       transform: scale(0.96);
     }
@@ -50,7 +43,7 @@
           <span>Thẻ Học & Luyện Nghe Tiếng Anh 5</span>
           <span class="text-2xl">✨</span>
         </h1>
-        <p class="text-sm text-slate-500 font-medium">Phát âm chuẩn Google TTS ngay tại chỗ • Dịch câu để thuộc lòng • Bài hát vui nhộn</p>
+        <p class="text-sm text-slate-500 font-medium">Hình ảnh to sinh động • Thơ mẹo nhớ từ vựng • Nhạc nền & Video bài hát vui nhộn</p>
       </div>
       
       <!-- Audio Player Control -->
@@ -61,8 +54,9 @@
       </div>
     </header>
 
-    <!-- Hidden Audio Player -->
+    <!-- Hidden Audio Players -->
     <audio id="app-audio-player" playsinline preload="none" class="hidden"></audio>
+    <audio id="bg-music-player" loop preload="none" class="hidden"></audio>
 
     <!-- Audio Status Toast -->
     <div id="audio-toast" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-900/95 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 z-50 text-sm font-semibold backdrop-blur-md border border-slate-700">
@@ -79,11 +73,11 @@
 
     <!-- Section Tabs (Từ vựng | Mẫu câu | Ngữ pháp | Dịch câu | Bài hát) -->
     <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-1.5 flex flex-wrap gap-1" id="sub-tabs">
-      <button onclick="switchTab('vocab')" id="tab-btn-vocab" class="sub-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex-1 text-center transition active">📚 1. Từ vựng đơn</button>
+      <button onclick="switchTab('vocab')" id="tab-btn-vocab" class="sub-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex-1 text-center transition active">📚 1. Từ vựng & Hình bự</button>
       <button onclick="switchTab('sentences')" id="tab-btn-sentences" class="sub-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex-1 text-center transition">🗣️ 2. Mẫu câu & Nghe</button>
       <button onclick="switchTab('grammar')" id="tab-btn-grammar" class="sub-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex-1 text-center transition">💡 3. Góc ngữ pháp</button>
       <button onclick="switchTab('practice')" id="tab-btn-practice" class="sub-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex-1 text-center transition">🎯 4. Dịch câu thuộc lòng</button>
-      <button onclick="switchTab('song')" id="tab-btn-song" class="sub-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex-1 text-center transition">🎵 5. Bài hát vui nhộn</button>
+      <button onclick="switchTab('song')" id="tab-btn-song" class="sub-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex-1 text-center transition">🎵 5. Bài hát & Nhạc nền</button>
     </div>
 
     <!-- Main Content Area -->
@@ -104,9 +98,12 @@ const APP_UNITS = [
         "word": "address",
         "pos": "n",
         "ipa": "/əˈdres/",
-        "meaning": "địa chỉ",
+        "meaning": "địa chỉ nhà",
         "icon": "📍",
-        "ex": "What's your address?"
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_address\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3b82f6\"/>\n    </linearGradient>\n    <filter id=\"shadow_address\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_address)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_address)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">📮</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">address</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Địa chỉ nhà / Số nhà</text>\n  </g>\n</svg>",
+        "rhyme": "Viết thư thì nhớ ghi nhanh,\nTìm nhà theo đúng **address** rành rành!",
+        "mnemonic": "💡 **Cách nhớ:** **Add** (thêm vào) + **dress** (chiếc váy) ➜ Thêm địa chỉ lên gói bưu phẩm để gửi chiếc váy xinh đến đúng nhà bạn!",
+        "ex": "What's your address? - It's 105, Hoa Binh Lane."
       },
       {
         "word": "street",
@@ -114,31 +111,43 @@ const APP_UNITS = [
         "ipa": "/striːt/",
         "meaning": "đường phố",
         "icon": "🛣️",
-        "ex": "I live on Tran Phu Street."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_street\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#0284c7\"/>\n      <stop offset=\"100%\" stop-color=\"#06b6d4\"/>\n    </linearGradient>\n    <filter id=\"shadow_street\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_street)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_street)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🛣️</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">street</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Đường phố rộng lớn</text>\n  </g>\n</svg>",
+        "rhyme": "Đường to xe chạy thênh thang,\nGọi tên là **street** rộn ràng sớm hôm!",
+        "mnemonic": "💡 **Cách nhớ:** Con đường **street** rợp bóng cây xanh, hai bên có nhiều cửa hàng tấp nập xe cộ đi lại.",
+        "ex": "My school is on Tran Phu Street."
       },
       {
         "word": "lane",
         "pos": "n",
         "ipa": "/leɪn/",
-        "meaning": "ngõ, hẻm",
+        "meaning": "ngõ, hẻm nhỏ",
         "icon": "🏡",
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_lane\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#059669\"/>\n      <stop offset=\"100%\" stop-color=\"#10b981\"/>\n    </linearGradient>\n    <filter id=\"shadow_lane\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_lane)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_lane)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🏡</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">lane</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Ngõ / Hẻm yên bình</text>\n  </g>\n</svg>",
+        "rhyme": "Rẽ vào con ngõ bình yên,\n**Lane** này sạch sẽ, gắn liền tuổi thơ!",
+        "mnemonic": "💡 **Cách nhớ:** **Lane** đọc tựa như *làn* ➜ Từng làn xe máy rẽ vào con ngõ nhỏ bình yên dẫn về nhà.",
         "ex": "He lives in Hoa Binh Lane."
       },
       {
         "word": "avenue",
         "pos": "n",
         "ipa": "/ˈæv.ə.njuː/",
-        "meaning": "đại lộ",
+        "meaning": "đại lộ lớn",
         "icon": "🌆",
-        "ex": "The house is on Thang Long Avenue."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_avenue\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#7c3aed\"/>\n      <stop offset=\"100%\" stop-color=\"#6366f1\"/>\n    </linearGradient>\n    <filter id=\"shadow_avenue\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_avenue)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_avenue)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🌆</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">avenue</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Đại lộ nhiều làn xe</text>\n  </g>\n</svg>",
+        "rhyme": "Đại lộ rực rỡ đèn hoa,\n**Avenue** thẳng tắp đi qua phố phường!",
+        "mnemonic": "💡 **Cách nhớ:** **Avenue** là đại lộ to nhất thành phố, có nhiều làn xe chạy và những tòa nhà chọc trời.",
+        "ex": "The big tower is on Thang Long Avenue."
       },
       {
         "word": "floor",
         "pos": "n",
         "ipa": "/flɔːr/",
-        "meaning": "tầng, lầu",
+        "meaning": "tầng lầu, sàn nhà",
         "icon": "🏢",
-        "ex": "She lives on the second floor."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_floor\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#ea580c\"/>\n      <stop offset=\"100%\" stop-color=\"#f97316\"/>\n    </linearGradient>\n    <filter id=\"shadow_floor\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_floor)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_floor)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🏢</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">floor</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Tầng lầu tòa nhà</text>\n  </g>\n</svg>",
+        "rhyme": "Thang máy bấm số vèo vèo,\nLên **floor** tầng ba đón chiều gió bay!",
+        "mnemonic": "💡 **Cách nhớ:** **Floor** là mặt sàn, tầng nhà. Đi chung cư phải nhớ số tầng lầu (on the second floor).",
+        "ex": "She lives in a flat on the second floor."
       },
       {
         "word": "flat",
@@ -146,7 +155,10 @@ const APP_UNITS = [
         "ipa": "/flæt/",
         "meaning": "căn hộ chung cư",
         "icon": "🏬",
-        "ex": "We live in Flat 12."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_flat\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#2563eb\"/>\n      <stop offset=\"100%\" stop-color=\"#60a5fa\"/>\n    </linearGradient>\n    <filter id=\"shadow_flat\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_flat)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_flat)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🏬</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">flat</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Căn hộ chung cư</text>\n  </g>\n</svg>",
+        "rhyme": "Tòa nhà chung cư xinh tươi,\nTrong **flat** ấm cúng nụ cười gia đình!",
+        "mnemonic": "💡 **Cách nhớ:** **Flat** nghĩa đen là bằng phẳng ➜ Căn hộ hiện đại trên một mặt bằng tầng chung cư tiện nghi.",
+        "ex": "We live in Flat 12 on the third floor."
       },
       {
         "word": "hometown",
@@ -154,7 +166,10 @@ const APP_UNITS = [
         "ipa": "/ˈhəʊm.taʊn/",
         "meaning": "quê hương",
         "icon": "🌾",
-        "ex": "My hometown is Da Nang."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_hometown\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#16a34a\"/>\n      <stop offset=\"100%\" stop-color=\"#4ade80\"/>\n    </linearGradient>\n    <filter id=\"shadow_hometown\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_hometown)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_hometown)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🌾</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">hometown</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Quê hương yêu dấu</text>\n  </g>\n</svg>",
+        "rhyme": "Quê hương đồng lúa bạt ngàn,\n**Hometown** yêu dấu muôn vàn nhớ nhung!",
+        "mnemonic": "💡 **Cách nhớ:** Ghép bởi **Home** (nhà) + **Town** (thị trấn/phố) ➜ Quê hương chôn rau cắt rốn của mình!",
+        "ex": "My hometown is small and peaceful."
       },
       {
         "word": "village",
@@ -162,15 +177,21 @@ const APP_UNITS = [
         "ipa": "/ˈvɪl.ɪdʒ/",
         "meaning": "ngôi làng",
         "icon": "🏕️",
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_village\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#d97706\"/>\n      <stop offset=\"100%\" stop-color=\"#f59e0b\"/>\n    </linearGradient>\n    <filter id=\"shadow_village\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_village)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_village)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🏕️</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">village</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Làng quê thanh bình</text>\n  </g>\n</svg>",
+        "rhyme": "Ngôi làng có luỹ tre xanh,\n**Village** êm ả trong lành sớm mai!",
+        "mnemonic": "💡 **Cách nhớ:** Làng quê **village** nơi có mái đình, luỹ tre và dòng sông tuổi thơ êm đềm trôi.",
         "ex": "My grandparents live in a village."
       },
       {
         "word": "city",
         "pos": "n",
         "ipa": "/ˈsɪt.i/",
-        "meaning": "thành phố",
+        "meaning": "thành phố lớn",
         "icon": "🏙️",
-        "ex": "Hanoi is a big city."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_city\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#475569\"/>\n      <stop offset=\"100%\" stop-color=\"#64748b\"/>\n    </linearGradient>\n    <filter id=\"shadow_city\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_city)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_city)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🏙️</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">city</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Thành phố nhộn nhịp</text>\n  </g>\n</svg>",
+        "rhyme": "Thành phố rực ánh đèn sao,\n**City** náo nhiệt biết bao công trình!",
+        "mnemonic": "💡 **Cách nhớ:** **City** là thành phố lớn như Hà Nội, TP.HCM với cầu vượt, siêu thị và nhà cao tầng.",
+        "ex": "Hanoi is a big and busy city."
       },
       {
         "word": "peaceful",
@@ -178,7 +199,10 @@ const APP_UNITS = [
         "ipa": "/ˈpiːs.fəl/",
         "meaning": "yên bình, thanh bình",
         "icon": "🕊️",
-        "ex": "The village is small and peaceful."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_peaceful\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#0d9488\"/>\n      <stop offset=\"100%\" stop-color=\"#2dd4bf\"/>\n    </linearGradient>\n    <filter id=\"shadow_peaceful\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_peaceful)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_peaceful)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🕊️</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">peaceful</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Yên bình, thư thái</text>\n  </g>\n</svg>",
+        "rhyme": "Không gian tĩnh lặng chim ca,\n**Peaceful** thanh thản chan hòa nắng mai!",
+        "mnemonic": "💡 **Cách nhớ:** **Peace** là hòa bình + đuôi **ful** (đầy ắp) ➜ Tràn đầy cảm giác bình yên, êm dịu.",
+        "ex": "The countryside is small and peaceful."
       },
       {
         "word": "crowded",
@@ -186,7 +210,10 @@ const APP_UNITS = [
         "ipa": "/ˈkraʊ.dɪd/",
         "meaning": "đông đúc, tấp nập",
         "icon": "👨‍👩‍👧‍👦",
-        "ex": "The street is very crowded."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_crowded\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#e11d48\"/>\n      <stop offset=\"100%\" stop-color=\"#fb7185\"/>\n    </linearGradient>\n    <filter id=\"shadow_crowded\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_crowded)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_crowded)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">👨‍👩‍👧‍👦</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">crowded</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Đông đúc, đông người</text>\n  </g>\n</svg>",
+        "rhyme": "Người qua kẻ lại xôn xao,\n**Crowded** đông đúc chen vào chợ đông!",
+        "mnemonic": "💡 **Cách nhớ:** **Crowd** là đám đông ➜ Phố xá **crowded** nườm nượp người xe tấp nập.",
+        "ex": "The street is very crowded at rush hour."
       },
       {
         "word": "busy",
@@ -194,7 +221,10 @@ const APP_UNITS = [
         "ipa": "/ˈbɪz.i/",
         "meaning": "bận rộn, nhộn nhịp",
         "icon": "🚦",
-        "ex": "Life in the city is very busy."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_busy\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#b45309\"/>\n      <stop offset=\"100%\" stop-color=\"#d97706\"/>\n    </linearGradient>\n    <filter id=\"shadow_busy\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_busy)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_busy)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🚦</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">busy</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Bận rộn, hối hả</text>\n  </g>\n</svg>",
+        "rhyme": "Người xe hối hả ngược xuôi,\n**Busy** nhộn nhịp niềm vui rộn ràng!",
+        "mnemonic": "💡 **Cách nhớ:** **Busy** đọc giống chữ *bận rộn tí ti* ➜ Thành phố lúc nào cũng tấp nập, bận rộn hối hả.",
+        "ex": "Life in the big city is always busy."
       }
     ],
     "sentences": [
@@ -307,27 +337,30 @@ const APP_UNITS = [
       }
     ],
     "song": {
-      "title": "Where Do You Live? (Bài Chant hỏi thăm địa chỉ)",
+      "title": "All About Me! (Bài Hát Chính Thức SGK Global Success 5)",
+      "youtubeId": "cvZ175neuss",
+      "bgMusic": "https://upload.wikimedia.org/wikipedia/commons/9/98/Happy_Alley_%28ISRC_USUAN1100482%29.mp3",
+      "musicName": "Giai điệu vui nhộn: Happy Alley (Acoustic Guitar)",
       "lines": [
         {
-          "en": "Where do you live? Where do you live?",
-          "vi": "Bạn sống ở đâu? Bạn sống ở đâu?"
+          "en": "Hello, I'm Lisa. I'm in Grade 3.",
+          "vi": "Xin chào, mình là Lisa. Mình học lớp 3."
         },
         {
-          "en": "I live in a flat in the big city!",
-          "vi": "Tôi sống trong một căn hộ ở thành phố lớn!"
+          "en": "I live in the countryside. Where do you live?",
+          "vi": "Mình sống ở vùng nông thôn. Còn bạn sống ở đâu?"
         },
         {
-          "en": "What's your address? What's your address?",
-          "vi": "Địa chỉ của bạn là gì? Địa chỉ của bạn là gì?"
+          "en": "Hello, I'm Alan. I'm in Grade 5.",
+          "vi": "Xin chào, mình là Alan. Mình học lớp 5."
         },
         {
-          "en": "It's 105, Hoa Binh Lane!",
-          "vi": "Đó là số 105, ngõ Hòa Bình!"
+          "en": "I live in the big city. Where do you live?",
+          "vi": "Mình sống ở thành phố lớn. Còn bạn sống ở đâu?"
         },
         {
-          "en": "Is it noisy? No, it's peaceful and clean!",
-          "vi": "Ở đó có ồn ào không? Không, rất yên bình và sạch sẽ!"
+          "en": "What's your address? It's 105, Hoa Binh Lane!",
+          "vi": "Địa chỉ của bạn là gì? Đó là số 105, ngõ Hòa Bình!"
         }
       ]
     }
@@ -345,14 +378,20 @@ const APP_UNITS = [
         "ipa": "/ˈkɒt.ɪdʒ/",
         "meaning": "nhà nhỏ, nhà tranh ở quê",
         "icon": "🛖",
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_cottage\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#059669\"/>\n      <stop offset=\"100%\" stop-color=\"#34d399\"/>\n    </linearGradient>\n    <filter id=\"shadow_cottage\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_cottage)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_cottage)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🛖</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">cottage</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Nhà nhỏ vùng nông thôn</text>\n  </g>\n</svg>",
+        "rhyme": "Ngôi nhà xinh xắn miền quê,\n**Cottage** ấm áp tìm về thảnh thơi!",
+        "mnemonic": "💡 **Cách nhớ:** **Cottage** là ngôi nhà nhỏ xinh xắn như trong truyện cổ tích giữa thung lũng xanh.",
         "ex": "My aunt lives in a cozy cottage."
       },
       {
         "word": "villa",
         "pos": "n",
         "ipa": "/ˈvɪl.ə/",
-        "meaning": "biệt thự",
+        "meaning": "biệt thự sang trọng",
         "icon": "🏰",
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_villa\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#d97706\"/>\n      <stop offset=\"100%\" stop-color=\"#fbbf24\"/>\n    </linearGradient>\n    <filter id=\"shadow_villa\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_villa)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_villa)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🏰</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">villa</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Biệt thự có sân vườn</text>\n  </g>\n</svg>",
+        "rhyme": "Biệt thự rộng lớn khang trang,\n**Villa** tráng lệ bên hàng cây xanh!",
+        "mnemonic": "💡 **Cách nhớ:** **Villa** là biệt thự cao cấp có vườn hoa và hồ bơi thoáng mát.",
         "ex": "There is a beautiful villa by the sea."
       },
       {
@@ -361,14 +400,20 @@ const APP_UNITS = [
         "ipa": "/əˈpɑːt.mənt/",
         "meaning": "căn hộ chung cư",
         "icon": "🏢",
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_apartment\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#2563eb\"/>\n      <stop offset=\"100%\" stop-color=\"#60a5fa\"/>\n    </linearGradient>\n    <filter id=\"shadow_apartment\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_apartment)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_apartment)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🏢</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">apartment</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Chung cư hiện đại</text>\n  </g>\n</svg>",
+        "rhyme": "Căn hộ trên khối nhà cao,\n**Apartment** đón ánh sao đêm về!",
+        "mnemonic": "💡 **Cách nhớ:** Từ **apart** (riêng biệt) ➜ Căn hộ khép kín riêng tư trong tòa chung cư.",
         "ex": "They live in a modern apartment."
       },
       {
         "word": "stilt house",
         "pos": "n",
         "ipa": "/ˈstɪlt ˌhaʊs/",
-        "meaning": "nhà sàn",
+        "meaning": "nhà sàn truyền thống",
         "icon": "🏕️",
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_stilt_house\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#b45309\"/>\n      <stop offset=\"100%\" stop-color=\"#d97706\"/>\n    </linearGradient>\n    <filter id=\"shadow_stilt_house\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_stilt_house)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_stilt_house)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🏕️</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">stilt_house</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Nhà sàn bằng gỗ</text>\n  </g>\n</svg>",
+        "rhyme": "Cột gỗ nâng đỡ nhà cao,\n**Stilt house** bản làng đẹp sao núi rừng!",
+        "mnemonic": "💡 **Cách nhớ:** **Stilt** là cột chống ➜ Nhà sàn của các đồng bào vùng cao miền núi.",
         "ex": "My friend lives in a wooden stilt house."
       },
       {
@@ -377,6 +422,9 @@ const APP_UNITS = [
         "ipa": "/ˈlɪv.ɪŋ ˌruːm/",
         "meaning": "phòng khách",
         "icon": "🛋️",
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_living_room\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#9333ea\"/>\n      <stop offset=\"100%\" stop-color=\"#c084fc\"/>\n    </linearGradient>\n    <filter id=\"shadow_living_room\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_living_room)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_living_room)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🛋️</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">living_room</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Phòng khách ấm cúng</text>\n  </g>\n</svg>",
+        "rhyme": "Cả nhà quây quần xem phim,\n**Living room** đó ấm êm ngọt ngào!",
+        "mnemonic": "💡 **Cách nhớ:** Phòng cho sự sống và sinh hoạt chung của gia đình: **Living room**.",
         "ex": "We watch TV in the living room."
       },
       {
@@ -385,6 +433,9 @@ const APP_UNITS = [
         "ipa": "/ˈbed.ruːm/",
         "meaning": "phòng ngủ",
         "icon": "🛏️",
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_bedroom\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#4338ca\"/>\n      <stop offset=\"100%\" stop-color=\"#818cf8\"/>\n    </linearGradient>\n    <filter id=\"shadow_bedroom\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_bedroom)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_bedroom)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🛏️</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">bedroom</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Phòng ngủ êm ái</text>\n  </g>\n</svg>",
+        "rhyme": "Chiếc giường êm ái gọi mời,\n**Bedroom** say giấc nghỉ ngơi đêm dài!",
+        "mnemonic": "💡 **Cách nhớ:** **Bed** (chiếc giường) + **room** (căn phòng) ➜ Căn phòng có chiếc giường để ngủ ngon.",
         "ex": "My bedroom is cozy and bright."
       },
       {
@@ -393,6 +444,9 @@ const APP_UNITS = [
         "ipa": "/ˈkɪtʃ.ən/",
         "meaning": "nhà bếp",
         "icon": "🍳",
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_kitchen\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#e11d48\"/>\n      <stop offset=\"100%\" stop-color=\"#f43f5e\"/>\n    </linearGradient>\n    <filter id=\"shadow_kitchen\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_kitchen)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_kitchen)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🍳</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">kitchen</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Nhà bếp nấu ăn</text>\n  </g>\n</svg>",
+        "rhyme": "Mẹ nấu món ngon thơm lừng,\n**Kitchen** đỏ lửa tưng bừng bữa cơm!",
+        "mnemonic": "💡 **Cách nhớ:** **Kitchen** nơi mẹ trổ tài nấu nướng những món ăn thơm lừng cho cả nhà.",
         "ex": "My mom is cooking in the kitchen."
       },
       {
@@ -401,7 +455,10 @@ const APP_UNITS = [
         "ipa": "/ˈbɑːθ.ruːm/",
         "meaning": "phòng tắm",
         "icon": "🚿",
-        "ex": "There is a large bathroom upstairs."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_bathroom\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#0284c7\"/>\n      <stop offset=\"100%\" stop-color=\"#38bdf8\"/>\n    </linearGradient>\n    <filter id=\"shadow_bathroom\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_bathroom)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_bathroom)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🚿</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">bathroom</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Phòng tắm mát mẻ</text>\n  </g>\n</svg>",
+        "rhyme": "Vòi sen mát lạnh giọt trong,\n**Bathroom** sạch sẽ tắm xong khỏe người!",
+        "mnemonic": "💡 **Cách nhớ:** **Bath** (tắm bồn) + **room** (căn phòng) ➜ Căn phòng tắm mát mẻ sảng khoái.",
+        "ex": "There is a clean bathroom upstairs."
       },
       {
         "word": "balcony",
@@ -409,7 +466,10 @@ const APP_UNITS = [
         "ipa": "/ˈbæl.kə.ni/",
         "meaning": "ban công",
         "icon": "🪴",
-        "ex": "There are flowers on the balcony."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_balcony\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#16a34a\"/>\n      <stop offset=\"100%\" stop-color=\"#22c55e\"/>\n    </linearGradient>\n    <filter id=\"shadow_balcony\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_balcony)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_balcony)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🪴</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">balcony</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Ban công đầy hoa</text>\n  </g>\n</svg>",
+        "rhyme": "Ban công rực rỡ sắc hoa,\n**Balcony** ngắm mây qua sớm chiều!",
+        "mnemonic": "💡 **Cách nhớ:** **Balcony** nhô ra ngoài căn nhà, nơi đặt những chậu hoa xinh và ngắm gió mát.",
+        "ex": "There are red flowers on the balcony."
       },
       {
         "word": "modern",
@@ -417,7 +477,10 @@ const APP_UNITS = [
         "ipa": "/ˈmɒd.ən/",
         "meaning": "hiện đại",
         "icon": "🏙️",
-        "ex": "The house is very modern."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_modern\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#475569\"/>\n      <stop offset=\"100%\" stop-color=\"#94a3b8\"/>\n    </linearGradient>\n    <filter id=\"shadow_modern\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_modern)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_modern)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🏙️</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">modern</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Thiết kế hiện đại</text>\n  </g>\n</svg>",
+        "rhyme": "Nhà cao kính sáng lung linh,\n**Modern** hiện đại văn minh tuyệt vời!",
+        "mnemonic": "💡 **Cách nhớ:** **Modern** là xu hướng hiện đại, tiện nghi mới nhất ngày nay.",
+        "ex": "Our new house is very modern."
       },
       {
         "word": "cozy",
@@ -425,7 +488,10 @@ const APP_UNITS = [
         "ipa": "/ˈkəʊ.zi/",
         "meaning": "ấm cúng",
         "icon": "🕯️",
-        "ex": "Our living room is very cozy."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_cozy\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#d97706\"/>\n      <stop offset=\"100%\" stop-color=\"#f59e0b\"/>\n    </linearGradient>\n    <filter id=\"shadow_cozy\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_cozy)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_cozy)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🕯️</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">cozy</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Ấm cúng, gần gũi</text>\n  </g>\n</svg>",
+        "rhyme": "Ánh đèn vàng ấm dịu dàng,\n**Cozy** êm ái vô vàn thân thương!",
+        "mnemonic": "💡 **Cách nhớ:** **Cozy** là cảm giác quấn chiếc chăn ấm áp trong căn phòng mùa đông.",
+        "ex": "The wooden room is very cozy."
       },
       {
         "word": "garden",
@@ -433,6 +499,9 @@ const APP_UNITS = [
         "ipa": "/ˈɡɑː.dən/",
         "meaning": "khu vườn",
         "icon": "🌻",
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_garden\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#15803d\"/>\n      <stop offset=\"100%\" stop-color=\"#86efac\"/>\n    </linearGradient>\n    <filter id=\"shadow_garden\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_garden)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_garden)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🌻</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">garden</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Khu vườn nở hoa</text>\n  </g>\n</svg>",
+        "rhyme": "Hoa khoe cánh thắm ong vờn,\n**Garden** xanh ngát ong vờn sớm mai!",
+        "mnemonic": "💡 **Cách nhớ:** **Garden** là khu vườn đầy hoa thơm cỏ ngọt trước sân nhà.",
         "ex": "There is a green garden in front of the house."
       }
     ],
@@ -550,27 +619,30 @@ const APP_UNITS = [
       }
     ],
     "song": {
-      "title": "This Is My Sweet Home (Bài hát về ngôi nhà thân yêu)",
+      "title": "Do You Live In This Tower? & Where Do You Live? (Bài Hát Unit 2)",
+      "youtubeId": "Vuxu3XijNSA",
+      "bgMusic": "https://upload.wikimedia.org/wikipedia/commons/9/98/Happy_Alley_%28ISRC_USUAN1100482%29.mp3",
+      "musicName": "Giai điệu vui tươi: Upbeat Cheerful Kids",
       "lines": [
         {
-          "en": "Come to my house, come and see!",
-          "vi": "Hãy đến nhà tôi, hãy đến xem nào!"
+          "en": "Do you live in that building? No, I don't.",
+          "vi": "Bạn có sống trong tòa nhà kia không? - Không, mình không sống ở đó."
         },
         {
-          "en": "A lovely home for my family and me!",
-          "vi": "Một ngôi nhà đáng yêu cho gia đình và tôi!"
+          "en": "Do you live in this tower? Yes, I do!",
+          "vi": "Bạn có sống trong tòa tháp này không? - Đúng vậy, mình sống ở đây!"
         },
         {
-          "en": "There is a kitchen, there is a hall,",
-          "vi": "Có một phòng bếp, có một đại sảnh,"
+          "en": "Where do you live? I live in Flat 21.",
+          "vi": "Bạn sống ở đâu? Mình sống ở căn hộ số 21."
         },
         {
-          "en": "And three cozy bedrooms on the wall!",
-          "vi": "Và ba phòng ngủ ấm cúng kề bên!"
+          "en": "On the second floor of City Tower!",
+          "vi": "Trên tầng hai của Tòa tháp Thành phố!"
         },
         {
-          "en": "I love my home, the best of all!",
-          "vi": "Tôi yêu ngôi nhà của mình, nơi tuyệt vời nhất trên đời!"
+          "en": "What's your address? It's 19 Oxford Street!",
+          "vi": "Địa chỉ của bạn là gì? Đó là số 19 đường Oxford!"
         }
       ]
     }
@@ -588,23 +660,32 @@ const APP_UNITS = [
         "ipa": "/ˌnæʃ.ənˈæl.ə.ti/",
         "meaning": "quốc tịch",
         "icon": "🌍",
-        "ex": "What nationality are you?"
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_nationality\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#0284c7\"/>\n      <stop offset=\"100%\" stop-color=\"#38bdf8\"/>\n    </linearGradient>\n    <filter id=\"shadow_nationality\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_nationality)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_nationality)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🌍</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">nationality</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Hộ chiếu & Quốc tịch</text>\n  </g>\n</svg>",
+        "rhyme": "Hộ chiếu ghi rõ ràng thay,\n**Nationality** đó ai ai cũng tường!",
+        "mnemonic": "💡 **Cách nhớ:** **Nation** là quốc gia ➜ **Nationality** là quốc tịch của một công dân.",
+        "ex": "What nationality are you? - I am Vietnamese."
       },
       {
         "word": "America",
         "pos": "n",
         "ipa": "/əˈmer.ɪ.kə/",
-        "meaning": "nước Mỹ",
+        "meaning": "nước Mỹ (Hoa Kỳ)",
         "icon": "🇺🇸",
-        "ex": "He lives in America."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_america\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#b91c1c\"/>\n      <stop offset=\"100%\" stop-color=\"#ef4444\"/>\n    </linearGradient>\n    <filter id=\"shadow_america\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_america)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_america)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🇺🇸</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">america</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Nước Mỹ (Hoa Kỳ)</text>\n  </g>\n</svg>",
+        "rhyme": "Tượng Nữ thần đứng kiêu sa,\nNước **America** ngút ngàn cờ hoa!",
+        "mnemonic": "💡 **Cách nhớ:** **America** là đất nước Hoa Kỳ với tượng Nữ thần Tự do nổi tiếng.",
+        "ex": "My pen friend lives in America."
       },
       {
         "word": "American",
         "pos": "adj",
         "ipa": "/əˈmer.ɪ.kən/",
-        "meaning": "người Mỹ, thuộc về nước Mỹ",
+        "meaning": "người Mỹ",
         "icon": "🗽",
-        "ex": "Tony is American."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_american\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#1d4ed8\"/>\n      <stop offset=\"100%\" stop-color=\"#3b82f6\"/>\n    </linearGradient>\n    <filter id=\"shadow_american\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_american)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_american)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🗽</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">american</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Người mang quốc tịch Mỹ</text>\n  </g>\n</svg>",
+        "rhyme": "Người dân thân thiện tươi vui,\n**American** đó nụ cười nở hoa!",
+        "mnemonic": "💡 **Cách nhớ:** Thêm chữ **n** vào sau America ➜ **American** là người mang quốc tịch Mỹ.",
+        "ex": "Tom is from America. He is American."
       },
       {
         "word": "England",
@@ -612,15 +693,21 @@ const APP_UNITS = [
         "ipa": "/ˈɪŋ.ɡlənd/",
         "meaning": "nước Anh",
         "icon": "🇬🇧",
-        "ex": "Linda is from England."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_england\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#dc2626\"/>\n      <stop offset=\"100%\" stop-color=\"#f87171\"/>\n    </linearGradient>\n    <filter id=\"shadow_england\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_england)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_england)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🇬🇧</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">england</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Nước Anh sương mù</text>\n  </g>\n</svg>",
+        "rhyme": "Đồng hồ Big Ben ngân vang,\nNước **England** đó rộn ràng sớm trưa!",
+        "mnemonic": "💡 **Cách nhớ:** **England** xứ sở sương mù nơi có tháp đồng hồ Big Ben và xe buýt 2 tầng đỏ rực.",
+        "ex": "Linda comes from England."
       },
       {
         "word": "English",
         "pos": "adj",
         "ipa": "/ˈɪŋ.ɡlɪʃ/",
-        "meaning": "người Anh, tiếng Anh",
+        "meaning": "người Anh / tiếng Anh",
         "icon": "💂",
-        "ex": "She speaks English very well."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_english\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#4338ca\"/>\n      <stop offset=\"100%\" stop-color=\"#6366f1\"/>\n    </linearGradient>\n    <filter id=\"shadow_english\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_english)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_english)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">💂</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">english</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Người Anh & Tiếng Anh</text>\n  </g>\n</svg>",
+        "rhyme": "Học hành chăm chỉ mỗi ngày,\nTiếng **English** chuẩn tương lai sáng ngời!",
+        "mnemonic": "💡 **Cách nhớ:** Môn Tiếng Anh ta học mỗi ngày: **English**!",
+        "ex": "She speaks English very fluently."
       },
       {
         "word": "Japan",
@@ -628,15 +715,21 @@ const APP_UNITS = [
         "ipa": "/dʒəˈpæn/",
         "meaning": "nước Nhật Bản",
         "icon": "🇯🇵",
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_japan\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#be123c\"/>\n      <stop offset=\"100%\" stop-color=\"#fb7185\"/>\n    </linearGradient>\n    <filter id=\"shadow_japan\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_japan)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_japan)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🇯🇵</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">japan</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Xứ sở hoa anh đào</text>\n  </g>\n</svg>",
+        "rhyme": "Núi Phú Sĩ tuyết trắng ngần,\n**Japan** đất nước muôn phần mến yêu!",
+        "mnemonic": "💡 **Cách nhớ:** **Japan** xứ sở hoa anh đào và truyện tranh Doraemon quen thuộc.",
         "ex": "Akiko is from Japan."
       },
       {
         "word": "Japanese",
         "pos": "adj",
         "ipa": "/ˌdʒæp.ənˈiːz/",
-        "meaning": "người Nhật, tiếng Nhật",
+        "meaning": "người Nhật",
         "icon": "🗾",
-        "ex": "She is Japanese."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_japanese\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#0f766e\"/>\n      <stop offset=\"100%\" stop-color=\"#14b8a6\"/>\n    </linearGradient>\n    <filter id=\"shadow_japanese\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_japanese)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_japanese)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🗾</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">japanese</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Người Nhật Bản cần cù</text>\n  </g>\n</svg>",
+        "rhyme": "Cúi đầu chào hỏi lễ nghi,\nNgười **Japanese** đó khắc ghi ân tình!",
+        "mnemonic": "💡 **Cách nhớ:** Đuôi **-ese** chỉ quốc tịch: **Japanese** là người Nhật Bản lịch thiệp, cần cù.",
+        "ex": "She is Japanese and very kind."
       },
       {
         "word": "Australia",
@@ -644,6 +737,9 @@ const APP_UNITS = [
         "ipa": "/ɒsˈtreɪ.li.ə/",
         "meaning": "nước Úc",
         "icon": "🇦🇺",
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_australia\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#ca8a04\"/>\n      <stop offset=\"100%\" stop-color=\"#facc15\"/>\n    </linearGradient>\n    <filter id=\"shadow_australia\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_australia)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_australia)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🇦🇺</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">australia</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Xứ sở chuột túi</text>\n  </g>\n</svg>",
+        "rhyme": "Chuột túi nhảy nhót vui tươi,\n**Australia** đất nước rạng ngời nắng mai!",
+        "mnemonic": "💡 **Cách nhớ:** **Australia** là quê hương của những chú chuột túi Kangaroo đáng yêu.",
         "ex": "They are traveling in Australia."
       },
       {
@@ -652,15 +748,21 @@ const APP_UNITS = [
         "ipa": "/ɒsˈtreɪ.li.ən/",
         "meaning": "người Úc",
         "icon": "🦘",
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_australian\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#15803d\"/>\n      <stop offset=\"100%\" stop-color=\"#4ade80\"/>\n    </linearGradient>\n    <filter id=\"shadow_australian\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_australian)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_australian)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🦘</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">australian</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Người mang quốc tịch Úc</text>\n  </g>\n</svg>",
+        "rhyme": "Bạn tôi đến tự phương xa,\nNgười **Australian** đó thật thà dễ thương!",
+        "mnemonic": "💡 **Cách nhớ:** Thêm chữ **n** sau Australia: **Australian** là người Úc thân thiện.",
         "ex": "My pen pal is Australian."
       },
       {
         "word": "friendly",
         "pos": "adj",
         "ipa": "/ˈfrend.li/",
-        "meaning": "thân thiện",
+        "meaning": "thân thiện, cởi mở",
         "icon": "😊",
-        "ex": "The students are very friendly."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_friendly\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#ea580c\"/>\n      <stop offset=\"100%\" stop-color=\"#fb923c\"/>\n    </linearGradient>\n    <filter id=\"shadow_friendly\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_friendly)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_friendly)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">😊</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">friendly</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Thân thiện, chan hòa</text>\n  </g>\n</svg>",
+        "rhyme": "Nụ cười rạng rỡ trên môi,\n**Friendly** thân thiện khắp nơi bạn bè!",
+        "mnemonic": "💡 **Cách nhớ:** Từ **Friend** (bạn bè) + đuôi **ly** ➜ Luôn hòa đồng thân thiết như bạn bè: **Friendly**.",
+        "ex": "The students in my class are very friendly."
       },
       {
         "word": "helpful",
@@ -668,15 +770,21 @@ const APP_UNITS = [
         "ipa": "/ˈhelp.fəl/",
         "meaning": "hay giúp đỡ người khác",
         "icon": "🤝",
-        "ex": "He is always helpful to his friends."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_helpful\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#0891b2\"/>\n      <stop offset=\"100%\" stop-color=\"#22d3ee\"/>\n    </linearGradient>\n    <filter id=\"shadow_helpful\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_helpful)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_helpful)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🤝</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">helpful</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Hay giúp đỡ bạn bè</text>\n  </g>\n</svg>",
+        "rhyme": "Thấy ai khó nhọc giơ tay,\n**Helpful** giúp đỡ ngập tràn yêu thương!",
+        "mnemonic": "💡 **Cách nhớ:** **Help** (giúp đỡ) + **ful** (đầy ắp) ➜ Người luôn sẵn lòng dang tay giúp bạn.",
+        "ex": "Tony is helpful and carries bags for mom."
       },
       {
         "word": "sporty",
         "pos": "adj",
         "ipa": "/ˈspɔː.ti/",
-        "meaning": "yêu thích thể thao, năng động",
+        "meaning": "thích thể thao, năng động",
         "icon": "⚽",
-        "ex": "Tom is very sporty and plays football."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_sporty\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#818cf8\"/>\n    </linearGradient>\n    <filter id=\"shadow_sporty\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_sporty)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_sporty)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">⚽</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">sporty</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Năng động, mê thể thao</text>\n  </g>\n</svg>",
+        "rhyme": "Chạy nhanh, sút bóng tưng bừng,\n**Sporty** khỏe khoắn không ngừng vươn xa!",
+        "mnemonic": "💡 **Cách nhớ:** Từ **Sport** (thể thao) + **y** ➜ Phong cách thể thao năng động, khỏe khoắn.",
+        "ex": "He is very sporty and plays football every day."
       }
     ],
     "sentences": [
@@ -789,27 +897,30 @@ const APP_UNITS = [
       }
     ],
     "song": {
-      "title": "Friends Around The World (Những người bạn khắp năm châu)",
+      "title": "Friends From Around The World (Bài Hát Bạn Bè Quốc Tế)",
+      "youtubeId": "nW3p5_2pcLM",
+      "bgMusic": "https://upload.wikimedia.org/wikipedia/commons/9/98/Happy_Alley_%28ISRC_USUAN1100482%29.mp3",
+      "musicName": "Giai điệu vui nhộn: Global Friends",
       "lines": [
         {
           "en": "Hello my friend from across the sea!",
           "vi": "Xin chào người bạn từ bên kia đại dương!"
         },
         {
-          "en": "Will you come and play with me?",
-          "vi": "Bạn sẽ đến và cùng chơi với tôi chứ?"
+          "en": "Where are you from? Come play with me!",
+          "vi": "Bạn đến từ đâu? Hãy đến chơi cùng tôi nào!"
         },
         {
-          "en": "From England, Japan, America too,",
-          "vi": "Từ nước Anh, nước Nhật, và cả nước Mỹ nữa,"
+          "en": "I am from England, she is from Japan,",
+          "vi": "Tôi đến từ nước Anh, cô ấy đến từ nước Nhật,"
         },
         {
-          "en": "We smile and sing: Nice to meet you!",
-          "vi": "Chúng ta mỉm cười và cùng hát: Rất vui được gặp bạn!"
+          "en": "He is American, we're the best friends in the land!",
+          "vi": "Cậu ấy là người Mỹ, chúng mình là những người bạn thân nhất trần đời!"
         },
         {
-          "en": "Friends forever, me and you!",
-          "vi": "Mãi mãi là bạn bè, tôi và bạn!"
+          "en": "Friendly and helpful, me and you!",
+          "vi": "Thân thiện và tốt bụng, tôi và bạn!"
         }
       ]
     }
@@ -827,7 +938,10 @@ const APP_UNITS = [
         "ipa": "/sɜːf ði ˈɪn.tə.net/",
         "meaning": "lướt mạng Internet",
         "icon": "🌐",
-        "ex": "I often surf the Internet for study."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_surf_internet\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#2563eb\"/>\n      <stop offset=\"100%\" stop-color=\"#38bdf8\"/>\n    </linearGradient>\n    <filter id=\"shadow_surf_internet\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_surf_internet)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_surf_internet)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🌐</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">surf_internet</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Lướt mạng tìm hiểu</text>\n  </g>\n</svg>",
+        "rhyme": "Mở máy tìm kiếm điều hay,\n**Surf the Internet** mê say từng giờ!",
+        "mnemonic": "💡 **Cách nhớ:** **Surf** là lướt ván ➜ Lướt trên ngọn sóng thông tin mạng Internet kỳ thú.",
+        "ex": "I often surf the Internet for homework."
       },
       {
         "word": "ride a bike",
@@ -835,6 +949,9 @@ const APP_UNITS = [
         "ipa": "/raɪd ə baɪk/",
         "meaning": "đạp xe đạp",
         "icon": "🚲",
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_ride_bike\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#16a34a\"/>\n      <stop offset=\"100%\" stop-color=\"#4ade80\"/>\n    </linearGradient>\n    <filter id=\"shadow_ride_bike\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_ride_bike)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_ride_bike)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🚲</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">ride_bike</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Đạp xe rèn luyện</text>\n  </g>\n</svg>",
+        "rhyme": "Chiều buông gió mát bên hè,\n**Ride a bike** thoả thích xe bon bon!",
+        "mnemonic": "💡 **Cách nhớ:** **Ride** (cưỡi/lái) + **a bike** (chiếc xe đạp) ➜ Đạp xe dạo quanh công viên hít thở khí trời.",
         "ex": "He rides a bike in the park."
       },
       {
@@ -843,7 +960,10 @@ const APP_UNITS = [
         "ipa": "/riːd ˈkɒm.ɪk bʊks/",
         "meaning": "đọc truyện tranh",
         "icon": "📚",
-        "ex": "She likes reading comic books."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_comic_books\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#ea580c\"/>\n      <stop offset=\"100%\" stop-color=\"#fb923c\"/>\n    </linearGradient>\n    <filter id=\"shadow_comic_books\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_comic_books)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_comic_books)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">📚</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">comic_books</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Đọc truyện tranh vui</text>\n  </g>\n</svg>",
+        "rhyme": "Doraemon với Thám tử nhí,\n**Read comic books** cười hỉ hả vui!",
+        "mnemonic": "💡 **Cách nhớ:** **Comic** là hài hước ➜ Cuốn sách tranh hài hước dí dỏm giúp giải trí.",
+        "ex": "She likes reading comic books on Sundays."
       },
       {
         "word": "watch cartoons",
@@ -851,14 +971,20 @@ const APP_UNITS = [
         "ipa": "/wɒtʃ kɑːˈtuːnz/",
         "meaning": "xem phim hoạt hình",
         "icon": "📺",
-        "ex": "We watch cartoons on Sunday morning."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_watch_cartoons\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#9333ea\"/>\n      <stop offset=\"100%\" stop-color=\"#c084fc\"/>\n    </linearGradient>\n    <filter id=\"shadow_watch_cartoons\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_watch_cartoons)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_watch_cartoons)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">📺</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">watch_cartoons</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Xem phim hoạt hình</text>\n  </g>\n</svg>",
+        "rhyme": "Mèo Tom đuổi chuột tinh nhanh,\n**Watch cartoons** ngập tiếng cười giòn tan!",
+        "mnemonic": "💡 **Cách nhớ:** **Cartoons** là những nhân vật hoạt hình vẽ tay vui nhộn trên tivi.",
+        "ex": "We watch cartoons together."
       },
       {
         "word": "go camping",
         "pos": "v",
         "ipa": "/ɡəʊ ˈkæm.pɪŋ/",
-        "meaning": "đi cắm trại",
+        "meaning": "đi cắm trại dã ngoại",
         "icon": "⛺",
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_go_camping\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#15803d\"/>\n      <stop offset=\"100%\" stop-color=\"#86efac\"/>\n    </linearGradient>\n    <filter id=\"shadow_go_camping\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_go_camping)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_go_camping)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">⛺</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">go_camping</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Dựng lều cắm trại</text>\n  </g>\n</svg>",
+        "rhyme": "Dựng lều đốt lửa quây quần,\n**Go camping** thỏa muôn phần niềm vui!",
+        "mnemonic": "💡 **Cách nhớ:** **Camp** là cái trại/lều ➜ Hoạt động dựng lều dã ngoại ngoài thiên nhiên.",
         "ex": "My family goes camping once a month."
       },
       {
@@ -867,14 +993,20 @@ const APP_UNITS = [
         "ipa": "/pleɪ tʃes/",
         "meaning": "chơi cờ vua",
         "icon": "♟️",
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_play_chess\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#334155\"/>\n      <stop offset=\"100%\" stop-color=\"#64748b\"/>\n    </linearGradient>\n    <filter id=\"shadow_play_chess\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_play_chess)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_play_chess)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">♟️</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">play_chess</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Chơi cờ vua trí tuệ</text>\n  </g>\n</svg>",
+        "rhyme": "Quân xe, quân mã tranh tài,\n**Play chess** suy nghĩ miệt mài luyện trí!",
+        "mnemonic": "💡 **Cách nhớ:** **Chess** là bàn cờ vua với quân Vua, Hậu, Mã, Xe đòi hỏi tư duy sắc bén.",
         "ex": "Do you want to play chess with me?"
       },
       {
         "word": "do karate",
         "pos": "v",
         "ipa": "/duː kəˈrɑː.ti/",
-        "meaning": "tập võ karate",
+        "meaning": "tập võ Karate",
         "icon": "🥋",
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_do_karate\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#dc2626\"/>\n      <stop offset=\"100%\" stop-color=\"#f87171\"/>\n    </linearGradient>\n    <filter id=\"shadow_do_karate\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_do_karate)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_do_karate)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🥋</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">do_karate</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Luyện tập võ thuật</text>\n  </g>\n</svg>",
+        "rhyme": "Đai đen áo trắng oai phong,\n**Do karate** rèn luyện tấm lòng kiên trung!",
+        "mnemonic": "💡 **Cách nhớ:** Môn võ dùng động từ **DO**: **do karate**, giúp thân thể dẻo dai khỏe mạnh.",
         "ex": "He does karate on Saturdays."
       },
       {
@@ -883,7 +1015,10 @@ const APP_UNITS = [
         "ipa": "/kliːn ðə haʊs/",
         "meaning": "lau dọn nhà cửa",
         "icon": "🧹",
-        "ex": "I help my mom clean the house."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_clean_house\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#0d9488\"/>\n      <stop offset=\"100%\" stop-color=\"#2dd4bf\"/>\n    </linearGradient>\n    <filter id=\"shadow_clean_house\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_clean_house)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_clean_house)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🧹</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">clean_house</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Lau dọn nhà cửa sạch sẽ</text>\n  </g>\n</svg>",
+        "rhyme": "Cầm chổi quét sạch bụi mờ,\n**Clean the house** gọn gàng nhà cửa xinh!",
+        "mnemonic": "💡 **Cách nhớ:** **Clean** (sạch sẽ) + **the house** (ngôi nhà) ➜ Lau dọn nhà cửa phụ giúp bố mẹ.",
+        "ex": "I help my mother clean the house."
       },
       {
         "word": "always",
@@ -891,6 +1026,9 @@ const APP_UNITS = [
         "ipa": "/ˈɔːl.weɪz/",
         "meaning": "luôn luôn (100%)",
         "icon": "💯",
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_always\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#16a34a\"/>\n      <stop offset=\"100%\" stop-color=\"#22c55e\"/>\n    </linearGradient>\n    <filter id=\"shadow_always\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_always)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_always)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">💯</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">always</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Luôn luôn làm (100%)</text>\n  </g>\n</svg>",
+        "rhyme": "Ngày nào cũng nhớ làm bài,\n**Always** chăm chỉ tương lai rạng ngời!",
+        "mnemonic": "💡 **Cách nhớ:** **All** (tất cả) + **ways** ➜ Mọi lúc mọi nơi đều làm, đạt mức tuyệt đối 100%.",
         "ex": "I always get up early."
       },
       {
@@ -899,23 +1037,21 @@ const APP_UNITS = [
         "ipa": "/ˈjuː.ʒu.ə.li/",
         "meaning": "thường xuyên (80%)",
         "icon": "🟢",
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_usually\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#0284c7\"/>\n      <stop offset=\"100%\" stop-color=\"#38bdf8\"/>\n    </linearGradient>\n    <filter id=\"shadow_usually\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_usually)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_usually)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🟢</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">usually</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Thường xuyên làm (80%)</text>\n  </g>\n</svg>",
+        "rhyme": "Thói quen lặp lại thường ngày,\n**Usually** tập thể dục đôi tay nhịp nhàng!",
+        "mnemonic": "💡 **Cách nhớ:** Một thói quen thường lệ hầu như các ngày trong tuần: **Usually**.",
         "ex": "She usually rides a bike."
       },
       {
         "word": "often",
         "pos": "adv",
         "ipa": "/ˈɒf.ən/",
-        "meaning": "hay làm, thường (60%)",
+        "meaning": "hay làm, thường làm (60%)",
         "icon": "🟡",
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_often\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#ca8a04\"/>\n      <stop offset=\"100%\" stop-color=\"#facc15\"/>\n    </linearGradient>\n    <filter id=\"shadow_often\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_often)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_often)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🟡</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">often</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Hay làm, thường lệ (60%)</text>\n  </g>\n</svg>",
+        "rhyme": "Buổi chiều ta lại cùng chơi,\n**Often** gặp gỡ rộn rã tiếng cười!",
+        "mnemonic": "💡 **Cách nhớ:** Đọc là */ˈɒf.ən/* (chữ t câm) ➜ Hay làm việc gì đó nhiều lần trong tuần.",
         "ex": "We often play chess together."
-      },
-      {
-        "word": "sometimes",
-        "pos": "adv",
-        "ipa": "/ˈsʌm.taɪmz/",
-        "meaning": "thỉnh thoảng (30%)",
-        "icon": "🟠",
-        "ex": "He sometimes watches football."
       },
       {
         "word": "never",
@@ -923,6 +1059,9 @@ const APP_UNITS = [
         "ipa": "/ˈnev.ər/",
         "meaning": "không bao giờ (0%)",
         "icon": "🔴",
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_never\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#dc2626\"/>\n      <stop offset=\"100%\" stop-color=\"#ef4444\"/>\n    </linearGradient>\n    <filter id=\"shadow_never\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_never)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_never)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🔴</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">never</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Không bao giờ làm (0%)</text>\n  </g>\n</svg>",
+        "rhyme": "Chuyện xấu ta quyết lánh xa,\n**Never** làm nhé nhớ nha bạn hiền!",
+        "mnemonic": "💡 **Cách nhớ:** **Never** nghĩa là con số 0 tròn trĩnh, không bao giờ xảy ra.",
         "ex": "I never go to school late."
       }
     ],
@@ -1022,27 +1161,30 @@ const APP_UNITS = [
       }
     ],
     "song": {
-      "title": "What Do You Do In Your Free Time? (Chant hoạt động rảnh rỗi)",
+      "title": "What Do You Do In Your Free Time? (Bài Hát Hoạt Động Rảnh Rỗi)",
+      "youtubeId": "ZSQA-V9ybpo",
+      "bgMusic": "https://upload.wikimedia.org/wikipedia/commons/9/98/Happy_Alley_%28ISRC_USUAN1100482%29.mp3",
+      "musicName": "Giai điệu rộn rã: Playful Weekend",
       "lines": [
         {
-          "en": "Free time, free time, fun and bright!",
-          "vi": "Thời gian rảnh, thật vui và tươi sáng!"
+          "en": "Free time, free time, what do you do?",
+          "vi": "Thời gian rảnh, bạn thường làm gì thế?"
         },
         {
-          "en": "What do you do from morning to night?",
-          "vi": "Bạn làm gì từ sáng đến tối nào?"
+          "en": "I ride my bike and surf the Internet too!",
+          "vi": "Tôi đạp xe và cũng lướt mạng Internet nữa!"
         },
         {
-          "en": "I ride my bike and surf the net,",
-          "vi": "Tôi đạp xe và lướt mạng Internet,"
+          "en": "She reads comic books under the tree,",
+          "vi": "Cô ấy đọc truyện tranh dưới bóng cây mát rượi,"
         },
         {
-          "en": "The happiest day you can get!",
-          "vi": "Ngày hạnh phúc nhất mà bạn có thể có!"
+          "en": "He plays chess as happy as can be!",
+          "vi": "Cậu ấy chơi cờ vua vui ơi là vui!"
         },
         {
-          "en": "Playing chess and having fun with you!",
-          "vi": "Cùng chơi cờ và vui vẻ bên bạn bè!"
+          "en": "Always have fun every single day!",
+          "vi": "Lúc nào cũng ngập tràn niềm vui mỗi ngày!"
         }
       ]
     }
@@ -1058,25 +1200,34 @@ const APP_UNITS = [
         "word": "astronaut",
         "pos": "n",
         "ipa": "/ˈæs.trə.nɔːt/",
-        "meaning": "phi hành gia",
+        "meaning": "phi hành gia vũ trụ",
         "icon": "👨‍🚀",
-        "ex": "He dreams to be an astronaut."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_astronaut\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#1e1b4b\"/>\n      <stop offset=\"100%\" stop-color=\"#4338ca\"/>\n    </linearGradient>\n    <filter id=\"shadow_astronaut\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_astronaut)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_astronaut)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">👨‍🚀</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">astronaut</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Bay vào không gian</text>\n  </g>\n</svg>",
+        "rhyme": "Tàu bay vào giữa ngân hà,\n**Astronaut** phi hành gia tuyệt vời!",
+        "mnemonic": "💡 **Cách nhớ:** **Astro** là vì sao ➜ Nhà du hành khám phá các vì sao vũ trụ.",
+        "ex": "I'd like to be an astronaut."
       },
       {
         "word": "pilot",
         "pos": "n",
         "ipa": "/ˈpaɪ.lət/",
-        "meaning": "phi công",
+        "meaning": "phi công lái máy bay",
         "icon": "👨‍✈️",
-        "ex": "A pilot flies planes in the sky."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_pilot\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#0369a1\"/>\n      <stop offset=\"100%\" stop-color=\"#38bdf8\"/>\n    </linearGradient>\n    <filter id=\"shadow_pilot\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_pilot)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_pilot)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">👨‍✈️</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">pilot</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Phi công lái máy bay</text>\n  </g>\n</svg>",
+        "rhyme": "Bầu trời xanh ngắt bao la,\n**Pilot** sải cánh vượt qua mây ngàn!",
+        "mnemonic": "💡 **Cách nhớ:** **Pilot** là người điều khiển chiếc máy bay khổng lồ lượn trên bầu trời xanh.",
+        "ex": "A pilot flies planes across the world."
       },
       {
         "word": "doctor",
         "pos": "n",
         "ipa": "/ˈdɒk.tər/",
-        "meaning": "bác sĩ",
+        "meaning": "bác sĩ chữa bệnh",
         "icon": "👨‍⚕️",
-        "ex": "Doctors look after sick people."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_doctor\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#059669\"/>\n      <stop offset=\"100%\" stop-color=\"#34d399\"/>\n    </linearGradient>\n    <filter id=\"shadow_doctor\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_doctor)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_doctor)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">👨‍⚕️</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">doctor</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Bác sĩ cứu chữa người bệnh</text>\n  </g>\n</svg>",
+        "rhyme": "Áo blouse trắng tinh dịu dàng,\n**Doctor** chữa bệnh bình an nụ cười!",
+        "mnemonic": "💡 **Cách nhớ:** **Doctor** vị lương y hiền từ luôn chăm sóc sức khỏe cho mọi người.",
+        "ex": "Doctors look after patients."
       },
       {
         "word": "architect",
@@ -1084,23 +1235,32 @@ const APP_UNITS = [
         "ipa": "/ˈɑː.kɪ.tekt/",
         "meaning": "kiến trúc sư",
         "icon": "📐",
-        "ex": "An architect designs houses and bridges."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_architect\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#d97706\"/>\n      <stop offset=\"100%\" stop-color=\"#f59e0b\"/>\n    </linearGradient>\n    <filter id=\"shadow_architect\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_architect)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_architect)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">📐</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">architect</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Thiết kế các công trình</text>\n  </g>\n</svg>",
+        "rhyme": "Cầm cây thước kẻ trong tay,\n**Architect** vẽ những ngày tương lai!",
+        "mnemonic": "💡 **Cách nhớ:** Bắt đầu bằng chữ A nên dùng **an architect** ➜ Người thiết kế các tòa nhà tuyệt đẹp.",
+        "ex": "I'd like to be an architect."
       },
       {
         "word": "writer",
         "pos": "n",
         "ipa": "/ˈraɪ.tər/",
-        "meaning": "nhà văn",
+        "meaning": "nhà văn viết sách",
         "icon": "✍️",
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_writer\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#7c3aed\"/>\n      <stop offset=\"100%\" stop-color=\"#a78bfa\"/>\n    </linearGradient>\n    <filter id=\"shadow_writer\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_writer)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_writer)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">✍️</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">writer</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Sáng tác những câu chuyện</text>\n  </g>\n</svg>",
+        "rhyme": "Từng trang sách mở xôn xao,\n**Writer** chắp cánh bay vào ước mơ!",
+        "mnemonic": "💡 **Cách nhớ:** Từ **Write** (viết) + **er** ➜ Người viết nên những câu chuyện văn chương hấp dẫn.",
         "ex": "She wants to be a story writer."
       },
       {
         "word": "artist",
         "pos": "n",
         "ipa": "/ˈɑː.tɪst/",
-        "meaning": "họa sĩ",
+        "meaning": "họa sĩ vẽ tranh",
         "icon": "🎨",
-        "ex": "The artist paints lovely pictures."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_artist\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#db2777\"/>\n      <stop offset=\"100%\" stop-color=\"#f472b6\"/>\n    </linearGradient>\n    <filter id=\"shadow_artist\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_artist)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_artist)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🎨</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">artist</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Vẽ nên thế giới sắc màu</text>\n  </g>\n</svg>",
+        "rhyme": "Bảng màu rực rỡ nét xinh,\n**Artist** tô vẽ bức tranh tuyệt trần!",
+        "mnemonic": "💡 **Cách nhớ:** **Art** (nghệ thuật) + **ist** ➜ Người nghệ sĩ họa nên vẻ đẹp cuộc sống.",
+        "ex": "The artist paints lovely flowers."
       },
       {
         "word": "fly a plane",
@@ -1108,7 +1268,10 @@ const APP_UNITS = [
         "ipa": "/flaɪ ə pleɪn/",
         "meaning": "lái máy bay",
         "icon": "✈️",
-        "ex": "I would like to fly a plane."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_fly_plane\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#2563eb\"/>\n      <stop offset=\"100%\" stop-color=\"#60a5fa\"/>\n    </linearGradient>\n    <filter id=\"shadow_fly_plane\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_fly_plane)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_fly_plane)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">✈️</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">fly_plane</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Bay cao trên bầu trời</text>\n  </g>\n</svg>",
+        "rhyme": "Cất cánh bay vút trời xanh,\n**Fly a plane** lướt gió nhanh đón chào!",
+        "mnemonic": "💡 **Cách nhớ:** Hành động của phi công: **fly a plane** bay lượn qua các quốc gia.",
+        "ex": "I'd like to fly a plane in the sky."
       },
       {
         "word": "look after patients",
@@ -1116,7 +1279,10 @@ const APP_UNITS = [
         "ipa": "/lʊk ˈɑːf.tər ˈpeɪ.ʃənts/",
         "meaning": "chăm sóc bệnh nhân",
         "icon": "🏥",
-        "ex": "Nurses look after patients."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_look_after\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#6ee7b7\"/>\n    </linearGradient>\n    <filter id=\"shadow_look_after\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_look_after)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_look_after)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🏥</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">look_after</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Tận tụy chăm sóc bệnh nhân</text>\n  </g>\n</svg>",
+        "rhyme": "Tận tình thuốc uống cơm canh,\n**Look after patients** ngọt lành niềm vui!",
+        "mnemonic": "💡 **Cách nhớ:** **Look after** (chăm sóc ân cần) cho các **patients** (bệnh nhân mau khỏe mạnh).",
+        "ex": "Nurses look after sick patients."
       },
       {
         "word": "design buildings",
@@ -1124,7 +1290,10 @@ const APP_UNITS = [
         "ipa": "/dɪˈzaɪn ˈbɪl.dɪŋz/",
         "meaning": "thiết kế các tòa nhà",
         "icon": "🏢",
-        "ex": "Architects design beautiful buildings."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_design_buildings\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#ea580c\"/>\n      <stop offset=\"100%\" stop-color=\"#fb923c\"/>\n    </linearGradient>\n    <filter id=\"shadow_design_buildings\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_design_buildings)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_design_buildings)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🏢</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">design_buildings</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Kiến tạo công trình cao ốc</text>\n  </g>\n</svg>",
+        "rhyme": "Bản vẽ từng nét thẳng ngay,\n**Design buildings** dựng xây quê nhà!",
+        "mnemonic": "💡 **Cách nhớ:** Công việc của kiến trúc sư: **design buildings** tạo nên các công trình hiện đại.",
+        "ex": "Architects design modern buildings."
       },
       {
         "word": "write stories",
@@ -1132,7 +1301,10 @@ const APP_UNITS = [
         "ipa": "/raɪt ˈstɔː.riz/",
         "meaning": "viết các câu chuyện",
         "icon": "📖",
-        "ex": "I like to write stories for children."
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_write_stories\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#9333ea\"/>\n      <stop offset=\"100%\" stop-color=\"#c084fc\"/>\n    </linearGradient>\n    <filter id=\"shadow_write_stories\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_write_stories)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_write_stories)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">📖</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">write_stories</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Kể chuyện cho thiếu nhi</text>\n  </g>\n</svg>",
+        "rhyme": "Cổ tích hoàng tử nàng tiên,\n**Write stories** ấm nỗi niềm tuổi thơ!",
+        "mnemonic": "💡 **Cách nhớ:** Công việc của nhà văn: **write stories** cho thiếu nhi đọc trước giờ đi ngủ.",
+        "ex": "I like to write stories for kids."
       },
       {
         "word": "future",
@@ -1140,7 +1312,10 @@ const APP_UNITS = [
         "ipa": "/ˈfjuː.tʃər/",
         "meaning": "tương lai",
         "icon": "🌟",
-        "ex": "What will you be in the future?"
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_future\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#818cf8\"/>\n    </linearGradient>\n    <filter id=\"shadow_future\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_future)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_future)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🌟</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">future</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Những ngày tháng phía trước</text>\n  </g>\n</svg>",
+        "rhyme": "Phía trước ngày tháng rộng dài,\n**Future** rạng rỡ đón mai huy hoàng!",
+        "mnemonic": "💡 **Cách nhớ:** **In the future** ➜ Trong tương lai em sẽ làm những điều tuyệt vời.",
+        "ex": "What would you like to be in the future?"
       },
       {
         "word": "grow up",
@@ -1148,6 +1323,9 @@ const APP_UNITS = [
         "ipa": "/ɡrəʊ ʌp/",
         "meaning": "lớn lên, trưởng thành",
         "icon": "🌱",
+        "svg": "<svg viewBox=\"0 0 320 240\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full object-cover rounded-2xl\">\n  <defs>\n    <linearGradient id=\"grad_grow_up\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#16a34a\"/>\n      <stop offset=\"100%\" stop-color=\"#4ade80\"/>\n    </linearGradient>\n    <filter id=\"shadow_grow_up\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"120%\">\n      <feDropShadow dx=\"0\" dy=\"4\" stdDeviation=\"6\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  <!-- Background Card -->\n  <rect width=\"320\" height=\"240\" rx=\"16\" fill=\"url(#grad_grow_up)\"/>\n  <!-- Decorative Background Circles -->\n  <circle cx=\"280\" cy=\"40\" r=\"50\" fill=\"white\" fill-opacity=\"0.12\"/>\n  <circle cx=\"40\" cy=\"200\" r=\"40\" fill=\"white\" fill-opacity=\"0.1\"/>\n  \n  <!-- Main Badge Card in Center -->\n  <g filter=\"url(#shadow_grow_up)\">\n    <rect x=\"35\" y=\"30\" width=\"250\" height=\"180\" rx=\"14\" fill=\"white\" fill-opacity=\"0.95\"/>\n    <!-- Big Visual Emoji / Character -->\n    <text x=\"160\" y=\"115\" font-size=\"64\" text-anchor=\"middle\" dominant-baseline=\"middle\">🌱</text>\n    <!-- Label Word -->\n    <text x=\"160\" y=\"160\" font-family=\"'Nunito', sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#1e293b\" text-anchor=\"middle\">grow_up</text>\n    <!-- Vietnamese Meaning Subtitle -->\n    <text x=\"160\" y=\"185\" font-family=\"'Nunito', sans-serif\" font-weight=\"700\" font-size=\"13\" fill=\"#64748b\" text-anchor=\"middle\">Cây xanh lớn lên từng ngày</text>\n  </g>\n</svg>",
+        "rhyme": "Mỗi ngày cao lớn thông minh,\n**Grow up** khôn lớn trọn tình mẹ cha!",
+        "mnemonic": "💡 **Cách nhớ:** **Grow** (phát triển) + **up** (lên) ➜ Em lớn khôn từng ngày để thực hiện ước mơ.",
         "ex": "When I grow up, I will travel the world."
       }
     ],
@@ -1251,27 +1429,30 @@ const APP_UNITS = [
       }
     ],
     "song": {
-      "title": "When I Grow Up (Bài hát Ước mơ tương lai)",
+      "title": "When I Grow Up - My Future Job (Bài Hát Ước Mơ Tương Lai)",
+      "youtubeId": "vtaIPJvVDTg",
+      "bgMusic": "https://upload.wikimedia.org/wikipedia/commons/9/98/Happy_Alley_%28ISRC_USUAN1100482%29.mp3",
+      "musicName": "Giai điệu hào hứng: Dream High",
       "lines": [
         {
-          "en": "When I grow up, what will I be?",
-          "vi": "Khi lớn lên, tôi sẽ làm nghề gì đây?"
+          "en": "When I grow up, what would you like to be?",
+          "vi": "Khi lớn lên, bạn muốn làm nghề gì nào?"
         },
         {
-          "en": "An astronaut sailing in the galaxy!",
-          "vi": "Một phi hành gia chu du giữa dải ngân hà!"
+          "en": "I'd like to be a pilot, flying wild and free!",
+          "vi": "Tôi muốn làm phi công, bay lượn tự do giữa trời mây!"
         },
         {
-          "en": "A pilot flying high up in the blue sky,",
-          "vi": "Một người phi công bay vút trên bầu trời xanh,"
+          "en": "Why would you like to be a kind doctor?",
+          "vi": "Tại sao bạn lại muốn làm một bác sĩ hiền từ?"
         },
         {
-          "en": "A kind doctor helping people passing by!",
-          "vi": "Một bác sĩ tốt bụng giúp đỡ mọi người!"
+          "en": "Because I'd like to look after patients better!",
+          "vi": "Bởi vì tôi muốn chăm sóc bệnh nhân thật tốt!"
         },
         {
-          "en": "Whatever I choose, my dreams will come true!",
-          "vi": "Dù chọn điều gì, những ước mơ của tôi cũng sẽ thành hiện thực!"
+          "en": "Architects design buildings tall and bright!",
+          "vi": "Kiến trúc sư thiết kế những tòa nhà cao đẹp rực rỡ!"
         }
       ]
     }
@@ -1284,9 +1465,12 @@ const APP_UNITS = [
 let activeUnitId = 1;
 let activeTab = 'vocab';
 let currentSpeed = 1.0;
+let selectedVocabIdx = 0;
 let isChantPlayingAll = false;
 let chantQueue = [];
 let chantIndex = 0;
+let isBgMusicPlaying = false;
+let showVideoModal = false;
 
 // Load learned items from localStorage
 function getLearnedSet() {
@@ -1309,9 +1493,50 @@ function isLearned(id) {
   return getLearnedSet().has(id);
 }
 
-// Audio Engine (Google Translate TTS)
+// Background Music Control
+function toggleBgMusic() {
+  const bgPlayer = document.getElementById('bg-music-player');
+  const btn = document.getElementById('btn-toggle-bg-music');
+  const indicator = document.getElementById('bg-music-indicator');
+  if (!bgPlayer) return;
+
+  if (isBgMusicPlaying) {
+    bgPlayer.pause();
+    isBgMusicPlaying = false;
+    if (btn) {
+      btn.innerHTML = '<span>🎵 Bật Nhạc Nền Vui Nhộn</span>';
+      btn.className = 'pulse-btn px-4 py-2 bg-pink-100 hover:bg-pink-200 text-pink-700 rounded-2xl text-xs sm:text-sm font-extrabold flex items-center gap-1.5 transition';
+    }
+    if (indicator) indicator.classList.add('hidden');
+  } else {
+    const u = currentUnit();
+    if (u && u.song && u.song.bgMusic) {
+      bgPlayer.src = u.song.bgMusic;
+    }
+    bgPlayer.volume = 0.35; // Comfortable background volume
+    bgPlayer.play().then(() => {
+      isBgMusicPlaying = true;
+      if (btn) {
+        btn.innerHTML = '<span class="animate-bounce">⏸️</span> <span>Tắt Nhạc Nền</span>';
+        btn.className = 'pulse-btn px-4 py-2 bg-pink-600 hover:bg-pink-700 text-white rounded-2xl text-xs sm:text-sm font-extrabold flex items-center gap-1.5 transition shadow-sm';
+      }
+      if (indicator) indicator.classList.remove('hidden');
+    }).catch(e => {
+      console.log('Bg music playback error:', e);
+    });
+  }
+}
+
+function setBgVolume(val) {
+  const bgPlayer = document.getElementById('bg-music-player');
+  if (bgPlayer) {
+    bgPlayer.volume = parseFloat(val);
+  }
+}
+
+// Audio Engine (Google Translate TTS for Speech)
 function playAudio(text, customSpeed) {
-  stopAudio();
+  stopVocalAudio();
   const player = document.getElementById('app-audio-player');
   const toast = document.getElementById('audio-toast');
   const toastMsg = document.getElementById('toast-msg');
@@ -1346,7 +1571,6 @@ function playAudio(text, customSpeed) {
       toast.classList.add('hidden');
       toast.classList.remove('flex');
     }
-    // Fallback: Web Speech API if network TTS blocked
     if ('speechSynthesis' in window) {
       const u = new SpeechSynthesisUtterance(text);
       u.lang = 'en-US';
@@ -1360,8 +1584,7 @@ function playAudio(text, customSpeed) {
   });
 }
 
-function stopAudio() {
-  isChantPlayingAll = false;
+function stopVocalAudio() {
   const player = document.getElementById('app-audio-player');
   if (player) {
     player.pause();
@@ -1375,6 +1598,15 @@ function stopAudio() {
     toast.classList.add('hidden');
     toast.classList.remove('flex');
   }
+}
+
+function stopAudio() {
+  isChantPlayingAll = false;
+  stopVocalAudio();
+  // unhighlight all chant lines
+  document.querySelectorAll('[id^="chant-line-"]').forEach(el => {
+    el.classList.remove('bg-pink-100', 'border-pink-500', 'ring-2', 'ring-pink-400');
+  });
 }
 
 function setSpeed(speed) {
@@ -1394,10 +1626,21 @@ function setSpeed(speed) {
 // Navigation & Tab Switching
 function selectUnit(unitId) {
   activeUnitId = unitId;
+  selectedVocabIdx = 0;
+  showVideoModal = false;
   stopAudio();
   renderUnitNav();
   renderUnitBanner();
   renderContent();
+  // Update background music src if playing
+  if (isBgMusicPlaying) {
+    const bgPlayer = document.getElementById('bg-music-player');
+    const u = currentUnit();
+    if (bgPlayer && u && u.song && u.song.bgMusic) {
+      bgPlayer.src = u.song.bgMusic;
+      bgPlayer.play().catch(e => console.log(e));
+    }
+  }
 }
 
 function switchTab(tabName) {
@@ -1419,6 +1662,19 @@ function switchTab(tabName) {
 
 function currentUnit() {
   return APP_UNITS.find(u => u.id === activeUnitId) || APP_UNITS[0];
+}
+
+function selectVocabWord(idx) {
+  selectedVocabIdx = idx;
+  const u = currentUnit();
+  if (u && u.vocab[idx]) {
+    playAudio(u.vocab[idx].word);
+  }
+  renderContent();
+  const showcase = document.getElementById('big-vocab-showcase');
+  if (showcase && window.innerWidth < 640) {
+    showcase.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
 }
 
 // Render Header & Navigation
@@ -1444,7 +1700,7 @@ function renderUnitBanner() {
   banner.className = `bg-gradient-to-r ${u.themeColor} rounded-3xl p-5 sm:p-6 text-white shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3`;
   banner.innerHTML = `
     <div>
-      <span class="inline-block px-2.5 py-0.5 bg-white/20 rounded-md text-xs font-bold uppercase tracking-wide">Chương trình Tiếng Anh 5</span>
+      <span class="inline-block px-2.5 py-0.5 bg-white/20 rounded-md text-xs font-bold uppercase tracking-wide">Chương trình Tiếng Anh 5 Global Success</span>
       <h2 class="text-xl sm:text-2xl font-black mt-1">${u.title}</h2>
       <p class="text-xs sm:text-sm text-white/90 font-medium">${u.subtitle}</p>
     </div>
@@ -1471,6 +1727,21 @@ function updateProgressDisplay() {
   badge.innerHTML = `⭐ Đã thuộc: ${done}/${total} mục (${Math.round((done/total)*100)}%)`;
 }
 
+// Toggle YouTube Video Container
+function toggleVideoEmbed() {
+  const container = document.getElementById('youtube-video-container');
+  const btn = document.getElementById('btn-toggle-video');
+  if (!container) return;
+
+  if (container.classList.contains('hidden')) {
+    container.classList.remove('hidden');
+    if (btn) btn.innerHTML = '<span>✕ Thu gọn Video</span>';
+  } else {
+    container.classList.add('hidden');
+    if (btn) btn.innerHTML = '<span>🎬 Xem Video Hoạt Hình Ca Nhạc (YouTube)</span>';
+  }
+}
+
 // Render Content Views
 function renderContent() {
   const main = document.getElementById('main-content');
@@ -1479,44 +1750,118 @@ function renderContent() {
   const u = currentUnit();
 
   if (activeTab === 'vocab') {
+    const curV = u.vocab[selectedVocabIdx] || u.vocab[0];
+    const vId = 'u' + u.id + '_v_' + curV.word;
+    const learned = isLearned(vId);
+
     main.innerHTML = `
-      <div class="space-y-3">
-        <div class="flex items-center justify-between">
-          <h3 class="text-sm sm:text-base font-extrabold text-slate-800 flex items-center gap-2">
-            <span>📚 Danh Sách Từ Vựng Cốt Lõi (${u.vocab.length} từ)</span>
-          </h3>
-          <span class="text-xs text-slate-500 font-medium italic">Bấm 🔊 để nghe giọng đọc chuẩn bản xứ</span>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5">
-          ${u.vocab.map(v => {
-            const vId = 'u' + u.id + '_v_' + v.word;
-            const learned = isLearned(vId);
-            return `
-              <div class="flashcard bg-white rounded-2xl p-4 border border-slate-100 shadow-sm flex flex-col justify-between space-y-3 relative overflow-hidden">
-                ${learned ? '<span class="absolute top-2 right-2 text-xs bg-emerald-100 text-emerald-800 font-extrabold px-2 py-0.5 rounded-full">✓ Đã thuộc</span>' : ''}
-                <div class="space-y-1">
-                  <div class="flex items-center gap-2">
-                    <span class="text-2xl">${v.icon}</span>
-                    <div>
-                      <span class="text-lg font-black text-slate-900">${v.word}</span>
-                      <span class="text-xs font-bold text-indigo-600 ml-1">(${v.pos})</span>
-                    </div>
-                  </div>
-                  <div class="text-xs font-semibold text-slate-400 font-mono">${v.ipa}</div>
-                  <div class="text-sm font-extrabold text-slate-700">${v.meaning}</div>
-                  <div class="text-xs text-slate-500 italic bg-slate-50 p-2 rounded-xl mt-1">"${v.ex}"</div>
+      <div class="space-y-5">
+        <!-- BIG SHOWCASE VOCABULARY CARD (Tương tự thẻ tiếng Trung) -->
+        <div id="big-vocab-showcase" class="bg-white rounded-3xl p-5 sm:p-7 border-2 border-slate-200/80 shadow-lg relative overflow-hidden space-y-5">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-extrabold uppercase tracking-wider px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full">
+                🔍 Thẻ Chi Tiết Từ Vựng (${selectedVocabIdx + 1}/${u.vocab.length})
+              </span>
+              ${learned ? '<span class="text-xs bg-emerald-100 text-emerald-800 font-extrabold px-2.5 py-0.5 rounded-full">✓ Đã thuộc từ này</span>' : ''}
+            </div>
+            <button onclick="saveLearned('${vId}')" class="pulse-btn text-xs font-bold text-slate-500 hover:text-indigo-600 flex items-center gap-1 transition">
+              <span>${learned ? '⭐ Đã thuộc' : '☆ Đánh dấu thuộc'}</span>
+            </button>
+          </div>
+
+          <!-- Two Column Layout: Big Image (Left) + Detail Info & Mnemonic (Right) -->
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-center">
+            
+            <!-- HÌNH ẢNH MINH HỌA BỰ (Left Column - 5 cols) -->
+            <div class="md:col-span-5 flex flex-col items-center justify-center">
+              <div class="w-full max-w-[320px] aspect-[4/3] rounded-2xl overflow-hidden shadow-md border-2 border-slate-100 bg-slate-50 flex items-center justify-center">
+                ${curV.svg}
+              </div>
+              <span class="text-2xs text-slate-400 font-bold mt-2 tracking-wide uppercase">Hình ảnh minh họa trực quan</span>
+            </div>
+
+            <!-- THÔNG TIN TỪ VỰNG & MẸO NHỚ LIÊN TƯỞNG (Right Column - 7 cols) -->
+            <div class="md:col-span-7 space-y-4">
+              <!-- Word & Pronunciation -->
+              <div class="space-y-1">
+                <div class="flex items-baseline gap-2 flex-wrap">
+                  <h3 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">${curV.word}</h3>
+                  <span class="text-sm font-extrabold px-2.5 py-0.5 rounded-lg bg-indigo-100 text-indigo-700">(${curV.pos})</span>
+                  <span class="text-base font-semibold text-slate-500 font-mono">${curV.ipa}</span>
                 </div>
-                <div class="flex items-center gap-2 pt-1">
-                  <button onclick="playAudio('${v.word.replace(/'/g, "\\'")}'); saveLearned('${vId}')" class="pulse-btn flex-1 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 py-2 rounded-xl text-xs font-extrabold flex items-center justify-center gap-1.5 transition">
-                    <span>🔊 Phát âm</span>
-                  </button>
-                  <button onclick="playAudio('${v.ex.replace(/'/g, "\\'")}')" title="Nghe câu ví dụ" class="pulse-btn px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold transition">
-                    <span>🎧 Nghe câu</span>
-                  </button>
+                <div class="text-xl sm:text-2xl font-extrabold text-indigo-600">${curV.meaning}</div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="flex flex-wrap items-center gap-2.5 pt-1">
+                <button onclick="playAudio('${curV.word.replace(/'/g, "\\'")}')" class="pulse-btn px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl text-xs sm:text-sm font-extrabold shadow-md flex items-center gap-2 transition">
+                  <span>🔊 Phát âm chuẩn</span>
+                </button>
+                <button onclick="playAudio('${curV.ex.replace(/'/g, "\\'")}')" class="pulse-btn px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-2 transition">
+                  <span>🎧 Nghe câu mẫu</span>
+                </button>
+              </div>
+
+              <!-- KHUNG VÀNG KEM: Thơ Vần & Mẹo Nhớ Siêu Tốc (Giống thẻ tiếng Trung) -->
+              <div class="bg-[#fffbeb] border-2 border-[#fef3c7] rounded-2xl p-4 space-y-2 text-slate-800 shadow-2xs">
+                <div class="flex items-center gap-1.5 text-xs font-black text-amber-900 uppercase tracking-wide">
+                  <span>📜</span>
+                  <span>Thơ Vần &amp; Mẹo Liên Tưởng Nhớ Chữ</span>
+                </div>
+                <!-- Rhyme Poem -->
+                <div class="text-sm sm:text-base font-bold text-amber-950 italic whitespace-pre-line leading-relaxed pl-2 border-l-3 border-amber-400">
+"${curV.rhyme}"
+                </div>
+                <!-- Mnemonic Tip -->
+                <div class="text-xs sm:text-sm text-amber-900/90 font-medium pt-1">
+                  ${curV.mnemonic}
                 </div>
               </div>
-            `;
-          }).join('')}
+
+              <!-- Example Sentence -->
+              <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 space-y-0.5">
+                <span class="text-2xs font-extrabold uppercase text-slate-400 tracking-wider">Câu ví dụ thực tế:</span>
+                <div class="text-sm font-bold text-slate-800">"${curV.ex}"</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- DANH SÁCH TẤT CẢ TỪ VỰNG TRONG BÀI (Để chạm chọn) -->
+        <div class="space-y-2.5 pt-2">
+          <div class="flex items-center justify-between">
+            <h4 class="text-xs sm:text-sm font-black text-slate-700 uppercase tracking-wider">
+              👉 Chạm vào bất kỳ từ nào bên dưới để mở hình bự &amp; câu thơ:
+            </h4>
+            <span class="text-xs text-slate-400 font-semibold">${u.vocab.length} từ</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
+            ${u.vocab.map((v, idx) => {
+              const isSelected = (idx === selectedVocabIdx);
+              const vLearned = isLearned('u' + u.id + '_v_' + v.word);
+              return `
+                <div onclick="selectVocabWord(${idx})" class="p-3.5 rounded-2xl border cursor-pointer transition flex items-center justify-between gap-2.5 shadow-2xs ${isSelected ? 'bg-indigo-50/90 border-indigo-500 ring-2 ring-indigo-400' : 'bg-white border-slate-200/90 hover:border-slate-300 hover:bg-slate-50'}">
+                  <div class="flex items-center gap-2.5 min-w-0">
+                    <span class="text-xl">${v.icon}</span>
+                    <div class="truncate">
+                      <div class="flex items-center gap-1.5">
+                        <strong class="text-sm font-black text-slate-900">${v.word}</strong>
+                        <span class="text-2xs font-bold text-slate-400">${v.pos}</span>
+                        ${vLearned ? '<span class="text-emerald-500 text-xs font-bold">✓</span>' : ''}
+                      </div>
+                      <div class="text-xs text-slate-500 font-semibold truncate">${v.meaning}</div>
+                    </div>
+                  </div>
+                  <button onclick="event.stopPropagation(); playAudio('${v.word.replace(/'/g, "\\'")}')" title="Phát âm" class="p-2 bg-slate-100 hover:bg-indigo-100 hover:text-indigo-600 rounded-xl text-xs text-slate-600 font-bold transition shrink-0">
+                    🔊
+                  </button>
+                </div>
+              `;
+            }).join('')}
+          </div>
         </div>
       </div>
     `;
@@ -1645,26 +1990,68 @@ function renderContent() {
   } else if (activeTab === 'song') {
     main.innerHTML = `
       <div class="bg-white rounded-3xl p-5 sm:p-7 border border-slate-100 shadow-sm space-y-5">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
-          <div>
-            <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-xs font-extrabold">🎵 Bài Hát & Chant Vui Nhộn</span>
-            <h3 class="text-lg sm:text-xl font-black text-slate-900 mt-2">${u.song.title}</h3>
-            <p class="text-xs text-slate-500 font-medium">Bấm nghe từng dòng để bé nhẩm và hát theo từng câu dễ dàng!</p>
+        
+        <!-- Header & Music Beat Controls -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-5">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-xs font-extrabold">🎵 Bài Hát & Chant Đồng Dao</span>
+              <span id="bg-music-indicator" class="hidden text-xs bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full animate-pulse">
+                🎶 Đang mở nhạc nền
+              </span>
+            </div>
+            <h3 class="text-lg sm:text-xl font-black text-slate-900 mt-1">${u.song.title}</h3>
+            <p class="text-xs text-slate-500 font-medium">Bật nhạc nền vui nhộn để hát theo nhịp điệu rộn ràng!</p>
           </div>
-          <button onclick="playFullChant()" class="pulse-btn px-5 py-2.5 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white rounded-2xl text-xs sm:text-sm font-extrabold shadow-md flex items-center justify-center gap-2 transition">
-            <span>▶️ Hát cả bài</span>
-          </button>
+
+          <!-- Music Control Buttons -->
+          <div class="flex flex-wrap items-center gap-2.5">
+            <button id="btn-toggle-bg-music" onclick="toggleBgMusic()" class="pulse-btn px-4 py-2.5 bg-pink-100 hover:bg-pink-200 text-pink-700 rounded-2xl text-xs sm:text-sm font-extrabold flex items-center gap-2 transition">
+              <span>🎵 Bật Nhạc Nền Vui Nhộn</span>
+            </button>
+            <button onclick="playFullChant()" class="pulse-btn px-4 py-2.5 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white rounded-2xl text-xs sm:text-sm font-extrabold shadow-md flex items-center justify-center gap-2 transition">
+              <span>▶️ Hát Toàn Bài</span>
+            </button>
+            <button id="btn-toggle-video" onclick="toggleVideoEmbed()" class="pulse-btn px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-1.5 transition">
+              <span>🎬 Xem Video Hoạt Hình (YouTube)</span>
+            </button>
+          </div>
         </div>
 
-        <!-- Lyrics List -->
-        <div class="space-y-2.5">
+        <!-- Volume Bar for Background Music -->
+        <div class="bg-pink-50/70 p-3 rounded-2xl border border-pink-100 flex items-center justify-between text-xs font-bold text-pink-900 gap-3">
+          <span class="flex items-center gap-1.5">
+            <span>🔊 Âm lượng nhạc nền:</span>
+          </span>
+          <input type="range" min="0" max="1" step="0.05" value="0.35" onchange="setBgVolume(this.value)" oninput="setBgVolume(this.value)" class="w-32 sm:w-48 accent-pink-600 cursor-pointer">
+          <span class="text-2xs text-pink-600 font-semibold italic">Giai điệu vui tươi giúp bé hào hứng</span>
+        </div>
+
+        <!-- Embedded YouTube Animated Music Video Container -->
+        <div id="youtube-video-container" class="hidden bg-slate-900 p-3 rounded-3xl shadow-lg space-y-2">
+          <div class="flex items-center justify-between px-2 text-white text-xs font-bold">
+            <span>📺 Video Hoạt Hình Ca Nhạc Chính Thức (NXB Giáo Dục):</span>
+            <button onclick="toggleVideoEmbed()" class="text-slate-400 hover:text-white">✕ Đóng video</button>
+          </div>
+          <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-inner bg-black">
+            <iframe id="youtube-iframe" class="w-full h-full" src="https://www.youtube.com/embed/${u.song.youtubeId}?enablejsapi=1" title="English Grade 5 Song Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- Karaoke / Chant Lyrics List -->
+        <div class="space-y-3 pt-1">
+          <div class="flex items-center justify-between text-xs text-slate-400 font-bold uppercase tracking-wider">
+            <span>🎤 Lời bài hát &amp; Đồng dao:</span>
+            <span>Bấm loa để nghe từng câu</span>
+          </div>
+
           ${u.song.lines.map((line, idx) => `
-            <div id="chant-line-${idx}" class="p-3.5 rounded-2xl border border-slate-100 hover:border-pink-300 bg-slate-50/70 hover:bg-pink-50/40 transition flex items-center justify-between gap-3">
-              <div class="space-y-0.5">
-                <div class="text-sm sm:text-base font-black text-slate-800">${line.en}</div>
-                <div class="text-xs font-medium text-slate-500 italic">${line.vi}</div>
+            <div id="chant-line-${idx}" class="p-4 rounded-2xl border border-slate-100 hover:border-pink-300 bg-slate-50/70 hover:bg-pink-50/40 transition flex items-center justify-between gap-3 shadow-2xs">
+              <div class="space-y-1">
+                <div class="text-base sm:text-lg font-black text-slate-800">${line.en}</div>
+                <div class="text-xs sm:text-sm font-semibold text-slate-500">${line.vi}</div>
               </div>
-              <button onclick="playAudio('${line.en.replace(/'/g, "\\'")}')" class="pulse-btn px-3 py-1.5 bg-white hover:bg-pink-100 text-pink-600 border border-slate-200 rounded-xl text-xs font-bold transition flex items-center gap-1 shadow-2xs whitespace-nowrap">
+              <button onclick="playAudio('${line.en.replace(/'/g, "\\'")}')" class="pulse-btn px-4 py-2 bg-white hover:bg-pink-100 text-pink-600 border border-slate-200 rounded-xl text-xs font-extrabold transition flex items-center gap-1.5 shadow-2xs whitespace-nowrap">
                 <span>🔊 Nghe câu này</span>
               </button>
             </div>
@@ -1708,14 +2095,35 @@ function playFullChant() {
   chantQueue = u.song.lines.map(l => l.en);
   chantIndex = 0;
   isChantPlayingAll = true;
+
+  // Also start background music softly if not already playing!
+  const bgPlayer = document.getElementById('bg-music-player');
+  if (bgPlayer && !isBgMusicPlaying) {
+    toggleBgMusic();
+  }
+
   playNextChantLine();
 }
 
 function playNextChantLine() {
   if (!isChantPlayingAll || chantIndex >= chantQueue.length) {
     isChantPlayingAll = false;
+    document.querySelectorAll('[id^="chant-line-"]').forEach(el => {
+      el.classList.remove('bg-pink-100', 'border-pink-500', 'ring-2', 'ring-pink-400');
+    });
     return;
   }
+
+  // Highlight active chant line
+  document.querySelectorAll('[id^="chant-line-"]').forEach(el => {
+    el.classList.remove('bg-pink-100', 'border-pink-500', 'ring-2', 'ring-pink-400');
+  });
+  const activeEl = document.getElementById('chant-line-' + chantIndex);
+  if (activeEl) {
+    activeEl.classList.add('bg-pink-100', 'border-pink-500', 'ring-2', 'ring-pink-400');
+    activeEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
   const text = chantQueue[chantIndex];
   chantIndex++;
   playAudio(text);
