@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thẻ Học & Luyện Nghe Tiếng Anh 5 - Global Success (Unit 1 - 5)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
+      min-height: 100vh;
+    }
+    .unit-tab.active {
+      background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+      color: white;
+      box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.4);
+      transform: translateY(-2px);
+    }
+    .sub-tab.active {
+      border-bottom: 3px solid #4f46e5;
+      color: #4f46e5;
+      font-weight: 800;
+    }
+    .flashcard {
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .flashcard:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08);
+    }
+    .pulse-btn:active {
+      transform: scale(0.96);
+    }
+  </style>
+</head>
+<body class="text-slate-800 p-3 sm:p-6 pb-20">
+  <div class="max-w-4xl mx-auto space-y-6">
+
+    <!-- Header Banner -->
+    <header class="bg-white rounded-3xl p-5 sm:p-7 shadow-lg border border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="space-y-1 text-center sm:text-left">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-xs font-bold uppercase tracking-wider">
+          <span>🎒 Global Success Tiếng Anh 5</span>
+          <span>•</span>
+          <span>Học Kỳ 1 (Kết Nối Tri Thức)</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center justify-center sm:justify-start gap-2">
+          <span>Thẻ Học & Luyện Nghe Tiếng Anh 5</span>
+          <span class="text-2xl">✨</span>
+        </h1>
+        <p class="text-sm text-slate-500 font-medium">Phát âm chuẩn Google TTS ngay tại chỗ • Dịch câu để thuộc lòng • Bài hát vui nhộn</p>
+      </div>
+      
+      <!-- Audio Player Control -->
+      <div class="flex items-center gap-2.5 bg-slate-50 p-2.5 rounded-2xl border border-slate-200">
+        <span class="text-xs font-bold text-slate-600">Tốc độ:</span>
+        <button id="speed-normal" onclick="setSpeed(1.0)" class="px-3 py-1.5 rounded-xl text-xs font-extrabold bg-indigo-600 text-white shadow-sm transition">1.0x Chuẩn</button>
+        <button id="speed-slow" onclick="setSpeed(0.75)" class="px-3 py-1.5 rounded-xl text-xs font-extrabold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition">0.75x Chậm</button>
+      </div>
+    </header>
+
+    <!-- Hidden Audio Player -->
+    <audio id="app-audio-player" playsinline preload="none" class="hidden"></audio>
+
+    <!-- Audio Status Toast -->
+    <div id="audio-toast" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-900/95 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 z-50 text-sm font-semibold backdrop-blur-md border border-slate-700">
+      <span class="animate-pulse text-lg">🔊</span>
+      <span id="toast-msg">Đang phát âm...</span>
+      <button onclick="stopAudio()" class="ml-3 text-xs bg-rose-500 hover:bg-rose-600 px-2.5 py-1 rounded-lg text-white font-bold">Dừng</button>
+    </div>
+
+    <!-- Unit Navigation Tabs (Unit 1 to 5) -->
+    <nav class="grid grid-cols-2 sm:grid-cols-5 gap-2 sm:gap-3" id="unit-nav"></nav>
+
+    <!-- Unit Title Banner -->
+    <div id="unit-banner" class="bg-gradient-to-r from-indigo-500 to-blue-600 rounded-3xl p-5 sm:p-6 text-white shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3"></div>
+
+    <!-- Section Tabs (Từ vựng | Mẫu câu | Ngữ pháp | Dịch câu | Bài hát) -->
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-1.5 flex flex-wrap gap-1" id="sub-tabs">
+      <button onclick="switchTab('vocab')" id="tab-btn-vocab" class="sub-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex-1 text-center transition active">📚 1. Từ vựng đơn</button>
+      <button onclick="switchTab('sentences')" id="tab-btn-sentences" class="sub-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex-1 text-center transition">🗣️ 2. Mẫu câu & Nghe</button>
+      <button onclick="switchTab('grammar')" id="tab-btn-grammar" class="sub-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex-1 text-center transition">💡 3. Góc ngữ pháp</button>
+      <button onclick="switchTab('practice')" id="tab-btn-practice" class="sub-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex-1 text-center transition">🎯 4. Dịch câu thuộc lòng</button>
+      <button onclick="switchTab('song')" id="tab-btn-song" class="sub-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex-1 text-center transition">🎵 5. Bài hát vui nhộn</button>
+    </div>
+
+    <!-- Main Content Area -->
+    <main id="main-content" class="space-y-4"></main>
+
+  </div>
+
+  <script>
+const APP_UNITS = [
+  {
+    "id": 1,
+    "title": "Unit 1: All About Me!",
+    "subtitle": "Tất cả về bản thân tôi · Địa chỉ, nơi ở & quê hương",
+    "themeColor": "from-indigo-600 to-blue-500",
+    "icon": "🏠",
+    "vocab": [
+      {
+        "word": "address",
+        "pos": "n",
+        "ipa": "/əˈdres/",
+        "meaning": "địa chỉ",
+        "icon": "📍",
+        "ex": "What's your address?"
+      },
+      {
+        "word": "street",
+        "pos": "n",
+        "ipa": "/striːt/",
+        "meaning": "đường phố",
+        "icon": "🛣️",
+        "ex": "I live on Tran Phu Street."
+      },
+      {
+        "word": "lane",
+        "pos": "n",
+        "ipa": "/leɪn/",
+        "meaning": "ngõ, hẻm",
+        "icon": "🏡",
+        "ex": "He lives in Hoa Binh Lane."
+      },
+      {
+        "word": "avenue",
+        "pos": "n",
+        "ipa": "/ˈæv.ə.njuː/",
+        "meaning": "đại lộ",
+        "icon": "🌆",
+        "ex": "The house is on Thang Long Avenue."
+      },
+      {
+        "word": "floor",
+        "pos": "n",
+        "ipa": "/flɔːr/",
+        "meaning": "tầng, lầu",
+        "icon": "🏢",
+        "ex": "She lives on the second floor."
+      },
+      {
+        "word": "flat",
+        "pos": "n",
+        "ipa": "/flæt/",
+        "meaning": "căn hộ chung cư",
+        "icon": "🏬",
+        "ex": "We live in Flat 12."
+      },
+      {
+        "word": "hometown",
+        "pos": "n",
+        "ipa": "/ˈhəʊm.taʊn/",
+        "meaning": "quê hương",
+        "icon": "🌾",
+        "ex": "My hometown is Da Nang."
+      },
+      {
+        "word": "village",
+        "pos": "n",
+        "ipa": "/ˈvɪl.ɪdʒ/",
+        "meaning": "ngôi làng",
+        "icon": "🏕️",
+        "ex": "My grandparents live in a village."
+      },
+      {
+        "word": "city",
+        "pos": "n",
+        "ipa": "/ˈsɪt.i/",
+        "meaning": "thành phố",
+        "icon": "🏙️",
+        "ex": "Hanoi is a big city."
+      },
+      {
+        "word": "peaceful",
+        "pos": "adj",
+        "ipa": "/ˈpiːs.fəl/",
+        "meaning": "yên bình, thanh bình",
+        "icon": "🕊️",
+        "ex": "The village is small and peaceful."
+      },
+      {
+        "word": "crowded",
+        "pos": "adj",
+        "ipa": "/ˈkraʊ.dɪd/",
+        "meaning": "đông đúc, tấp nập",
+        "icon": "👨‍👩‍👧‍👦",
+        "ex": "The street is very crowded."
+      },
+      {
+        "word": "busy",
+        "pos": "adj",
+        "ipa": "/ˈbɪz.i/",
+        "meaning": "bận rộn, nhộn nhịp",
+        "icon": "🚦",
+        "ex": "Life in the city is very busy."
+      }
+    ],
+    "sentences": [
+      {
+        "zh": "What's your address? - It's 105, Hoa Binh Lane.",
+        "vi": "Địa chỉ của bạn ở đâu? - Số 105, ngõ Hòa Bình.",
+        "chunks": [
+          {
+            "en": "What's your address?",
+            "vi": "Địa chỉ của bạn ở đâu?"
+          },
+          {
+            "en": "It's 105, Hoa Binh Lane.",
+            "vi": "Số 105, ngõ Hòa Bình."
+          }
+        ]
+      },
+      {
+        "zh": "Where do you live? - I live in a flat on the second floor.",
+        "vi": "Bạn sống ở đâu? - Tôi sống trong một căn hộ ở tầng hai.",
+        "chunks": [
+          {
+            "en": "Where do you live?",
+            "vi": "Bạn sống ở đâu?"
+          },
+          {
+            "en": "I live in a flat",
+            "vi": "Tôi sống trong một căn hộ"
+          },
+          {
+            "en": "on the second floor.",
+            "vi": "ở trên tầng hai."
+          }
+        ]
+      },
+      {
+        "zh": "What's your hometown like? - It's small and peaceful.",
+        "vi": "Quê hương của bạn trông như thế nào? - Nó nhỏ và rất yên bình.",
+        "chunks": [
+          {
+            "en": "What's your hometown like?",
+            "vi": "Quê hương của bạn như thế nào?"
+          },
+          {
+            "en": "It's small and peaceful.",
+            "vi": "Nó nhỏ và rất yên bình."
+          }
+        ]
+      },
+      {
+        "zh": "Who do you live with? - I live with my grandparents.",
+        "vi": "Bạn sống cùng với ai? - Tôi sống cùng ông bà của tôi.",
+        "chunks": [
+          {
+            "en": "Who do you live with?",
+            "vi": "Bạn sống cùng với ai?"
+          },
+          {
+            "en": "I live with my grandparents.",
+            "vi": "Tôi sống cùng ông bà của tôi."
+          }
+        ]
+      }
+    ],
+    "grammar": {
+      "title": "Bí quyết giới từ chỉ nơi chốn: IN - ON - AT",
+      "desc": "Hãy nhớ quy tắc chiếc phễu: từ Rộng lớn nhất (IN) đến Vừa phải (ON) và Chính xác cụ thể (AT)!",
+      "diagram": [
+        {
+          "label": "IN (Rộng lớn)",
+          "example": "in Vietnam, in Hanoi, in a village",
+          "color": "bg-blue-50 border-blue-300 text-blue-800",
+          "rule": "Dùng cho quốc gia, thành phố, làng xã"
+        },
+        {
+          "label": "ON (Vừa phải)",
+          "example": "on Hoa Binh Street, on the 2nd floor",
+          "color": "bg-amber-50 border-amber-300 text-amber-800",
+          "rule": "Dùng cho tên đường (không có số nhà), số tầng lầu"
+        },
+        {
+          "label": "AT (Chính xác)",
+          "example": "at 105 Hoa Binh Lane, at 81 Tran Phu Street",
+          "color": "bg-emerald-50 border-emerald-300 text-emerald-800",
+          "rule": "Dùng cho địa chỉ cụ thể CÓ SỐ NHÀ"
+        }
+      ],
+      "tip": "💡 Mẹo nhớ nhanh: Cứ nhìn thấy CÓ SỐ NHÀ là chọn ngay AT! Chỉ có TÊN ĐƯỜNG thì dùng ON!"
+    },
+    "practice": [
+      {
+        "vi": "Địa chỉ nhà của bạn ở đâu? - Số 81 đường Trần Phú.",
+        "en": "What's your address? - It's 81 Tran Phu Street.",
+        "tip": "Hỏi địa chỉ dùng 'What's your address?'"
+      },
+      {
+        "vi": "Bạn sống ở đâu? - Tôi sống trong một căn hộ trên tầng ba.",
+        "en": "Where do you live? - I live in a flat on the third floor.",
+        "tip": "Tầng lầu dùng giới từ 'on': on the third floor"
+      },
+      {
+        "vi": "Quê của bạn như thế nào? - Nó to lớn và rất đông đúc.",
+        "en": "What is your hometown like? - It is big and very crowded.",
+        "tip": "Đông đúc là 'crowded'"
+      },
+      {
+        "vi": "Bạn sống ở nông thôn hay thành phố? - Tôi sống trong một ngôi làng yên bình.",
+        "en": "Do you live in the countryside or the city? - I live in a peaceful village.",
+        "tip": "Ngôi làng yên bình là 'a peaceful village'"
+      }
+    ],
+    "song": {
+      "title": "Where Do You Live? (Bài Chant hỏi thăm địa chỉ)",
+      "lines": [
+        {
+          "en": "Where do you live? Where do you live?",
+          "vi": "Bạn sống ở đâu? Bạn sống ở đâu?"
+        },
+        {
+          "en": "I live in a flat in the big city!",
+          "vi": "Tôi sống trong một căn hộ ở thành phố lớn!"
+        },
+        {
+          "en": "What's your address? What's your address?",
+          "vi": "Địa chỉ của bạn là gì? Địa chỉ của bạn là gì?"
+        },
+        {
+          "en": "It's 105, Hoa Binh Lane!",
+          "vi": "Đó là số 105, ngõ Hòa Bình!"
+        },
+        {
+          "en": "Is it noisy? No, it's peaceful and clean!",
+          "vi": "Ở đó có ồn ào không? Không, rất yên bình và sạch sẽ!"
+        }
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "title": "Unit 2: Our Homes",
+    "subtitle": "Ngôi nhà của chúng tôi · Các kiểu nhà, vị trí & các phòng trong nhà",
+    "themeColor": "from-emerald-600 to-teal-500",
+    "icon": "🏡",
+    "vocab": [
+      {
+        "word": "cottage",
+        "pos": "n",
+        "ipa": "/ˈkɒt.ɪdʒ/",
+        "meaning": "nhà nhỏ, nhà tranh ở quê",
+        "icon": "🛖",
+        "ex": "My aunt lives in a cozy cottage."
+      },
+      {
+        "word": "villa",
+        "pos": "n",
+        "ipa": "/ˈvɪl.ə/",
+        "meaning": "biệt thự",
+        "icon": "🏰",
+        "ex": "There is a beautiful villa by the sea."
+      },
+      {
+        "word": "apartment",
+        "pos": "n",
+        "ipa": "/əˈpɑːt.mənt/",
+        "meaning": "căn hộ chung cư",
+        "icon": "🏢",
+        "ex": "They live in a modern apartment."
+      },
+      {
+        "word": "stilt house",
+        "pos": "n",
+        "ipa": "/ˈstɪlt ˌhaʊs/",
+        "meaning": "nhà sàn",
+        "icon": "🏕️",
+        "ex": "My friend lives in a wooden stilt house."
+      },
+      {
+        "word": "living room",
+        "pos": "n",
+        "ipa": "/ˈlɪv.ɪŋ ˌruːm/",
+        "meaning": "phòng khách",
+        "icon": "🛋️",
+        "ex": "We watch TV in the living room."
+      },
+      {
+        "word": "bedroom",
+        "pos": "n",
+        "ipa": "/ˈbed.ruːm/",
+        "meaning": "phòng ngủ",
+        "icon": "🛏️",
+        "ex": "My bedroom is cozy and bright."
+      },
+      {
+        "word": "kitchen",
+        "pos": "n",
+        "ipa": "/ˈkɪtʃ.ən/",
+        "meaning": "nhà bếp",
+        "icon": "🍳",
+        "ex": "My mom is cooking in the kitchen."
+      },
+      {
+        "word": "bathroom",
+        "pos": "n",
+        "ipa": "/ˈbɑːθ.ruːm/",
+        "meaning": "phòng tắm",
+        "icon": "🚿",
+        "ex": "There is a large bathroom upstairs."
+      },
+      {
+        "word": "balcony",
+        "pos": "n",
+        "ipa": "/ˈbæl.kə.ni/",
+        "meaning": "ban công",
+        "icon": "🪴",
+        "ex": "There are flowers on the balcony."
+      },
+      {
+        "word": "modern",
+        "pos": "adj",
+        "ipa": "/ˈmɒd.ən/",
+        "meaning": "hiện đại",
+        "icon": "🏙️",
+        "ex": "The house is very modern."
+      },
+      {
+        "word": "cozy",
+        "pos": "adj",
+        "ipa": "/ˈkəʊ.zi/",
+        "meaning": "ấm cúng",
+        "icon": "🕯️",
+        "ex": "Our living room is very cozy."
+      },
+      {
+        "word": "garden",
+        "pos": "n",
+        "ipa": "/ˈɡɑː.dən/",
+        "meaning": "khu vườn",
+        "icon": "🌻",
+        "ex": "There is a green garden in front of the house."
+      }
+    ],
+    "sentences": [
+      {
+        "zh": "Where is your house? - It's in the mountains.",
+        "vi": "Nhà của bạn ở đâu? - Nó ở trên vùng núi cao.",
+        "chunks": [
+          {
+            "en": "Where is your house?",
+            "vi": "Nhà của bạn ở đâu?"
+          },
+          {
+            "en": "It's in the mountains.",
+            "vi": "Nó ở trên vùng núi cao."
+          }
+        ]
+      },
+      {
+        "zh": "What's your house like? - It's a stilt house with a green roof.",
+        "vi": "Nhà bạn trông thế nào? - Đó là một ngôi nhà sàn có mái màu xanh.",
+        "chunks": [
+          {
+            "en": "What's your house like?",
+            "vi": "Nhà bạn trông thế nào?"
+          },
+          {
+            "en": "It's a stilt house",
+            "vi": "Đó là một ngôi nhà sàn"
+          },
+          {
+            "en": "with a green roof.",
+            "vi": "với mái ngói màu xanh."
+          }
+        ]
+      },
+      {
+        "zh": "How many rooms are there in your home? - There are six rooms.",
+        "vi": "Có bao nhiêu phòng trong nhà bạn? - Có sáu căn phòng.",
+        "chunks": [
+          {
+            "en": "How many rooms are there",
+            "vi": "Có bao nhiêu căn phòng"
+          },
+          {
+            "en": "in your home?",
+            "vi": "trong ngôi nhà của bạn?"
+          },
+          {
+            "en": "There are six rooms.",
+            "vi": "Có sáu căn phòng."
+          }
+        ]
+      },
+      {
+        "zh": "Which room do you like best? - I like my cozy bedroom best.",
+        "vi": "Bạn thích căn phòng nào nhất? - Tôi thích phòng ngủ ấm cúng của mình nhất.",
+        "chunks": [
+          {
+            "en": "Which room do you like best?",
+            "vi": "Bạn thích căn phòng nào nhất?"
+          },
+          {
+            "en": "I like my cozy bedroom best.",
+            "vi": "Tôi thích phòng ngủ ấm cúng của mình nhất."
+          }
+        ]
+      }
+    ],
+    "grammar": {
+      "title": "Cấu trúc 'There is' & 'There are' miêu tả nhà cửa",
+      "desc": "Dùng để nói trong nhà có những gì một cách chính xác!",
+      "diagram": [
+        {
+          "label": "There is + 1 vật (Số ít)",
+          "example": "There is a living room. / There is a garden.",
+          "color": "bg-emerald-50 border-emerald-300 text-emerald-800",
+          "rule": "Đi với 'a', 'an' hoặc danh từ số ít"
+        },
+        {
+          "label": "There are + Nhiều vật (Số nhiều)",
+          "example": "There are three bedrooms. / There are six rooms.",
+          "color": "bg-teal-50 border-teal-300 text-teal-800",
+          "rule": "Đi với số đếm từ 2 trở lên và danh từ thêm 's'"
+        },
+        {
+          "label": "Hỏi số lượng: How many... are there?",
+          "example": "How many rooms are there in your house?",
+          "color": "bg-indigo-50 border-indigo-300 text-indigo-800",
+          "rule": "Sau How many luôn là danh từ số nhiều (rooms, chairs)"
+        }
+      ],
+      "tip": "💡 Nhớ nhé: 1 cái phòng thì 'There is a room', từ 2 phòng trở lên thì 'There are rooms'!"
+    },
+    "practice": [
+      {
+        "vi": "Nhà của bạn ở đâu? - Nó ở trên vùng núi.",
+        "en": "Where is your house? - It is in the mountains.",
+        "tip": "Ở vùng núi là 'in the mountains'"
+      },
+      {
+        "vi": "Có bao nhiêu phòng trong nhà của bạn? - Có 5 phòng.",
+        "en": "How many rooms are there in your house? - There are five rooms.",
+        "tip": "Hỏi số lượng dùng 'How many rooms are there...?'"
+      },
+      {
+        "vi": "Bạn thích phòng nào nhất? - Tôi thích phòng khách nhất.",
+        "en": "Which room do you like best? - I like the living room best.",
+        "tip": "Thích cái gì nhất dùng 'like ... best'"
+      },
+      {
+        "vi": "Có một khu vườn lớn ở phía trước ngôi nhà.",
+        "en": "There is a big garden in front of the house.",
+        "tip": "Một khu vườn dùng 'There is a big garden'"
+      }
+    ],
+    "song": {
+      "title": "This Is My Sweet Home (Bài hát về ngôi nhà thân yêu)",
+      "lines": [
+        {
+          "en": "Come to my house, come and see!",
+          "vi": "Hãy đến nhà tôi, hãy đến xem nào!"
+        },
+        {
+          "en": "A lovely home for my family and me!",
+          "vi": "Một ngôi nhà đáng yêu cho gia đình và tôi!"
+        },
+        {
+          "en": "There is a kitchen, there is a hall,",
+          "vi": "Có một phòng bếp, có một đại sảnh,"
+        },
+        {
+          "en": "And three cozy bedrooms on the wall!",
+          "vi": "Và ba phòng ngủ ấm cúng kề bên!"
+        },
+        {
+          "en": "I love my home, the best of all!",
+          "vi": "Tôi yêu ngôi nhà của mình, nơi tuyệt vời nhất trên đời!"
+        }
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "title": "Unit 3: My Foreign Friends",
+    "subtitle": "Những người bạn nước ngoài · Quốc tịch, ngoại hình & tính cách bạn bè",
+    "themeColor": "from-amber-500 to-orange-500",
+    "icon": "🌏",
+    "vocab": [
+      {
+        "word": "nationality",
+        "pos": "n",
+        "ipa": "/ˌnæʃ.ənˈæl.ə.ti/",
+        "meaning": "quốc tịch",
+        "icon": "🌍",
+        "ex": "What nationality are you?"
+      },
+      {
+        "word": "America",
+        "pos": "n",
+        "ipa": "/əˈmer.ɪ.kə/",
+        "meaning": "nước Mỹ",
+        "icon": "🇺🇸",
+        "ex": "He lives in America."
+      },
+      {
+        "word": "American",
+        "pos": "adj",
+        "ipa": "/əˈmer.ɪ.kən/",
+        "meaning": "người Mỹ, thuộc về nước Mỹ",
+        "icon": "🗽",
+        "ex": "Tony is American."
+      },
+      {
+        "word": "England",
+        "pos": "n",
+        "ipa": "/ˈɪŋ.ɡlənd/",
+        "meaning": "nước Anh",
+        "icon": "🇬🇧",
+        "ex": "Linda is from England."
+      },
+      {
+        "word": "English",
+        "pos": "adj",
+        "ipa": "/ˈɪŋ.ɡlɪʃ/",
+        "meaning": "người Anh, tiếng Anh",
+        "icon": "💂",
+        "ex": "She speaks English very well."
+      },
+      {
+        "word": "Japan",
+        "pos": "n",
+        "ipa": "/dʒəˈpæn/",
+        "meaning": "nước Nhật Bản",
+        "icon": "🇯🇵",
+        "ex": "Akiko is from Japan."
+      },
+      {
+        "word": "Japanese",
+        "pos": "adj",
+        "ipa": "/ˌdʒæp.ənˈiːz/",
+        "meaning": "người Nhật, tiếng Nhật",
+        "icon": "🗾",
+        "ex": "She is Japanese."
+      },
+      {
+        "word": "Australia",
+        "pos": "n",
+        "ipa": "/ɒsˈtreɪ.li.ə/",
+        "meaning": "nước Úc",
+        "icon": "🇦🇺",
+        "ex": "They are traveling in Australia."
+      },
+      {
+        "word": "Australian",
+        "pos": "adj",
+        "ipa": "/ɒsˈtreɪ.li.ən/",
+        "meaning": "người Úc",
+        "icon": "🦘",
+        "ex": "My pen pal is Australian."
+      },
+      {
+        "word": "friendly",
+        "pos": "adj",
+        "ipa": "/ˈfrend.li/",
+        "meaning": "thân thiện",
+        "icon": "😊",
+        "ex": "The students are very friendly."
+      },
+      {
+        "word": "helpful",
+        "pos": "adj",
+        "ipa": "/ˈhelp.fəl/",
+        "meaning": "hay giúp đỡ người khác",
+        "icon": "🤝",
+        "ex": "He is always helpful to his friends."
+      },
+      {
+        "word": "sporty",
+        "pos": "adj",
+        "ipa": "/ˈspɔː.ti/",
+        "meaning": "yêu thích thể thao, năng động",
+        "icon": "⚽",
+        "ex": "Tom is very sporty and plays football."
+      }
+    ],
+    "sentences": [
+      {
+        "zh": "Where is he from? - He's from Japan. He's Japanese.",
+        "vi": "Cậu ấy đến từ đâu? - Cậu ấy đến từ Nhật Bản. Cậu ấy là người Nhật.",
+        "chunks": [
+          {
+            "en": "Where is he from?",
+            "vi": "Cậu ấy đến từ đâu?"
+          },
+          {
+            "en": "He's from Japan.",
+            "vi": "Cậu ấy đến từ nước Nhật."
+          },
+          {
+            "en": "He's Japanese.",
+            "vi": "Cậu ấy là người Nhật."
+          }
+        ]
+      },
+      {
+        "zh": "What nationality are you? - I'm Vietnamese.",
+        "vi": "Quốc tịch của bạn là gì? - Tôi là người Việt Nam.",
+        "chunks": [
+          {
+            "en": "What nationality are you?",
+            "vi": "Quốc tịch của bạn là gì?"
+          },
+          {
+            "en": "I'm Vietnamese.",
+            "vi": "Tôi là người Việt Nam."
+          }
+        ]
+      },
+      {
+        "zh": "What is she like? - She's friendly and helpful.",
+        "vi": "Cô ấy là người như thế nào? - Cô ấy rất thân thiện và hay giúp đỡ bạn bè.",
+        "chunks": [
+          {
+            "en": "What is she like?",
+            "vi": "Cô ấy là người như thế nào?"
+          },
+          {
+            "en": "She's friendly and helpful.",
+            "vi": "Cô ấy rất thân thiện và hay giúp đỡ bạn bè."
+          }
+        ]
+      },
+      {
+        "zh": "What does he look like? - He's tall and has short black hair.",
+        "vi": "Cậu ấy trông như thế nào? - Cậu ấy cao và có mái tóc đen ngắn.",
+        "chunks": [
+          {
+            "en": "What does he look like?",
+            "vi": "Cậu ấy trông như thế nào?"
+          },
+          {
+            "en": "He's tall and has short black hair.",
+            "vi": "Cậu ấy cao và có mái tóc đen ngắn."
+          }
+        ]
+      }
+    ],
+    "grammar": {
+      "title": "Phân biệt Nước (Country) & Quốc tịch (Nationality)",
+      "desc": "Cực kỳ hay nhầm lẫn giữa Tên Đất Nước và Tên Quốc Tịch!",
+      "diagram": [
+        {
+          "label": "Từ Nước (From + Country)",
+          "example": "from Vietnam, from Japan, from America",
+          "color": "bg-orange-50 border-orange-300 text-orange-800",
+          "rule": "Sau chữ 'from' PHẢI là tên đất nước"
+        },
+        {
+          "label": "Quốc tịch (Be + Nationality)",
+          "example": "is Vietnamese, is Japanese, is American",
+          "color": "bg-amber-50 border-amber-300 text-amber-800",
+          "rule": "Sau 'am/is/are' (không có from) là quốc tịch"
+        },
+        {
+          "label": "Hỏi Tính cách vs Ngoại hình",
+          "example": "What is she like? (tính cách) VS What does she look like? (ngoại hình)",
+          "color": "bg-rose-50 border-rose-300 text-rose-800",
+          "rule": "Có chữ 'LOOK' là hỏi về mắt nhìn (ngoại hình)"
+        }
+      ],
+      "tip": "💡 Mẹo: Cứ có chữ 'from' thì chọn tên nước: from Japan. Không có 'from' thì chọn quốc tịch: Japanese!"
+    },
+    "practice": [
+      {
+        "vi": "Cậu ấy đến từ đâu? - Cậu ấy đến từ nước Mỹ.",
+        "en": "Where is he from? - He is from America.",
+        "tip": "Từ nước Mỹ dùng 'from America'"
+      },
+      {
+        "vi": "Bạn của bạn có quốc tịch gì? - Cô ấy là người Nhật Bản.",
+        "en": "What nationality is your friend? - She is Japanese.",
+        "tip": "Quốc tịch Nhật là 'Japanese'"
+      },
+      {
+        "vi": "Cô ấy là người như thế nào? - Cô ấy rất tốt bụng và thân thiện.",
+        "en": "What is she like? - She is very kind and friendly.",
+        "tip": "Hỏi tính cách: 'What is she like?'"
+      },
+      {
+        "vi": "Anh ấy trông như thế nào? - Anh ấy cao và có đôi mắt to.",
+        "en": "What does he look like? - He is tall and has big eyes.",
+        "tip": "Hỏi ngoại hình: 'What does he look like?'"
+      }
+    ],
+    "song": {
+      "title": "Friends Around The World (Những người bạn khắp năm châu)",
+      "lines": [
+        {
+          "en": "Hello my friend from across the sea!",
+          "vi": "Xin chào người bạn từ bên kia đại dương!"
+        },
+        {
+          "en": "Will you come and play with me?",
+          "vi": "Bạn sẽ đến và cùng chơi với tôi chứ?"
+        },
+        {
+          "en": "From England, Japan, America too,",
+          "vi": "Từ nước Anh, nước Nhật, và cả nước Mỹ nữa,"
+        },
+        {
+          "en": "We smile and sing: Nice to meet you!",
+          "vi": "Chúng ta mỉm cười và cùng hát: Rất vui được gặp bạn!"
+        },
+        {
+          "en": "Friends forever, me and you!",
+          "vi": "Mãi mãi là bạn bè, tôi và bạn!"
+        }
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "title": "Unit 4: Our Free-Time Activities",
+    "subtitle": "Các hoạt động thời gian rảnh · Thói quen, sở thích & tần suất",
+    "themeColor": "from-purple-600 to-pink-500",
+    "icon": "🚴",
+    "vocab": [
+      {
+        "word": "surf the Internet",
+        "pos": "v",
+        "ipa": "/sɜːf ði ˈɪn.tə.net/",
+        "meaning": "lướt mạng Internet",
+        "icon": "🌐",
+        "ex": "I often surf the Internet for study."
+      },
+      {
+        "word": "ride a bike",
+        "pos": "v",
+        "ipa": "/raɪd ə baɪk/",
+        "meaning": "đạp xe đạp",
+        "icon": "🚲",
+        "ex": "He rides a bike in the park."
+      },
+      {
+        "word": "read comic books",
+        "pos": "v",
+        "ipa": "/riːd ˈkɒm.ɪk bʊks/",
+        "meaning": "đọc truyện tranh",
+        "icon": "📚",
+        "ex": "She likes reading comic books."
+      },
+      {
+        "word": "watch cartoons",
+        "pos": "v",
+        "ipa": "/wɒtʃ kɑːˈtuːnz/",
+        "meaning": "xem phim hoạt hình",
+        "icon": "📺",
+        "ex": "We watch cartoons on Sunday morning."
+      },
+      {
+        "word": "go camping",
+        "pos": "v",
+        "ipa": "/ɡəʊ ˈkæm.pɪŋ/",
+        "meaning": "đi cắm trại",
+        "icon": "⛺",
+        "ex": "My family goes camping once a month."
+      },
+      {
+        "word": "play chess",
+        "pos": "v",
+        "ipa": "/pleɪ tʃes/",
+        "meaning": "chơi cờ vua",
+        "icon": "♟️",
+        "ex": "Do you want to play chess with me?"
+      },
+      {
+        "word": "do karate",
+        "pos": "v",
+        "ipa": "/duː kəˈrɑː.ti/",
+        "meaning": "tập võ karate",
+        "icon": "🥋",
+        "ex": "He does karate on Saturdays."
+      },
+      {
+        "word": "clean the house",
+        "pos": "v",
+        "ipa": "/kliːn ðə haʊs/",
+        "meaning": "lau dọn nhà cửa",
+        "icon": "🧹",
+        "ex": "I help my mom clean the house."
+      },
+      {
+        "word": "always",
+        "pos": "adv",
+        "ipa": "/ˈɔːl.weɪz/",
+        "meaning": "luôn luôn (100%)",
+        "icon": "💯",
+        "ex": "I always get up early."
+      },
+      {
+        "word": "usually",
+        "pos": "adv",
+        "ipa": "/ˈjuː.ʒu.ə.li/",
+        "meaning": "thường xuyên (80%)",
+        "icon": "🟢",
+        "ex": "She usually rides a bike."
+      },
+      {
+        "word": "often",
+        "pos": "adv",
+        "ipa": "/ˈɒf.ən/",
+        "meaning": "hay làm, thường (60%)",
+        "icon": "🟡",
+        "ex": "We often play chess together."
+      },
+      {
+        "word": "sometimes",
+        "pos": "adv",
+        "ipa": "/ˈsʌm.taɪmz/",
+        "meaning": "thỉnh thoảng (30%)",
+        "icon": "🟠",
+        "ex": "He sometimes watches football."
+      },
+      {
+        "word": "never",
+        "pos": "adv",
+        "ipa": "/ˈnev.ər/",
+        "meaning": "không bao giờ (0%)",
+        "icon": "🔴",
+        "ex": "I never go to school late."
+      }
+    ],
+    "sentences": [
+      {
+        "zh": "What do you do in your free time? - I often surf the Internet.",
+        "vi": "Bạn làm gì trong thời gian rảnh? - Tôi thường lướt mạng Internet.",
+        "chunks": [
+          {
+            "en": "What do you do",
+            "vi": "Bạn làm gì"
+          },
+          {
+            "en": "in your free time?",
+            "vi": "trong thời gian rảnh của bạn?"
+          },
+          {
+            "en": "I often surf the Internet.",
+            "vi": "Tôi thường lướt mạng Internet."
+          }
+        ]
+      },
+      {
+        "zh": "What does she do on Sundays? - She usually rides a bike in the park.",
+        "vi": "Cô ấy làm gì vào Chủ nhật? - Cô ấy thường đạp xe trong công viên.",
+        "chunks": [
+          {
+            "en": "What does she do on Sundays?",
+            "vi": "Cô ấy làm gì vào các ngày Chủ nhật?"
+          },
+          {
+            "en": "She usually rides a bike in the park.",
+            "vi": "Cô ấy thường đạp xe trong công viên."
+          }
+        ]
+      },
+      {
+        "zh": "How often do you play chess? - I play chess twice a week.",
+        "vi": "Bạn có thường chơi cờ không? - Tôi chơi cờ hai lần một tuần.",
+        "chunks": [
+          {
+            "en": "How often do you play chess?",
+            "vi": "Bạn có thường chơi cờ không?"
+          },
+          {
+            "en": "I play chess twice a week.",
+            "vi": "Tôi chơi cờ hai lần một tuần."
+          }
+        ]
+      }
+    ],
+    "grammar": {
+      "title": "Thang đo Trạng từ chỉ tần suất (Adverbs of Frequency)",
+      "desc": "Cách diễn đạt mức độ thường xuyên của hành động trong tiếng Anh!",
+      "diagram": [
+        {
+          "label": "Always (100%)",
+          "example": "I always do my homework.",
+          "color": "bg-green-50 border-green-300 text-green-800",
+          "rule": "Luôn luôn làm, ngày nào cũng làm"
+        },
+        {
+          "label": "Usually (80%) & Often (60%)",
+          "example": "She usually rides a bike. / They often read books.",
+          "color": "bg-blue-50 border-blue-300 text-blue-800",
+          "rule": "Thường xuyên làm trong tuần"
+        },
+        {
+          "label": "Sometimes (30%) & Never (0%)",
+          "example": "I sometimes play games. / He never drinks coffee.",
+          "color": "bg-purple-50 border-purple-300 text-purple-800",
+          "rule": "Thỉnh thoảng làm / Không bao giờ làm"
+        }
+      ],
+      "tip": "💡 Vị trí vàng: Trạng từ tần suất đứng TRƯỚC động từ thường (I usually watch TV), nhưng đứng SAU to be (I am always happy)!"
+    },
+    "practice": [
+      {
+        "vi": "Bạn làm gì vào thời gian rảnh? - Tôi thường đọc truyện tranh.",
+        "en": "What do you do in your free time? - I often read comic books.",
+        "tip": "Đọc truyện tranh là 'read comic books'"
+      },
+      {
+        "vi": "Cậu ấy làm gì vào chiều thứ Bảy? - Cậu ấy tập võ karate.",
+        "en": "What does he do on Saturday afternoons? - He does karate.",
+        "tip": "Chủ ngữ he dùng 'does karate'"
+      },
+      {
+        "vi": "Bạn có thường đi bơi không? - Một lần một tuần.",
+        "en": "How often do you go swimming? - Once a week.",
+        "tip": "Hỏi mức độ thường xuyên: 'How often do you...?'"
+      },
+      {
+        "vi": "Tôi không bao giờ thức khuya.",
+        "en": "I never stay up late.",
+        "tip": "Không bao giờ là 'never'"
+      }
+    ],
+    "song": {
+      "title": "What Do You Do In Your Free Time? (Chant hoạt động rảnh rỗi)",
+      "lines": [
+        {
+          "en": "Free time, free time, fun and bright!",
+          "vi": "Thời gian rảnh, thật vui và tươi sáng!"
+        },
+        {
+          "en": "What do you do from morning to night?",
+          "vi": "Bạn làm gì từ sáng đến tối nào?"
+        },
+        {
+          "en": "I ride my bike and surf the net,",
+          "vi": "Tôi đạp xe và lướt mạng Internet,"
+        },
+        {
+          "en": "The happiest day you can get!",
+          "vi": "Ngày hạnh phúc nhất mà bạn có thể có!"
+        },
+        {
+          "en": "Playing chess and having fun with you!",
+          "vi": "Cùng chơi cờ và vui vẻ bên bạn bè!"
+        }
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "title": "Unit 5: My Future Job",
+    "subtitle": "Công việc tương lai của tôi · Nghề nghiệp mơ ước & lý do",
+    "themeColor": "from-rose-600 to-red-500",
+    "icon": "🚀",
+    "vocab": [
+      {
+        "word": "astronaut",
+        "pos": "n",
+        "ipa": "/ˈæs.trə.nɔːt/",
+        "meaning": "phi hành gia",
+        "icon": "👨‍🚀",
+        "ex": "He dreams to be an astronaut."
+      },
+      {
+        "word": "pilot",
+        "pos": "n",
+        "ipa": "/ˈpaɪ.lət/",
+        "meaning": "phi công",
+        "icon": "👨‍✈️",
+        "ex": "A pilot flies planes in the sky."
+      },
+      {
+        "word": "doctor",
+        "pos": "n",
+        "ipa": "/ˈdɒk.tər/",
+        "meaning": "bác sĩ",
+        "icon": "👨‍⚕️",
+        "ex": "Doctors look after sick people."
+      },
+      {
+        "word": "architect",
+        "pos": "n",
+        "ipa": "/ˈɑː.kɪ.tekt/",
+        "meaning": "kiến trúc sư",
+        "icon": "📐",
+        "ex": "An architect designs houses and bridges."
+      },
+      {
+        "word": "writer",
+        "pos": "n",
+        "ipa": "/ˈraɪ.tər/",
+        "meaning": "nhà văn",
+        "icon": "✍️",
+        "ex": "She wants to be a story writer."
+      },
+      {
+        "word": "artist",
+        "pos": "n",
+        "ipa": "/ˈɑː.tɪst/",
+        "meaning": "họa sĩ",
+        "icon": "🎨",
+        "ex": "The artist paints lovely pictures."
+      },
+      {
+        "word": "fly a plane",
+        "pos": "v",
+        "ipa": "/flaɪ ə pleɪn/",
+        "meaning": "lái máy bay",
+        "icon": "✈️",
+        "ex": "I would like to fly a plane."
+      },
+      {
+        "word": "look after patients",
+        "pos": "v",
+        "ipa": "/lʊk ˈɑːf.tər ˈpeɪ.ʃənts/",
+        "meaning": "chăm sóc bệnh nhân",
+        "icon": "🏥",
+        "ex": "Nurses look after patients."
+      },
+      {
+        "word": "design buildings",
+        "pos": "v",
+        "ipa": "/dɪˈzaɪn ˈbɪl.dɪŋz/",
+        "meaning": "thiết kế các tòa nhà",
+        "icon": "🏢",
+        "ex": "Architects design beautiful buildings."
+      },
+      {
+        "word": "write stories",
+        "pos": "v",
+        "ipa": "/raɪt ˈstɔː.riz/",
+        "meaning": "viết các câu chuyện",
+        "icon": "📖",
+        "ex": "I like to write stories for children."
+      },
+      {
+        "word": "future",
+        "pos": "n",
+        "ipa": "/ˈfjuː.tʃər/",
+        "meaning": "tương lai",
+        "icon": "🌟",
+        "ex": "What will you be in the future?"
+      },
+      {
+        "word": "grow up",
+        "pos": "v",
+        "ipa": "/ɡrəʊ ʌp/",
+        "meaning": "lớn lên, trưởng thành",
+        "icon": "🌱",
+        "ex": "When I grow up, I will travel the world."
+      }
+    ],
+    "sentences": [
+      {
+        "zh": "What would you like to be in the future? - I'd like to be a pilot.",
+        "vi": "Bạn muốn làm nghề gì trong tương lai? - Tôi muốn trở thành một phi công.",
+        "chunks": [
+          {
+            "en": "What would you like to be",
+            "vi": "Bạn muốn trở thành nghề gì"
+          },
+          {
+            "en": "in the future?",
+            "vi": "trong tương lai?"
+          },
+          {
+            "en": "I'd like to be a pilot.",
+            "vi": "Tôi muốn trở thành một phi công."
+          }
+        ]
+      },
+      {
+        "zh": "Why would you like to be a doctor? - Because I'd like to look after patients.",
+        "vi": "Tại sao bạn muốn làm bác sĩ? - Bởi vì tôi muốn chăm sóc bệnh nhân.",
+        "chunks": [
+          {
+            "en": "Why would you like to be a doctor?",
+            "vi": "Tại sao bạn muốn làm bác sĩ?"
+          },
+          {
+            "en": "Because I'd like to look after patients.",
+            "vi": "Bởi vì tôi muốn chăm sóc bệnh nhân."
+          }
+        ]
+      },
+      {
+        "zh": "What will you do when you grow up? - I will design modern buildings.",
+        "vi": "Bạn sẽ làm gì khi lớn lên? - Tôi sẽ thiết kế những tòa nhà hiện đại.",
+        "chunks": [
+          {
+            "en": "What will you do",
+            "vi": "Bạn sẽ làm gì"
+          },
+          {
+            "en": "when you grow up?",
+            "vi": "khi bạn lớn lên?"
+          },
+          {
+            "en": "I will design modern buildings.",
+            "vi": "Tôi sẽ thiết kế những tòa nhà hiện đại."
+          }
+        ]
+      }
+    ],
+    "grammar": {
+      "title": "Hỏi ước mơ nghề nghiệp & Giải thích lý do 'Why - Because'",
+      "desc": "Cặp câu hỏi và trả lời kinh điển trong bài học Unit 5!",
+      "diagram": [
+        {
+          "label": "Hỏi ước mơ nghề nghiệp",
+          "example": "What would you like to be in the future? ➜ I'd like to be a/an...",
+          "color": "bg-rose-50 border-rose-300 text-rose-800",
+          "rule": "I'd like = I would like. Lưu ý dùng 'an' trước architect, astronaut!"
+        },
+        {
+          "label": "Hỏi lý do: Why would you like...?",
+          "example": "Why would you like to be an architect? ➜ Because I'd like to design buildings.",
+          "color": "bg-red-50 border-red-300 text-red-800",
+          "rule": "Câu hỏi bắt đầu bằng Why thì câu trả lời PHẢI bắt đầu bằng Because"
+        },
+        {
+          "label": "Cặp đôi Nghề nghiệp & Hành động",
+          "example": "pilot ➜ fly a plane | doctor ➜ look after patients | writer ➜ write stories",
+          "color": "bg-orange-50 border-orange-300 text-orange-800",
+          "rule": "Học thuộc theo cặp để nói trôi chảy"
+        }
+      ],
+      "tip": "💡 Nhớ nhé: astronaut (phi hành gia) và architect (kiến trúc sư) bắt đầu bằng nguyên âm nên phải dùng AN astronaut / AN architect!"
+    },
+    "practice": [
+      {
+        "vi": "Bạn muốn làm gì trong tương lai? - Tôi muốn trở thành một phi hành gia.",
+        "en": "What would you like to be in the future? - I'd like to be an astronaut.",
+        "tip": "Nhớ dùng 'an astronaut' vì bắt đầu bằng chữ 'a'"
+      },
+      {
+        "vi": "Tại sao bạn muốn trở thành một phi công? - Bởi vì tôi muốn lái máy bay.",
+        "en": "Why would you like to be a pilot? - Because I'd like to fly a plane.",
+        "tip": "Hỏi Why trả lời Because"
+      },
+      {
+        "vi": "Tại sao cô ấy muốn làm giáo viên? - Bởi vì cô ấy muốn dạy dỗ trẻ em.",
+        "en": "Why would she like to be a teacher? - Because she'd like to teach children.",
+        "tip": "Dạy trẻ em là 'teach children'"
+      },
+      {
+        "vi": "Khi lớn lên, tôi sẽ du hành vòng quanh thế giới.",
+        "en": "When I grow up, I will travel around the world.",
+        "tip": "Lớn lên là 'grow up', vòng quanh thế giới là 'around the world'"
+      }
+    ],
+    "song": {
+      "title": "When I Grow Up (Bài hát Ước mơ tương lai)",
+      "lines": [
+        {
+          "en": "When I grow up, what will I be?",
+          "vi": "Khi lớn lên, tôi sẽ làm nghề gì đây?"
+        },
+        {
+          "en": "An astronaut sailing in the galaxy!",
+          "vi": "Một phi hành gia chu du giữa dải ngân hà!"
+        },
+        {
+          "en": "A pilot flying high up in the blue sky,",
+          "vi": "Một người phi công bay vút trên bầu trời xanh,"
+        },
+        {
+          "en": "A kind doctor helping people passing by!",
+          "vi": "Một bác sĩ tốt bụng giúp đỡ mọi người!"
+        },
+        {
+          "en": "Whatever I choose, my dreams will come true!",
+          "vi": "Dù chọn điều gì, những ước mơ của tôi cũng sẽ thành hiện thực!"
+        }
+      ]
+    }
+  }
+];
+
+
+// Application Logic for English Grade 5 Global Success Flashcard App
+
+let activeUnitId = 1;
+let activeTab = 'vocab';
+let currentSpeed = 1.0;
+let isChantPlayingAll = false;
+let chantQueue = [];
+let chantIndex = 0;
+
+// Load learned items from localStorage
+function getLearnedSet() {
+  try {
+    const raw = localStorage.getItem('g5_learned_items');
+    return raw ? new Set(JSON.parse(raw)) : new Set();
+  } catch (e) {
+    return new Set();
+  }
+}
+
+function saveLearned(id) {
+  const set = getLearnedSet();
+  set.add(id);
+  localStorage.setItem('g5_learned_items', JSON.stringify(Array.from(set)));
+  updateProgressDisplay();
+}
+
+function isLearned(id) {
+  return getLearnedSet().has(id);
+}
+
+// Audio Engine (Google Translate TTS)
+function playAudio(text, customSpeed) {
+  stopAudio();
+  const player = document.getElementById('app-audio-player');
+  const toast = document.getElementById('audio-toast');
+  const toastMsg = document.getElementById('toast-msg');
+
+  if (!player) return;
+
+  const rate = customSpeed || currentSpeed;
+  const q = encodeURIComponent(text.trim());
+  const url = 'https://translate.googleapis.com/translate_tts?ie=UTF-8&tl=en&client=tw-ob&q=' + q;
+
+  player.src = url;
+  player.playbackRate = rate;
+
+  if (toast && toastMsg) {
+    toastMsg.textContent = '🔊 Đang đọc: "' + (text.length > 35 ? text.substring(0, 35) + '...' : text) + '"';
+    toast.classList.remove('hidden');
+    toast.classList.add('flex');
+  }
+
+  player.onended = function() {
+    if (toast) {
+      toast.classList.add('hidden');
+      toast.classList.remove('flex');
+    }
+    if (isChantPlayingAll) {
+      playNextChantLine();
+    }
+  };
+
+  player.onerror = function() {
+    if (toast) {
+      toast.classList.add('hidden');
+      toast.classList.remove('flex');
+    }
+    // Fallback: Web Speech API if network TTS blocked
+    if ('speechSynthesis' in window) {
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = 'en-US';
+      u.rate = rate;
+      window.speechSynthesis.speak(u);
+    }
+  };
+
+  player.play().catch(e => {
+    console.log('Audio autoplay prevented:', e);
+  });
+}
+
+function stopAudio() {
+  isChantPlayingAll = false;
+  const player = document.getElementById('app-audio-player');
+  if (player) {
+    player.pause();
+    player.currentTime = 0;
+  }
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+  }
+  const toast = document.getElementById('audio-toast');
+  if (toast) {
+    toast.classList.add('hidden');
+    toast.classList.remove('flex');
+  }
+}
+
+function setSpeed(speed) {
+  currentSpeed = speed;
+  const btnNorm = document.getElementById('speed-normal');
+  const btnSlow = document.getElementById('speed-slow');
+
+  if (speed === 1.0) {
+    btnNorm.className = 'px-3 py-1.5 rounded-xl text-xs font-extrabold bg-indigo-600 text-white shadow-sm transition';
+    btnSlow.className = 'px-3 py-1.5 rounded-xl text-xs font-extrabold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition';
+  } else {
+    btnSlow.className = 'px-3 py-1.5 rounded-xl text-xs font-extrabold bg-indigo-600 text-white shadow-sm transition';
+    btnNorm.className = 'px-3 py-1.5 rounded-xl text-xs font-extrabold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition';
+  }
+}
+
+// Navigation & Tab Switching
+function selectUnit(unitId) {
+  activeUnitId = unitId;
+  stopAudio();
+  renderUnitNav();
+  renderUnitBanner();
+  renderContent();
+}
+
+function switchTab(tabName) {
+  activeTab = tabName;
+  stopAudio();
+  const tabs = ['vocab', 'sentences', 'grammar', 'practice', 'song'];
+  tabs.forEach(t => {
+    const btn = document.getElementById('tab-btn-' + t);
+    if (btn) {
+      if (t === tabName) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    }
+  });
+  renderContent();
+}
+
+function currentUnit() {
+  return APP_UNITS.find(u => u.id === activeUnitId) || APP_UNITS[0];
+}
+
+// Render Header & Navigation
+function renderUnitNav() {
+  const nav = document.getElementById('unit-nav');
+  if (!nav) return;
+
+  nav.innerHTML = APP_UNITS.map(u => {
+    const isActive = u.id === activeUnitId;
+    return `
+      <button onclick="selectUnit(${u.id})" class="unit-tab p-3 rounded-2xl font-black text-xs sm:text-sm flex items-center justify-center gap-1.5 transition ${isActive ? 'active' : 'bg-white text-slate-700 hover:bg-slate-50 border border-slate-200 shadow-sm'}">
+        <span class="text-base sm:text-lg">${u.icon}</span>
+        <span>Unit ${u.id}</span>
+      </button>
+    `;
+  }).join('');
+}
+
+function renderUnitBanner() {
+  const banner = document.getElementById('unit-banner');
+  if (!banner) return;
+  const u = currentUnit();
+  banner.className = `bg-gradient-to-r ${u.themeColor} rounded-3xl p-5 sm:p-6 text-white shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3`;
+  banner.innerHTML = `
+    <div>
+      <span class="inline-block px-2.5 py-0.5 bg-white/20 rounded-md text-xs font-bold uppercase tracking-wide">Chương trình Tiếng Anh 5</span>
+      <h2 class="text-xl sm:text-2xl font-black mt-1">${u.title}</h2>
+      <p class="text-xs sm:text-sm text-white/90 font-medium">${u.subtitle}</p>
+    </div>
+    <div id="unit-progress-badge" class="bg-white/20 backdrop-blur-md px-3.5 py-2 rounded-2xl text-xs font-extrabold flex items-center gap-2">
+      <span>⭐ Tiến độ: Đang tải...</span>
+    </div>
+  `;
+  updateProgressDisplay();
+}
+
+function updateProgressDisplay() {
+  const badge = document.getElementById('unit-progress-badge');
+  if (!badge) return;
+  const u = currentUnit();
+  const set = getLearnedSet();
+  
+  let total = u.vocab.length + u.sentences.length + u.practice.length;
+  let done = 0;
+
+  u.vocab.forEach(v => { if (set.has('u' + u.id + '_v_' + v.word)) done++; });
+  u.sentences.forEach((s, idx) => { if (set.has('u' + u.id + '_s_' + idx)) done++; });
+  u.practice.forEach((p, idx) => { if (set.has('u' + u.id + '_p_' + idx)) done++; });
+
+  badge.innerHTML = `⭐ Đã thuộc: ${done}/${total} mục (${Math.round((done/total)*100)}%)`;
+}
+
+// Render Content Views
+function renderContent() {
+  const main = document.getElementById('main-content');
+  if (!main) return;
+
+  const u = currentUnit();
+
+  if (activeTab === 'vocab') {
+    main.innerHTML = `
+      <div class="space-y-3">
+        <div class="flex items-center justify-between">
+          <h3 class="text-sm sm:text-base font-extrabold text-slate-800 flex items-center gap-2">
+            <span>📚 Danh Sách Từ Vựng Cốt Lõi (${u.vocab.length} từ)</span>
+          </h3>
+          <span class="text-xs text-slate-500 font-medium italic">Bấm 🔊 để nghe giọng đọc chuẩn bản xứ</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5">
+          ${u.vocab.map(v => {
+            const vId = 'u' + u.id + '_v_' + v.word;
+            const learned = isLearned(vId);
+            return `
+              <div class="flashcard bg-white rounded-2xl p-4 border border-slate-100 shadow-sm flex flex-col justify-between space-y-3 relative overflow-hidden">
+                ${learned ? '<span class="absolute top-2 right-2 text-xs bg-emerald-100 text-emerald-800 font-extrabold px-2 py-0.5 rounded-full">✓ Đã thuộc</span>' : ''}
+                <div class="space-y-1">
+                  <div class="flex items-center gap-2">
+                    <span class="text-2xl">${v.icon}</span>
+                    <div>
+                      <span class="text-lg font-black text-slate-900">${v.word}</span>
+                      <span class="text-xs font-bold text-indigo-600 ml-1">(${v.pos})</span>
+                    </div>
+                  </div>
+                  <div class="text-xs font-semibold text-slate-400 font-mono">${v.ipa}</div>
+                  <div class="text-sm font-extrabold text-slate-700">${v.meaning}</div>
+                  <div class="text-xs text-slate-500 italic bg-slate-50 p-2 rounded-xl mt-1">"${v.ex}"</div>
+                </div>
+                <div class="flex items-center gap-2 pt-1">
+                  <button onclick="playAudio('${v.word.replace(/'/g, "\\'")}'); saveLearned('${vId}')" class="pulse-btn flex-1 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 py-2 rounded-xl text-xs font-extrabold flex items-center justify-center gap-1.5 transition">
+                    <span>🔊 Phát âm</span>
+                  </button>
+                  <button onclick="playAudio('${v.ex.replace(/'/g, "\\'")}')" title="Nghe câu ví dụ" class="pulse-btn px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold transition">
+                    <span>🎧 Nghe câu</span>
+                  </button>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      </div>
+    `;
+  } else if (activeTab === 'sentences') {
+    main.innerHTML = `
+      <div class="space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="text-sm sm:text-base font-extrabold text-slate-800">🗣️ Mẫu Câu Trọng Tâm & Nghe Từng Khúc</h3>
+          <span class="text-xs text-slate-500 font-medium">Nghe từng cụm giúp bé bắt chước ngữ điệu dễ dàng</span>
+        </div>
+        <div class="space-y-3.5">
+          ${u.sentences.map((s, idx) => {
+            const sId = 'u' + u.id + '_s_' + idx;
+            const learned = isLearned(sId);
+            return `
+              <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm space-y-4">
+                <div class="flex items-start justify-between gap-3">
+                  <div class="space-y-1">
+                    <div class="text-base sm:text-lg font-black text-slate-900">${s.zh}</div>
+                    <div class="text-sm font-extrabold text-indigo-600">${s.vi}</div>
+                  </div>
+                  <button onclick="playAudio('${s.zh.replace(/'/g, "\\'")}'); saveLearned('${sId}')" class="pulse-btn px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-extrabold flex items-center gap-1.5 shadow-sm transition whitespace-nowrap">
+                    <span>🔊 Nghe cả câu</span>
+                  </button>
+                </div>
+
+                <!-- Chunks breakdown -->
+                <div class="bg-slate-50 rounded-2xl p-3.5 border border-slate-200 space-y-2">
+                  <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">🎧 Tách nhỏ từng cụm để luyện nói theo:</div>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+                    ${s.chunks.map(c => `
+                      <button onclick="playAudio('${c.en.replace(/'/g, "\\'")}')" class="pulse-btn p-2.5 rounded-xl bg-white border border-slate-200 hover:border-indigo-300 text-left transition flex items-center justify-between gap-2 shadow-2xs">
+                        <div>
+                          <div class="text-xs font-black text-slate-800">${c.en}</div>
+                          <div class="text-2xs text-slate-500 font-semibold">${c.vi}</div>
+                        </div>
+                        <span class="text-xs text-indigo-500">🔊</span>
+                      </button>
+                    `).join('')}
+                  </div>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      </div>
+    `;
+  } else if (activeTab === 'grammar') {
+    main.innerHTML = `
+      <div class="bg-white rounded-3xl p-5 sm:p-7 border border-slate-100 shadow-sm space-y-5">
+        <div>
+          <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs font-extrabold">💡 Điểm Ngữ Pháp Cốt Lõi</span>
+          <h3 class="text-lg sm:text-xl font-black text-slate-900 mt-2">${u.grammar.title}</h3>
+          <p class="text-xs sm:text-sm text-slate-600 font-medium mt-1">${u.grammar.desc}</p>
+        </div>
+
+        <!-- Visual Diagram / Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+          ${u.grammar.diagram.map(d => `
+            <div class="${d.color} rounded-2xl p-4 border space-y-2">
+              <div class="text-sm font-black">${d.label}</div>
+              <div class="text-xs font-semibold leading-relaxed">${d.rule}</div>
+              <div class="bg-white/80 p-2.5 rounded-xl text-xs font-mono font-bold border border-black/5">
+                Ví dụ: ${d.example}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+
+        <!-- Memorization Tip -->
+        <div class="bg-amber-50 border border-amber-200 p-4 rounded-2xl text-xs sm:text-sm text-amber-900 font-extrabold flex items-center gap-2">
+          <span>${u.grammar.tip}</span>
+        </div>
+      </div>
+    `;
+  } else if (activeTab === 'practice') {
+    main.innerHTML = `
+      <div class="space-y-4">
+        <div class="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-3xl p-5 text-white shadow-sm flex items-center justify-between">
+          <div>
+            <h3 class="text-base sm:text-lg font-black">🎯 Dịch Cả Câu Để Thuộc Lòng & Áp Dụng</h3>
+            <p class="text-xs text-white/90 font-medium">Bấm xem đáp án và nghe phát âm câu tiếng Anh chuẩn để đọc theo nhé!</p>
+          </div>
+          <span class="text-3xl">🏆</span>
+        </div>
+
+        <div class="space-y-3.5">
+          ${u.practice.map((p, idx) => {
+            const pId = 'u' + u.id + '_p_' + idx;
+            const learned = isLearned(pId);
+            return `
+              <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm space-y-3.5">
+                <div class="flex items-start justify-between gap-3">
+                  <div class="space-y-1">
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Câu hỏi ${idx + 1}:</span>
+                    <div class="text-base font-black text-slate-800">🇻🇳 ${p.vi}</div>
+                  </div>
+                  <button id="btn-show-ans-${idx}" onclick="toggleAnswer(${idx})" class="pulse-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-extrabold transition">
+                    👁️ Xem đáp án
+                  </button>
+                </div>
+
+                <!-- Hidden / Revealed Answer Box -->
+                <div id="ans-box-${idx}" class="hidden bg-emerald-50 border border-emerald-200 rounded-2xl p-4 space-y-3">
+                  <div>
+                    <span class="text-2xs font-extrabold uppercase text-emerald-700 tracking-wider">Đáp án tiếng Anh:</span>
+                    <div class="text-base sm:text-lg font-black text-emerald-900 mt-0.5">🇬🇧 ${p.en}</div>
+                    <div class="text-xs text-emerald-700 font-semibold mt-1">💡 Ghi nhớ: ${p.tip}</div>
+                  </div>
+
+                  <div class="flex flex-wrap items-center gap-2 pt-1">
+                    <button onclick="playAudio('${p.en.replace(/'/g, "\\'")}')" class="pulse-btn px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-extrabold flex items-center gap-1.5 shadow-sm transition">
+                      <span>🔊 Nghe phát âm đáp án</span>
+                    </button>
+                    <button id="btn-mark-${idx}" onclick="markPracticeLearned('${pId}', ${idx})" class="pulse-btn px-3.5 py-2 rounded-xl text-xs font-extrabold ${learned ? 'bg-amber-100 text-amber-800' : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'} transition">
+                      <span>${learned ? '⭐ Đã thuộc câu này' : '☆ Đánh dấu đã thuộc'}</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      </div>
+    `;
+  } else if (activeTab === 'song') {
+    main.innerHTML = `
+      <div class="bg-white rounded-3xl p-5 sm:p-7 border border-slate-100 shadow-sm space-y-5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
+          <div>
+            <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-xs font-extrabold">🎵 Bài Hát & Chant Vui Nhộn</span>
+            <h3 class="text-lg sm:text-xl font-black text-slate-900 mt-2">${u.song.title}</h3>
+            <p class="text-xs text-slate-500 font-medium">Bấm nghe từng dòng để bé nhẩm và hát theo từng câu dễ dàng!</p>
+          </div>
+          <button onclick="playFullChant()" class="pulse-btn px-5 py-2.5 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white rounded-2xl text-xs sm:text-sm font-extrabold shadow-md flex items-center justify-center gap-2 transition">
+            <span>▶️ Hát cả bài</span>
+          </button>
+        </div>
+
+        <!-- Lyrics List -->
+        <div class="space-y-2.5">
+          ${u.song.lines.map((line, idx) => `
+            <div id="chant-line-${idx}" class="p-3.5 rounded-2xl border border-slate-100 hover:border-pink-300 bg-slate-50/70 hover:bg-pink-50/40 transition flex items-center justify-between gap-3">
+              <div class="space-y-0.5">
+                <div class="text-sm sm:text-base font-black text-slate-800">${line.en}</div>
+                <div class="text-xs font-medium text-slate-500 italic">${line.vi}</div>
+              </div>
+              <button onclick="playAudio('${line.en.replace(/'/g, "\\'")}')" class="pulse-btn px-3 py-1.5 bg-white hover:bg-pink-100 text-pink-600 border border-slate-200 rounded-xl text-xs font-bold transition flex items-center gap-1 shadow-2xs whitespace-nowrap">
+                <span>🔊 Nghe câu này</span>
+              </button>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+}
+
+function toggleAnswer(idx) {
+  const box = document.getElementById('ans-box-' + idx);
+  const btn = document.getElementById('btn-show-ans-' + idx);
+  if (!box || !btn) return;
+
+  if (box.classList.contains('hidden')) {
+    box.classList.remove('hidden');
+    btn.textContent = 'Ẩn đáp án';
+    // Automatically speak the answer once when opened!
+    const u = currentUnit();
+    if (u.practice[idx]) {
+      playAudio(u.practice[idx].en);
+    }
+  } else {
+    box.classList.add('hidden');
+    btn.textContent = '👁️ Xem đáp án';
+  }
+}
+
+function markPracticeLearned(id, idx) {
+  saveLearned(id);
+  const btn = document.getElementById('btn-mark-' + idx);
+  if (btn) {
+    btn.className = 'pulse-btn px-3.5 py-2 rounded-xl text-xs font-extrabold bg-amber-100 text-amber-800 transition';
+    btn.innerHTML = '<span>⭐ Đã thuộc câu này</span>';
+  }
+}
+
+function playFullChant() {
+  const u = currentUnit();
+  chantQueue = u.song.lines.map(l => l.en);
+  chantIndex = 0;
+  isChantPlayingAll = true;
+  playNextChantLine();
+}
+
+function playNextChantLine() {
+  if (!isChantPlayingAll || chantIndex >= chantQueue.length) {
+    isChantPlayingAll = false;
+    return;
+  }
+  const text = chantQueue[chantIndex];
+  chantIndex++;
+  playAudio(text);
+}
+
+// Initial boot
+window.addEventListener('DOMContentLoaded', () => {
+  renderUnitNav();
+  renderUnitBanner();
+  renderContent();
+});
+
+  </script>
+</body>
+</html>
