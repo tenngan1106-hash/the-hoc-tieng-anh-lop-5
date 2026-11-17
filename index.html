@@ -2,68 +2,90 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
+  <meta name="referrer" content="no-referrer" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thẻ Học &amp; Luyện Nghe Tiếng Anh 5 - Global Success (Unit 1 - 5)</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <title>Thẻ Học &amp; Luyện Nghe Tiếng Anh 5 - Global Success (Trọn Bộ 5 Unit Chuẩn Văn Hóa Việt Nam)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Nunito', sans-serif;
-      background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
-      min-height: 100vh;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f1f5f9;
+      color: #1e293b;
     }
-    .unit-tab.active {
-      background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
-      color: white;
-      box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.4);
-      transform: translateY(-2px);
+    .font-kids {
+      font-family: 'Nunito', sans-serif;
+    }
+    .hero-card {
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
     }
     .sub-tab.active {
-      border-bottom: 3px solid #4f46e5;
-      color: #4f46e5;
-      font-weight: 800;
+      background-color: #4f46e5;
+      color: #ffffff;
+      box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.25);
     }
-    .pulse-btn:active {
-      transform: scale(0.96);
+    .sub-tab:not(.active) {
+      background-color: transparent;
+      color: #64748b;
     }
-    .active-word-pill {
-      background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%) !important;
-      color: #ffffff !important;
-      border-color: transparent !important;
-      box-shadow: 0 8px 18px -4px rgba(79, 70, 229, 0.45) !important;
-      transform: translateY(-2px);
+    .sub-tab:not(.active):hover {
+      background-color: #f8fafc;
+      color: #1e293b;
+    }
+    .rhyme-box {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      border: 2px dashed #f59e0b;
+    }
+    .chunk-pill {
+      transition: all 0.2s ease;
+    }
+    .chunk-pill:hover {
+      transform: translateY(-1px);
+    }
+    .grammar-badge {
+      animation: pulseGlow 2s infinite;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
     }
   </style>
 </head>
-<body class="text-slate-800 p-2 sm:p-5 pb-20 antialiased">
-  <div class="max-w-3xl mx-auto space-y-4 sm:space-y-6">
-
-    <!-- Header Banner -->
-    <header class="bg-white rounded-3xl p-4 sm:p-6 shadow-lg border border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+<body class="min-h-screen p-3 sm:p-6 pb-20">
+  <div class="max-w-4xl mx-auto space-y-4">
+    
+    <!-- Top Header -->
+    <header class="bg-white rounded-3xl p-4 sm:p-6 shadow-sm border border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="space-y-1 text-center sm:text-left">
-        <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-xs font-black uppercase tracking-wider">
-          <span>🎒 Global Success Tiếng Anh 5</span>
-          <span>•</span>
-          <span>Dành Cho Màn Hình &amp; Máy Chiếu Lớp Học</span>
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-indigo-50 border border-indigo-200 text-indigo-700 rounded-full text-xs font-extrabold uppercase tracking-wider">
+          <span>🎒</span>
+          <span>Tiếng Anh Lớp 5 · Học Kỳ 1 · Global Success</span>
         </div>
         <h1 class="text-xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center justify-center sm:justify-start gap-2">
           <span>Thẻ Học &amp; Luyện Nghe Tiếng Anh 5</span>
           <span class="text-2xl">✨</span>
         </h1>
-        <p class="text-xs sm:text-sm text-slate-500 font-bold">Hình ảnh to 100% bề ngang • Thơ lục bát mẹo nhớ từ • Nhạc nền &amp; Video bài hát chuẩn SGK</p>
+        <p class="text-xs sm:text-sm text-slate-500 font-bold">Hình ảnh to rõ 100% chuẩn văn hóa Việt Nam • Thơ lục bát mẹo nhớ từ • Tranh mẫu câu &amp; Minigame ôn tập</p>
       </div>
       
-      <!-- Audio Player Control -->
-      <div class="flex items-center gap-2 bg-slate-50 p-2 rounded-2xl border border-slate-200">
-        <span class="text-xs font-bold text-slate-600">Tốc độ:</span>
-        <button id="speed-normal" onclick="setSpeed(1.0)" class="px-3 py-1.5 rounded-xl text-xs font-black bg-indigo-600 text-white shadow-sm transition">1.0x</button>
-        <button id="speed-slow" onclick="setSpeed(0.75)" class="px-3 py-1.5 rounded-xl text-xs font-black bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition">0.75x</button>
+      <!-- Audio Player Control & Review gallery link -->
+      <div class="flex flex-col items-end gap-2">
+        <div class="flex items-center gap-2 bg-slate-50 p-2 rounded-2xl border border-slate-200">
+          <span class="text-xs font-bold text-slate-600">Tốc độ:</span>
+          <button id="speed-normal" onclick="setSpeed(1.0)" class="px-3 py-1.5 rounded-xl text-xs font-black bg-indigo-600 text-white shadow-sm transition">1.0x</button>
+          <button id="speed-slow" onclick="setSpeed(0.75)" class="px-3 py-1.5 rounded-xl text-xs font-black bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition">0.75x</button>
+        </div>
+        <a href="lesson1_photo_samples.html" target="_blank" class="text-xs font-bold text-indigo-600 hover:text-indigo-800 underline flex items-center gap-1">
+          <span>🖼️</span>
+          <span>Bảng chọn hình mẫu Lesson 1</span>
+        </a>
       </div>
     </header>
 
     <!-- Hidden Audio Players -->
     <audio id="app-audio-player" playsinline preload="none" class="hidden"></audio>
-    <audio id="bg-music-player" loop preload="none" class="hidden"></audio>
 
     <!-- Audio Status Toast -->
     <div id="audio-toast" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-900/95 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 z-50 text-sm font-semibold backdrop-blur-md border border-slate-700">
@@ -78,13 +100,13 @@
     <!-- Unit Title Banner -->
     <div id="unit-banner" class="bg-gradient-to-r from-indigo-500 to-blue-600 rounded-3xl p-5 sm:p-6 text-white shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3"></div>
 
-    <!-- Section Tabs (Từ vựng | Mẫu câu | Ngữ pháp | Dịch câu | Bài hát) -->
+    <!-- Section Tabs (Từ vựng | Mẫu câu | Ngữ pháp | Dịch câu | Ôn tập minigame) -->
     <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-1.5 flex flex-wrap gap-1" id="sub-tabs">
       <button onclick="switchTab('vocab')" id="tab-btn-vocab" class="sub-tab px-3 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-black flex-1 text-center transition active">📚 1. Từ vựng &amp; Tranh bự</button>
       <button onclick="switchTab('sentences')" id="tab-btn-sentences" class="sub-tab px-3 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-black flex-1 text-center transition">🗣️ 2. Mẫu câu</button>
       <button onclick="switchTab('grammar')" id="tab-btn-grammar" class="sub-tab px-3 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-black flex-1 text-center transition">💡 3. Ngữ pháp</button>
       <button onclick="switchTab('practice')" id="tab-btn-practice" class="sub-tab px-3 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-black flex-1 text-center transition">🎯 4. Dịch câu</button>
-      <button onclick="switchTab('song')" id="tab-btn-song" class="sub-tab px-3 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-black flex-1 text-center transition">🎵 5. Bài hát</button>
+      <button onclick="switchTab('quiz')" id="tab-btn-quiz" class="sub-tab px-3 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-black flex-1 text-center transition">🎮 5. Ôn tập &amp; Trò chơi</button>
     </div>
 
     <!-- Main Content Area -->
@@ -108,12 +130,14 @@ const APP_UNITS = [
         "meaning": "ngõ, hẻm nhỏ",
         "icon": "🏡",
         "tag": "🏡 LANE • NGÕ NHỎ",
-        "imgUrl": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&auto=format&fit=crop&q=80",
-        "tip": "Con ngõ nhỏ thanh bình lát gạch hoa",
+        "imgUrl": "assets/sample_review/lane_a.jpg",
+        "fallbackUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Narrow_Lane,_Hanoi,_Vietnam_(7060655639).jpg?width=960",
+        "tip": "Con ngõ nhỏ Hà Nội lát gạch sạch sẽ có rợp bóng cây mát lành",
         "rhyme": "“Rẽ vào con ngõ bình yên,\nLane này sạch sẽ, gắn liền tuổi thơ!”",
         "mnemonic": "💡 <strong>Cách liên tưởng:</strong> <strong>Lane</strong> đọc tựa như <em>làn xe</em> ➜ Từng làn xe đạp rẽ vào con ngõ nhỏ bình yên dẫn về nhà.",
         "example": "He lives in a peaceful house in Hoa Binh Lane.",
-        "exampleVi": "(Cậu ấy sống trong một ngôi nhà yên bình ở ngõ Hòa Bình.)"
+        "exampleVi": "(Cậu ấy sống trong một ngôi nhà yên bình ở ngõ Hòa Bình.)",
+        "exampleIpa": "/hiː lɪvz ɪn ə ˈpiːs.fəl haʊs ɪn hoɑː bɪn leɪn/"
       },
       {
         "word": "address",
@@ -122,12 +146,14 @@ const APP_UNITS = [
         "meaning": "địa chỉ nhà",
         "icon": "📮",
         "tag": "📮 ADDRESS • ĐỊA CHỈ",
-        "imgUrl": "https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?w=800&auto=format&fit=crop&q=80",
-        "tip": "Hòm thư và biển số nhà trước cổng",
+        "imgUrl": "assets/sample_review/address_a.jpg",
+        "fallbackUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/2026-09-17_15_Gizo_Nishnianidze_Street_house_number_sign,_Tbilisi.jpg?width=960",
+        "tip": "Biển số nhà 15 to rõ ràng kèm tên đường phố",
         "rhyme": "“Viết thư thì nhớ ghi nhanh,\nTìm nhà bạn đến address rành rành!”",
         "mnemonic": "💡 <strong>Cách liên tưởng:</strong> Tách từ: <strong>Add</strong> (thêm vào) + <strong>dress</strong> (chiếc váy) ➜ Thêm địa chỉ lên hộp bưu phẩm để bác đưa thư gửi chiếc váy xinh đến đúng nhà bạn!",
         "example": "What's your address? - It's 105, Hoa Binh Lane.",
-        "exampleVi": "(Địa chỉ của bạn là gì? - Đó là số 105, ngõ Hòa Bình.)"
+        "exampleVi": "(Địa chỉ của bạn là gì? - Đó là số 105, ngõ Hòa Bình.)",
+        "exampleIpa": "/wɒts jɔːr əˈdres/ - /ɪts wʌn ˈhʌndrəd ænd faɪv, hoɑː bɪn leɪn/"
       },
       {
         "word": "street",
@@ -136,12 +162,14 @@ const APP_UNITS = [
         "meaning": "đường phố",
         "icon": "🛣️",
         "tag": "🛣️ STREET • ĐƯỜNG PHỐ",
-        "imgUrl": "https://images.unsplash.com/photo-1477959858617-67f30bc75b82?w=800&auto=format&fit=crop&q=80",
-        "tip": "Đường phố rộng thênh thang rợp bóng cây",
+        "imgUrl": "assets/sample_review/street_a.jpg",
+        "fallbackUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Phan_%C4%90%C3%ACnh_Ph%C3%B9ng_Street,_Hanoi.jpg?width=960",
+        "tip": "Đường Phan Đình Phùng rợp bóng cây xanh mát thênh thang",
         "rhyme": "“Đường to xe chạy thênh thang,\nGọi tên là street rộn ràng sớm hôm!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> Con đường <strong>street</strong> rợp bóng cây xanh, hai bên có nhiều cửa hàng và xe buýt chạy tấp nập.",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> Con đường <strong>street</strong> rợp bóng cây xanh, hai bên có nhiều cửa hàng và người đi lại tấp nập.",
         "example": "My primary school is on Tran Phu Street.",
-        "exampleVi": "(Trường tiểu học của tôi nằm trên đường Trần Phú.)"
+        "exampleVi": "(Trường tiểu học của tôi nằm trên đường Trần Phú.)",
+        "exampleIpa": "/maɪ ˈpraɪ.mə.ri skuːl ɪz ɒn trɑːn fuː striːt/"
       },
       {
         "word": "avenue",
@@ -150,12 +178,14 @@ const APP_UNITS = [
         "meaning": "đại lộ lớn",
         "icon": "🌆",
         "tag": "🌆 AVENUE • ĐẠI LỘ",
-        "imgUrl": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=800&auto=format&fit=crop&q=80",
-        "tip": "Đại lộ nhiều làn xe tấp nập",
+        "imgUrl": "assets/sample_review/avenue_a.jpg",
+        "fallbackUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Ho_Chi_Minh_City,_Nguyen_Hue_Street,_2020-01_CN-02.jpg?width=960",
+        "tip": "Đại lộ Nguyễn Huệ TP.HCM thênh thang nhiều tòa nhà cao đẹp",
         "rhyme": "“Đại lộ rực rỡ đèn hoa,\nAvenue thẳng tắp đi qua phố phường!”",
         "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Avenue</strong> là đại lộ to nhất thành phố với những tòa nhà chọc trời sáng rực.",
         "example": "The big tower is on Thang Long Avenue.",
-        "exampleVi": "(Tòa tháp lớn nằm trên đại lộ Thăng Long.)"
+        "exampleVi": "(Tòa tháp lớn nằm trên đại lộ Thăng Long.)",
+        "exampleIpa": "/ðə bɪɡ ˈtaʊ.ər ɪz ɒn θɑːŋ lɒŋ ˈæv.ə.njuː/"
       },
       {
         "word": "floor",
@@ -164,12 +194,14 @@ const APP_UNITS = [
         "meaning": "tầng lầu, sàn nhà",
         "icon": "🏢",
         "tag": "🏢 FLOOR • TẦNG LẦU",
-        "imgUrl": "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?w=800&auto=format&fit=crop&q=80",
-        "tip": "Các tầng lầu trong tòa nhà cao tầng",
-        "rhyme": "“Thang máy bấm số vèo vèo,\nLên floor tầng ba đón chiều gió bay!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Floor</strong> là tầng lầu. Nhớ giới từ: on the second floor (trên tầng hai).",
-        "example": "She lives in a flat on the second floor.",
-        "exampleVi": "(Cô ấy sống trong một căn hộ trên tầng hai.)"
+        "imgUrl": "assets/sample_review/floor_a.jpg",
+        "fallbackUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Apartment_balconies,_Kanalv%C3%A4gen_and_Floragatan,_%C3%96rebro.jpg?width=960",
+        "tip": "Tòa nhà nhiều tầng phân rõ Tầng 1, Tầng 2, Tầng 3 với các ban công xinh xắn",
+        "rhyme": "“Lên tầng thang máy bấm ngay,\nFloor tầng hai đó, ngắm mây ngắm trời!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Floor</strong> là từng tầng của tòa nhà chung cư hoặc sàn nhà bóng loáng.",
+        "example": "My family lives on the second floor of this building.",
+        "exampleVi": "(Gia đình tôi sống ở tầng hai của tòa nhà này.)",
+        "exampleIpa": "/maɪ ˈfæm.əl.i lɪvz ɒn ðə ˈsek.ənd flɔːr əv ðɪs ˈbɪl.dɪŋ/"
       },
       {
         "word": "flat",
@@ -178,12 +210,14 @@ const APP_UNITS = [
         "meaning": "căn hộ chung cư",
         "icon": "🏬",
         "tag": "🏬 FLAT • CĂN HỘ",
-        "imgUrl": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&auto=format&fit=crop&q=80",
-        "tip": "Căn hộ chung cư ấm cúng và tiện nghi",
-        "rhyme": "“Tòa nhà chung cư xinh tươi,\nTrong flat ấm cúng nụ cười gia đình!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Flat</strong> là căn hộ khép kín trong tòa nhà chung cư hiện đại.",
-        "example": "We live in Flat 12 on the third floor.",
-        "exampleVi": "(Chúng tôi sống ở căn hộ số 12 trên tầng ba.)"
+        "imgUrl": "assets/sample_review/flat_a.jpg",
+        "fallbackUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Modern_living_room_with_stylish_furniture_and_a_view_of_the_outdoors_in_a_cozy_apartment_setting.jpg?width=960",
+        "tip": "Căn hộ chung cư ấm cúng: phòng khách có sofa và ban công ngập nắng",
+        "rhyme": "“Chung cư tầng lộng gió bay,\nFlat này ấm áp sum vầy yêu thương!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> Căn hộ <strong>flat</strong> trên tầng cao mát mẻ, có phòng khách và ban công xinh xắn.",
+        "example": "They live in flat 18 on the third floor.",
+        "exampleVi": "(Họ sống trong căn hộ số 18 trên tầng ba.)",
+        "exampleIpa": "/ðeɪ lɪv ɪn flæt ˌeɪˈtiːn ɒn ðə θɜːd flɔːr/"
       },
       {
         "word": "hometown",
@@ -192,12 +226,14 @@ const APP_UNITS = [
         "meaning": "quê hương yêu dấu",
         "icon": "🌾",
         "tag": "🌾 HOMETOWN • QUÊ HƯƠNG",
-        "imgUrl": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&auto=format&fit=crop&q=80",
-        "tip": "Đồng lúa chín vàng và dòng sông quê hương",
+        "imgUrl": "assets/sample_review/hometown_a.jpg",
+        "fallbackUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Golden-terraced-fields-in-Mu-Cang-Chai.jpg?width=960",
+        "tip": "Quê hương ruộng bậc thang lúa chín vàng óng ả Mù Cang Chải",
         "rhyme": "“Quê hương đồng lúa bạt ngàn,\nHometown yêu dấu muôn vàn nhớ nhung!”",
         "mnemonic": "💡 <strong>Cách nhớ:</strong> Ghép bởi <strong>Home</strong> (nhà) + <strong>Town</strong> (quê/thị trấn) ➜ Quê hương chôn rau cắt rốn thân thương của em!",
         "example": "My hometown is small, green and peaceful.",
-        "exampleVi": "(Quê hương của tôi nhỏ nhắn, xanh tươi và rất yên bình.)"
+        "exampleVi": "(Quê hương của tôi nhỏ nhắn, xanh tươi và rất yên bình.)",
+        "exampleIpa": "/maɪ ˈhəʊm.taʊn ɪz smɔːl, ɡriːn ænd ˈpiːs.fəl/"
       },
       {
         "word": "village",
@@ -206,12 +242,14 @@ const APP_UNITS = [
         "meaning": "ngôi làng",
         "icon": "🏕️",
         "tag": "🏕️ VILLAGE • NGÔI LÀNG",
-        "imgUrl": "https://images.unsplash.com/photo-1444858291040-58f756a3bdd6?w=800&auto=format&fit=crop&q=80",
-        "tip": "Ngôi làng bình yên dưới rặng tre xanh",
-        "rhyme": "“Ngôi làng có luỹ tre xanh,\nVillage êm ả trong lành sớm mai!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> Làng quê <strong>village</strong> nơi có cây đa, giếng nước và dòng sông tuổi thơ.",
-        "example": "My grandparents live in a village.",
-        "exampleVi": "(Ông bà của tôi sống trong một ngôi làng.)"
+        "imgUrl": "assets/sample_review/village_a.jpg",
+        "fallbackUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/C%E1%BB%95ng_l%C3%A0ng_Qu%E1%BB%B3nh_%C4%90%C3%B4i.jpg?width=960",
+        "tip": "Cổng làng truyền thống Việt Nam mái ngói đỏ bên rặng tre xanh mát",
+        "rhyme": "“Làng quê rợp bóng tre ngà,\nVillage êm ả mặn mà nghĩa tình!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Village</strong> là ngôi làng quê bình dị với mái đình, cây đa và những luống rau xanh.",
+        "example": "His grandparents live in a small village.",
+        "exampleVi": "(Ông bà của bạn ấy sống trong một ngôi làng nhỏ.)",
+        "exampleIpa": "/hɪz ˈɡræn.peə.rənts lɪv ɪn ə smɔːl ˈvɪl.ɪdʒ/"
       },
       {
         "word": "city",
@@ -220,12 +258,14 @@ const APP_UNITS = [
         "meaning": "thành phố lớn",
         "icon": "🏙️",
         "tag": "🏙️ CITY • THÀNH PHỐ",
-        "imgUrl": "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800&auto=format&fit=crop&q=80",
-        "tip": "Thành phố nhộn nhịp ánh đèn lung linh",
-        "rhyme": "“Thành phố rực ánh đèn sao,\nCity náo nhiệt biết bao công trình!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>City</strong> là thành phố lớn như Hà Nội, TP.HCM với cầu vượt và các tòa nhà chọc trời.",
-        "example": "Hanoi is a big and busy city.",
-        "exampleVi": "(Hà Nội là một thành phố lớn và bận rộn.)"
+        "imgUrl": "assets/sample_review/city_a.jpg",
+        "fallbackUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Ho_Chi_Minh_City,_Saigon,_Vietnam_(49579791152).jpg?width=960",
+        "tip": "Toàn cảnh thành phố TP.HCM hiện đại bên dòng sông Sài Gòn",
+        "rhyme": "“Thành phố rực rỡ cờ hoa,\nCity nhộn nhịp bao la người xe!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> Thành phố <strong>city</strong> hiện đại như Hà Nội hay TP. Hồ Chí Minh với nhiều siêu thị lớn.",
+        "example": "Da Nang is a beautiful and modern coastal city.",
+        "exampleVi": "(Đà Nẵng là một thành phố ven biển xinh đẹp và hiện đại.)",
+        "exampleIpa": "/dɑː næŋ ɪz ə ˈbjuː.tɪ.fəl ænd ˈmɒd.ən ˈkəʊ.stəl ˈsɪt.i/"
       },
       {
         "word": "peaceful",
@@ -234,12 +274,14 @@ const APP_UNITS = [
         "meaning": "yên bình, thanh thản",
         "icon": "🕊️",
         "tag": "🕊️ PEACEFUL • YÊN BÌNH",
-        "imgUrl": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&auto=format&fit=crop&q=80",
-        "tip": "Khung cảnh thiên nhiên tĩnh lặng trong trẻo",
+        "imgUrl": "assets/sample_review/peaceful_a.jpg",
+        "fallbackUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Trang_An_Landscape_Complex,_Ninh_Binh_Province,_Vietnam,_20240202_1447_5310.jpg?width=960",
+        "tip": "Danh thắng Tràng An Ninh Bình non xanh nước biếc thanh bình, tĩnh lặng",
         "rhyme": "“Không gian tĩnh lặng chim ca,\nPeaceful thanh thản chan hòa nắng mai!”",
         "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Peace</strong> là hòa bình + đuôi <strong>ful</strong> (đầy ắp) ➜ Cảm giác bình yên, êm dịu không tiếng còi xe ồn ào.",
-        "example": "Life in the village is very peaceful.",
-        "exampleVi": "(Cuộc sống ở làng quê rất đỗi yên bình.)"
+        "example": "Life in the countryside is very peaceful.",
+        "exampleVi": "(Cuộc sống ở vùng nông thôn rất đỗi yên bình.)",
+        "exampleIpa": "/laɪf ɪn ðə ˈkʌn.tri.saɪd ɪz ˈver.i ˈpiːs.fəl/"
       },
       {
         "word": "crowded",
@@ -248,12 +290,14 @@ const APP_UNITS = [
         "meaning": "đông đúc, tấp nập",
         "icon": "👨‍👩‍👧‍👦",
         "tag": "👨‍👩‍👧‍👦 CROWDED • ĐÔNG ĐÚC",
-        "imgUrl": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=800&auto=format&fit=crop&q=80",
-        "tip": "Khu phố tấp nập người qua lại",
+        "imgUrl": "assets/sample_review/crowded_a.jpg",
+        "fallbackUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Da_Nang_International_Fireworks_Festival_DIFF_Dragon_Bridge_head_crowd_Han_River_Vietnam.jpg?width=960",
+        "tip": "Biển người đi dạo vui tươi đông đúc bên bờ sông Hàn Đà Nẵng",
         "rhyme": "“Người qua kẻ lại xôn xao,\nCrowded đông đúc chen vào phố vui!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Crowd</strong> là đám đông ➜ Phố xá <strong>crowded</strong> nườm nượp người xe chen chúc tấp nập.",
-        "example": "The market is very crowded on the weekend.",
-        "exampleVi": "(Khu chợ rất đông đúc vào dịp cuối tuần.)"
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Crowd</strong> là đám đông ➜ Phố xá <strong>crowded</strong> nườm nượp người chen chúc tấp nập.",
+        "example": "The pedestrian street is crowded with people on weekends.",
+        "exampleVi": "(Phố đi bộ rất đông đúc người vào dịp cuối tuần.)",
+        "exampleIpa": "/ðə pəˈdes.tri.ən striːt ɪz ˈkraʊ.dɪd wɪð ˈpiː.pəl ɒn ˌwiːkˈendz/"
       },
       {
         "word": "busy",
@@ -262,157 +306,309 @@ const APP_UNITS = [
         "meaning": "bận rộn, hối hả",
         "icon": "🚦",
         "tag": "🚦 BUSY • BẬN RỘN",
-        "imgUrl": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&auto=format&fit=crop&q=80",
-        "tip": "Người xe hối hả ngược xuôi trên đường",
-        "rhyme": "“Người xe hối hả ngược xuôi,\nBusy nhộn nhịp niềm vui rộn ràng!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Busy</strong> là nhịp sống hối hả, bận rộn trên các ngả đường phố xá.",
-        "example": "Life in the big city is always busy.",
-        "exampleVi": "(Nhịp sống ở thành phố lớn lúc nào cũng bận rộn.)"
+        "imgUrl": "assets/sample_review/busy_a.jpg",
+        "fallbackUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Vietnam_08_-_71_-_Saigon_traffic_(3170527435).jpg?width=960",
+        "tip": "Đường phố Sài Gòn bận rộn hối hả giờ cao điểm với dòng xe máy tấp nập",
+        "rhyme": "“Đường phố xe chạy liên hồi,\nBusy bận rộn không ngồi nghỉ ngơi!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Busy</strong> đọc tựa như <em>bận xí</em> ➜ Đang bận rộn hối hả lo việc.",
+        "example": "The streets of Hanoi are always busy in the morning.",
+        "exampleVi": "(Đường phố Hà Nội luôn bận rộn, tấp nập vào buổi sáng.)",
+        "exampleIpa": "/ðə striːts əv hæˈnɔɪ ɑːr ˈɔːl.weɪz ˈbɪz.i ɪn ðə ˈmɔː.nɪŋ/"
       }
     ],
     "sentences": [
       {
-        "zh": "What's your address? - It's 105, Hoa Binh Lane.",
+        "en": "What's your address? - It's 105, Hoa Binh Lane.",
         "vi": "Địa chỉ của bạn ở đâu? - Số 105, ngõ Hòa Bình.",
+        "imgUrl": "assets/sample_review/address_c.jpg",
         "chunks": [
           {
             "en": "What's your address?",
+            "phoneticVi": "Oát-x yo ơ-đrét-x?",
             "vi": "Địa chỉ của bạn ở đâu?"
           },
           {
-            "en": "It's 105, Hoa Binh Lane.",
-            "vi": "Số 105, ngõ Hòa Bình."
+            "en": "It's 105,",
+            "phoneticVi": "Ít-x một trăm linh năm,",
+            "vi": "Đó là số 105,"
+          },
+          {
+            "en": "Hoa Binh Lane.",
+            "phoneticVi": "Hoa Binh Lên.",
+            "vi": "ngõ Hòa Bình."
           }
-        ]
+        ],
+        "ipa": "/wɒts jɔːr əˈdres/ - /ɪts wʌn ˈhʌndrəd ænd faɪv, hoɑː bɪn leɪn/"
       },
       {
-        "zh": "Where do you live? - I live in a flat on the second floor.",
-        "vi": "Bạn sống ở đâu? - Tôi sống trong một căn hộ ở tầng hai.",
+        "en": "Where do you live? - I live in flat 18 on the second floor.",
+        "vi": "Bạn sống ở đâu? - Mình sống ở căn hộ 18 trên tầng hai.",
+        "imgUrl": "assets/sample_review/floor_b.jpg",
         "chunks": [
           {
             "en": "Where do you live?",
+            "phoneticVi": "Ue đu diu lip?",
             "vi": "Bạn sống ở đâu?"
           },
           {
-            "en": "I live in a flat",
-            "vi": "Tôi sống trong một căn hộ"
+            "en": "I live in flat 18",
+            "phoneticVi": "Ai lip in ph-lát mười tám",
+            "vi": "Mình sống ở căn hộ 18"
           },
           {
             "en": "on the second floor.",
-            "vi": "ở trên tầng hai."
+            "phoneticVi": "on đơ se-kừn-đ flo.",
+            "vi": "trên tầng hai."
           }
-        ]
+        ],
+        "ipa": "/weər duː juː lɪv/ - /aɪ lɪv ɪn flæt ˌeɪˈtiːn ɒn ðə ˈsek.ənd flɔːr/"
       },
       {
-        "zh": "What's your hometown like? - It's small and peaceful.",
-        "vi": "Quê hương của bạn trông như thế nào? - Nó nhỏ và rất yên bình.",
+        "en": "What's your hometown like? - It's small and peaceful.",
+        "vi": "Quê hương của bạn như thế nào? - Nó nhỏ nhắn và rất yên bình.",
+        "imgUrl": "assets/sample_review/hometown_b.jpg",
         "chunks": [
           {
             "en": "What's your hometown like?",
-            "vi": "Quê hương của bạn như thế nào?"
+            "phoneticVi": "Oát-x yo hôm-tao-n lai-k?",
+            "vi": "Quê của bạn như thế nào?"
           },
           {
-            "en": "It's small and peaceful.",
-            "vi": "Nó nhỏ và rất yên bình."
+            "en": "It's small",
+            "phoneticVi": "Ít-x x-môl",
+            "vi": "Nó nhỏ nhắn"
+          },
+          {
+            "en": "and peaceful.",
+            "phoneticVi": "en pi-x-phu-l.",
+            "vi": "và rất yên bình."
           }
-        ]
+        ],
+        "ipa": "/wɒts jɔːr ˈhəʊm.taʊn laɪk/ - /ɪts smɔːl ænd ˈpiːs.fəl/"
       },
       {
-        "zh": "Who do you live with? - I live with my grandparents.",
-        "vi": "Bạn sống cùng với ai? - Tôi sống cùng ông bà của tôi.",
+        "en": "Do you live in the city? - Yes, I do. It's big and busy.",
+        "vi": "Bạn có sống ở thành phố không? - Có, mình có. Nó to lớn và rất nhộn nhịp hối hả.",
+        "imgUrl": "assets/sample_review/busy_b.jpg",
         "chunks": [
           {
-            "en": "Who do you live with?",
-            "vi": "Bạn sống cùng với ai?"
+            "en": "Do you live in the city?",
+            "phoneticVi": "Đu diu lip in đơ xí-ti?",
+            "vi": "Bạn sống ở thành phố à?"
           },
           {
-            "en": "I live with my grandparents.",
-            "vi": "Tôi sống cùng ông bà của tôi."
+            "en": "Yes, I do.",
+            "phoneticVi": "Dét-x, ai đu.",
+            "vi": "Đúng vậy."
+          },
+          {
+            "en": "It's big and busy.",
+            "phoneticVi": "Ít-x bích en bi-zi.",
+            "vi": "Nó to lớn và tấp nập."
           }
-        ]
+        ],
+        "ipa": "/duː juː lɪv ɪn ðə ˈsɪt.i/ - /jes, aɪ duː. ɪts bɪɡ ænd ˈbɪz.i/"
       }
     ],
     "grammar": {
       "title": "Bí quyết giới từ chỉ nơi chốn: IN - ON - AT",
-      "desc": "Hãy nhớ quy tắc chiếc phễu: từ Rộng lớn nhất (IN) đến Vừa phải (ON) và Chính xác cụ thể (AT)!",
-      "diagram": [
+      "summary": "Quy tắc chiếc phễu: Từ Rộng lớn nhất (IN) đến Vừa phải (ON) và Cụ thể chính xác có số nhà (AT)!",
+      "rules": [
         {
-          "label": "IN (Rộng lớn)",
+          "label": "1. Giới từ IN (Rộng lớn nhất)",
           "example": "in Vietnam, in Hanoi, in a village",
-          "color": "bg-blue-50 border-blue-300 text-blue-800",
-          "rule": "Dùng cho quốc gia, thành phố, làng xã"
+          "color": "bg-blue-50 border-blue-300 text-blue-900",
+          "rule": "Dùng cho quốc gia, thành phố, làng quê, quận huyện",
+          "imgUrl": "assets/sample_review/address_a.jpg"
         },
         {
-          "label": "ON (Vừa phải)",
-          "example": "on Hoa Binh Street, on the 2nd floor",
-          "color": "bg-amber-50 border-amber-300 text-amber-800",
-          "rule": "Dùng cho tên đường (không có số nhà), số tầng lầu"
+          "label": "2. Giới từ ON (Vừa phải - Tuyến đường / Tầng)",
+          "example": "on Tran Phu Street, on the 2nd floor",
+          "color": "bg-amber-50 border-amber-300 text-amber-900",
+          "rule": "Dùng cho tên đường phố (không có số nhà), tên đại lộ hoặc số tầng lầu",
+          "imgUrl": "assets/sample_review/flat_a.jpg"
         },
         {
-          "label": "AT (Chính xác)",
+          "label": "3. Giới từ AT (Chính xác nhất - Có số nhà)",
           "example": "at 105 Hoa Binh Lane, at 81 Tran Phu Street",
-          "color": "bg-emerald-50 border-emerald-300 text-emerald-800",
-          "rule": "Dùng cho địa chỉ cụ thể CÓ SỐ NHÀ"
+          "color": "bg-emerald-50 border-emerald-300 text-emerald-900",
+          "rule": "Dùng cho địa chỉ cụ thể BẮT BUỘC CÓ SỐ NHÀ",
+          "imgUrl": "assets/sample_review/city_a.jpg"
+        },
+        {
+          "label": "4. Cấu trúc hỏi địa chỉ & nơi ở",
+          "example": "What's your address? - It's... | Where do you live? - I live in/at...",
+          "color": "bg-purple-50 border-purple-300 text-purple-900",
+          "rule": "Hỏi 'Địa chỉ của bạn là gì?' và 'Bạn sống ở đâu?'",
+          "imgUrl": "assets/sample_review/hometown_a.jpg"
         }
       ],
-      "tip": "💡 Mẹo nhớ nhanh: Cứ nhìn thấy CÓ SỐ NHÀ là chọn ngay AT! Chỉ có TÊN ĐƯỜNG thì dùng ON!"
+      "tip": "💡 Mẹo nhớ siêu tốc: Cứ nhìn thấy CÓ SỐ NHÀ là chọn ngay AT! Chỉ có TÊN ĐƯỜNG thì dùng ON! Nơi chốn RỘNG LỚN (thành phố, đất nước) thì dùng IN!"
     },
     "practice": [
       {
         "vi": "Địa chỉ nhà của bạn ở đâu? - Số 81 đường Trần Phú.",
-        "en": "What's your address? - It's 81 Tran Phu Street.",
-        "tip": "Hỏi địa chỉ dùng 'What's your address?'"
+        "en": "What's your address? - It's 81, Tran Phu Street.",
+        "imgUrl": "assets/sample_review/address_a.jpg",
+        "tip": "Có số nhà 81 trên đường Trần Phú"
       },
       {
-        "vi": "Bạn sống ở đâu? - Tôi sống trong một căn hộ trên tầng ba.",
-        "en": "Where do you live? - I live in a flat on the third floor.",
-        "tip": "Tầng lầu dùng giới từ 'on': on the third floor"
+        "vi": "Bạn sống ở đâu? - Tôi sống ở căn hộ 12 trên tầng ba.",
+        "en": "Where do you live? - I live in Flat 12 on the third floor.",
+        "imgUrl": "assets/sample_review/flat_a.jpg",
+        "tip": "Sống trong căn hộ là 'in Flat...', trên tầng ba là 'on the third floor'"
       },
       {
-        "vi": "Quê của bạn như thế nào? - Nó to lớn và rất đông đúc.",
-        "en": "What is your hometown like? - It is big and very crowded.",
-        "tip": "Đông đúc là 'crowded'"
+        "vi": "Quê hương của bạn như thế nào? - Nó nhỏ nhắn và yên bình.",
+        "en": "What's your hometown like? - It's small and peaceful.",
+        "imgUrl": "assets/sample_review/hometown_a.jpg",
+        "tip": "Hỏi đặc điểm dùng 'What is ... like?'"
       },
       {
-        "vi": "Bạn sống ở nông thôn hay thành phố? - Tôi sống trong một ngôi làng yên bình.",
-        "en": "Do you live in the countryside or the city? - I live in a peaceful village.",
-        "tip": "Ngôi làng yên bình là 'a peaceful village'"
+        "vi": "Bạn sống cùng với ai? - Tôi sống cùng với ông bà.",
+        "en": "Who do you live with? - I live with my grandparents.",
+        "imgUrl": "assets/sample_review/city_a.jpg",
+        "tip": "Ông bà là 'grandparents'"
       }
     ],
-    "song": {
-      "title": "All About Me! (Bài Hát Chính Thức SGK Global Success 5)",
-      "youtubeId": "cvZ175neuss",
-      "bgMusic": "https://upload.wikimedia.org/wikipedia/commons/9/98/Happy_Alley_%28ISRC_USUAN1100482%29.mp3",
-      "musicName": "Giai điệu vui tươi: Happy Alley (Acoustic Guitar)",
-      "lines": [
-        {
-          "en": "Hello, I'm Lisa. I'm in Grade 3.",
-          "vi": "Xin chào, mình là Lisa. Mình học lớp 3."
-        },
-        {
-          "en": "I live in the countryside. Where do you live?",
-          "vi": "Mình sống ở vùng nông thôn. Còn bạn sống ở đâu?"
-        },
-        {
-          "en": "Hello, I'm Alan. I'm in Grade 5.",
-          "vi": "Xin chào, mình là Alan. Mình học lớp 5."
-        },
-        {
-          "en": "I live in the big city. Where do you live?",
-          "vi": "Mình sống ở thành phố lớn. Còn bạn sống ở đâu?"
-        },
-        {
-          "en": "What's your address? It's 105, Hoa Binh Lane!",
-          "vi": "Địa chỉ của bạn là gì? Đó là số 105, ngõ Hòa Bình!"
-        }
-      ]
-    }
+    "quiz": [
+      {
+        "q": "Con ngõ nhỏ yên bình có rợp bóng cây xanh mát được gọi là gì?",
+        "audio": "lane",
+        "imgUrl": "assets/sample_review/lane_a.jpg",
+        "options": [
+          "street",
+          "lane",
+          "avenue",
+          "city"
+        ],
+        "ans": 1,
+        "explain": "Lane (/leɪn/) là ngõ, hẻm nhỏ thanh bình dẫn vào nhà."
+      },
+      {
+        "q": "Biển số nhà ghi tên đường và số nhà để tìm đường được gọi là gì?",
+        "audio": "address",
+        "imgUrl": "assets/sample_review/address_a.jpg",
+        "options": [
+          "address",
+          "floor",
+          "village",
+          "flat"
+        ],
+        "ans": 0,
+        "explain": "Address (/əˈdres/) là địa chỉ nhà."
+      },
+      {
+        "q": "Đại lộ lớn rộng thênh thang ở trung tâm thành phố gọi là gì?",
+        "audio": "avenue",
+        "imgUrl": "assets/sample_review/avenue_a.jpg",
+        "options": [
+          "lane",
+          "village",
+          "avenue",
+          "floor"
+        ],
+        "ans": 2,
+        "explain": "Avenue (/ˈæv.ə.njuː/) là đại lộ lớn, thẳng tắp."
+      },
+      {
+        "q": "Căn hộ chung cư ấm cúng trên tầng cao của tòa nhà gọi là gì?",
+        "audio": "flat",
+        "imgUrl": "assets/sample_review/flat_a.jpg",
+        "options": [
+          "flat",
+          "cottage",
+          "village",
+          "street"
+        ],
+        "ans": 0,
+        "explain": "Flat (/flæt/) là căn hộ chung cư."
+      },
+      {
+        "q": "Tầng của tòa nhà (như tầng hai, tầng ba) trong tiếng Anh là gì?",
+        "audio": "floor",
+        "imgUrl": "assets/sample_review/floor_a.jpg",
+        "options": [
+          "wall",
+          "door",
+          "floor",
+          "roof"
+        ],
+        "ans": 2,
+        "explain": "Floor (/flɔːr/) là tầng của tòa nhà hoặc sàn nhà."
+      },
+      {
+        "q": "Nơi chôn rau cắt rốn, quê hương ruộng bậc thang chín vàng gọi là gì?",
+        "audio": "hometown",
+        "imgUrl": "assets/sample_review/hometown_a.jpg",
+        "options": [
+          "city",
+          "hometown",
+          "street",
+          "flat"
+        ],
+        "ans": 1,
+        "explain": "Hometown (/ˈhəʊm.taʊn/) là quê hương yêu dấu."
+      },
+      {
+        "q": "Ngôi làng quê yên ả với cổng làng mái ngói đỏ và rặng tre gọi là gì?",
+        "audio": "village",
+        "imgUrl": "assets/sample_review/village_a.jpg",
+        "options": [
+          "city",
+          "village",
+          "avenue",
+          "lane"
+        ],
+        "ans": 1,
+        "explain": "Village (/ˈvɪl.ɪdʒ/) là ngôi làng quê bình dị."
+      },
+      {
+        "q": "Thành phố lớn hiện đại, sầm uất ven sông hoặc ven biển gọi là gì?",
+        "audio": "city",
+        "imgUrl": "assets/sample_review/city_a.jpg",
+        "options": [
+          "village",
+          "cottage",
+          "city",
+          "lane"
+        ],
+        "ans": 2,
+        "explain": "City (/ˈsɪt.i/) là thành phố lớn, tấp nập."
+      },
+      {
+        "q": "Khung cảnh làng quê êm đềm, không khí mát mẻ thanh bình được miêu tả là gì?",
+        "audio": "peaceful",
+        "imgUrl": "assets/sample_review/peaceful_a.jpg",
+        "options": [
+          "busy",
+          "crowded",
+          "peaceful",
+          "noisy"
+        ],
+        "ans": 2,
+        "explain": "Peaceful (/ˈpiːs.fəl/) là thanh bình, yên tĩnh."
+      },
+      {
+        "q": "Con phố đi bộ cuối tuần rất đông người qua lại tấp nập, từ nào đúng?",
+        "audio": "crowded",
+        "imgUrl": "assets/sample_review/crowded_a.jpg",
+        "options": [
+          "quiet",
+          "crowded",
+          "small",
+          "peaceful"
+        ],
+        "ans": 1,
+        "explain": "Crowded (/ˈkraʊ.dɪd/) là đông đúc, chen chúc người."
+      }
+    ]
   },
   {
     "id": 2,
     "title": "Unit 2: Our Homes",
-    "subtitle": "Ngôi nhà của chúng tôi · Các kiểu nhà, vị trí & các phòng trong nhà",
-    "themeColor": "from-emerald-600 to-teal-500",
+    "subtitle": "Ngôi nhà của chúng tôi · Các phòng & loại nhà",
+    "themeColor": "from-amber-600 to-orange-500",
     "icon": "🏡",
     "vocab": [
       {
@@ -421,13 +617,15 @@ const APP_UNITS = [
         "ipa": "/ˈkɒt.ɪdʒ/",
         "meaning": "nhà nhỏ, nhà tranh ở quê",
         "icon": "🛖",
-        "tag": "🛖 COTTAGE • NHÀ NHỎ Ở QUÊ",
-        "imgUrl": "https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800&auto=format&fit=crop&q=80",
-        "tip": "Ngôi nhà cổ tích nhỏ nhắn bên vườn hoa",
-        "rhyme": "“Ngôi nhà xinh xắn miền quê,\nCottage ấm áp tìm về thảnh thơi!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Cottage</strong> là ngôi nhà nhỏ xinh xắn như trong truyện cổ tích giữa thung lũng xanh.",
-        "example": "My aunt lives in a cozy cottage by the river.",
-        "exampleVi": "(Dì của tôi sống trong một ngôi nhà nhỏ ấm cúng bên dòng sông.)"
+        "tag": "🛖 COTTAGE • NHÀ TRANH NHỎ",
+        "imgUrl": "assets/sample_review/u2_cottage.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=960&auto=format&fit=crop&q=80",
+        "tip": "Ngôi nhà nhỏ xinh xắn ở miền quê với mái ngói và vườn hoa trước sân",
+        "rhyme": "“Nhà tranh mái lá đơn sơ,\nCottage xinh xắn nên thơ yên bình!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Cottage</strong> đọc tựa như <em>cót két</em> ➜ Cánh cửa gỗ cót két của ngôi nhà tranh xinh xắn bên bờ suối.",
+        "example": "My grandparents live in a lovely cottage in the countryside.",
+        "exampleVi": "(Ông bà của tôi sống trong một ngôi nhà tranh đáng yêu ở miền quê.)",
+        "exampleIpa": "/maɪ ˈɡræn.peə.rənts lɪv ɪn ə ˈlʌv.li ˈkɒt.ɪdʒ ɪn ðə ˈkʌn.tri.saɪd/"
       },
       {
         "word": "villa",
@@ -436,12 +634,14 @@ const APP_UNITS = [
         "meaning": "biệt thự sang trọng",
         "icon": "🏰",
         "tag": "🏰 VILLA • BIỆT THỰ",
-        "imgUrl": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&auto=format&fit=crop&q=80",
-        "tip": "Biệt thự khang trang có sân vườn rộng",
-        "rhyme": "“Biệt thự rộng lớn khang trang,\nVilla tráng lệ bên hàng cây xanh!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Villa</strong> là biệt thự cao cấp có vườn hoa và hồ bơi thoáng mát.",
-        "example": "There is a beautiful villa by the sea.",
-        "exampleVi": "(Có một căn biệt thự tuyệt đẹp ở ven biển.)"
+        "imgUrl": "assets/sample_review/u2_villa.jpg",
+        "fallbackUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Ana_Mandara_Villa_Dalat_Resort_00.jpg?width=960",
+        "tip": "Biệt thự Đà Lạt sang trọng giữa vườn hoa cỏ xanh mướt",
+        "rhyme": "“Biệt thự lộng lẫy xa hoa,\nVilla rộng lớn cả nhà đều khen!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Villa</strong> là biệt thự nguy nga có bể bơi và sân cỏ rộng thênh thang.",
+        "example": "His uncle has a modern villa by the sea.",
+        "exampleVi": "(Chú của cậu ấy có một căn biệt thự hiện đại bên bờ biển.)",
+        "exampleIpa": "/hɪz ˈʌŋ.kl̩ hæz ə ˈmɒd.ən ˈvɪl.ə baɪ ðə siː/"
       },
       {
         "word": "apartment",
@@ -449,27 +649,31 @@ const APP_UNITS = [
         "ipa": "/əˈpɑːt.mənt/",
         "meaning": "căn hộ chung cư",
         "icon": "🏢",
-        "tag": "🏢 APARTMENT • CHUNG CƯ",
-        "imgUrl": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&auto=format&fit=crop&q=80",
-        "tip": "Căn hộ trong tòa nhà cao tầng hiện đại",
-        "rhyme": "“Căn hộ trên khối nhà cao,\nApartment đón ánh sao đêm về!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> Từ <strong>apart</strong> (riêng biệt) ➜ Căn hộ khép kín riêng tư trong tòa chung cư.",
-        "example": "They live in a modern apartment in the city.",
-        "exampleVi": "(Họ sống trong một căn hộ hiện đại ở thành phố.)"
+        "tag": "🏢 APARTMENT • CĂN HỘ",
+        "imgUrl": "assets/sample_review/u2_apartment.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=960&auto=format&fit=crop&q=80",
+        "tip": "Khu chung cư hiện đại khang trang với nhiều căn hộ tiện nghi",
+        "rhyme": "“Chung cư cao ốc tầng cao,\nApartment đẹp bước vào mê say!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Apartment</strong> (tiếng Mỹ) = <strong>flat</strong> (tiếng Anh) ➜ Căn hộ tiện nghi trên tòa nhà chọc trời.",
+        "example": "We live in an apartment on the fifth floor.",
+        "exampleVi": "(Chúng tôi sống trong một căn hộ ở tầng năm.)",
+        "exampleIpa": "/wiː lɪv ɪn ən əˈpɑːt.mənt ɒn ðə fɪfθ flɔːr/"
       },
       {
         "word": "stilt house",
         "pos": "noun",
-        "ipa": "/ˈstɪlt ˌhaʊs/",
+        "ipa": "/stɪlt haʊs/",
         "meaning": "nhà sàn truyền thống",
-        "icon": "🏕️",
-        "tag": "🏕️ STILT HOUSE • NHÀ SÀN",
-        "imgUrl": "https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?w=800&auto=format&fit=crop&q=80",
-        "tip": "Nhà sàn bằng gỗ giữa núi rừng Tây Bắc",
-        "rhyme": "“Cột gỗ nâng đỡ nhà cao,\nStilt house bản làng đẹp sao núi rừng!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Stilt</strong> là cột chống ➜ Nhà sàn của các đồng bào vùng cao miền núi.",
-        "example": "My friend lives in a wooden stilt house.",
-        "exampleVi": "(Bạn của tôi sống trong một ngôi nhà sàn bằng gỗ.)"
+        "icon": "⛺",
+        "tag": "⛺ STILT HOUSE • NHÀ SÀN",
+        "imgUrl": "assets/sample_review/u2_stilt_house.jpg",
+        "fallbackUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Stilt-House-construction-Mai-Chau,-Vietnam.jpg?width=960",
+        "tip": "Nhà sàn gỗ truyền thống Mai Châu mát rượi trên sườn đồi xanh",
+        "rhyme": "“Nhà sàn cao cẳng trên đồi,\nStilt house mát rượi đón trời Tây Bắc!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Stilt</strong> là cột chân chống + <strong>house</strong> là ngôi nhà ➜ Ngôi nhà sàn dựng trên những chiếc cột gỗ cao chống thú dữ và đón gió mát.",
+        "example": "Many ethnic families live in stilt houses in the mountains.",
+        "exampleVi": "(Nhiều gia đình đồng bào sống trong những ngôi nhà sàn trên vùng núi.)",
+        "exampleIpa": "/ˈmen.i ˈeθ.nɪk ˈfæm.əl.iz lɪv ɪn stɪlt ˈhaʊ.zɪz ɪn ðə ˈmaʊn.tɪnz/"
       },
       {
         "word": "living room",
@@ -478,12 +682,14 @@ const APP_UNITS = [
         "meaning": "phòng khách",
         "icon": "🛋️",
         "tag": "🛋️ LIVING ROOM • PHÒNG KHÁCH",
-        "imgUrl": "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=800&auto=format&fit=crop&q=80",
-        "tip": "Phòng khách ấm cúng nơi cả nhà sum vầy",
-        "rhyme": "“Cả nhà quây quần xem phim,\nLiving room đó ấm êm ngọt ngào!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> Phòng cho sự sống và sinh hoạt chung của gia đình: <strong>Living room</strong>.",
-        "example": "We watch cartoons in the living room.",
-        "exampleVi": "(Chúng tôi xem phim hoạt hình ở phòng khách.)"
+        "imgUrl": "assets/sample_review/u2_living_room.jpg",
+        "fallbackUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Cozy_living_room_setting_with_a_yellow_sofa_and_a_coffee_table_adorned_with_cups_and_a_flower_pot.jpg?width=960",
+        "tip": "Phòng khách gia đình ấm cúng với ghế sofa êm ái và bàn trà",
+        "rhyme": "“Cả nhà ngồi đón khách sang,\nLiving room đẹp rộn ràng niềm vui!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Living</strong> (sinh hoạt) + <strong>room</strong> (phòng) ➜ Nơi cả nhà quây quần xem tivi trò chuyện.",
+        "example": "There is a big sofa and a TV in the living room.",
+        "exampleVi": "(Có một chiếc ghế sofa lớn và tivi trong phòng khách.)",
+        "exampleIpa": "/ðeər ɪz ə bɪɡ ˈsəʊ.fə ænd ə ˌtiːˈviː ɪn ðə ˈlɪv.ɪŋ ruːm/"
       },
       {
         "word": "bedroom",
@@ -492,12 +698,14 @@ const APP_UNITS = [
         "meaning": "phòng ngủ",
         "icon": "🛏️",
         "tag": "🛏️ BEDROOM • PHÒNG NGỦ",
-        "imgUrl": "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&auto=format&fit=crop&q=80",
-        "tip": "Chiếc giường êm ái cho giấc ngủ ngon",
-        "rhyme": "“Chiếc giường êm ái gọi mời,\nBedroom say giấc nghỉ ngơi đêm dài!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Bed</strong> (chiếc giường) + <strong>room</strong> (căn phòng) ➜ Căn phòng có chiếc giường để ngủ ngon.",
-        "example": "My bedroom is cozy, clean and bright.",
-        "exampleVi": "(Phòng ngủ của tôi rất ấm cúng, sạch sẽ và sáng sủa.)"
+        "imgUrl": "assets/sample_review/u2_bedroom.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=960&auto=format&fit=crop&q=80",
+        "tip": "Phòng ngủ sạch sẽ, ngăn nắp với chiếc giường êm ái và gối xinh",
+        "rhyme": "“Giường êm gối ấm ban đêm,\nBedroom say giấc êm đềm ngủ ngon!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Bed</strong> (chiếc giường) + <strong>room</strong> (căn phòng) ➜ Căn phòng có chiếc giường thân yêu.",
+        "example": "My bedroom has a big window facing the garden.",
+        "exampleVi": "(Phòng ngủ của tôi có cửa sổ lớn nhìn ra khu vườn.)",
+        "exampleIpa": "/maɪ ˈbed.ruːm hæz ə bɪɡ ˈwɪn.dəʊ ˈfeɪ.sɪŋ ðə ˈɡɑː.dən/"
       },
       {
         "word": "kitchen",
@@ -506,12 +714,14 @@ const APP_UNITS = [
         "meaning": "nhà bếp",
         "icon": "🍳",
         "tag": "🍳 KITCHEN • NHÀ BẾP",
-        "imgUrl": "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=800&auto=format&fit=crop&q=80",
-        "tip": "Gian bếp thơm lừng những món mẹ nấu",
-        "rhyme": "“Mẹ nấu món ngon thơm lừng,\nKitchen đỏ lửa tưng bừng bữa cơm!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Kitchen</strong> nơi mẹ trổ tài nấu nướng những món ăn thơm lừng cho cả nhà.",
-        "example": "My mom is cooking dinner in the kitchen.",
-        "exampleVi": "(Mẹ tôi đang nấu bữa tối trong bếp.)"
+        "imgUrl": "assets/sample_review/u2_kitchen.jpg",
+        "fallbackUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Modern_kitchen_and_dining_area_with_stylish_furnishings_and_natural_light_in_a_contemporary_home_setting.jpg?width=960",
+        "tip": "Nhà bếp hiện đại sạch sẽ gọn gàng có bàn ăn gia đình",
+        "rhyme": "“Mùi thơm cơm nóng dẻo mềm,\nKitchen mẹ nấu ngọt ngào yêu thương!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Kitchen</strong> đọc tựa như <em>kích thích</em> vị giác ➜ Căn bếp ấm cúng thơm nức mùi đồ ăn ngon.",
+        "example": "My mother is cooking dinner in the kitchen.",
+        "exampleVi": "(Mẹ tôi đang nấu bữa tối trong bếp.)",
+        "exampleIpa": "/maɪ ˈmʌð.ər ɪz ˈkʊk.ɪŋ ˈdɪn.ər ɪn ðə ˈkɪtʃ.ən/"
       },
       {
         "word": "bathroom",
@@ -520,12 +730,14 @@ const APP_UNITS = [
         "meaning": "phòng tắm",
         "icon": "🚿",
         "tag": "🚿 BATHROOM • PHÒNG TẮM",
-        "imgUrl": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&auto=format&fit=crop&q=80",
-        "tip": "Phòng tắm mát mẻ vòi sen tiện nghi",
-        "rhyme": "“Vòi sen mát lạnh giọt trong,\nBathroom sạch sẽ tắm xong khỏe người!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Bath</strong> (tắm bồn) + <strong>room</strong> (căn phòng) ➜ Căn phòng tắm mát mẻ sảng khoái.",
-        "example": "There is a clean bathroom upstairs.",
-        "exampleVi": "(Có một phòng tắm sạch sẽ ở trên tầng.)"
+        "imgUrl": "assets/sample_review/u2_bathroom.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=960&auto=format&fit=crop&q=80",
+        "tip": "Phòng tắm sáng sủa, sạch bong với bồn rửa mặt và gương lớn",
+        "rhyme": "“Tắm mát sau buổi học hành,\nBathroom sạch sẽ nước lành reo vang!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Bath</strong> (tắm) + <strong>room</strong> (phòng) ➜ Căn phòng sạch mát để tắm rửa thư giãn.",
+        "example": "The bathroom is next to my bedroom.",
+        "exampleVi": "(Phòng tắm nằm ngay cạnh phòng ngủ của tôi.)",
+        "exampleIpa": "/ðə ˈbɑːθ.ruːm ɪz nekst tuː maɪ ˈbed.ruːm/"
       },
       {
         "word": "balcony",
@@ -534,26 +746,30 @@ const APP_UNITS = [
         "meaning": "ban công",
         "icon": "🪴",
         "tag": "🪴 BALCONY • BAN CÔNG",
-        "imgUrl": "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&auto=format&fit=crop&q=80",
-        "tip": "Ban công ngắm gió và trồng hoa rực rỡ",
-        "rhyme": "“Ban công rực rỡ sắc hoa,\nBalcony ngắm mây qua sớm chiều!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Balcony</strong> nhô ra ngoài căn nhà, nơi đặt những chậu hoa xinh và ngắm gió mát.",
-        "example": "There are red flowers on the balcony.",
-        "exampleVi": "(Có những bông hoa màu đỏ ở ngoài ban công.)"
+        "imgUrl": "assets/sample_review/u2_balcony.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1533158307587-828f0a76ef46?w=960&auto=format&fit=crop&q=80",
+        "tip": "Ban công căn hộ ngập tràn ánh nắng với chậu cây xanh và hoa rực rỡ bên lan can",
+        "rhyme": "“Đón bình minh gió thổi lay,\nBalcony ngắm hoa bay rực trời!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Balcony</strong> nhô ra ngoài hiên đón gió mát rượi, nơi em trồng những chậu hoa nhỏ.",
+        "example": "There are many pretty flowers on the balcony.",
+        "exampleVi": "(Có rất nhiều chậu hoa xinh xắn ngoài ban công.)",
+        "exampleIpa": "/ðeər ɑːr ˈmen.i ˈprɪt.i ˈflaʊ.əz ɒn ðə ˈbæl.kə.ni/"
       },
       {
         "word": "modern",
         "pos": "adjective",
         "ipa": "/ˈmɒd.ən/",
         "meaning": "hiện đại",
-        "icon": "🏙️",
-        "tag": "🏙️ MODERN • HIỆN ĐẠI",
-        "imgUrl": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&auto=format&fit=crop&q=80",
-        "tip": "Ngôi nhà với kiến trúc sang trọng hiện đại",
-        "rhyme": "“Nhà cao kính sáng lung linh,\nModern hiện đại văn minh tuyệt vời!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Modern</strong> là xu hướng hiện đại, tiện nghi mới nhất ngày nay.",
-        "example": "Our new house is very modern.",
-        "exampleVi": "(Ngôi nhà mới của chúng tôi rất hiện đại.)"
+        "icon": "✨",
+        "tag": "✨ MODERN • HIỆN ĐẠI",
+        "imgUrl": "assets/sample_review/u2_modern.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=960&auto=format&fit=crop&q=80",
+        "tip": "Ngôi nhà phong cách hiện đại với thiết kế mới mẻ và cửa kính sáng sủa",
+        "rhyme": "“Thiết kế sang trọng tuyệt vời,\nModern hiện đại sáng ngời tương lai!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> Đồ dùng thông minh, nhà cửa khang trang gọi là <strong>modern</strong>.",
+        "example": "Their house is very big and modern.",
+        "exampleVi": "(Ngôi nhà của họ rất to lớn và hiện đại.)",
+        "exampleIpa": "/ðeər haʊs ɪz ˈver.i bɪɡ ænd ˈmɒd.ən/"
       },
       {
         "word": "cozy",
@@ -562,12 +778,14 @@ const APP_UNITS = [
         "meaning": "ấm cúng, gần gũi",
         "icon": "🕯️",
         "tag": "🕯️ COZY • ẤM CÚNG",
-        "imgUrl": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=800&auto=format&fit=crop&q=80",
-        "tip": "Ánh đèn vàng tạo không gian ấm áp",
-        "rhyme": "“Ánh đèn vàng ấm dịu dàng,\nCozy êm ái vô vàn thân thương!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Cozy</strong> là cảm giác ấm áp, bình yên bên những người thân yêu.",
-        "example": "The wooden room is very cozy.",
-        "exampleVi": "(Căn phòng bằng gỗ rất đỗi ấm cúng.)"
+        "imgUrl": "assets/sample_review/u2_cozy.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=960&auto=format&fit=crop&q=80",
+        "tip": "Góc nhà ấm cúng, gần gũi với ánh đèn vàng dịu nhẹ",
+        "rhyme": "“Đèn vàng sưởi ấm mùa đông,\nCozy gần gũi ấm nồng yêu thương!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> Không gian ấm áp như được đắp chiếc chăn bông thơm tho gọi là <strong>cozy</strong>.",
+        "example": "The small wooden room is so warm and cozy.",
+        "exampleVi": "(Căn phòng gỗ nhỏ thật ấm áp và ấm cúng.)",
+        "exampleIpa": "/ðə smɔːl ˈwʊd.ən ruːm ɪz səʊ wɔːm ænd ˈkəʊ.zi/"
       },
       {
         "word": "garden",
@@ -576,161 +794,302 @@ const APP_UNITS = [
         "meaning": "khu vườn nở hoa",
         "icon": "🌻",
         "tag": "🌻 GARDEN • KHU VƯỜN",
-        "imgUrl": "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&auto=format&fit=crop&q=80",
-        "tip": "Khu vườn đầy hoa thơm cỏ biếc",
-        "rhyme": "“Hoa khoe cánh thắm ong vờn,\nGarden xanh ngát ong vờn sớm mai!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Garden</strong> là khu vườn đầy hoa thơm quả ngọt quanh nhà.",
-        "example": "There is a green garden in front of the house.",
-        "exampleVi": "(Có một khu vườn xanh ngát ở trước ngôi nhà.)"
+        "imgUrl": "assets/sample_review/u2_garden.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=960&auto=format&fit=crop&q=80",
+        "tip": "Khu vườn nhà xanh tươi rực rỡ sắc hoa và thảm cỏ mát mắt",
+        "rhyme": "“Vườn sau hoa nở thắm tươi,\nGarden bướm lượn nụ cười em thơ!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> Khu vườn <strong>garden</strong> đầy hoa hồng thơm ngát và tiếng chim hót líu lo.",
+        "example": "My grandfather loves planting roses in the garden.",
+        "exampleVi": "(Ông tôi rất thích trồng hoa hồng trong vườn.)",
+        "exampleIpa": "/maɪ ˈɡræn.fɑː.ðər lʌvz ˈplɑːn.tɪŋ ˈrəʊ.zɪz ɪn ðə ˈɡɑː.dən/"
       }
     ],
     "sentences": [
       {
-        "zh": "Where is your house? - It's in the mountains.",
-        "vi": "Nhà của bạn ở đâu? - Nó ở trên vùng núi cao.",
+        "en": "Where do you live? - I live in a stilt house in the mountains.",
+        "vi": "Bạn sống ở đâu? - Mình sống trong một ngôi nhà sàn ở vùng núi.",
+        "imgUrl": "assets/sample_review/u2_stilt_house.jpg",
         "chunks": [
           {
-            "en": "Where is your house?",
-            "vi": "Nhà của bạn ở đâu?"
+            "en": "Where do you live?",
+            "phoneticVi": "Ue đu diu lip?",
+            "vi": "Bạn sống ở đâu?"
           },
           {
-            "en": "It's in the mountains.",
-            "vi": "Nó ở trên vùng núi cao."
+            "en": "I live in a stilt house",
+            "phoneticVi": "Ai lip in ơ x-tin-t hao-x",
+            "vi": "Mình sống trong nhà sàn"
+          },
+          {
+            "en": "in the mountains.",
+            "phoneticVi": "in đơ mao-n-từn-z.",
+            "vi": "ở vùng đồi núi."
           }
-        ]
+        ],
+        "ipa": "/weər duː juː lɪv/ - /aɪ lɪv ɪn ə stɪlt haʊs ɪn ðə ˈmaʊn.tɪnz/"
       },
       {
-        "zh": "What's your house like? - It's a stilt house with a green roof.",
-        "vi": "Nhà bạn trông thế nào? - Đó là một ngôi nhà sàn có mái màu xanh.",
+        "en": "What's your house like? - It's a cozy cottage with a lovely garden.",
+        "vi": "Ngôi nhà của bạn như thế nào? - Đó là ngôi nhà nhỏ ấm cúng có khu vườn xinh đẹp.",
+        "imgUrl": "assets/sample_review/u2_garden.jpg",
         "chunks": [
           {
             "en": "What's your house like?",
-            "vi": "Nhà bạn trông thế nào?"
+            "phoneticVi": "Oát-x yo hao-x lai-k?",
+            "vi": "Nhà bạn thế nào?"
           },
           {
-            "en": "It's a stilt house",
-            "vi": "Đó là một ngôi nhà sàn"
+            "en": "It's a cozy cottage",
+            "phoneticVi": "Ít-x ơ câu-zi cọt-tịt-ch",
+            "vi": "Là một ngôi nhà nhỏ ấm cúng"
           },
           {
-            "en": "with a green roof.",
-            "vi": "với mái ngói màu xanh."
+            "en": "with a lovely garden.",
+            "phoneticVi": "guýt ơ lúp-vli ga-đừn.",
+            "vi": "với khu vườn xinh xắn."
           }
-        ]
+        ],
+        "ipa": "/wɒts jɔːr haʊs laɪk/ - /ɪts ə ˈkəʊ.zi ˈkɒt.ɪdʒ wɪð ə ˈlʌv.li ˈɡɑː.dən/"
       },
       {
-        "zh": "How many rooms are there in your home? - There are six rooms.",
-        "vi": "Có bao nhiêu phòng trong nhà bạn? - Có sáu căn phòng.",
-        "chunks": [
-          {
-            "en": "How many rooms are there",
-            "vi": "Có bao nhiêu căn phòng"
-          },
-          {
-            "en": "in your home?",
-            "vi": "trong ngôi nhà của bạn?"
-          },
-          {
-            "en": "There are six rooms.",
-            "vi": "Có sáu căn phòng."
-          }
-        ]
-      },
-      {
-        "zh": "Which room do you like best? - I like my cozy bedroom best.",
-        "vi": "Bạn thích căn phòng nào nhất? - Tôi thích phòng ngủ ấm cúng của mình nhất.",
+        "en": "Which room do you like best? - I love the living room. It's bright and modern.",
+        "vi": "Bạn thích căn phòng nào nhất? - Mình thích phòng khách nhất. Nó sáng sủa và hiện đại.",
+        "imgUrl": "assets/sample_review/u2_living_room.jpg",
         "chunks": [
           {
             "en": "Which room do you like best?",
-            "vi": "Bạn thích căn phòng nào nhất?"
+            "phoneticVi": "Uýt-ch rum đu diu lai-k bét-x-t?",
+            "vi": "Bạn thích phòng nào nhất?"
           },
           {
-            "en": "I like my cozy bedroom best.",
-            "vi": "Tôi thích phòng ngủ ấm cúng của mình nhất."
+            "en": "I love the living room.",
+            "phoneticVi": "Ai lúp đơ lí-ving rum.",
+            "vi": "Mình thích phòng khách."
+          },
+          {
+            "en": "It's bright and modern.",
+            "phoneticVi": "Ít-x b-rai-t en mo-đừn.",
+            "vi": "Nó sáng sủa và hiện đại."
           }
-        ]
+        ],
+        "ipa": "/wɪtʃ ruːm duː juː laɪk best/ - /aɪ lʌv ðə ˈlɪv.ɪŋ ruːm. ɪts braɪt ænd ˈmɒd.ən/"
+      },
+      {
+        "en": "Is there a balcony in your flat? - Yes, there is. It has many green plants.",
+        "vi": "Căn hộ của bạn có ban công không? - Có chứ. Ban công có rất nhiều chậu cây xanh.",
+        "imgUrl": "assets/sample_review/u2_balcony.jpg",
+        "chunks": [
+          {
+            "en": "Is there a balcony",
+            "phoneticVi": "Ít-z đe ơ ba-cơ-ni",
+            "vi": "Có ban công không"
+          },
+          {
+            "en": "in your flat?",
+            "phoneticVi": "in yo ph-lát?",
+            "vi": "trong căn hộ của bạn?"
+          },
+          {
+            "en": "Yes, there is.",
+            "phoneticVi": "Dét-x, đe ít-z.",
+            "vi": "Có chứ, có ban công."
+          }
+        ],
+        "ipa": "/ɪz ðeər ə ˈbæl.kə.ni ɪn jɔːr flæt/ - /jes, ðeər ɪz. ɪt hæz ˈmen.i ɡriːn plɑːnts/"
       }
     ],
     "grammar": {
-      "title": "Cấu trúc 'There is' & 'There are' miêu tả nhà cửa",
-      "desc": "Dùng để nói trong nhà có những gì một cách chính xác!",
-      "diagram": [
+      "title": "Hỏi vị trí và miêu tả ngôi nhà: WHERE & WHAT ... LIKE",
+      "summary": "Cách hỏi vị trí của đồ vật/người trong phòng và cách miêu tả đặc điểm ngôi nhà.",
+      "rules": [
         {
-          "label": "There is + 1 vật (Số ít)",
-          "example": "There is a living room. / There is a garden.",
-          "color": "bg-emerald-50 border-emerald-300 text-emerald-800",
-          "rule": "Đi với 'a', 'an' hoặc danh từ số ít"
+          "label": "1. Hỏi vị trí phòng / người: WHERE",
+          "example": "Where is the kitchen? - It's next to the living room.",
+          "color": "bg-amber-50 border-amber-300 text-amber-900",
+          "rule": "Where is + danh từ số ít? ➜ It's in/on/next to...",
+          "imgUrl": "assets/sample_review/u2_cottage.jpg"
         },
         {
-          "label": "There are + Nhiều vật (Số nhiều)",
-          "example": "There are three bedrooms. / There are six rooms.",
-          "color": "bg-teal-50 border-teal-300 text-teal-800",
-          "rule": "Đi với số đếm từ 2 trở lên và danh từ thêm 's'"
+          "label": "2. Hỏi đặc điểm ngôi nhà: WHAT ... LIKE",
+          "example": "What's your house like? - It's big and modern.",
+          "color": "bg-blue-50 border-blue-300 text-blue-900",
+          "rule": "What's + danh từ + like? ➜ It's + tính từ (big, small, cozy, modern...)",
+          "imgUrl": "assets/sample_review/u2_villa.jpg"
         },
         {
-          "label": "Hỏi số lượng: How many... are there?",
-          "example": "How many rooms are there in your house?",
-          "color": "bg-indigo-50 border-indigo-300 text-indigo-800",
-          "rule": "Sau How many luôn là danh từ số nhiều (rooms, chairs)"
+          "label": "3. Giới từ chỉ vị trí trong nhà",
+          "example": "next to (cạnh), behind (phía sau), in front of (phía trước), between (ở giữa)",
+          "color": "bg-emerald-50 border-emerald-300 text-emerald-900",
+          "rule": "Học thuộc các cặp giới từ để xác định vị trí đồ vật chính xác",
+          "imgUrl": "assets/sample_review/u2_balcony.jpg"
         }
       ],
-      "tip": "💡 Nhớ nhé: 1 cái phòng thì 'There is a room', từ 2 phòng trở lên thì 'There are rooms'!"
+      "tip": "💡 Nhớ nhé: 'What ... like?' không phải là hỏi 'thích gì', mà là hỏi 'có đặc điểm như thế nào'!"
     },
     "practice": [
       {
-        "vi": "Nhà của bạn ở đâu? - Nó ở trên vùng núi.",
-        "en": "Where is your house? - It is in the mountains.",
-        "tip": "Ở vùng núi là 'in the mountains'"
+        "vi": "Nhà của bạn như thế nào? - Đó là một ngôi nhà tranh ấm cúng.",
+        "en": "What's your house like? - It's a cozy cottage.",
+        "imgUrl": "assets/sample_review/u2_cottage.jpg",
+        "tip": "Nhà tranh là 'cottage', ấm cúng là 'cozy'"
       },
       {
-        "vi": "Có bao nhiêu phòng trong nhà của bạn? - Có 5 phòng.",
-        "en": "How many rooms are there in your house? - There are five rooms.",
-        "tip": "Hỏi số lượng dùng 'How many rooms are there...?'"
+        "vi": "Mẹ bạn đang ở đâu? - Mẹ đang ở trong bếp.",
+        "en": "Where is your mother? - She is in the kitchen.",
+        "imgUrl": "assets/sample_review/u2_kitchen.jpg",
+        "tip": "Hỏi vị trí dùng 'Where is...?'"
       },
       {
-        "vi": "Bạn thích phòng nào nhất? - Tôi thích phòng khách nhất.",
-        "en": "Which room do you like best? - I like the living room best.",
-        "tip": "Thích cái gì nhất dùng 'like ... best'"
+        "vi": "Phòng ngủ của tôi nằm cạnh phòng tắm.",
+        "en": "My bedroom is next to the bathroom.",
+        "imgUrl": "assets/sample_review/u2_bathroom.jpg",
+        "tip": "Bên cạnh là 'next to'"
       },
       {
-        "vi": "Có một khu vườn lớn ở phía trước ngôi nhà.",
-        "en": "There is a big garden in front of the house.",
-        "tip": "Một khu vườn dùng 'There is a big garden'"
+        "vi": "Có một khu vườn lớn trước nhà của tôi.",
+        "en": "There is a big garden in front of my house.",
+        "imgUrl": "assets/sample_review/u2_garden.jpg",
+        "tip": "Phía trước là 'in front of'"
       }
     ],
-    "song": {
-      "title": "Do You Live In This Tower? & Where Do You Live? (Bài Hát Unit 2)",
-      "youtubeId": "Vuxu3XijNSA",
-      "bgMusic": "https://upload.wikimedia.org/wikipedia/commons/9/98/Happy_Alley_%28ISRC_USUAN1100482%29.mp3",
-      "musicName": "Giai điệu vui tươi: Upbeat Cheerful Kids",
-      "lines": [
-        {
-          "en": "Do you live in that building? No, I don't.",
-          "vi": "Bạn có sống trong tòa nhà kia không? - Không, mình không sống ở đó."
-        },
-        {
-          "en": "Do you live in this tower? Yes, I do!",
-          "vi": "Bạn có sống trong tòa tháp này không? - Đúng vậy, mình sống ở đây!"
-        },
-        {
-          "en": "Where do you live? I live in Flat 21.",
-          "vi": "Bạn sống ở đâu? Mình sống ở căn hộ số 21."
-        },
-        {
-          "en": "On the second floor of City Tower!",
-          "vi": "Trên tầng hai của Tòa tháp Thành phố!"
-        },
-        {
-          "en": "What's your address? It's 19 Oxford Street!",
-          "vi": "Địa chỉ của bạn là gì? Đó là số 19 đường Oxford!"
-        }
-      ]
-    }
+    "quiz": [
+      {
+        "q": "Ngôi nhà tranh vách đất mái lá ấm cúng ở làng quê Việt Nam gọi là gì?",
+        "audio": "cottage",
+        "imgUrl": "assets/sample_review/u2_cottage.jpg",
+        "options": [
+          "villa",
+          "cottage",
+          "apartment",
+          "building"
+        ],
+        "ans": 1,
+        "explain": "Cottage (/ˈkɒt.ɪdʒ/) là ngôi nhà tranh mộc mạc ở miền quê."
+      },
+      {
+        "q": "Căn biệt thự hiện đại sang trọng có sân vườn và hồ bơi riêng gọi là gì?",
+        "audio": "villa",
+        "imgUrl": "assets/sample_review/u2_villa.jpg",
+        "options": [
+          "stilt house",
+          "cottage",
+          "villa",
+          "flat"
+        ],
+        "ans": 2,
+        "explain": "Villa (/ˈvɪl.ə/) là biệt thự cao cấp có vườn và hồ bơi."
+      },
+      {
+        "q": "Ngôi nhà sàn độc đáo của đồng bào vùng cao Việt Nam gọi là gì?",
+        "audio": "stilt house",
+        "imgUrl": "assets/sample_review/u2_stilt_house.jpg",
+        "options": [
+          "villa",
+          "stilt house",
+          "flat",
+          "cottage"
+        ],
+        "ans": 1,
+        "explain": "Stilt house (/stɪlt haʊs/) là nhà sàn truyền thống trên núi."
+      },
+      {
+        "q": "Căn hộ chung cư tiện nghi nằm trong tòa nhà cao tầng gọi là gì?",
+        "audio": "apartment",
+        "imgUrl": "assets/sample_review/u2_apartment.jpg",
+        "options": [
+          "cottage",
+          "apartment",
+          "garden",
+          "stilt house"
+        ],
+        "ans": 1,
+        "explain": "Apartment (/əˈpɑːt.mənt/) là căn hộ chung cư."
+      },
+      {
+        "q": "Ban công căn hộ ngập tràn ánh nắng và chậu cây xanh hoa đẹp gọi là gì?",
+        "audio": "balcony",
+        "imgUrl": "assets/sample_review/u2_balcony.jpg",
+        "options": [
+          "kitchen",
+          "bathroom",
+          "balcony",
+          "bedroom"
+        ],
+        "ans": 2,
+        "explain": "Balcony (/ˈbæl.kə.ni/) là ban công nhô ra ngoài đón gió."
+      },
+      {
+        "q": "Phòng khách ấm cúng nơi cả nhà sum họp xem tivi gọi là gì?",
+        "audio": "living room",
+        "imgUrl": "assets/sample_review/u2_living_room.jpg",
+        "options": [
+          "bedroom",
+          "bathroom",
+          "living room",
+          "kitchen"
+        ],
+        "ans": 2,
+        "explain": "Living room (/ˈlɪv.ɪŋ ruːm/) là phòng khách của ngôi nhà."
+      },
+      {
+        "q": "Phòng ngủ yên tĩnh với chiếc giường êm ái để nghỉ ngơi gọi là gì?",
+        "audio": "bedroom",
+        "imgUrl": "assets/sample_review/u2_bedroom.jpg",
+        "options": [
+          "kitchen",
+          "bedroom",
+          "living room",
+          "garden"
+        ],
+        "ans": 1,
+        "explain": "Bedroom (/ˈbed.ruːm/) là phòng ngủ."
+      },
+      {
+        "q": "Phòng bếp nơi mẹ nấu những món ăn thơm ngon mỗi ngày gọi là gì?",
+        "audio": "kitchen",
+        "imgUrl": "assets/sample_review/u2_kitchen.jpg",
+        "options": [
+          "kitchen",
+          "bathroom",
+          "bedroom",
+          "balcony"
+        ],
+        "ans": 0,
+        "explain": "Kitchen (/ˈkɪtʃ.ən/) là nhà bếp, gian bếp nấu nướng."
+      },
+      {
+        "q": "Khu vườn xinh xắn ngập tràn hoa hồng rực rỡ và cây xanh gọi là gì?",
+        "audio": "garden",
+        "imgUrl": "assets/sample_review/u2_garden.jpg",
+        "options": [
+          "living room",
+          "kitchen",
+          "garden",
+          "floor"
+        ],
+        "ans": 2,
+        "explain": "Garden (/ˈɡɑː.dən/) là khu vườn trồng cây và hoa."
+      },
+      {
+        "q": "Căn phòng gỗ ấm áp, mang lại cảm giác thân thương dễ chịu gọi là gì?",
+        "audio": "cozy",
+        "imgUrl": "assets/sample_review/u2_cozy.jpg",
+        "options": [
+          "noisy",
+          "crowded",
+          "cozy",
+          "busy"
+        ],
+        "ans": 2,
+        "explain": "Cozy (/ˈkəʊ.zi/) là ấm cúng, ấm áp dễ chịu."
+      }
+    ]
   },
   {
     "id": 3,
     "title": "Unit 3: My Foreign Friends",
-    "subtitle": "Những người bạn nước ngoài · Quốc tịch, ngoại hình & tính cách bạn bè",
-    "themeColor": "from-amber-500 to-orange-500",
+    "subtitle": "Bạn bè quốc tế · Quốc tịch, ngoại hình & tính cách",
+    "themeColor": "from-teal-600 to-emerald-500",
     "icon": "🌏",
     "vocab": [
       {
@@ -738,154 +1097,144 @@ const APP_UNITS = [
         "pos": "noun",
         "ipa": "/ˌnæʃ.ənˈæl.ə.ti/",
         "meaning": "quốc tịch",
-        "icon": "🌍",
-        "tag": "🌍 NATIONALITY • QUỐC TỊCH",
-        "imgUrl": "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=800&auto=format&fit=crop&q=80",
-        "tip": "Hộ chiếu và các quốc gia trên thế giới",
-        "rhyme": "“Hộ chiếu ghi rõ ràng thay,\nNationality đó ai ai cũng tường!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Nation</strong> là quốc gia ➜ <strong>Nationality</strong> là quốc tịch của một công dân.",
-        "example": "What nationality are you? - I am Vietnamese.",
-        "exampleVi": "(Quốc tịch của bạn là gì? - Tôi là người Việt Nam.)"
+        "icon": "🌐",
+        "tag": "🌐 NATIONALITY • QUỐC TỊCH",
+        "imgUrl": "assets/sample_review/u3_nationality.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=960&auto=format&fit=crop&q=80",
+        "tip": "Hộ chiếu và cờ các quốc gia biểu trưng cho quốc tịch của mỗi người",
+        "rhyme": "“Em là người Việt thân thương,\nNationality bốn phương bạn bè!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Nation</strong> là quốc gia ➜ <strong>Nationality</strong> là quốc tịch của mỗi người.",
+        "example": "What is your nationality? - I'm Vietnamese.",
+        "exampleVi": "(Quốc tịch của bạn là gì? - Tôi là người Việt Nam.)",
+        "exampleIpa": "/wɒt ɪz jɔːr ˌnæʃ.ənˈæl.ə.ti/ - /aɪm ˌvjet.nəˈmiːz/"
       },
       {
         "word": "America",
         "pos": "noun",
         "ipa": "/əˈmer.ɪ.kə/",
         "meaning": "nước Mỹ (Hoa Kỳ)",
-        "icon": "🇺🇸",
-        "tag": "🇺🇸 AMERICA • NƯỚC MỸ",
-        "imgUrl": "https://images.unsplash.com/photo-1506146332389-18140dc7b2fb?w=800&auto=format&fit=crop&q=80",
-        "tip": "Tượng Nữ thần tự do biểu tượng nước Mỹ",
-        "rhyme": "“Tượng Nữ thần đứng kiêu sa,\nNước America ngút ngàn cờ hoa!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>America</strong> là đất nước Hoa Kỳ với tượng Nữ thần Tự do nổi tiếng.",
-        "example": "My pen friend lives in America.",
-        "exampleVi": "(Bạn qua thư của tôi sống ở nước Mỹ.)"
+        "icon": "🗽",
+        "tag": "🗽 AMERICA • NƯỚC MỸ",
+        "imgUrl": "assets/sample_review/u3_america.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=960&auto=format&fit=crop&q=80",
+        "tip": "Tượng Nữ Thần Tự Do biểu tượng nước Mỹ (Hoa Kỳ)",
+        "rhyme": "“Tượng Nữ thần đứng kiêu sa,\nAmerica đó đi qua trùng trùng!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> Nước Mỹ là <strong>America</strong>, có tượng Nữ Thần Tự Do cầm ngọn đuốc sáng rực.",
+        "example": "My penfriend Tom lives in America.",
+        "exampleVi": "(Người bạn qua thư của tôi là Tom sống ở nước Mỹ.)",
+        "exampleIpa": "/maɪ ˈpen.frend tɒm lɪvz ɪn əˈmer.ɪ.kə/"
       },
       {
         "word": "American",
-        "pos": "adjective",
+        "pos": "noun/adj",
         "ipa": "/əˈmer.ɪ.kən/",
         "meaning": "người Mỹ",
-        "icon": "🗽",
-        "tag": "🗽 AMERICAN • NGƯỜI MỸ",
-        "imgUrl": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&auto=format&fit=crop&q=80",
-        "tip": "Những người bạn mang quốc tịch Mỹ tươi cười",
-        "rhyme": "“Người dân thân thiện tươi vui,\nAmerican đó nụ cười nở hoa!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> Thêm chữ <strong>n</strong> vào sau America ➜ <strong>American</strong> là người mang quốc tịch Mỹ.",
-        "example": "Tom is from America. He is American.",
-        "exampleVi": "(Tom đến từ nước Mỹ. Cậu ấy là người Mỹ.)"
+        "icon": "🇺🇸",
+        "tag": "🇺🇸 AMERICAN • NGƯỜI MỸ",
+        "imgUrl": "assets/sample_review/u3_american.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=960&auto=format&fit=crop&q=80",
+        "tip": "Bạn học sinh người Mỹ thân thiện và cởi mở",
+        "rhyme": "“Bạn Tom da trắng mắt nâu,\nAmerican đó chào nhau tươi cười!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> Thêm chữ <strong>n</strong> vào sau tên nước America ➜ <strong>American</strong> (Người Mỹ).",
+        "example": "Jack is American. He is from New York.",
+        "exampleVi": "(Jack là người Mỹ. Cậu ấy đến từ New York.)",
+        "exampleIpa": "/dʒæk ɪz əˈmer.ɪ.kən. hiː ɪz frɒm njuː jɔːk/"
       },
       {
         "word": "England",
         "pos": "noun",
         "ipa": "/ˈɪŋ.ɡlənd/",
         "meaning": "nước Anh",
-        "icon": "🇬🇧",
-        "tag": "🇬🇧 ENGLAND • NƯỚC ANH",
-        "imgUrl": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&auto=format&fit=crop&q=80",
-        "tip": "Tháp đồng hồ Big Ben xứ sở sương mù",
-        "rhyme": "“Đồng hồ Big Ben ngân vang,\nNước England đó rộn ràng sớm trưa!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>England</strong> xứ sở sương mù nơi có tháp đồng hồ Big Ben và xe buýt 2 tầng đỏ rực.",
-        "example": "Linda comes from England.",
-        "exampleVi": "(Linda đến từ nước Anh.)"
+        "icon": "🏰",
+        "tag": "🏰 ENGLAND • NƯỚC ANH",
+        "imgUrl": "assets/sample_review/u3_england.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=960&auto=format&fit=crop&q=80",
+        "tip": "Tháp đồng hồ Big Ben và xe buýt 2 tầng đỏ rực rỡ nước Anh",
+        "rhyme": "“Big Ben chuông điểm vang xa,\nEngland cổ kính chan hòa sương mai!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> Xứ sở sương mù <strong>England</strong> nổi tiếng với tháp chuông Big Ben và xe buýt 2 tầng màu đỏ.",
+        "example": "London is the capital city of England.",
+        "exampleVi": "(Luân Đôn là thủ đô của nước Anh.)",
+        "exampleIpa": "/ˈlʌn.dən ɪz ðə ˈkæp.ɪ.təl ˈsɪt.i əv ˈɪŋ.ɡlənd/"
       },
       {
         "word": "English",
-        "pos": "adjective",
+        "pos": "noun/adj",
         "ipa": "/ˈɪŋ.ɡlɪʃ/",
         "meaning": "người Anh / tiếng Anh",
-        "icon": "💂",
-        "tag": "💂 ENGLISH • NGƯỜI ANH",
-        "imgUrl": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=800&auto=format&fit=crop&q=80",
-        "tip": "Người Anh và ngôn ngữ Tiếng Anh toàn cầu",
-        "rhyme": "“Học hành chăm chỉ mỗi ngày,\nTiếng English chuẩn tương lai sáng ngời!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> Môn Tiếng Anh ta học mỗi ngày: <strong>English</strong>!",
-        "example": "She speaks English very fluently.",
-        "exampleVi": "(Cô ấy nói tiếng Anh rất lưu loát.)"
-      },
-      {
-        "word": "Japan",
-        "pos": "noun",
-        "ipa": "/dʒəˈpæn/",
-        "meaning": "nước Nhật Bản",
-        "icon": "🇯🇵",
-        "tag": "🇯🇵 JAPAN • NƯỚC NHẬT",
-        "imgUrl": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&auto=format&fit=crop&q=80",
-        "tip": "Núi Phú Sĩ và hoa anh đào Nhật Bản",
-        "rhyme": "“Núi Phú Sĩ tuyết trắng ngần,\nJapan đất nước muôn phần mến yêu!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Japan</strong> xứ sở hoa anh đào và truyện tranh Doraemon quen thuộc.",
-        "example": "Akiko is from Japan.",
-        "exampleVi": "(Akiko đến từ Nhật Bản.)"
-      },
-      {
-        "word": "Japanese",
-        "pos": "adjective",
-        "ipa": "/ˌdʒæp.ənˈiːz/",
-        "meaning": "người Nhật",
-        "icon": "🗾",
-        "tag": "🗾 JAPANESE • NGƯỜI NHẬT",
-        "imgUrl": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=800&auto=format&fit=crop&q=80",
-        "tip": "Văn hóa cúi chào lịch thiệp của người Nhật",
-        "rhyme": "“Cúi đầu chào hỏi lễ nghi,\nNgười Japanese đó khắc ghi ân tình!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> Đuôi <strong>-ese</strong> chỉ quốc tịch: <strong>Japanese</strong> là người Nhật Bản lịch thiệp, cần cù.",
-        "example": "She is Japanese and very kind.",
-        "exampleVi": "(Cô ấy là người Nhật và rất tốt bụng.)"
+        "icon": "🇬🇧",
+        "tag": "🇬🇧 ENGLISH • NGƯỜI ANH",
+        "imgUrl": "assets/sample_review/u3_english.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=960&auto=format&fit=crop&q=80",
+        "tip": "Lớp học tiếng Anh sôi nổi của các bạn học sinh",
+        "rhyme": "“Giao tiếp thế giới mê say,\nEnglish em nói mỗi ngày thêm vui!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> Môn học <strong>English</strong> em học hằng ngày chính là tiếng Anh của người Anh!",
+        "example": "Lucy is English. She speaks English very well.",
+        "exampleVi": "(Lucy là người Anh. Bạn ấy nói tiếng Anh rất hay.)",
+        "exampleIpa": "/ˈluː.si ɪz ˈɪŋ.ɡlɪʃ. ʃiː spiːks ˈɪŋ.ɡlɪʃ ˈver.i wel/"
       },
       {
         "word": "Australia",
         "pos": "noun",
         "ipa": "/ɒsˈtreɪ.li.ə/",
         "meaning": "nước Úc",
-        "icon": "🇦🇺",
-        "tag": "🇦🇺 AUSTRALIA • NƯỚC ÚC",
-        "imgUrl": "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=800&auto=format&fit=crop&q=80",
-        "tip": "Nhà hát Opera Sydney nổi tiếng nước Úc",
-        "rhyme": "“Chuột túi nhảy nhót vui tươi,\nAustralia đất nước rạng ngời nắng mai!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Australia</strong> là quê hương của những chú chuột túi Kangaroo đáng yêu.",
-        "example": "They are traveling in Australia.",
-        "exampleVi": "(Họ đang đi du lịch ở nước Úc.)"
+        "icon": "🦘",
+        "tag": "🦘 AUSTRALIA • NƯỚC ÚC",
+        "imgUrl": "assets/sample_review/u3_australia.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=960&auto=format&fit=crop&q=80",
+        "tip": "Nhà hát Con Sò Sydney bên vịnh biển xanh ngắt nước Úc",
+        "rhyme": "“Kangaroo nhảy trên đồng,\nAustralia xứ sở mênh mông biển trời!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> Đất nước chuột túi <strong>Australia</strong> có nhà hát hình cánh buồm Sydney tuyệt đẹp.",
+        "example": "Australia is famous for cute kangaroos and koalas.",
+        "exampleVi": "(Nước Úc nổi tiếng với loài chuột túi kangaroo và gấu koala dễ thương.)",
+        "exampleIpa": "/ɒsˈtreɪ.li.ə ɪz ˈfeɪ.məs fɔːr kjuːt ˌkæŋ.ɡərˈuːz ænd kəʊˈɑː.ləz/"
       },
       {
         "word": "Australian",
-        "pos": "adjective",
+        "pos": "noun/adj",
         "ipa": "/ɒsˈtreɪ.li.ən/",
         "meaning": "người Úc",
-        "icon": "🦘",
-        "tag": "🦘 AUSTRALIAN • NGƯỜI ÚC",
-        "imgUrl": "https://images.unsplash.com/photo-1568430462989-44163eb1752f?w=800&auto=format&fit=crop&q=80",
-        "tip": "Kangaroo biểu tượng của người Úc",
-        "rhyme": "“Bạn tôi đến tự phương xa,\nNgười Australian đó thật thà dễ thương!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> Thêm chữ <strong>n</strong> sau Australia: <strong>Australian</strong> là người Úc thân thiện.",
-        "example": "My pen pal is Australian.",
-        "exampleVi": "(Bạn qua thư của tôi là người Úc.)"
+        "icon": "🇦🇺",
+        "tag": "🇦🇺 AUSTRALIAN • NGƯỜI ÚC",
+        "imgUrl": "assets/sample_review/u3_australian.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1543852786-1cf6624b9987?w=960&auto=format&fit=crop&q=80",
+        "tip": "Bạn nhỏ người Úc vui tươi yêu thiên nhiên động vật",
+        "rhyme": "“Thân thiện cởi mở tươi cười,\nAustralian đó là người nước Úc!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> Thêm đuôi <strong>n</strong> vào Australia ➜ <strong>Australian</strong> (Người Úc).",
+        "example": "David is Australian. He loves surfing.",
+        "exampleVi": "(David là người Úc. Cậu ấy rất thích lướt sóng.)",
+        "exampleIpa": "/ˈdeɪ.vɪd ɪz ɒsˈtreɪ.li.ən. hiː lʌvz ˈsɜː.fɪŋ/"
       },
       {
         "word": "friendly",
         "pos": "adjective",
         "ipa": "/ˈfrend.li/",
         "meaning": "thân thiện, cởi mở",
-        "icon": "😊",
-        "tag": "😊 FRIENDLY • THÂN THIỆN",
-        "imgUrl": "https://images.unsplash.com/photo-1543807535-eceef0bc6599?w=800&auto=format&fit=crop&q=80",
-        "tip": "Nụ cười ấm áp chan hòa bạn bè",
-        "rhyme": "“Nụ cười rạng rỡ trên môi,\nFriendly thân thiện khắp nơi bạn bè!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> Từ <strong>Friend</strong> (bạn bè) + đuôi <strong>ly</strong> ➜ Luôn hòa đồng thân thiết như bạn bè: <strong>Friendly</strong>.",
-        "example": "The students in my class are very friendly.",
-        "exampleVi": "(Các bạn học sinh trong lớp tôi rất thân thiện.)"
+        "icon": "🤝",
+        "tag": "🤝 FRIENDLY • THÂN THIỆN",
+        "imgUrl": "assets/sample_review/u3_friendly.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=960&auto=format&fit=crop&q=80",
+        "tip": "Hai bạn nhỏ nở nụ cười thân thiện, vui vẻ làm quen",
+        "rhyme": "“Gặp ai cũng nở nụ cười,\nFriendly thân thiện được người người yêu!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Friend</strong> (người bạn) + đuôi <strong>ly</strong> ➜ Tốt bụng, thân thiện như bạn thân.",
+        "example": "Our new classmate is very friendly and kind.",
+        "exampleVi": "(Người bạn cùng lớp mới của chúng tôi rất thân thiện và tốt bụng.)",
+        "exampleIpa": "/ˈaʊər njuː ˈklɑːs.meɪt ɪz ˈver.i ˈfrend.li ænd kaɪnd/"
       },
       {
         "word": "helpful",
         "pos": "adjective",
         "ipa": "/ˈhelp.fəl/",
         "meaning": "hay giúp đỡ người khác",
-        "icon": "🤝",
-        "tag": "🤝 HELPFUL • GIÚP ĐỠ",
-        "imgUrl": "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&auto=format&fit=crop&q=80",
-        "tip": "Những cánh tay sẵn sàng tương trợ nhau",
-        "rhyme": "“Thấy ai khó nhọc giơ tay,\nHelpful giúp đỡ ngập tràn yêu thương!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Help</strong> (giúp đỡ) + <strong>ful</strong> (đầy ắp) ➜ Người luôn sẵn lòng dang tay giúp bạn.",
-        "example": "Tony is helpful and carries bags for mom.",
-        "exampleVi": "(Tony rất hay giúp đỡ và xách túi hộ mẹ.)"
+        "icon": "💖",
+        "tag": "💖 HELPFUL • TỐT BỤNG",
+        "imgUrl": "assets/sample_review/u3_helpful.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=960&auto=format&fit=crop&q=80",
+        "tip": "Các bạn nhỏ nhiệt tình giúp đỡ, đưa bàn tay hỗ trợ bạn bè",
+        "rhyme": "“Thấy bạn vất vả khó khăn,\nHelpful giúp đỡ ân cần chở che!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Help</strong> (giúp đỡ) + <strong>ful</strong> (đầy ắp) ➜ Luôn sẵn lòng giúp đỡ mọi người xung quanh.",
+        "example": "Nam is very helpful. He always helps his friends.",
+        "exampleVi": "(Nam rất hay giúp đỡ người khác. Cậu ấy luôn giúp bạn bè.)",
+        "exampleIpa": "/nɑːm ɪz ˈver.i ˈhelp.fəl. hiː ˈɔːl.weɪz helps hɪz frendz/"
       },
       {
         "word": "sporty",
@@ -894,270 +1243,419 @@ const APP_UNITS = [
         "meaning": "thích thể thao, năng động",
         "icon": "⚽",
         "tag": "⚽ SPORTY • THÍCH THỂ THAO",
-        "imgUrl": "https://images.unsplash.com/photo-1517649763962-0c623266ddc0?w=800&auto=format&fit=crop&q=80",
-        "tip": "Năng động khỏe khoắn trên sân bóng",
-        "rhyme": "“Chạy nhanh, sút bóng tưng bừng,\nSporty khỏe khoắn không ngừng vươn xa!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> Từ <strong>Sport</strong> (thể thao) + <strong>y</strong> ➜ Phong cách thể thao năng động, khỏe khoắn.",
-        "example": "He is very sporty and plays football every day.",
-        "exampleVi": "(Cậu ấy rất yêu thể thao và chơi bóng đá mỗi ngày.)"
+        "imgUrl": "assets/sample_review/u3_sporty.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=960&auto=format&fit=crop&q=80",
+        "tip": "Các bạn học sinh năng động, hào hứng tham gia thể thao",
+        "rhyme": "“Chạy nhảy đá bóng hăng say,\nSporty năng động dẻo dai khỏe người!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Sport</strong> (thể thao) + <strong>y</strong> ➜ Dáng người khỏe khoắn, thích chơi thể thao.",
+        "example": "Tony is very sporty. He plays football every afternoon.",
+        "exampleVi": "(Tony rất thích thể thao. Cậu ấy chơi bóng đá mỗi buổi chiều.)",
+        "exampleIpa": "/ˈtəʊ.ni ɪz ˈver.i ˈspɔː.ti. hiː pleɪz ˈfʊt.bɔːl ˈev.ri ˌɑːf.təˈnuːn/"
       }
     ],
     "sentences": [
       {
-        "zh": "Where is he from? - He's from Japan. He's Japanese.",
-        "vi": "Cậu ấy đến từ đâu? - Cậu ấy đến từ Nhật Bản. Cậu ấy là người Nhật.",
+        "en": "Where is he from? - He's from America. He's American.",
+        "vi": "Cậu ấy đến từ đâu? - Cậu ấy đến từ nước Mỹ. Cậu ấy là người Mỹ.",
+        "imgUrl": "assets/sample_review/u3_america.jpg",
         "chunks": [
           {
             "en": "Where is he from?",
-            "vi": "Cậu ấy đến từ đâu?"
+            "phoneticVi": "Ue ít-z hi ph-rôm?",
+            "vi": "Cậu ấy từ đâu đến?"
           },
           {
-            "en": "He's from Japan.",
-            "vi": "Cậu ấy đến từ nước Nhật."
+            "en": "He's from America.",
+            "phoneticVi": "Hi-z ph-rôm Ơ-me-ri-cơ.",
+            "vi": "Cậu ấy đến từ nước Mỹ."
           },
           {
-            "en": "He's Japanese.",
-            "vi": "Cậu ấy là người Nhật."
+            "en": "He's American.",
+            "phoneticVi": "Hi-z Ơ-me-ri-cần.",
+            "vi": "Cậu ấy là người Mỹ."
           }
-        ]
+        ],
+        "ipa": "/weər ɪz hiː frɒm/ - /hiːz frɒm əˈmer.ɪ.kə. hiːz əˈmer.ɪ.kən/"
       },
       {
-        "zh": "What nationality are you? - I'm Vietnamese.",
-        "vi": "Quốc tịch của bạn là gì? - Tôi là người Việt Nam.",
+        "en": "What nationality is she? - She's English. She's from England.",
+        "vi": "Cô ấy mang quốc tịch gì? - Cô ấy là người Anh. Cô ấy đến từ nước Anh.",
+        "imgUrl": "assets/sample_review/u3_england.jpg",
         "chunks": [
           {
-            "en": "What nationality are you?",
-            "vi": "Quốc tịch của bạn là gì?"
+            "en": "What nationality is she?",
+            "phoneticVi": "Oát ne-sừn-e-lơ-ti ít-z xi?",
+            "vi": "Bạn ấy quốc tịch gì?"
           },
           {
-            "en": "I'm Vietnamese.",
-            "vi": "Tôi là người Việt Nam."
+            "en": "She's English.",
+            "phoneticVi": "Xi-z In-g-lít-ch.",
+            "vi": "Bạn ấy là người Anh."
+          },
+          {
+            "en": "She's from England.",
+            "phoneticVi": "Xi-z ph-rôm In-g-lừn-đ.",
+            "vi": "Đến từ nước Anh."
           }
-        ]
+        ],
+        "ipa": "/wɒt ˌnæʃ.ənˈæl.ə.ti ɪz ʃiː/ - /ʃiːz ˈɪŋ.ɡlɪʃ. ʃiːz frɒm ˈɪŋ.ɡlənd/"
       },
       {
-        "zh": "What is she like? - She's friendly and helpful.",
-        "vi": "Cô ấy là người như thế nào? - Cô ấy rất thân thiện và hay giúp đỡ bạn bè.",
+        "en": "Where are they from? - They're from Australia. They are Australian.",
+        "vi": "Họ đến từ đâu? - Họ đến từ nước Úc. Họ là người Úc.",
+        "imgUrl": "assets/sample_review/u3_australia.jpg",
         "chunks": [
           {
-            "en": "What is she like?",
-            "vi": "Cô ấy là người như thế nào?"
+            "en": "Where are they from?",
+            "phoneticVi": "Ue a đei ph-rôm?",
+            "vi": "Họ đến từ đâu?"
           },
           {
-            "en": "She's friendly and helpful.",
-            "vi": "Cô ấy rất thân thiện và hay giúp đỡ bạn bè."
+            "en": "They're from Australia.",
+            "phoneticVi": "Đei-ơ ph-rôm Ót-x-t-rây-li-ơ.",
+            "vi": "Họ đến từ nước Úc."
+          },
+          {
+            "en": "They are Australian.",
+            "phoneticVi": "Đei a Ót-x-t-rây-li-ần.",
+            "vi": "Họ là người Úc."
           }
-        ]
+        ],
+        "ipa": "/weər ɑːr ðeɪ frɒm/ - /ðeər frɒm ɒsˈtreɪ.li.ə. ðeɪ ɑːr ɒsˈtreɪ.li.ən/"
       },
       {
-        "zh": "What does he look like? - He's tall and has short black hair.",
-        "vi": "Cậu ấy trông như thế nào? - Cậu ấy cao và có mái tóc đen ngắn.",
+        "en": "What's your new friend like? - She's very friendly and helpful.",
+        "vi": "Người bạn mới của bạn như thế nào? - Bạn ấy rất thân thiện và hay giúp đỡ mọi người.",
+        "imgUrl": "assets/sample_review/u3_helpful.jpg",
         "chunks": [
           {
-            "en": "What does he look like?",
-            "vi": "Cậu ấy trông như thế nào?"
+            "en": "What's your new friend like?",
+            "phoneticVi": "Oát-x yo niu ph-ren-đ lai-k?",
+            "vi": "Bạn mới của bạn thế nào?"
           },
           {
-            "en": "He's tall and has short black hair.",
-            "vi": "Cậu ấy cao và có mái tóc đen ngắn."
+            "en": "She's very friendly",
+            "phoneticVi": "Xi-z ve-ri ph-ren-đ-li",
+            "vi": "Bạn ấy rất thân thiện"
+          },
+          {
+            "en": "and helpful.",
+            "phoneticVi": "en hép-phu-l.",
+            "vi": "và hay giúp đỡ người khác."
           }
-        ]
+        ],
+        "ipa": "/wɒts jɔːr njuː frend laɪk/ - /ʃiːz ˈver.i ˈfrend.li ænd ˈhelp.fəl/"
       }
     ],
     "grammar": {
-      "title": "Phân biệt Nước (Country) & Quốc tịch (Nationality)",
-      "desc": "Cực kỳ hay nhầm lẫn giữa Tên Đất Nước và Tên Quốc Tịch!",
-      "diagram": [
+      "title": "Hỏi Quốc Tịch & Tính Cách Bạn Bè",
+      "summary": "Phân biệt Tên Quốc Gia (Country) và Tên Quốc Tịch (Nationality), kèm cấu trúc hỏi tính cách.",
+      "rules": [
         {
-          "label": "Từ Nước (From + Country)",
-          "example": "from Vietnam, from Japan, from America",
-          "color": "bg-orange-50 border-orange-300 text-orange-800",
-          "rule": "Sau chữ 'from' PHẢI là tên đất nước"
+          "label": "1. Hỏi quê hương / đất nước: WHERE FROM",
+          "example": "Where are you from? - I'm from Vietnam. | Where is he from? - He's from America.",
+          "color": "bg-teal-50 border-teal-300 text-teal-900",
+          "rule": "Where + to be + S + from? ➜ S + to be + from + [Tên Nước]",
+          "imgUrl": "assets/sample_review/u3_america.jpg"
         },
         {
-          "label": "Quốc tịch (Be + Nationality)",
-          "example": "is Vietnamese, is Japanese, is American",
-          "color": "bg-amber-50 border-amber-300 text-amber-800",
-          "rule": "Sau 'am/is/are' (không có from) là quốc tịch"
+          "label": "2. Nói về quốc tịch: NATIONALITY",
+          "example": "I'm Vietnamese. | He's American. | She's English. | They're Australian.",
+          "color": "bg-blue-50 border-blue-300 text-blue-900",
+          "rule": "S + to be + [Tên Quốc Tịch] (không có chữ 'from')",
+          "imgUrl": "assets/sample_review/u3_australian.jpg"
         },
         {
-          "label": "Hỏi Tính cách vs Ngoại hình",
-          "example": "What is she like? (tính cách) VS What does she look like? (ngoại hình)",
-          "color": "bg-rose-50 border-rose-300 text-rose-800",
-          "rule": "Có chữ 'LOOK' là hỏi về mắt nhìn (ngoại hình)"
+          "label": "3. Hỏi tính cách bạn bè: WHAT ... LIKE",
+          "example": "What is he like? - He is friendly, helpful and sporty.",
+          "color": "bg-emerald-50 border-emerald-300 text-emerald-900",
+          "rule": "What + to be + S + like? ➜ S + to be + [Tính từ chỉ tính cách]",
+          "imgUrl": "assets/sample_review/u3_helpful.jpg"
         }
       ],
-      "tip": "💡 Mẹo: Cứ có chữ 'from' thì chọn tên nước: from Japan. Không có 'from' thì chọn quốc tịch: Japanese!"
+      "tip": "💡 Nhớ nhé: 'from America' (từ nước Mỹ), nhưng 'is American' (là người Mỹ - không có chữ from)!"
     },
     "practice": [
       {
-        "vi": "Cậu ấy đến từ đâu? - Cậu ấy đến từ nước Mỹ.",
-        "en": "Where is he from? - He is from America.",
-        "tip": "Từ nước Mỹ dùng 'from America'"
+        "vi": "Cậu ấy đến từ đâu? - Cậu ấy đến từ nước Anh.",
+        "en": "Where is he from? - He is from England.",
+        "imgUrl": "assets/sample_review/u3_england.jpg",
+        "tip": "Nước Anh là England"
       },
       {
-        "vi": "Bạn của bạn có quốc tịch gì? - Cô ấy là người Nhật Bản.",
-        "en": "What nationality is your friend? - She is Japanese.",
-        "tip": "Quốc tịch Nhật là 'Japanese'"
-      },
-      {
-        "vi": "Cô ấy là người như thế nào? - Cô ấy rất tốt bụng và thân thiện.",
-        "en": "What is she like? - She is very kind and friendly.",
-        "tip": "Hỏi tính cách: 'What is she like?'"
-      },
-      {
-        "vi": "Anh ấy trông như thế nào? - Anh ấy cao và có đôi mắt to.",
-        "en": "What does he look like? - He is tall and has big eyes.",
-        "tip": "Hỏi ngoại hình: 'What does he look like?'"
+        "vi": "Bạn của bạn là người như thế nào? - Bạn ấy rất thân thiện và thích thể thao.",
+        "en": "What is your friend like? - She is friendly and sporty.",
+        "imgUrl": "assets/sample_review/u3_friendly.jpg",
+        "tip": "Thân thiện là 'friendly', thích thể thao là 'sporty'"
       }
     ],
-    "song": {
-      "title": "Friends From Around The World (Bài Hát Bạn Bè Quốc Tế)",
-      "youtubeId": "nW3p5_2pcLM",
-      "bgMusic": "https://upload.wikimedia.org/wikipedia/commons/9/98/Happy_Alley_%28ISRC_USUAN1100482%29.mp3",
-      "musicName": "Giai điệu vui nhộn: Global Friends",
-      "lines": [
-        {
-          "en": "Hello my friend from across the sea!",
-          "vi": "Xin chào người bạn từ bên kia đại dương!"
-        },
-        {
-          "en": "Where are you from? Come play with me!",
-          "vi": "Bạn đến từ đâu? Hãy đến chơi cùng tôi nào!"
-        },
-        {
-          "en": "I am from England, she is from Japan,",
-          "vi": "Tôi đến từ nước Anh, cô ấy đến từ nước Nhật,"
-        },
-        {
-          "en": "He is American, we're the best friends in the land!",
-          "vi": "Cậu ấy là người Mỹ, chúng mình là những người bạn thân nhất trần đời!"
-        },
-        {
-          "en": "Friendly and helpful, me and you!",
-          "vi": "Thân thiện và tốt bụng, tôi và bạn!"
-        }
-      ]
-    }
+    "quiz": [
+      {
+        "q": "Hộ chiếu, visa và cờ các nước thể hiện điều gì của một công dân?",
+        "audio": "nationality",
+        "imgUrl": "assets/sample_review/u3_nationality.jpg",
+        "options": [
+          "address",
+          "nationality",
+          "hometown",
+          "village"
+        ],
+        "ans": 1,
+        "explain": "Nationality (/ˌnæʃ.ənˈæl.ə.ti/) là quốc tịch của một người."
+      },
+      {
+        "q": "Tượng Nữ Thần Tự Do và quốc kỳ cờ hoa là biểu tượng của quốc gia nào?",
+        "audio": "America",
+        "imgUrl": "assets/sample_review/u3_america.jpg",
+        "options": [
+          "England",
+          "Australia",
+          "America",
+          "Vietnam"
+        ],
+        "ans": 2,
+        "explain": "America (/əˈmer.ɪ.kə/) là nước Mỹ (Hoa Kỳ)."
+      },
+      {
+        "q": "Người bạn học sinh đến từ nước Mỹ thì mang quốc tịch gì?",
+        "audio": "American",
+        "imgUrl": "assets/sample_review/u3_american.jpg",
+        "options": [
+          "English",
+          "Australian",
+          "American",
+          "Vietnamese"
+        ],
+        "ans": 2,
+        "explain": "American (/əˈmer.ɪ.kən/) là người Mỹ (quốc tịch Mỹ)."
+      },
+      {
+        "q": "Tháp đồng hồ Big Ben và xe buýt hai tầng đỏ rực rỡ thuộc quốc gia nào?",
+        "audio": "England",
+        "imgUrl": "assets/sample_review/u3_england.jpg",
+        "options": [
+          "England",
+          "America",
+          "Australia",
+          "Japan"
+        ],
+        "ans": 0,
+        "explain": "England (/ˈɪŋ.ɡlənd/) là nước Anh xinh đẹp."
+      },
+      {
+        "q": "Bạn nhỏ mang quốc tịch nước Anh hoặc môn học tiếng Anh được gọi là gì?",
+        "audio": "English",
+        "imgUrl": "assets/sample_review/u3_english.jpg",
+        "options": [
+          "American",
+          "English",
+          "Australian",
+          "French"
+        ],
+        "ans": 1,
+        "explain": "English (/ˈɪŋ.ɡlɪʃ/) là người Anh, hoặc môn tiếng Anh."
+      },
+      {
+        "q": "Nhà hát Con Sò Sydney bên bờ vịnh biển xanh mát là niềm tự hào của nước nào?",
+        "audio": "Australia",
+        "imgUrl": "assets/sample_review/u3_australia.jpg",
+        "options": [
+          "America",
+          "England",
+          "Australia",
+          "Canada"
+        ],
+        "ans": 2,
+        "explain": "Australia (/ɒsˈtreɪ.li.ə/) là đất nước Úc (xứ sở chuột túi)."
+      },
+      {
+        "q": "Bạn học sinh vui tươi đến từ nước Úc có quốc tịch gì?",
+        "audio": "Australian",
+        "imgUrl": "assets/sample_review/u3_australian.jpg",
+        "options": [
+          "American",
+          "English",
+          "Australian",
+          "Vietnamese"
+        ],
+        "ans": 2,
+        "explain": "Australian (/ɒsˈtreɪ.li.ən/) là người Úc."
+      },
+      {
+        "q": "Bạn nhỏ luôn sẵn lòng chìa tay ra giúp đỡ người khác lúc khó khăn gọi là gì?",
+        "audio": "helpful",
+        "imgUrl": "assets/sample_review/u3_helpful.jpg",
+        "options": [
+          "lazy",
+          "helpful",
+          "noisy",
+          "busy"
+        ],
+        "ans": 1,
+        "explain": "Helpful (/ˈhelp.fəl/) là hay giúp đỡ người khác, tốt bụng."
+      },
+      {
+        "q": "Người bạn luôn nở nụ cười tươi tắn và chan hòa với mọi người gọi là gì?",
+        "audio": "friendly",
+        "imgUrl": "assets/sample_review/u3_friendly.jpg",
+        "options": [
+          "angry",
+          "friendly",
+          "sporty",
+          "quiet"
+        ],
+        "ans": 1,
+        "explain": "Friendly (/ˈfrend.li/) là thân thiện, dễ mến."
+      },
+      {
+        "q": "Người bạn rất khỏe khoắn, đam mê chạy nhảy và chơi các môn thể thao gọi là gì?",
+        "audio": "sporty",
+        "imgUrl": "assets/sample_review/u3_sporty.jpg",
+        "options": [
+          "lazy",
+          "sporty",
+          "cozy",
+          "helpful"
+        ],
+        "ans": 1,
+        "explain": "Sporty (/ˈspɔː.ti/) là yêu thể thao, dáng vẻ khỏe khoắn."
+      }
+    ]
   },
   {
     "id": 4,
     "title": "Unit 4: Our Free-Time Activities",
-    "subtitle": "Các hoạt động thời gian rảnh · Thói quen, sở thích & tần suất",
-    "themeColor": "from-purple-600 to-pink-500",
+    "subtitle": "Hoạt động lúc rảnh rỗi · Trạng từ chỉ tần suất",
+    "themeColor": "from-cyan-600 to-blue-500",
     "icon": "🚴",
     "vocab": [
       {
         "word": "surf the Internet",
-        "pos": "verb",
+        "pos": "phrase",
         "ipa": "/sɜːf ði ˈɪn.tə.net/",
         "meaning": "lướt mạng Internet",
-        "icon": "🌐",
-        "tag": "🌐 SURF THE INTERNET",
-        "imgUrl": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=80",
-        "tip": "Tra cứu học tập và giải trí trên mạng",
-        "rhyme": "“Mở máy tìm kiếm điều hay,\nSurf the Internet mê say từng giờ!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Surf</strong> là lướt ván ➜ Lướt trên ngọn sóng thông tin mạng Internet kỳ thú.",
-        "example": "I often surf the Internet for my homework.",
-        "exampleVi": "(Tôi thường lướt mạng Internet để làm bài tập về nhà.)"
+        "icon": "💻",
+        "tag": "💻 SURF THE INTERNET • LƯỚT MẠNG",
+        "imgUrl": "assets/sample_review/u4_surf_internet.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=960&auto=format&fit=crop&q=80",
+        "tip": "Bạn nhỏ học tập và tìm kiếm thông tin trên mạng Internet",
+        "rhyme": "“Rảnh rỗi tìm kiếm điều hay,\nSurf the Internet cả ngày thêm vui!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Surf</strong> là lướt ván ➜ Lướt trên từng ngọn sóng thông tin mạng Internet.",
+        "example": "I often surf the Internet to learn English in my free time.",
+        "exampleVi": "(Tôi thường lướt Internet để học tiếng Anh vào thời gian rảnh.)",
+        "exampleIpa": "/aɪ ˈɒf.ən sɜːf ði ˈɪn.tə.net tuː lɜːn ˈɪŋ.ɡlɪʃ ɪn maɪ friː taɪm/"
       },
       {
         "word": "ride a bike",
-        "pos": "verb",
+        "pos": "phrase",
         "ipa": "/raɪd ə baɪk/",
         "meaning": "đạp xe đạp",
         "icon": "🚲",
-        "tag": "🚲 RIDE A BIKE • ĐẠP XE",
-        "imgUrl": "https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=800&auto=format&fit=crop&q=80",
-        "tip": "Đạp xe rèn luyện sức khỏe trong công viên",
-        "rhyme": "“Chiều buông gió mát bên hè,\nRide a bike thoả thích xe bon bon!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Ride</strong> (cưỡi/lái) + <strong>a bike</strong> (chiếc xe đạp) ➜ Đạp xe dạo quanh công viên hít thở khí trời.",
-        "example": "He rides a bike in the park every afternoon.",
-        "exampleVi": "(Cậu ấy đạp xe trong công viên mỗi buổi chiều.)"
+        "tag": "🚲 RIDE A BIKE • ĐẠP XE ĐẠP",
+        "imgUrl": "assets/sample_review/u4_ride_bike.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=960&auto=format&fit=crop&q=80",
+        "tip": "Em bé vui vẻ đạp xe đạp trong công viên rợp bóng mát",
+        "rhyme": "“Gió thoảng công viên chiều nay,\nRide a bike đạp xe bay khắp đồi!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Ride</strong> (cưỡi, lái) + <strong>bike</strong> (xe đạp) ➜ Đạp xe dạo quanh công viên xanh ngát.",
+        "example": "My brother rides a bike to school every day.",
+        "exampleVi": "(Anh trai tôi đạp xe đến trường mỗi ngày.)",
+        "exampleIpa": "/maɪ ˈbrʌð.ər raɪdz ə baɪk tuː skuːl ˈev.ri deɪ/"
       },
       {
         "word": "read comic books",
-        "pos": "verb",
+        "pos": "phrase",
         "ipa": "/riːd ˈkɒm.ɪk bʊks/",
         "meaning": "đọc truyện tranh",
         "icon": "📚",
-        "tag": "📚 READ COMIC BOOKS",
-        "imgUrl": "https://images.unsplash.com/photo-1532012164546-f432f2e3edd4?w=800&auto=format&fit=crop&q=80",
-        "tip": "Những trang truyện tranh hài hước lôi cuốn",
-        "rhyme": "“Doraemon với Thám tử nhí,\nRead comic books cười hỉ hả vui!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Comic</strong> là hài hước ➜ Cuốn sách tranh hài hước dí dỏm giúp giải trí.",
-        "example": "She likes reading comic books on Sundays.",
-        "exampleVi": "(Cô ấy thích đọc truyện tranh vào những ngày Chủ nhật.)"
+        "tag": "📚 READ COMIC BOOKS • ĐỌC TRUYỆN TRANH",
+        "imgUrl": "assets/sample_review/u4_read_comics.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=960&auto=format&fit=crop&q=80",
+        "tip": "Những cuốn truyện tranh đầy màu sắc với nhân vật hoạt hình sống động",
+        "rhyme": "“Trang sách hình vẽ tươi cười,\nRead comic books thấy đời thảnh thơi!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Comic books</strong> là truyện tranh nhiều tranh vui nhộn như Doraemon hay Conan.",
+        "example": "She usually reads comic books before going to bed.",
+        "exampleVi": "(Cô ấy thường đọc truyện tranh trước khi đi ngủ.)",
+        "exampleIpa": "/ʃiː ˈjuː.ʒu.ə.li riːdz ˈkɒm.ɪk bʊks bɪˈfɔːr ˈɡəʊ.ɪŋ tuː bed/"
       },
       {
         "word": "watch cartoons",
-        "pos": "verb",
+        "pos": "phrase",
         "ipa": "/wɒtʃ kɑːˈtuːnz/",
         "meaning": "xem phim hoạt hình",
         "icon": "📺",
-        "tag": "📺 WATCH CARTOONS",
-        "imgUrl": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=800&auto=format&fit=crop&q=80",
-        "tip": "Thế giới phim hoạt hình sắc màu",
-        "rhyme": "“Mèo Tom đuổi chuột tinh nhanh,\nWatch cartoons ngập tiếng cười giòn tan!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Cartoons</strong> là những nhân vật hoạt hình vẽ tay vui nhộn trên tivi.",
-        "example": "We watch cartoons together in the living room.",
-        "exampleVi": "(Chúng tôi cùng nhau xem phim hoạt hình ở phòng khách.)"
+        "tag": "📺 WATCH CARTOONS • XEM PHIM HOẠT HÌNH",
+        "imgUrl": "assets/sample_review/u4_watch_cartoons.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1593784991095-a205069470b6?w=960&auto=format&fit=crop&q=80",
+        "tip": "Các bạn nhỏ cùng nhau xem phim hoạt hình vui nhộn trên tivi",
+        "rhyme": "“Tivi rộn rã nụ cười,\nWatch cartoons đón bao người xem vui!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Cartoons</strong> là những bộ phim hoạt hình như Tom & Jerry mà các bạn nhỏ rất mê.",
+        "example": "The children always watch cartoons on Sunday mornings.",
+        "exampleVi": "(Bọn trẻ luôn xem phim hoạt hình vào sáng Chủ nhật.)",
+        "exampleIpa": "/ðə ˈtʃɪl.drən ˈɔːl.weɪz wɒtʃ kɑːˈtuːnz ɒn ˈsʌn.deɪ ˈmɔː.nɪŋz/"
       },
       {
         "word": "go camping",
-        "pos": "verb",
+        "pos": "phrase",
         "ipa": "/ɡəʊ ˈkæm.pɪŋ/",
         "meaning": "đi cắm trại dã ngoại",
         "icon": "⛺",
         "tag": "⛺ GO CAMPING • CẮM TRẠI",
-        "imgUrl": "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&auto=format&fit=crop&q=80",
-        "tip": "Dựng lều đốt lửa trại bên bờ hồ",
-        "rhyme": "“Dựng lều đốt lửa quây quần,\nGo camping thỏa muôn phần niềm vui!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Camp</strong> là cái trại/lều ➜ Hoạt động dựng lều dã ngoại ngoài thiên nhiên.",
-        "example": "My family goes camping once a month.",
-        "exampleVi": "(Gia đình tôi đi cắm trại mỗi tháng một lần.)"
+        "imgUrl": "assets/sample_review/u4_go_camping.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=960&auto=format&fit=crop&q=80",
+        "tip": "Lều cắm trại xinh xắn dựng giữa thiên nhiên cây cỏ trong lành",
+        "rhyme": "“Cuối tuần dựng lều trong rừng,\nGo camping hát vang lừng tiếng ca!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Camp</strong> là trại ➜ Đi cắm trại <strong>go camping</strong> nướng thịt và ngắm sao trời.",
+        "example": "We go camping by the lake every summer.",
+        "exampleVi": "(Chúng tôi đi cắm trại bên bờ hồ mỗi dịp hè.)",
+        "exampleIpa": "/wiː ɡəʊ ˈkæm.pɪŋ baɪ ðə leɪk ˈev.ri ˈsʌm.ər/"
       },
       {
         "word": "play chess",
-        "pos": "verb",
+        "pos": "phrase",
         "ipa": "/pleɪ tʃes/",
         "meaning": "chơi cờ vua",
         "icon": "♟️",
         "tag": "♟️ PLAY CHESS • CHƠI CỜ VUA",
-        "imgUrl": "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=800&auto=format&fit=crop&q=80",
-        "tip": "Bàn cờ vua rèn luyện tư duy chiến thuật",
-        "rhyme": "“Quân xe, quân mã tranh tài,\nPlay chess suy nghĩ miệt mài luyện trí!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Chess</strong> là bàn cờ vua với quân Vua, Hậu, Mã, Xe đòi hỏi tư duy sắc bén.",
-        "example": "Do you want to play chess with me?",
-        "exampleVi": "(Bạn có muốn chơi cờ vua cùng với tôi không?)"
+        "imgUrl": "assets/sample_review/u4_play_chess.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=960&auto=format&fit=crop&q=80",
+        "tip": "Hai bạn học sinh chăm chú thi đấu cờ vua trí tuệ",
+        "rhyme": "“Tập trung suy nghĩ từng nước,\nPlay chess rèn luyện trí mưu tuyệt vời!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Chess</strong> là môn cờ vua rèn luyện trí thông minh.",
+        "example": "My father taught me how to play chess.",
+        "exampleVi": "(Bố tôi đã dạy tôi cách chơi cờ vua.)",
+        "exampleIpa": "/maɪ ˈfɑː.ðər tɔːt miː haʊ tuː pleɪ tʃes/"
       },
       {
         "word": "do karate",
-        "pos": "verb",
+        "pos": "phrase",
         "ipa": "/duː kəˈrɑː.ti/",
         "meaning": "tập võ Karate",
         "icon": "🥋",
         "tag": "🥋 DO KARATE • TẬP VÕ",
-        "imgUrl": "https://images.unsplash.com/photo-1555597673-b21d5c935865?w=800&auto=format&fit=crop&q=80",
-        "tip": "Thế võ đai đen mạnh mẽ kiên cường",
-        "rhyme": "“Đai đen áo trắng oai phong,\nDo karate rèn luyện tấm lòng kiên trung!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> Môn võ dùng động từ <strong>DO</strong>: <strong>do karate</strong>, giúp thân thể dẻo dai khỏe mạnh.",
-        "example": "He does karate on Saturdays.",
-        "exampleVi": "(Cậu ấy tập võ karate vào các ngày thứ Bảy.)"
+        "imgUrl": "assets/sample_review/u4_do_karate.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1555597673-b21d5c935865?w=960&auto=format&fit=crop&q=80",
+        "tip": "Võ sinh nhỏ tuổi mặc võ phục Karate luyện thế võ khỏe khoắn",
+        "rhyme": "“Võ phục trắng, thắt đai đen,\nDo karate khỏe, rèn luyện thân tâm!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> Đi với môn võ thuật dùng động từ <strong>DO</strong> ➜ <strong>Do karate</strong> để tự vệ và khỏe khoắn.",
+        "example": "He does karate at the sports club twice a week.",
+        "exampleVi": "(Cậu ấy tập karate ở câu lạc bộ thể thao hai lần một tuần.)",
+        "exampleIpa": "/hiː dʌz kəˈrɑː.ti æt ðə spɔːts klʌb twaɪs ə wiːk/"
       },
       {
         "word": "clean the house",
-        "pos": "verb",
+        "pos": "phrase",
         "ipa": "/kliːn ðə haʊs/",
         "meaning": "lau dọn nhà cửa",
         "icon": "🧹",
-        "tag": "🧹 CLEAN THE HOUSE",
-        "imgUrl": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&auto=format&fit=crop&q=80",
-        "tip": "Lau dọn nhà cửa gọn gàng sạch bóng",
-        "rhyme": "“Cầm chổi quét sạch bụi mờ,\nClean the house gọn gàng nhà cửa xinh!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Clean</strong> (sạch sẽ) + <strong>the house</strong> (ngôi nhà) ➜ Lau dọn nhà cửa phụ giúp bố mẹ.",
-        "example": "I help my mother clean the house.",
-        "exampleVi": "(Tôi giúp mẹ lau dọn nhà cửa gọn gàng.)"
+        "tag": "🧹 CLEAN THE HOUSE • DỌN NHÀ",
+        "imgUrl": "assets/sample_review/u4_clean_house.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=960&auto=format&fit=crop&q=80",
+        "tip": "Bé ngoan chăm chỉ quét dọn, lau bàn ghế giúp đỡ bố mẹ",
+        "rhyme": "“Quét nhà sạch bóng gọn gàng,\nClean the house đỡ mẹ bớt nhọc nhằn!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Clean</strong> (lau dọn) + <strong>the house</strong> (ngôi nhà) ➜ Giúp bố mẹ lau dọn nhà sạch tinh.",
+        "example": "I always clean the house on Saturday mornings.",
+        "exampleVi": "(Tôi luôn dọn dẹp nhà cửa vào sáng thứ Bảy.)",
+        "exampleIpa": "/aɪ ˈɔːl.weɪz kliːn ðə haʊs ɒn ˈsæt.ə.deɪ ˈmɔː.nɪŋz/"
       },
       {
         "word": "always",
@@ -1165,186 +1663,332 @@ const APP_UNITS = [
         "ipa": "/ˈɔːl.weɪz/",
         "meaning": "luôn luôn (100%)",
         "icon": "💯",
-        "tag": "💯 ALWAYS • LUÔN LUÔN",
-        "imgUrl": "https://images.unsplash.com/photo-1506784365847-bbad939e9335?w=800&auto=format&fit=crop&q=80",
-        "tip": "Thực hiện đều đặn tất cả các ngày 100%",
-        "rhyme": "“Ngày nào cũng nhớ làm bài,\nAlways chăm chỉ tương lai rạng ngời!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>All</strong> (tất cả) + <strong>ways</strong> ➜ Mọi lúc mọi nơi đều làm, đạt mức tuyệt đối 100%.",
-        "example": "I always do my homework before bedtime.",
-        "exampleVi": "(Tôi luôn luôn làm bài tập trước giờ đi ngủ.)"
+        "tag": "💯 ALWAYS • LUÔN LUÔN (100%)",
+        "imgUrl": "assets/sample_review/u4_always.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=960&auto=format&fit=crop&q=80",
+        "tip": "Thói quen luôn luôn thực hiện 100% đúng giờ mỗi ngày",
+        "rhyme": "“Mỗi ngày đều đặn chăm ngoan,\nAlways luôn luôn giữ trọn lời thầy!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>All</strong> (tất cả) + <strong>ways</strong> ➜ Luôn luôn làm 100% không bỏ ngày nào.",
+        "example": "She always brushes her teeth before bed.",
+        "exampleVi": "(Cô ấy luôn luôn đánh răng trước khi đi ngủ.)",
+        "exampleIpa": "/ʃiː ˈɔːl.weɪz ˈbrʌʃ.ɪz hɜː tiːθ bɪˈfɔːr bed/"
       },
       {
         "word": "usually",
         "pos": "adverb",
         "ipa": "/ˈjuː.ʒu.ə.li/",
         "meaning": "thường xuyên (80%)",
-        "icon": "🟢",
-        "tag": "🟢 USUALLY • THƯỜNG XUYÊN",
-        "imgUrl": "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=800&auto=format&fit=crop&q=80",
-        "tip": "Thói quen thường lệ hầu hết các ngày",
-        "rhyme": "“Thói quen lặp lại thường ngày,\nUsually tập thể dục đôi tay nhịp nhàng!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> Một thói quen thường lệ hầu như các ngày trong tuần: <strong>Usually</strong>.",
-        "example": "She usually rides a bike in the park.",
-        "exampleVi": "(Cô ấy thường xuyên đạp xe trong công viên.)"
+        "icon": "⭐",
+        "tag": "⭐ USUALLY • THƯỜNG XUYÊN (80%)",
+        "imgUrl": "assets/sample_review/u4_usually.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=960&auto=format&fit=crop&q=80",
+        "tip": "Thời khóa biểu hoạt động diễn ra thường xuyên (80%)",
+        "rhyme": "“Thói quen tuần bốn năm lần,\nUsually thường lệ thêm phần chăm ngoan!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> Mức độ 80% thời gian trong tuần em hay làm việc đó.",
+        "example": "I usually do my homework in the evening.",
+        "exampleVi": "(Tôi thường xuyên làm bài tập về nhà vào buổi tối.)",
+        "exampleIpa": "/aɪ ˈjuː.ʒu.ə.li duː maɪ ˈhəʊm.wɜːk ɪn ði ˈiːv.nɪŋ/"
       },
       {
         "word": "often",
         "pos": "adverb",
         "ipa": "/ˈɒf.ən/",
         "meaning": "hay làm, thường lệ (60%)",
-        "icon": "🟡",
-        "tag": "🟡 OFTEN • HAY LÀM",
-        "imgUrl": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&auto=format&fit=crop&q=80",
-        "tip": "Hay làm nhiều lần trong tuần",
-        "rhyme": "“Buổi chiều ta lại cùng chơi,\nOften gặp gỡ rộn rã tiếng cười!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> Đọc là */ˈɒf.ən/* (chữ t câm) ➜ Hay làm việc gì đó nhiều lần trong tuần.",
-        "example": "We often play chess together.",
-        "exampleVi": "(Chúng tôi hay chơi cờ vua cùng với nhau.)"
+        "icon": "✨",
+        "tag": "✨ OFTEN • HAY LÀM (60%)",
+        "imgUrl": "assets/sample_review/u4_often.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=960&auto=format&fit=crop&q=80",
+        "tip": "Lịch trình hay làm vào các buổi trong tuần (60%)",
+        "rhyme": "“Tuần đôi ba bận cùng chơi,\nOften hay làm rộn rã tiếng cười!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> Chữ 't' câm (đọc là /ˈɒf.ən/) ➜ Thường hay làm (khoảng 60%).",
+        "example": "We often play badminton in the park.",
+        "exampleVi": "(Chúng tôi hay chơi cầu lông trong công viên.)",
+        "exampleIpa": "/wiː ˈɒf.ən pleɪ ˈbæd.mɪn.tən ɪn ðə pɑːk/"
       },
       {
         "word": "never",
         "pos": "adverb",
         "ipa": "/ˈnev.ər/",
         "meaning": "không bao giờ (0%)",
-        "icon": "🔴",
-        "tag": "🔴 NEVER • KHÔNG BAO GIỜ",
-        "imgUrl": "https://images.unsplash.com/photo-1508873696983-2df5703bc20d?w=800&auto=format&fit=crop&q=80",
-        "tip": "Mức độ 0% không bao giờ xảy ra",
-        "rhyme": "“Chuyện xấu ta quyết lánh xa,\nNever làm nhé nhớ nha bạn hiền!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Never</strong> nghĩa là con số 0 tròn trĩnh, không bao giờ xảy ra.",
-        "example": "I never go to school late.",
-        "exampleVi": "(Tôi không bao giờ đi học muộn.)"
+        "icon": "🚫",
+        "tag": "🚫 NEVER • KHÔNG BAO GIỜ (0%)",
+        "imgUrl": "assets/sample_review/u4_never.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1508873535684-277a3cbcc4e8?w=960&auto=format&fit=crop&q=80",
+        "tip": "Dấu hiệu không bao giờ (0%) làm điều có hại cho sức khỏe",
+        "rhyme": "“Không bao giờ trễ giờ thi,\nNever ghi nhớ đúng giờ bước đi!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Never</strong> là 0% - hoàn toàn không bao giờ xảy ra.",
+        "example": "He never goes to school late.",
+        "exampleVi": "(Cậu ấy không bao giờ đi học muộn.)",
+        "exampleIpa": "/hiː ˈnev.ər ɡəʊz tuː skuːl leɪt/"
       }
     ],
     "sentences": [
       {
-        "zh": "What do you do in your free time? - I often surf the Internet.",
-        "vi": "Bạn làm gì trong thời gian rảnh? - Tôi thường lướt mạng Internet.",
+        "en": "What do you do in your free time? - I often read comic books.",
+        "vi": "Bạn thường làm gì vào thời gian rảnh? - Mình thường đọc truyện tranh.",
+        "imgUrl": "assets/sample_review/u4_read_comics.jpg",
         "chunks": [
           {
             "en": "What do you do",
-            "vi": "Bạn làm gì"
+            "phoneticVi": "Oát đu diu đu",
+            "vi": "Bạn thường làm gì"
           },
           {
             "en": "in your free time?",
-            "vi": "trong thời gian rảnh của bạn?"
+            "phoneticVi": "in yo ph-ri taim?",
+            "vi": "vào thời gian rảnh?"
           },
           {
-            "en": "I often surf the Internet.",
-            "vi": "Tôi thường lướt mạng Internet."
+            "en": "I often read comic books.",
+            "phoneticVi": "Ai ọp-phừn rít-đ co-míc búc-x.",
+            "vi": "Mình hay đọc truyện tranh."
           }
-        ]
+        ],
+        "ipa": "/wɒt duː juː duː ɪn jɔːr friː taɪm/ - /aɪ ˈɒf.ən riːd ˈkɒm.ɪk bʊks/"
       },
       {
-        "zh": "What does she do on Sundays? - She usually rides a bike in the park.",
-        "vi": "Cô ấy làm gì vào Chủ nhật? - Cô ấy thường đạp xe trong công viên.",
+        "en": "How often do you ride a bike? - I usually ride a bike in the park.",
+        "vi": "Bạn có thường đạp xe không? - Mình thường xuyên đạp xe đạp ở công viên.",
+        "imgUrl": "assets/sample_review/u4_ride_bike.jpg",
         "chunks": [
           {
-            "en": "What does she do on Sundays?",
-            "vi": "Cô ấy làm gì vào các ngày Chủ nhật?"
+            "en": "How often do you ride a bike?",
+            "phoneticVi": "Hao ọp-phừn đu diu rai-đ ơ bai-k?",
+            "vi": "Bạn có hay đạp xe không?"
           },
           {
-            "en": "She usually rides a bike in the park.",
-            "vi": "Cô ấy thường đạp xe trong công viên."
+            "en": "I usually ride a bike",
+            "phoneticVi": "Ai diu-giu-ơ-li rai-đ ơ bai-k",
+            "vi": "Mình thường xuyên đạp xe"
+          },
+          {
+            "en": "in the park.",
+            "phoneticVi": "in đơ pác-k.",
+            "vi": "ở công viên."
           }
-        ]
+        ],
+        "ipa": "/haʊ ˈɒf.ən duː juː raɪd ə baɪk/ - /aɪ ˈjuː.ʒu.ə.li raɪd ə baɪk ɪn ðə pɑːk/"
       },
       {
-        "zh": "How often do you play chess? - I play chess twice a week.",
-        "vi": "Bạn có thường chơi cờ không? - Tôi chơi cờ hai lần một tuần.",
+        "en": "Do you like watching cartoons? - Yes, I always watch cartoons on Sunday.",
+        "vi": "Bạn có thích xem hoạt hình không? - Có, mình luôn luôn xem hoạt hình vào Chủ nhật.",
+        "imgUrl": "assets/sample_review/u4_watch_cartoons.jpg",
         "chunks": [
           {
-            "en": "How often do you play chess?",
-            "vi": "Bạn có thường chơi cờ không?"
+            "en": "Do you like watching cartoons?",
+            "phoneticVi": "Đu diu lai-k oát-ch-ing ca-tun-z?",
+            "vi": "Bạn thích xem hoạt hình không?"
           },
           {
-            "en": "I play chess twice a week.",
-            "vi": "Tôi chơi cờ hai lần một tuần."
+            "en": "Yes, I always watch cartoons",
+            "phoneticVi": "Dét-x, ai ôl-uây-z oát-ch ca-tun-z",
+            "vi": "Có, mình luôn luôn xem"
+          },
+          {
+            "en": "on Sunday.",
+            "phoneticVi": "on Săn-đây.",
+            "vi": "vào ngày Chủ nhật."
           }
-        ]
+        ],
+        "ipa": "/duː juː laɪk ˈwɒtʃ.ɪŋ kɑːˈtuːnz/ - /jes, aɪ ˈɔːl.weɪz wɒtʃ kɑːˈtuːnz ɒn ˈsʌn.deɪ/"
+      },
+      {
+        "en": "What does he do on weekends? - He sometimes goes camping with his family.",
+        "vi": "Cậu ấy làm gì vào cuối tuần? - Thỉnh thoảng cậu ấy đi cắm trại với gia đình.",
+        "imgUrl": "assets/sample_review/u4_go_camping.jpg",
+        "chunks": [
+          {
+            "en": "What does he do on weekends?",
+            "phoneticVi": "Oát đắt-z hi đu on uýc-en-z?",
+            "vi": "Cậu ấy làm gì cuối tuần?"
+          },
+          {
+            "en": "He sometimes goes camping",
+            "phoneticVi": "Hi săm-taim-z gâu-z kem-ping",
+            "vi": "Thỉnh thoảng đi cắm trại"
+          },
+          {
+            "en": "with his family.",
+            "phoneticVi": "guýt hít-z phe-mi-li.",
+            "vi": "cùng gia đình."
+          }
+        ],
+        "ipa": "/wɒt dʌz hiː duː ɒn ˌwiːkˈendz/ - /hiː ˈsʌm.taɪmz ɡəʊz ˈkæm.pɪŋ wɪð hɪz ˈfæm.əl.i/"
       }
     ],
     "grammar": {
-      "title": "Thang đo Trạng từ chỉ tần suất (Adverbs of Frequency)",
-      "desc": "Cách diễn đạt mức độ thường xuyên của hành động trong tiếng Anh!",
-      "diagram": [
+      "title": "Hỏi Tần Suất & Thói Quen Hoạt Động",
+      "summary": "Cấu trúc 'What do you do in your free time?' và 'How often do you...?' kèm các trạng từ chỉ tần suất.",
+      "rules": [
         {
-          "label": "Always (100%)",
-          "example": "I always do my homework.",
-          "color": "bg-green-50 border-green-300 text-green-800",
-          "rule": "Luôn luôn làm, ngày nào cũng làm"
+          "label": "1. Trạng từ chỉ tần suất (Thang đo %)",
+          "example": "always (100%) > usually (80%) > often (60%) > sometimes (40%) > never (0%)",
+          "color": "bg-cyan-50 border-cyan-300 text-cyan-900",
+          "rule": "Vị trí: Đứng TRƯỚC động từ thường (I usually read comic books) và SAU động từ to be (I am always happy)",
+          "imgUrl": "assets/sample_review/u4_watch_cartoons.jpg"
         },
         {
-          "label": "Usually (80%) & Often (60%)",
-          "example": "She usually rides a bike. / They often read books.",
-          "color": "bg-blue-50 border-blue-300 text-blue-800",
-          "rule": "Thường xuyên làm trong tuần"
-        },
-        {
-          "label": "Sometimes (30%) & Never (0%)",
-          "example": "I sometimes play games. / He never drinks coffee.",
-          "color": "bg-purple-50 border-purple-300 text-purple-800",
-          "rule": "Thỉnh thoảng làm / Không bao giờ làm"
+          "label": "2. Cụm từ chỉ số lần thực hiện",
+          "example": "once a week (1 lần/tuần), twice a week (2 lần/tuần), three times a week (3 lần/tuần)",
+          "color": "bg-blue-50 border-blue-300 text-blue-900",
+          "rule": "Dùng để trả lời cho câu hỏi 'How often...?'",
+          "imgUrl": "assets/sample_review/u4_never.jpg"
         }
       ],
-      "tip": "💡 Vị trí vàng: Trạng từ tần suất đứng TRƯỚC động từ thường (I usually watch TV), nhưng đứng SAU to be (I am always happy)!"
+      "tip": "💡 Nhớ nhé: 1 lần là ONCE, 2 lần là TWICE, từ 3 lần trở lên dùng số đếm + TIMES (three times, four times)!"
     },
     "practice": [
       {
-        "vi": "Bạn làm gì vào thời gian rảnh? - Tôi thường đọc truyện tranh.",
-        "en": "What do you do in your free time? - I often read comic books.",
-        "tip": "Đọc truyện tranh là 'read comic books'"
+        "vi": "Bạn làm gì vào lúc rảnh rỗi? - Tôi thường đi cắm trại.",
+        "en": "What do you do in your free time? - I usually go camping.",
+        "imgUrl": "assets/sample_review/u4_go_camping.jpg",
+        "tip": "Cắm trại là 'go camping'"
       },
       {
-        "vi": "Cậu ấy làm gì vào chiều thứ Bảy? - Cậu ấy tập võ karate.",
-        "en": "What does he do on Saturday afternoons? - He does karate.",
-        "tip": "Chủ ngữ he dùng 'does karate'"
-      },
-      {
-        "vi": "Bạn có thường đi bơi không? - Một lần một tuần.",
-        "en": "How often do you go swimming? - Once a week.",
-        "tip": "Hỏi mức độ thường xuyên: 'How often do you...?'"
-      },
-      {
-        "vi": "Tôi không bao giờ thức khuya.",
-        "en": "I never stay up late.",
-        "tip": "Không bao giờ là 'never'"
+        "vi": "Bạn chơi cờ vua bao lâu một lần? - Tôi chơi một lần một tuần.",
+        "en": "How often do you play chess? - I play chess once a week.",
+        "imgUrl": "assets/sample_review/u4_play_chess.jpg",
+        "tip": "Một lần một tuần là 'once a week'"
       }
     ],
-    "song": {
-      "title": "What Do You Do In Your Free Time? (Bài Hát Hoạt Động Rảnh Rỗi)",
-      "youtubeId": "ZSQA-V9ybpo",
-      "bgMusic": "https://upload.wikimedia.org/wikipedia/commons/9/98/Happy_Alley_%28ISRC_USUAN1100482%29.mp3",
-      "musicName": "Giai điệu rộn rã: Playful Weekend",
-      "lines": [
-        {
-          "en": "Free time, free time, what do you do?",
-          "vi": "Thời gian rảnh, bạn thường làm gì thế?"
-        },
-        {
-          "en": "I ride my bike and surf the Internet too!",
-          "vi": "Tôi đạp xe và cũng lướt mạng Internet nữa!"
-        },
-        {
-          "en": "She reads comic books under the tree,",
-          "vi": "Cô ấy đọc truyện tranh dưới bóng cây mát rượi,"
-        },
-        {
-          "en": "He plays chess as happy as can be!",
-          "vi": "Cậu ấy chơi cờ vua vui ơi là vui!"
-        },
-        {
-          "en": "Always have fun every single day!",
-          "vi": "Lúc nào cũng ngập tràn niềm vui mỗi ngày!"
-        }
-      ]
-    }
+    "quiz": [
+      {
+        "q": "Những cuốn truyện tranh đầy màu sắc với nhân vật hoạt hình gọi là gì?",
+        "audio": "read comic books",
+        "imgUrl": "assets/sample_review/u4_read_comics.jpg",
+        "options": [
+          "watch cartoons",
+          "read comic books",
+          "play chess",
+          "do karate"
+        ],
+        "ans": 1,
+        "explain": "Read comic books (/riːd ˈkɒm.ɪk bʊks/) là đọc truyện tranh."
+      },
+      {
+        "q": "Xem phim hoạt hình vui nhộn trên tivi vào ngày nghỉ gọi là gì?",
+        "audio": "watch cartoons",
+        "imgUrl": "assets/sample_review/u4_watch_cartoons.jpg",
+        "options": [
+          "watch cartoons",
+          "surf the Internet",
+          "ride a bike",
+          "clean the house"
+        ],
+        "ans": 0,
+        "explain": "Watch cartoons (/wɒtʃ kɑːˈtuːnz/) là xem phim hoạt hình."
+      },
+      {
+        "q": "Biển cấm tròn đỏ gạch chéo thể hiện mức độ tần suất 0% là từ nào?",
+        "audio": "never",
+        "imgUrl": "assets/sample_review/u4_never.jpg",
+        "options": [
+          "always",
+          "often",
+          "usually",
+          "never"
+        ],
+        "ans": 3,
+        "explain": "Never (/ˈnev.ər/) nghĩa là không bao giờ (0%)."
+      },
+      {
+        "q": "Dựng lều cắm trại vui vẻ bên hồ nước và rừng cây vào mùa hè gọi là gì?",
+        "audio": "go camping",
+        "imgUrl": "assets/sample_review/u4_go_camping.jpg",
+        "options": [
+          "ride a bike",
+          "go camping",
+          "do karate",
+          "play chess"
+        ],
+        "ans": 1,
+        "explain": "Go camping (/ɡəʊ ˈkæm.pɪŋ/) là đi cắm trại ngoài trời."
+      },
+      {
+        "q": "Đạp xe đạp rèn luyện sức khỏe trong công viên rợp bóng cây gọi là gì?",
+        "audio": "ride a bike",
+        "imgUrl": "assets/sample_review/u4_ride_bike.jpg",
+        "options": [
+          "ride a bike",
+          "surf the Internet",
+          "read comics",
+          "clean the house"
+        ],
+        "ans": 0,
+        "explain": "Ride a bike (/raɪd ə baɪk/) là đi xe đạp."
+      },
+      {
+        "q": "Lướt mạng Internet bằng máy tính để tìm kiếm thông tin học tập là gì?",
+        "audio": "surf the Internet",
+        "imgUrl": "assets/sample_review/u4_surf_internet.jpg",
+        "options": [
+          "play chess",
+          "do karate",
+          "surf the Internet",
+          "go camping"
+        ],
+        "ans": 2,
+        "explain": "Surf the Internet (/sɜːf ði ˈɪn.tə.net/) là lướt mạng."
+      },
+      {
+        "q": "Trò chơi trí tuệ đấu trí trên bàn cờ gỗ giữa hai người gọi là gì?",
+        "audio": "play chess",
+        "imgUrl": "assets/sample_review/u4_play_chess.jpg",
+        "options": [
+          "do karate",
+          "play chess",
+          "ride a bike",
+          "watch cartoons"
+        ],
+        "ans": 1,
+        "explain": "Play chess (/pleɪ tʃes/) là chơi cờ vua."
+      },
+      {
+        "q": "Luyện tập võ thuật karate để tự vệ và nâng cao thể lực gọi là gì?",
+        "audio": "do karate",
+        "imgUrl": "assets/sample_review/u4_do_karate.jpg",
+        "options": [
+          "play chess",
+          "do karate",
+          "go camping",
+          "ride a bike"
+        ],
+        "ans": 1,
+        "explain": "Do karate (/duː kəˈrɑː.ti/) là tập võ karate."
+      },
+      {
+        "q": "Giúp mẹ quét dọn, lau chùi nhà cửa ngăn nắp vào cuối tuần là gì?",
+        "audio": "clean the house",
+        "imgUrl": "assets/sample_review/u4_clean_house.jpg",
+        "options": [
+          "clean the house",
+          "surf the Internet",
+          "read comic books",
+          "go camping"
+        ],
+        "ans": 0,
+        "explain": "Clean the house (/kliːn ðə haʊs/) là dọn dẹp nhà cửa."
+      },
+      {
+        "q": "Hành động luôn luôn lặp lại 100% (như đánh răng trước khi ngủ) là từ nào?",
+        "audio": "always",
+        "imgUrl": "assets/sample_review/u4_always.jpg",
+        "options": [
+          "never",
+          "sometimes",
+          "often",
+          "always"
+        ],
+        "ans": 3,
+        "explain": "Always (/ˈɔːl.weɪz/) là luôn luôn (100% thời gian)."
+      }
+    ]
   },
   {
     "id": 5,
     "title": "Unit 5: My Future Job",
-    "subtitle": "Công việc tương lai của tôi · Nghề nghiệp mơ ước & lý do",
-    "themeColor": "from-rose-600 to-red-500",
+    "subtitle": "Nghề nghiệp tương lai · Ước mơ & lý do",
+    "themeColor": "from-purple-600 to-pink-500",
     "icon": "🚀",
     "vocab": [
       {
@@ -1354,40 +1998,46 @@ const APP_UNITS = [
         "meaning": "phi hành gia vũ trụ",
         "icon": "👨‍🚀",
         "tag": "👨‍🚀 ASTRONAUT • PHI HÀNH GIA",
-        "imgUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop&q=80",
-        "tip": "Khám phá không gian vũ trụ bao la",
-        "rhyme": "“Tàu bay vào giữa ngân hà,\nAstronaut phi hành gia tuyệt vời!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Astro</strong> là vì sao ➜ Nhà du hành khám phá các vì sao vũ trụ.",
-        "example": "I'd like to be an astronaut in the future.",
-        "exampleVi": "(Tôi muốn trở thành một phi hành gia trong tương lai.)"
+        "imgUrl": "assets/sample_review/u5_astronaut.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=960&auto=format&fit=crop&q=80",
+        "tip": "Phi hành gia trong bộ đồ vũ trụ bay lơ lửng ngoài không gian",
+        "rhyme": "“Bay vào vũ trụ bao la,\nAstronaut ngắm ngân hà xa xôi!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Astro</strong> là các vì sao ➜ <strong>Astronaut</strong> là phi hành gia bay vào các vì sao.",
+        "example": "He wants to be an astronaut to fly into space.",
+        "exampleVi": "(Cậu ấy muốn trở thành một phi hành gia để bay vào vũ trụ.)",
+        "exampleIpa": "/hiː wɒnts tuː biː ən ˈæs.trə.nɔːt tuː flaɪ ˈɪn.tuː speɪs/"
       },
       {
         "word": "pilot",
         "pos": "noun",
         "ipa": "/ˈpaɪ.lət/",
         "meaning": "phi công lái máy bay",
-        "icon": "👨‍✈️",
-        "tag": "👨‍✈️ PILOT • PHI CÔNG",
-        "imgUrl": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&auto=format&fit=crop&q=80",
-        "tip": "Phi công lái máy bay trên bầu trời xanh",
-        "rhyme": "“Bầu trời xanh ngắt bao la,\nPilot sải cánh vượt qua mây ngàn!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Pilot</strong> là người điều khiển chiếc máy bay khổng lồ lượn trên bầu trời xanh.",
-        "example": "A pilot flies planes across the world.",
-        "exampleVi": "(Phi công lái những chiếc máy bay đi khắp thế giới.)"
+        "icon": "✈️",
+        "tag": "✈️ PILOT • PHI CÔNG",
+        "imgUrl": "assets/sample_review/u5_pilot.jpg",
+        "fallbackUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Captain_Joe,_Friedrichshafen_(P1046579).jpg?width=960",
+        "tip": "Chú phi công trong bộ quân phục chỉnh tề trước buồng lái",
+        "rhyme": "“Lái tàu bay giữa trời mây,\nPilot dũng cảm tháng ngày tung bay!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Pilot</strong> đội chiếc mũ phi công uy nghiêm điều khiển máy bay khổng lồ.",
+        "example": "My brother would like to be a pilot to fly planes.",
+        "exampleVi": "(Anh trai tôi muốn trở thành phi công để lái máy bay.)",
+        "exampleIpa": "/maɪ ˈbrʌð.ər wʊd laɪk tuː biː ə ˈpaɪ.lət tuː flaɪ pleɪnz/"
       },
       {
         "word": "doctor",
         "pos": "noun",
         "ipa": "/ˈdɒk.tər/",
         "meaning": "bác sĩ chữa bệnh",
-        "icon": "👨‍⚕️",
-        "tag": "👨‍⚕️ DOCTOR • BÁC SĨ",
-        "imgUrl": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=800&auto=format&fit=crop&q=80",
-        "tip": "Bác sĩ cứu chữa tận tình cho bệnh nhân",
-        "rhyme": "“Áo blouse trắng tinh dịu dàng,\nDoctor chữa bệnh bình an nụ cười!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Doctor</strong> vị lương y hiền từ luôn chăm sóc sức khỏe cho mọi người.",
-        "example": "Doctors look after sick patients.",
-        "exampleVi": "(Các bác sĩ chăm sóc những bệnh nhân ốm.)"
+        "icon": "🩺",
+        "tag": "🩺 DOCTOR • BÁC SĨ",
+        "imgUrl": "assets/sample_review/u5_doctor.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=960&auto=format&fit=crop&q=80",
+        "tip": "Bác sĩ khoác áo blouse trắng mỉm cười ân cần chăm sóc bệnh nhi",
+        "rhyme": "“Áo blouse trắng tinh hiền từ,\nDoctor chữa bệnh ân cần sớm hôm!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> Bác sĩ <strong>doctor</strong> đeo tai nghe khám bệnh cho các em nhỏ.",
+        "example": "She would like to be a doctor to look after patients.",
+        "exampleVi": "(Cô ấy muốn trở thành bác sĩ để chăm sóc bệnh nhân.)",
+        "exampleIpa": "/ʃiː wʊd laɪk tuː biː ə ˈdɒk.tər tuː lʊk ˈɑːf.tər ˈpeɪ.ʃənts/"
       },
       {
         "word": "architect",
@@ -1396,12 +2046,14 @@ const APP_UNITS = [
         "meaning": "kiến trúc sư",
         "icon": "📐",
         "tag": "📐 ARCHITECT • KIẾN TRÚC SƯ",
-        "imgUrl": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&auto=format&fit=crop&q=80",
-        "tip": "Bản vẽ thiết kế các tòa nhà hiện đại",
-        "rhyme": "“Cầm cây thước kẻ trong tay,\nArchitect vẽ những ngày tương lai!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> Bắt đầu bằng chữ A nên dùng <strong>an architect</strong> ➜ Người thiết kế các tòa nhà tuyệt đẹp.",
-        "example": "I'd like to be an architect to design bridges.",
-        "exampleVi": "(Tôi muốn trở thành kiến trúc sư để thiết kế những cây cầu.)"
+        "imgUrl": "assets/sample_review/u5_architect.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=960&auto=format&fit=crop&q=80",
+        "tip": "Kiến trúc sư đang phác thảo bản vẽ công trình nhà ở",
+        "rhyme": "“Vẽ nhà cao ốc ngút ngàn,\nArchitect đắp muôn vàn ước mơ!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> Người vẽ bản thiết kế các tòa nhà chọc trời chính là kiến trúc sư <strong>architect</strong>.",
+        "example": "He wants to be an architect to design modern buildings.",
+        "exampleVi": "(Cậu ấy muốn trở thành kiến trúc sư để thiết kế những tòa nhà hiện đại.)",
+        "exampleIpa": "/hiː wɒnts tuː biː ən ˈɑː.kɪ.tekt tuː dɪˈzaɪn ˈmɒd.ən ˈbɪl.dɪŋz/"
       },
       {
         "word": "writer",
@@ -1410,12 +2062,14 @@ const APP_UNITS = [
         "meaning": "nhà văn viết sách",
         "icon": "✍️",
         "tag": "✍️ WRITER • NHÀ VĂN",
-        "imgUrl": "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&auto=format&fit=crop&q=80",
-        "tip": "Sáng tác nên những cuốn sách kỳ thú",
-        "rhyme": "“Từng trang sách mở xôn xao,\nWriter chắp cánh bay vào ước mơ!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> Từ <strong>Write</strong> (viết) + <strong>er</strong> ➜ Người viết nên những câu chuyện văn chương hấp dẫn.",
-        "example": "She wants to be a story writer for children.",
-        "exampleVi": "(Cô ấy muốn trở thành nhà văn viết truyện cho thiếu nhi.)"
+        "imgUrl": "assets/sample_review/u5_writer.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=960&auto=format&fit=crop&q=80",
+        "tip": "Nhà văn say sưa sáng tác câu chuyện bên trang sách",
+        "rhyme": "“Trang văn thấm đượm tình người,\nWriter viết truyện cho đời thêm vui!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Write</strong> (viết) + <strong>er</strong> (người) ➜ <strong>Writer</strong> là người viết văn, nhà văn.",
+        "example": "She'd like to be a writer to write stories for children.",
+        "exampleVi": "(Cô ấy muốn trở thành nhà văn để viết truyện cho thiếu nhi.)",
+        "exampleIpa": "/ʃiːd laɪk tuː biː ə ˈraɪ.tər tuː raɪt ˈstɔː.riz fɔːr ˈtʃɪl.drən/"
       },
       {
         "word": "artist",
@@ -1424,225 +2078,380 @@ const APP_UNITS = [
         "meaning": "họa sĩ vẽ tranh",
         "icon": "🎨",
         "tag": "🎨 ARTIST • HỌA SĨ",
-        "imgUrl": "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800&auto=format&fit=crop&q=80",
-        "tip": "Họa sĩ sáng tạo thế giới đầy sắc màu",
-        "rhyme": "“Bảng màu rực rỡ nét xinh,\nArtist tô vẽ bức tranh tuyệt trần!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Art</strong> (nghệ thuật) + <strong>ist</strong> ➜ Người nghệ sĩ họa nên vẻ đẹp cuộc sống.",
-        "example": "The artist paints lovely pictures of nature.",
-        "exampleVi": "(Người họa sĩ vẽ những bức tranh tuyệt đẹp về thiên nhiên.)"
+        "imgUrl": "assets/sample_review/u5_artist.jpg",
+        "fallbackUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Portrait_of_a_Artist_Sitting_under_a_Tree_Painting-070A1097.jpg?width=960",
+        "tip": "Họa sĩ cầm bảng màu vẽ bức tranh rực rỡ trên giá vẽ",
+        "rhyme": "“Cọ màu vẽ đẹp muôn hoa,\nArtist họa sĩ tạo ra sắc màu!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Art</strong> (nghệ thuật) + <strong>ist</strong> (chuyên gia) ➜ <strong>Artist</strong> là họa sĩ tài ba.",
+        "example": "He wants to be an artist to draw beautiful paintings.",
+        "exampleVi": "(Cậu ấy muốn trở thành họa sĩ để vẽ những bức tranh tuyệt đẹp.)",
+        "exampleIpa": "/hiː wɒnts tuː biː ən ˈɑː.tɪst tuː drɔː ˈbjuː.tɪ.fəl ˈpeɪn.tɪŋz/"
       },
       {
         "word": "fly a plane",
-        "pos": "verb",
+        "pos": "phrase",
         "ipa": "/flaɪ ə pleɪn/",
         "meaning": "lái máy bay",
         "icon": "✈️",
-        "tag": "✈️ FLY A PLANE",
-        "imgUrl": "https://images.unsplash.com/photo-1519074069444-1ba4ea16e91f?w=800&auto=format&fit=crop&q=80",
-        "tip": "Điều khiển máy bay lượn trên tầng mây",
-        "rhyme": "“Cất cánh bay vút trời xanh,\nFly a plane lướt gió nhanh đón chào!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> Hành động của phi công: <strong>fly a plane</strong> bay lượn qua các quốc gia.",
-        "example": "Pilots fly planes high in the blue sky.",
-        "exampleVi": "(Các phi công lái máy bay bay cao trên bầu trời xanh.)"
+        "tag": "✈️ FLY A PLANE • LÁI MÁY BAY",
+        "imgUrl": "assets/sample_review/u5_fly_plane.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=960&auto=format&fit=crop&q=80",
+        "tip": "Chiếc máy bay sải cánh bay lượn êm ái giữa bầu trời xanh",
+        "rhyme": "“Cất cánh vút tận trời cao,\nFly a plane lượn đón chào nắng mai!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> Hành động của phi công chính là <strong>fly a plane</strong> (lái máy bay).",
+        "example": "I'd like to fly a plane around the world.",
+        "exampleVi": "(Tôi muốn lái máy bay bay vòng quanh thế giới.)",
+        "exampleIpa": "/aɪd laɪk tuː flaɪ ə pleɪn əˈraʊnd ðə wɜːld/"
       },
       {
         "word": "look after patients",
-        "pos": "verb",
+        "pos": "phrase",
         "ipa": "/lʊk ˈɑːf.tər ˈpeɪ.ʃənts/",
         "meaning": "chăm sóc bệnh nhân",
         "icon": "🏥",
-        "tag": "🏥 LOOK AFTER PATIENTS",
-        "imgUrl": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=80",
-        "tip": "Tận tụy chăm sóc bệnh nhân mau lành bệnh",
-        "rhyme": "“Tận tình thuốc uống cơm canh,\nLook after patients ngọt lành niềm vui!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Look after</strong> (chăm sóc ân cần) cho các <strong>patients</strong> (bệnh nhân mau khỏe mạnh).",
-        "example": "Nurses look after sick patients carefully.",
-        "exampleVi": "(Các y tá chăm sóc bệnh nhân ốm một cách cẩn thận.)"
+        "tag": "🏥 LOOK AFTER PATIENTS • CHĂM SÓC BỆNH NHÂN",
+        "imgUrl": "assets/sample_review/u5_look_after_patients.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=960&auto=format&fit=crop&q=80",
+        "tip": "Bác sĩ và y tá tận tình chăm sóc người bệnh chu đáo",
+        "rhyme": "“Chăm lo người bệnh từng ngày,\nLook after patients dạ này bình an!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Look after</strong> (chăm sóc) + <strong>patients</strong> (bệnh nhân) ➜ Công việc cao quý của bác sĩ và y tá.",
+        "example": "Doctors and nurses look after patients in hospitals.",
+        "exampleVi": "(Bác sĩ và y tá chăm sóc bệnh nhân trong các bệnh viện.)",
+        "exampleIpa": "/ˈdɒk.təz ænd nɜː.sɪz lʊk ˈɑːf.tər ˈpeɪ.ʃənts ɪn ˈhɒs.pɪ.təlz/"
       },
       {
         "word": "design buildings",
-        "pos": "verb",
+        "pos": "phrase",
         "ipa": "/dɪˈzaɪn ˈbɪl.dɪŋz/",
         "meaning": "thiết kế các tòa nhà",
-        "icon": "🏢",
-        "tag": "🏢 DESIGN BUILDINGS",
-        "imgUrl": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&auto=format&fit=crop&q=80",
-        "tip": "Kiến trúc sư thiết kế những tòa nhà đẹp",
-        "rhyme": "“Bản vẽ từng nét thẳng ngay,\nDesign buildings dựng xây quê nhà!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> Công việc của kiến trúc sư: <strong>design buildings</strong> tạo nên các công trình hiện đại.",
-        "example": "Architects design modern buildings.",
-        "exampleVi": "(Các kiến trúc sư thiết kế những tòa nhà hiện đại.)"
+        "icon": "🏗️",
+        "tag": "🏗️ DESIGN BUILDINGS • THIẾT KẾ NHÀ",
+        "imgUrl": "assets/sample_review/u5_design_buildings.jpg",
+        "fallbackUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Singapore_City_Gallery,_2024_(04).jpg?width=960",
+        "tip": "Thiết kế các mô hình tòa nhà kiến trúc hiện đại",
+        "rhyme": "“Bản vẽ nét thẳng nét cong,\nDesign buildings rạng rỡ non sông!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Design</strong> (thiết kế) + <strong>buildings</strong> (các tòa nhà) ➜ Công việc của kiến trúc sư.",
+        "example": "Architects design buildings and bridges.",
+        "exampleVi": "(Các kiến trúc sư thiết kế các tòa nhà và cây cầu.)",
+        "exampleIpa": "/ˈɑː.kɪ.tekts dɪˈzaɪn ˈbɪl.dɪŋz ænd ˈbrɪdʒ.ɪz/"
       },
       {
         "word": "write stories",
-        "pos": "verb",
+        "pos": "phrase",
         "ipa": "/raɪt ˈstɔː.riz/",
         "meaning": "viết các câu chuyện",
         "icon": "📖",
-        "tag": "📖 WRITE STORIES",
-        "imgUrl": "https://images.unsplash.com/photo-1474366521946-c3d4b507abf2?w=800&auto=format&fit=crop&q=80",
-        "tip": "Những trang sách cổ tích thần tiên",
-        "rhyme": "“Cổ tích hoàng tử nàng tiên,\nWrite stories ấm nỗi niềm tuổi thơ!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> Công việc của nhà văn: <strong>write stories</strong> cho thiếu nhi đọc trước giờ đi ngủ.",
-        "example": "I like to write stories about space.",
-        "exampleVi": "(Tôi thích viết các câu chuyện về không gian vũ trụ.)"
+        "tag": "📖 WRITE STORIES • VIẾT TRUYỆN",
+        "imgUrl": "assets/sample_review/u5_write_stories.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1517842645767-c639042777db?w=960&auto=format&fit=crop&q=80",
+        "tip": "Em bé hào hứng viết truyện cổ tích vào cuốn sổ nhỏ",
+        "rhyme": "“Truyện cổ tích thật thần tiên,\nWrite stories viết gửi miền tuổi thơ!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Write</strong> (viết) + <strong>stories</strong> (câu chuyện) ➜ Sáng tác truyện hay cho bạn đọc.",
+        "example": "She writes stories about magic animals.",
+        "exampleVi": "(Cô ấy viết những câu chuyện về các con vật kỳ diệu.)",
+        "exampleIpa": "/ʃiː raɪts ˈstɔː.riz əˈbaʊt ˈmædʒ.ɪk ˈæn.ɪ.məlz/"
       },
       {
         "word": "future",
         "pos": "noun",
         "ipa": "/ˈfjuː.tʃər/",
         "meaning": "tương lai",
-        "icon": "🌟",
-        "tag": "🌟 FUTURE • TƯƠNG LAI",
-        "imgUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop&q=80",
-        "tip": "Tương lai tươi sáng với bao ước mơ",
-        "rhyme": "“Phía trước ngày tháng rộng dài,\nFuture rạng rỡ đón mai huy hoàng!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>In the future</strong> ➜ Trong tương lai em sẽ làm những điều tuyệt vời.",
+        "icon": "🔮",
+        "tag": "🔮 FUTURE • TƯƠNG LAI",
+        "imgUrl": "assets/sample_review/u5_future.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=960&auto=format&fit=crop&q=80",
+        "tip": "Ánh sáng tương lai rạng rỡ đón chờ các em khám phá",
+        "rhyme": "“Học hành chăm chỉ từng ngày,\nFuture tươi sáng đong đầy niềm tin!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>In the future</strong> (trong tương lai) em sẽ trở thành người có ích.",
         "example": "What would you like to be in the future?",
-        "exampleVi": "(Bạn muốn làm nghề gì trong tương lai?)"
+        "exampleVi": "(Bạn muốn làm nghề gì trong tương lai?)",
+        "exampleIpa": "/wɒt wʊd juː laɪk tuː biː ɪn ðə ˈfjuː.tʃər/"
       },
       {
         "word": "grow up",
-        "pos": "verb",
+        "pos": "phrase",
         "ipa": "/ɡrəʊ ʌp/",
         "meaning": "lớn lên, trưởng thành",
         "icon": "🌱",
         "tag": "🌱 GROW UP • LỚN LÊN",
-        "imgUrl": "https://images.unsplash.com/photo-1472162072942-cd5147eb3902?w=800&auto=format&fit=crop&q=80",
-        "tip": "Trẻ em vui chơi lớn lên từng ngày",
-        "rhyme": "“Mỗi ngày cao lớn thông minh,\nGrow up khôn lớn trọn tình mẹ cha!”",
-        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Grow</strong> (phát triển) + <strong>up</strong> (lên) ➜ Em lớn khôn từng ngày để thực hiện ước mơ.",
-        "example": "When I grow up, I will travel around the world.",
-        "exampleVi": "(Khi tôi lớn lên, tôi sẽ đi du lịch vòng quanh thế giới.)"
+        "imgUrl": "assets/sample_review/u5_grow_up.jpg",
+        "fallbackUrl": "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=960&auto=format&fit=crop&q=80",
+        "tip": "Mầm cây vươn lên đón nắng tượng trưng cho sự lớn khôn mỗi ngày",
+        "rhyme": "“Cây non rồi cũng lớn nhanh,\nGrow up thành đạt làm rạng danh nhà!”",
+        "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Grow</strong> (phát triển) + <strong>up</strong> (lên) ➜ Khi em lớn lên, trưởng thành.",
+        "example": "When I grow up, I want to be a pilot.",
+        "exampleVi": "(Khi tôi lớn lên, tôi muốn trở thành một phi công.)",
+        "exampleIpa": "/wen aɪ ɡrəʊ ʌp, aɪ wɒnt tuː biː ə ˈpaɪ.lət/"
       }
     ],
     "sentences": [
       {
-        "zh": "What would you like to be in the future? - I'd like to be a pilot.",
-        "vi": "Bạn muốn làm nghề gì trong tương lai? - Tôi muốn trở thành một phi công.",
+        "en": "What would you like to be in the future? - I'd like to be an astronaut.",
+        "vi": "Bạn muốn làm nghề gì trong tương lai? - Mình muốn trở thành một phi hành gia.",
+        "imgUrl": "assets/sample_review/u5_astronaut.jpg",
         "chunks": [
           {
             "en": "What would you like to be",
-            "vi": "Bạn muốn trở thành nghề gì"
+            "phoneticVi": "Oát uút-đ diu lai-k tu bi",
+            "vi": "Bạn muốn làm gì"
           },
           {
             "en": "in the future?",
+            "phoneticVi": "in đơ phiu-chờ?",
             "vi": "trong tương lai?"
           },
           {
-            "en": "I'd like to be a pilot.",
-            "vi": "Tôi muốn trở thành một phi công."
+            "en": "I'd like to be an astronaut.",
+            "phoneticVi": "Ai-đ lai-k tu bi ừn át-x-t-rơ-nót.",
+            "vi": "Mình muốn làm phi hành gia."
           }
-        ]
+        ],
+        "ipa": "/wɒt wʊd juː laɪk tuː biː ɪn ðə ˈfjuː.tʃər/ - /aɪd laɪk tuː biː ən ˈæs.trə.nɔːt/"
       },
       {
-        "zh": "Why would you like to be a doctor? - Because I'd like to look after patients.",
-        "vi": "Tại sao bạn muốn làm bác sĩ? - Bởi vì tôi muốn chăm sóc bệnh nhân.",
+        "en": "Why would you like to be a pilot? - Because I'd like to fly a plane.",
+        "vi": "Tại sao bạn muốn làm phi công? - Vì mình muốn được lái máy bay.",
+        "imgUrl": "assets/sample_review/u5_fly_plane.jpg",
         "chunks": [
           {
-            "en": "Why would you like to be a doctor?",
-            "vi": "Tại sao bạn muốn làm bác sĩ?"
+            "en": "Why would you like to be a pilot?",
+            "phoneticVi": "Oai uút-đ diu lai-k tu bi ơ pai-lợt?",
+            "vi": "Tại sao muốn làm phi công?"
           },
           {
-            "en": "Because I'd like to look after patients.",
-            "vi": "Bởi vì tôi muốn chăm sóc bệnh nhân."
+            "en": "Because I'd like",
+            "phoneticVi": "Bi-cơ-z ai-đ lai-k",
+            "vi": "Bởi vì mình muốn"
+          },
+          {
+            "en": "to fly a plane.",
+            "phoneticVi": "tu ph-lai ơ p-lên.",
+            "vi": "được lái máy bay."
           }
-        ]
+        ],
+        "ipa": "/waɪ wʊd juː laɪk tuː biː ə ˈpaɪ.lət/ - /bɪˈkɒz aɪd laɪk tuː flaɪ ə pleɪn/"
       },
       {
-        "zh": "What will you do when you grow up? - I will design modern buildings.",
-        "vi": "Bạn sẽ làm gì khi lớn lên? - Tôi sẽ thiết kế những tòa nhà hiện đại.",
+        "en": "What would she like to be? - She'd like to be a doctor to look after patients.",
+        "vi": "Cô ấy muốn làm nghề gì? - Cô ấy muốn làm bác sĩ để chăm sóc các bệnh nhân.",
+        "imgUrl": "assets/sample_review/u5_doctor.jpg",
         "chunks": [
           {
-            "en": "What will you do",
-            "vi": "Bạn sẽ làm gì"
+            "en": "What would she like to be?",
+            "phoneticVi": "Oát uút-đ xi lai-k tu bi?",
+            "vi": "Cô ấy muốn làm nghề gì?"
           },
           {
-            "en": "when you grow up?",
-            "vi": "khi bạn lớn lên?"
+            "en": "She'd like to be a doctor",
+            "phoneticVi": "Xi-đ lai-k tu bi ơ đóc-tờ",
+            "vi": "Cô ấy muốn làm bác sĩ"
           },
           {
-            "en": "I will design modern buildings.",
-            "vi": "Tôi sẽ thiết kế những tòa nhà hiện đại."
+            "en": "to look after patients.",
+            "phoneticVi": "tu lúc áp-ph-tờ pây-sừn-t-x.",
+            "vi": "để chăm sóc người bệnh."
           }
-        ]
+        ],
+        "ipa": "/wɒt wʊd ʃiː laɪk tuː biː/ - /ʃiːd laɪk tuː biː ə ˈdɒk.tər tuː lʊk ˈɑːf.tər ˈpeɪ.ʃənts/"
+      },
+      {
+        "en": "Why would you like to be an architect? - Because I'd like to design beautiful buildings.",
+        "vi": "Tại sao bạn muốn làm kiến trúc sư? - Vì mình muốn thiết kế những tòa nhà đẹp đẽ.",
+        "imgUrl": "assets/sample_review/u5_architect.jpg",
+        "chunks": [
+          {
+            "en": "Why would you like to be an architect?",
+            "phoneticVi": "Oai uút-đ diu lai-k tu bi ừn a-ki-téc-t?",
+            "vi": "Tại sao muốn làm kiến trúc sư?"
+          },
+          {
+            "en": "Because I'd like",
+            "phoneticVi": "Bi-cơ-z ai-đ lai-k",
+            "vi": "Bởi vì mình muốn"
+          },
+          {
+            "en": "to design beautiful buildings.",
+            "phoneticVi": "tu đi-zain biu-ti-phu-l bin-đing-z.",
+            "vi": "thiết kế các tòa nhà đẹp."
+          }
+        ],
+        "ipa": "/waɪ wʊd juː laɪk tuː biː ən ˈɑː.kɪ.tekt/ - /bɪˈkɒz aɪd laɪk tuː dɪˈzaɪn ˈbjuː.tɪ.fəl ˈbɪl.dɪŋz/"
       }
     ],
     "grammar": {
-      "title": "Hỏi ước mơ nghề nghiệp & Giải thích lý do 'Why - Because'",
-      "desc": "Cặp câu hỏi và trả lời kinh điển trong bài học Unit 5!",
-      "diagram": [
+      "title": "Hỏi Ước Mơ Nghề Nghiệp & Giải Thích Lý Do (WHY - BECAUSE)",
+      "summary": "Cấu trúc 'What would you like to be...?' và cách trả lời nguyên nhân với 'Why - Because'.",
+      "rules": [
         {
-          "label": "Hỏi ước mơ nghề nghiệp",
-          "example": "What would you like to be in the future? ➜ I'd like to be a/an...",
-          "color": "bg-rose-50 border-rose-300 text-rose-800",
-          "rule": "I'd like = I would like. Lưu ý dùng 'an' trước architect, astronaut!"
+          "label": "1. Hỏi ước mơ nghề nghiệp",
+          "example": "What would you like to be in the future? - I'd like to be an astronaut.",
+          "color": "bg-purple-50 border-purple-300 text-purple-900",
+          "rule": "What would + S + like to be? ➜ S + would like to be + a/an + [Tên nghề nghiệp]",
+          "imgUrl": "assets/sample_review/u5_astronaut.jpg"
         },
         {
-          "label": "Hỏi lý do: Why would you like...?",
-          "example": "Why would you like to be an architect? ➜ Because I'd like to design buildings.",
-          "color": "bg-red-50 border-red-300 text-red-800",
-          "rule": "Câu hỏi bắt đầu bằng Why thì câu trả lời PHẢI bắt đầu bằng Because"
+          "label": "2. Dùng 'A' hay 'AN' trước nghề nghiệp",
+          "example": "AN astronaut, AN architect (bắt đầu bằng A, E, I, O, U) | A pilot, A doctor, A writer",
+          "color": "bg-pink-50 border-pink-300 text-pink-900",
+          "rule": "Bắt đầu bằng nguyên âm dùng AN, phụ âm dùng A",
+          "imgUrl": "assets/sample_review/u5_pilot.jpg"
         },
         {
-          "label": "Cặp đôi Nghề nghiệp & Hành động",
-          "example": "pilot ➜ fly a plane | doctor ➜ look after patients | writer ➜ write stories",
-          "color": "bg-orange-50 border-orange-300 text-orange-800",
-          "rule": "Học thuộc theo cặp để nói trôi chảy"
+          "label": "3. Hỏi lý do: WHY ➜ Trả lời: BECAUSE",
+          "example": "Why would you like to be a pilot? - Because I'd like to fly a plane.",
+          "color": "bg-emerald-50 border-emerald-300 text-emerald-900",
+          "rule": "Why... ? ➜ Because + S + would like to + [Hành động]",
+          "imgUrl": "assets/sample_review/u5_fly_plane.jpg"
         }
       ],
-      "tip": "💡 Nhớ nhé: astronaut (phi hành gia) và architect (kiến trúc sư) bắt đầu bằng nguyên âm nên phải dùng AN astronaut / AN architect!"
+      "tip": "💡 Nhớ nhé: Nhớ dùng AN astronaut và AN architect vì 2 từ này bắt đầu bằng nguyên âm A!"
     },
     "practice": [
       {
-        "vi": "Bạn muốn làm gì trong tương lai? - Tôi muốn trở thành một phi hành gia.",
-        "en": "What would you like to be in the future? - I'd like to be an astronaut.",
-        "tip": "Nhớ dùng 'an astronaut' vì bắt đầu bằng chữ 'a'"
+        "vi": "Bạn muốn làm nghề gì trong tương lai? - Tôi muốn làm kiến trúc sư.",
+        "en": "What would you like to be in the future? - I'd like to be an architect.",
+        "imgUrl": "assets/sample_review/u5_architect.jpg",
+        "tip": "Nhớ dùng 'an architect'"
       },
       {
-        "vi": "Tại sao bạn muốn trở thành một phi công? - Bởi vì tôi muốn lái máy bay.",
-        "en": "Why would you like to be a pilot? - Because I'd like to fly a plane.",
+        "vi": "Tại sao bạn muốn làm nhà văn? - Bởi vì tôi muốn viết truyện cho trẻ em.",
+        "en": "Why would you like to be a writer? - Because I'd like to write stories for children.",
+        "imgUrl": "assets/sample_review/u5_writer.jpg",
         "tip": "Hỏi Why trả lời Because"
-      },
-      {
-        "vi": "Tại sao cô ấy muốn làm giáo viên? - Bởi vì cô ấy muốn dạy dỗ trẻ em.",
-        "en": "Why would she like to be a teacher? - Because she'd like to teach children.",
-        "tip": "Dạy trẻ em là 'teach children'"
-      },
-      {
-        "vi": "Khi lớn lên, tôi sẽ du hành vòng quanh thế giới.",
-        "en": "When I grow up, I will travel around the world.",
-        "tip": "Lớn lên là 'grow up', vòng quanh thế giới là 'around the world'"
       }
     ],
-    "song": {
-      "title": "When I Grow Up - My Future Job (Bài Hát Ước Mơ Tương Lai)",
-      "youtubeId": "vtaIPJvVDTg",
-      "bgMusic": "https://upload.wikimedia.org/wikipedia/commons/9/98/Happy_Alley_%28ISRC_USUAN1100482%29.mp3",
-      "musicName": "Giai điệu hào hứng: Dream High",
-      "lines": [
-        {
-          "en": "When I grow up, what would you like to be?",
-          "vi": "Khi lớn lên, bạn muốn làm nghề gì nào?"
-        },
-        {
-          "en": "I'd like to be a pilot, flying wild and free!",
-          "vi": "Tôi muốn làm phi công, bay lượn tự do giữa trời mây!"
-        },
-        {
-          "en": "Why would you like to be a kind doctor?",
-          "vi": "Tại sao bạn lại muốn làm một bác sĩ hiền từ?"
-        },
-        {
-          "en": "Because I'd like to look after patients better!",
-          "vi": "Bởi vì tôi muốn chăm sóc bệnh nhân thật tốt!"
-        },
-        {
-          "en": "Architects design buildings tall and bright!",
-          "vi": "Kiến trúc sư thiết kế những tòa nhà cao đẹp rực rỡ!"
-        }
-      ]
-    }
+    "quiz": [
+      {
+        "q": "Phi hành gia mặc bộ đồ du hành vũ trụ màu trắng lơ lửng ngoài không gian gọi là gì?",
+        "audio": "astronaut",
+        "imgUrl": "assets/sample_review/u5_astronaut.jpg",
+        "options": [
+          "pilot",
+          "doctor",
+          "astronaut",
+          "writer"
+        ],
+        "ans": 2,
+        "explain": "Astronaut (/ˈæs.trə.nɔːt/) là nhà du hành vũ trụ, phi hành gia."
+      },
+      {
+        "q": "Người phi công lái máy bay bay lượn trên bầu trời xanh gọi là gì?",
+        "audio": "pilot",
+        "imgUrl": "assets/sample_review/u5_pilot.jpg",
+        "options": [
+          "doctor",
+          "pilot",
+          "writer",
+          "artist"
+        ],
+        "ans": 1,
+        "explain": "Pilot (/ˈpaɪ.lət/) là phi công lái máy bay."
+      },
+      {
+        "q": "Bác sĩ đeo ống nghe tận tình khám chữa bệnh cho mọi người gọi là gì?",
+        "audio": "doctor",
+        "imgUrl": "assets/sample_review/u5_doctor.jpg",
+        "options": [
+          "doctor",
+          "architect",
+          "artist",
+          "pilot"
+        ],
+        "ans": 0,
+        "explain": "Doctor (/ˈdɒk.tər/) là bác sĩ khám chữa bệnh."
+      },
+      {
+        "q": "Kiến trúc sư vẽ bản thiết kế các tòa nhà hiện đại và cây cầu gọi là gì?",
+        "audio": "architect",
+        "imgUrl": "assets/sample_review/u5_architect.jpg",
+        "options": [
+          "writer",
+          "architect",
+          "artist",
+          "pilot"
+        ],
+        "ans": 1,
+        "explain": "Architect (/ˈɑː.kɪ.tekt/) là kiến trúc sư thiết kế công trình."
+      },
+      {
+        "q": "Nhà văn sáng tác ra những câu chuyện kỳ diệu cho thiếu nhi gọi là gì?",
+        "audio": "writer",
+        "imgUrl": "assets/sample_review/u5_writer.jpg",
+        "options": [
+          "artist",
+          "writer",
+          "pilot",
+          "doctor"
+        ],
+        "ans": 1,
+        "explain": "Writer (/ˈraɪ.tər/) là nhà văn viết sách, truyện."
+      },
+      {
+        "q": "Họa sĩ cầm bảng màu và cọ vẽ nên những bức tranh rực rỡ gọi là gì?",
+        "audio": "artist",
+        "imgUrl": "assets/sample_review/u5_artist.jpg",
+        "options": [
+          "architect",
+          "doctor",
+          "artist",
+          "astronaut"
+        ],
+        "ans": 2,
+        "explain": "Artist (/ˈɑː.tɪst/) là họa sĩ vẽ tranh nghệ thuật."
+      },
+      {
+        "q": "Lái một chiếc máy bay bay vòng quanh thế giới trong tiếng Anh là gì?",
+        "audio": "fly a plane",
+        "imgUrl": "assets/sample_review/u5_fly_plane.jpg",
+        "options": [
+          "fly a plane",
+          "design buildings",
+          "write stories",
+          "look after patients"
+        ],
+        "ans": 0,
+        "explain": "Fly a plane (/flaɪ ə pleɪn/) là lái máy bay."
+      },
+      {
+        "q": "Bác sĩ và y tá chăm sóc bệnh nhân ở bệnh viện dùng cụm từ nào?",
+        "audio": "look after patients",
+        "imgUrl": "assets/sample_review/u5_look_after_patients.jpg",
+        "options": [
+          "fly a plane",
+          "look after patients",
+          "write stories",
+          "draw paintings"
+        ],
+        "ans": 1,
+        "explain": "Look after patients (/lʊk ˈɑːf.tər ˈpeɪ.ʃənts/) là chăm sóc bệnh nhân."
+      },
+      {
+        "q": "Vẽ bản thiết kế các tòa nhà cao tầng và khu đô thị mới là gì?",
+        "audio": "design buildings",
+        "imgUrl": "assets/sample_review/u5_design_buildings.jpg",
+        "options": [
+          "design buildings",
+          "write stories",
+          "grow up",
+          "fly a plane"
+        ],
+        "ans": 0,
+        "explain": "Design buildings (/dɪˈzaɪn ˈbɪl.dɪŋz/) là thiết kế công trình tòa nhà."
+      },
+      {
+        "q": "Khi em trưởng thành, lớn khôn trong tương lai dùng cụm từ nào?",
+        "audio": "grow up",
+        "imgUrl": "assets/sample_review/u5_grow_up.jpg",
+        "options": [
+          "look after",
+          "grow up",
+          "fly away",
+          "look up"
+        ],
+        "ans": 1,
+        "explain": "Grow up (/ɡrəʊ ʌp/) nghĩa là lớn lên, trưởng thành."
+      }
+    ]
   }
 ];
 
@@ -1653,11 +2462,12 @@ let activeUnitId = 1;
 let activeTab = 'vocab';
 let currentSpeed = 1.0;
 let selectedVocabIdx = 0;
-let isChantPlayingAll = false;
-let chantQueue = [];
-let chantIndex = 0;
-let isBgMusicPlaying = false;
-let showVideoModal = false;
+
+// Quiz State
+let currentQuizIdx = 0;
+let quizScore = 0;
+let quizAnswered = false;
+let selectedQuizOption = null;
 
 // Load learned items from localStorage
 function getLearnedSet() {
@@ -1683,47 +2493,6 @@ function saveLearned(id) {
 
 function isLearned(id) {
   return getLearnedSet().has(id);
-}
-
-// Background Music Control
-function toggleBgMusic() {
-  const bgPlayer = document.getElementById('bg-music-player');
-  const btn = document.getElementById('btn-toggle-bg-music');
-  const indicator = document.getElementById('bg-music-indicator');
-  if (!bgPlayer) return;
-
-  if (isBgMusicPlaying) {
-    bgPlayer.pause();
-    isBgMusicPlaying = false;
-    if (btn) {
-      btn.innerHTML = '<span>🎵 Bật Nhạc Nền Vui Nhộn</span>';
-      btn.className = 'pulse-btn px-4 py-2 bg-pink-100 hover:bg-pink-200 text-pink-700 rounded-2xl text-xs sm:text-sm font-black flex items-center gap-1.5 transition';
-    }
-    if (indicator) indicator.classList.add('hidden');
-  } else {
-    const u = currentUnit();
-    if (u && u.song && u.song.bgMusic) {
-      bgPlayer.src = u.song.bgMusic;
-    }
-    bgPlayer.volume = 0.35;
-    bgPlayer.play().then(() => {
-      isBgMusicPlaying = true;
-      if (btn) {
-        btn.innerHTML = '<span class="animate-bounce">⏸️</span> <span>Tắt Nhạc Nền</span>';
-        btn.className = 'pulse-btn px-4 py-2 bg-pink-600 hover:bg-pink-700 text-white rounded-2xl text-xs sm:text-sm font-black flex items-center gap-1.5 transition shadow-sm';
-      }
-      if (indicator) indicator.classList.remove('hidden');
-    }).catch(e => {
-      console.log('Bg music playback error:', e);
-    });
-  }
-}
-
-function setBgVolume(val) {
-  const bgPlayer = document.getElementById('bg-music-player');
-  if (bgPlayer) {
-    bgPlayer.volume = parseFloat(val);
-  }
 }
 
 // Audio Engine (Google Translate TTS for Speech)
@@ -1752,9 +2521,6 @@ function playAudio(text, customSpeed) {
     if (toast) {
       toast.classList.add('hidden');
       toast.classList.remove('flex');
-    }
-    if (isChantPlayingAll) {
-      playNextChantLine();
     }
   };
 
@@ -1793,11 +2559,7 @@ function stopVocalAudio() {
 }
 
 function stopAudio() {
-  isChantPlayingAll = false;
   stopVocalAudio();
-  document.querySelectorAll('[id^="chant-line-"]').forEach(el => {
-    el.classList.remove('bg-pink-100', 'border-pink-500', 'ring-2', 'ring-pink-400');
-  });
 }
 
 function setSpeed(speed) {
@@ -1818,25 +2580,20 @@ function setSpeed(speed) {
 function selectUnit(unitId) {
   activeUnitId = unitId;
   selectedVocabIdx = 0;
-  showVideoModal = false;
+  currentQuizIdx = 0;
+  quizScore = 0;
+  quizAnswered = false;
+  selectedQuizOption = null;
   stopAudio();
   renderUnitNav();
   renderUnitBanner();
   renderContent();
-  if (isBgMusicPlaying) {
-    const bgPlayer = document.getElementById('bg-music-player');
-    const u = currentUnit();
-    if (bgPlayer && u && u.song && u.song.bgMusic) {
-      bgPlayer.src = u.song.bgMusic;
-      bgPlayer.play().catch(e => console.log(e));
-    }
-  }
 }
 
 function switchTab(tabName) {
   activeTab = tabName;
   stopAudio();
-  const tabs = ['vocab', 'sentences', 'grammar', 'practice', 'song'];
+  const tabs = ['vocab', 'sentences', 'grammar', 'practice', 'quiz'];
   tabs.forEach(t => {
     const btn = document.getElementById('tab-btn-' + t);
     if (btn) {
@@ -1943,21 +2700,6 @@ function updateProgressDisplay() {
   badge.innerHTML = `⭐ Đã thuộc: ${done}/${total} mục (${Math.round((done/total)*100)}%)`;
 }
 
-// Toggle YouTube Video Container
-function toggleVideoEmbed() {
-  const container = document.getElementById('youtube-video-container');
-  const btn = document.getElementById('btn-toggle-video');
-  if (!container) return;
-
-  if (container.classList.contains('hidden')) {
-    container.classList.remove('hidden');
-    if (btn) btn.innerHTML = '<span>✕ Thu gọn Video</span>';
-  } else {
-    container.classList.add('hidden');
-    if (btn) btn.innerHTML = '<span>🎬 Xem Video Hoạt Hình Ca Nhạc (YouTube)</span>';
-  }
-}
-
 // Toggle Practice Answer
 function togglePracticeAnswer(idx) {
   const ansEl = document.getElementById('practice-ans-' + idx);
@@ -1970,6 +2712,39 @@ function togglePracticeAnswer(idx) {
     ansEl.classList.add('hidden');
     if (btnEl) btnEl.innerHTML = '<span>👁️ Xem đáp án &amp; Phát âm</span>';
   }
+}
+
+// Interactive Quiz Game Functions
+function answerQuiz(optIdx) {
+  if (quizAnswered) return;
+  quizAnswered = true;
+  selectedQuizOption = optIdx;
+
+  const u = currentUnit();
+  const curQ = u.quiz[currentQuizIdx];
+  const isCorrect = (optIdx === curQ.ans);
+
+  if (isCorrect) {
+    quizScore++;
+  }
+
+  renderContent();
+}
+
+function nextQuizQuestion() {
+  const u = currentUnit();
+  quizAnswered = false;
+  selectedQuizOption = null;
+  currentQuizIdx++;
+  renderContent();
+}
+
+function restartQuiz() {
+  currentQuizIdx = 0;
+  quizScore = 0;
+  quizAnswered = false;
+  selectedQuizOption = null;
+  renderContent();
 }
 
 // Render Content Views
@@ -1987,7 +2762,7 @@ function renderContent() {
     main.innerHTML = `
       <div class="space-y-4">
         
-        <!-- Word Selector Carousel Pills (Giống thanh chọn từ) -->
+        <!-- Word Selector Carousel Pills -->
         <div class="bg-white rounded-2xl p-3 shadow-xs border border-slate-200 space-y-2">
           <div class="flex items-center justify-between px-1">
             <span class="text-xs font-black uppercase text-slate-500 tracking-wider">👉 Chọn nhanh từ vựng để chiếu (${u.vocab.length} từ):</span>
@@ -2035,9 +2810,9 @@ function renderContent() {
             <div class="relative w-full h-64 sm:h-80 md:h-96 rounded-2xl sm:rounded-3xl overflow-hidden shadow-md border-2 border-slate-200 bg-slate-100 flex items-center justify-center">
               
               <!-- Large Image Layer -->
-              <img id="main-large-img" src="${curV.imgUrl}" alt="${curV.word}" class="w-full h-full object-cover transition-all duration-300" />
+              <img id="main-large-img" src="${curV.imgUrl}" data-fallback="${curV.fallbackUrl || ''}" onerror="if(this.dataset.fallback && this.src !== this.dataset.fallback){ this.src = this.dataset.fallback; }" alt="${curV.word}" class="w-full h-full object-cover transition-all duration-300" />
 
-              <!-- Top-Left Badge: Word + IPA (Giống thẻ tiếng Trung: 你 (nǐ) • NHĨ) -->
+              <!-- Top-Left Badge: Word + IPA -->
               <div class="absolute top-3 left-3 px-3.5 py-1.5 bg-slate-900/85 backdrop-blur-md text-white rounded-2xl text-xs sm:text-sm font-black flex items-center gap-2 shadow-lg border border-white/20">
                 <span>${curV.icon}</span>
                 <span class="tracking-wide uppercase">${curV.word} (${curV.ipa})</span>
@@ -2082,7 +2857,7 @@ function renderContent() {
             </div>
           </div>
 
-          <!-- 3. KHUNG VÀNG KEM: THƠ LỤC BÁT & LIÊN TƯỞNG NHỚ TỪ (Y HỆT THẺ TIẾNG TRUNG) -->
+          <!-- 3. KHUNG VÀNG KEM: THƠ LỤC BÁT & LIÊN TƯỞNG NHỚ TỪ -->
           <div class="bg-[#fffbeb] border-2 border-[#fef3c7] rounded-3xl p-4 sm:p-5 space-y-3 text-slate-800 shadow-xs">
             <div class="flex items-center gap-2 text-xs font-black text-amber-900 uppercase tracking-wide">
               <span class="text-base">📜</span>
@@ -2106,6 +2881,11 @@ ${curV.rhyme}
             <div class="text-sm sm:text-base font-black text-slate-800">
               "${curV.example}"
             </div>
+            ${curV.exampleIpa ? `
+              <div class="text-xs sm:text-sm font-mono font-bold text-indigo-700 bg-indigo-50/90 px-3 py-1 rounded-xl border border-indigo-200/80 inline-block shadow-2xs">
+                🗣️ ${curV.exampleIpa}
+              </div>
+            ` : ''}
             <div class="text-xs text-slate-500 font-semibold italic">
               ${curV.exampleVi}
             </div>
@@ -2130,33 +2910,51 @@ ${curV.rhyme}
     main.innerHTML = `
       <div class="space-y-4">
         <div class="flex items-center justify-between">
-          <h3 class="text-sm sm:text-base font-black text-slate-800">🗣️ Mẫu Câu Trọng Tâm &amp; Nghe Từng Khúc</h3>
+          <h3 class="text-sm sm:text-base font-black text-slate-800">🗣️ Mẫu Câu Trọng Tâm Có Tranh Minh Họa</h3>
           <span class="text-xs text-slate-500 font-bold">Nghe từng cụm giúp học sinh nói chuẩn ngữ điệu bản xứ</span>
         </div>
-        <div class="space-y-3.5">
+        <div class="space-y-4">
           ${u.sentences.map((s, idx) => {
             const sId = 'u' + u.id + '_s_' + idx;
             const learned = isLearned(sId);
             return `
-              <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm space-y-4">
-                <div class="flex items-start justify-between gap-3">
-                  <div class="space-y-1">
-                    <div class="text-base sm:text-lg font-black text-slate-900">${s.zh}</div>
-                    <div class="text-sm font-extrabold text-indigo-600">${s.vi}</div>
+              <div class="bg-white rounded-3xl p-4 sm:p-6 border border-slate-200 shadow-md space-y-4">
+                
+                <!-- Hai cột: Tranh minh họa bối cảnh (trái) & Mẫu câu đối thoại (phải) -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+                  
+                  <!-- Tranh bối cảnh (5 cols) -->
+                  <div class="md:col-span-5">
+                    <div class="w-full h-44 sm:h-52 rounded-2xl overflow-hidden shadow-sm border border-slate-200 bg-slate-100">
+                      <img src="${s.imgUrl}" alt="${s.en}" class="w-full h-full object-cover" />
+                    </div>
                   </div>
-                  <button onclick="playAudio('${s.zh.replace(/'/g, "\\'")}'); saveLearned('${sId}')" class="pulse-btn px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-black flex items-center gap-1.5 shadow-sm transition whitespace-nowrap">
-                    <span>🔊 Nghe cả câu</span>
-                  </button>
+
+                  <!-- Nội dung câu & Nút nghe (7 cols) -->
+                  <div class="md:col-span-7 space-y-3">
+                    <div class="flex items-start justify-between gap-3">
+                      <div class="space-y-1.5">
+                        <div class="text-base sm:text-lg font-black text-slate-900 leading-snug">${s.en}</div>
+                        ${s.ipa ? `<div class="text-xs sm:text-sm font-mono font-bold text-indigo-700 bg-indigo-50/90 px-3 py-1 rounded-xl border border-indigo-200/80 inline-block shadow-2xs">🗣️ Phiên âm IPA: <span class="font-bold text-indigo-900 tracking-wide">${s.ipa}</span></div>` : ''}
+                        <div class="text-sm sm:text-base font-extrabold text-indigo-600">${s.vi}</div>
+                      </div>
+                    </div>
+                    <button onclick="playAudio('${s.en.replace(/'/g, "\\'")}'); saveLearned('${sId}')" class="pulse-btn px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs sm:text-sm font-black flex items-center gap-1.5 shadow-sm transition">
+                      <span>🔊 Nghe Cả Câu Chuẩn Bản Xứ</span>
+                    </button>
+                  </div>
+
                 </div>
 
-                <!-- Chunks breakdown -->
+                <!-- Chunks breakdown (Tách cụm luyện nói) -->
                 <div class="bg-slate-50 rounded-2xl p-3.5 border border-slate-200 space-y-2">
-                  <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">🎧 Tách nhỏ từng cụm để luyện nói theo:</div>
-                  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+                  <div class="text-xs font-black text-slate-500 uppercase tracking-wider">🎧 Tách nhỏ từng cụm để học sinh nhại lại theo nhịp:</div>
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
                     ${s.chunks.map(c => `
                       <button onclick="playAudio('${c.en.replace(/'/g, "\\'")}')" class="pulse-btn p-2.5 rounded-xl bg-white border border-slate-200 hover:border-indigo-300 text-left transition flex items-center justify-between gap-2 shadow-2xs">
                         <div>
                           <div class="text-xs font-black text-slate-800">${c.en}</div>
+                          ${c.phoneticVi ? `<div class="text-[11px] font-bold text-amber-600 italic">đọc: ${c.phoneticVi}</div>` : ''}
                           <div class="text-2xs text-slate-500 font-semibold">${c.vi}</div>
                         </div>
                         <span class="text-xs text-indigo-500">🔊</span>
@@ -2164,6 +2962,7 @@ ${curV.rhyme}
                     `).join('')}
                   </div>
                 </div>
+
               </div>
             `;
           }).join('')}
@@ -2174,33 +2973,45 @@ ${curV.rhyme}
     main.innerHTML = `
       <div class="space-y-4">
         <div class="flex items-center justify-between">
-          <h3 class="text-sm sm:text-base font-black text-slate-800">💡 Góc Ngữ Pháp Trực Quan</h3>
+          <h3 class="text-sm sm:text-base font-black text-slate-800">💡 Góc Ngữ Pháp Trực Quan (Infographic)</h3>
           <span class="text-xs text-slate-500 font-bold">Quy tắc ngắn gọn, dễ nhớ kèm ví dụ thực tế</span>
         </div>
 
-        <div class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
-          <div class="flex items-center gap-2 text-indigo-600 font-black text-base sm:text-lg">
-            <span>📌</span>
-            <span>${u.grammar.summary}</span>
+        <div class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-200 shadow-md space-y-5">
+          <div class="space-y-1 border-b border-slate-100 pb-3">
+            <h4 class="text-lg sm:text-xl font-black text-indigo-700 flex items-center gap-2">
+              <span>📌</span>
+              <span>${u.grammar.title}</span>
+            </h4>
+            <p class="text-xs sm:text-sm text-slate-600 font-semibold">${u.grammar.summary}</p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Cards Grid with Illustrations -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
             ${u.grammar.rules.map(r => `
-              <div class="p-4 rounded-2xl border ${r.color} space-y-2">
-                <span class="text-xs font-black uppercase tracking-wider block">${r.label}</span>
-                <div class="text-sm font-black text-slate-900 bg-white/80 p-2.5 rounded-xl border border-slate-200/50">
-                  ${r.example}
+              <div class="p-4 sm:p-5 rounded-3xl border-2 ${r.color} space-y-3 shadow-md flex flex-col justify-between bg-white">
+                <div class="space-y-3">
+                  <span class="text-xs font-black uppercase tracking-wider px-3 py-1 rounded-lg bg-indigo-100/80 text-indigo-900 inline-block">${r.label}</span>
+                  ${r.imgUrl ? `
+                    <div class="w-full h-44 sm:h-52 rounded-2xl overflow-hidden border border-slate-200/80 shadow-inner bg-slate-100 flex items-center justify-center">
+                      <img src="${r.imgUrl}" alt="${r.label}" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                    </div>
+                  ` : ''}
+                  <div class="text-sm sm:text-base font-black text-slate-900 bg-slate-50 p-3 rounded-xl border border-slate-200/80 shadow-2xs">
+                    💬 "${r.example}"
+                  </div>
                 </div>
-                <div class="text-xs font-semibold leading-relaxed">
-                  ${r.rule}
+                <div class="text-xs sm:text-sm font-bold leading-relaxed text-slate-700 bg-indigo-50/50 p-3 rounded-xl border border-indigo-100 mt-2">
+                  ✨ <strong>Quy tắc:</strong> ${r.rule}
                 </div>
               </div>
             `).join('')}
           </div>
 
-          <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-xs sm:text-sm text-amber-900 font-bold leading-relaxed flex items-start gap-2.5">
-            <span class="text-base">💡</span>
-            <div>${u.grammar.tip}</div>
+          <!-- Tip Box -->
+          <div class="bg-amber-50 border-2 border-amber-200 rounded-2xl p-4 text-xs sm:text-sm text-amber-950 font-black leading-relaxed flex items-start gap-2.5 shadow-2xs">
+            <span class="text-xl">💡</span>
+            <div class="pt-0.5">${u.grammar.tip}</div>
           </div>
         </div>
       </div>
@@ -2210,7 +3021,7 @@ ${curV.rhyme}
       <div class="space-y-4">
         <div class="flex items-center justify-between">
           <h3 class="text-sm sm:text-base font-black text-slate-800">🎯 Dịch Câu Thuộc Lòng (Thử Thách Phản Xạ)</h3>
-          <span class="text-xs text-slate-500 font-bold">Bé tự nói tiếng Anh trước khi bấm mở đáp án</span>
+          <span class="text-xs text-slate-500 font-bold">Học sinh nhìn tranh và tự nói tiếng Anh trước khi mở đáp án</span>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2218,19 +3029,28 @@ ${curV.rhyme}
             const pId = 'u' + u.id + '_p_' + idx;
             const learned = isLearned(pId);
             return `
-              <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm space-y-3 flex flex-col justify-between">
-                <div class="space-y-2">
+              <div class="bg-white rounded-3xl p-4 sm:p-5 border border-slate-200 shadow-md space-y-3 flex flex-col justify-between">
+                
+                <div class="space-y-2.5">
                   <div class="flex items-center justify-between">
                     <span class="text-xs font-black text-indigo-600 uppercase tracking-wider">Câu hỏi ${idx + 1}</span>
                     <button onclick="saveLearned('${pId}')" class="text-xs font-bold text-slate-400 hover:text-amber-500">
                       ${learned ? '⭐ Đã thuộc' : '☆ Đánh dấu'}
                     </button>
                   </div>
+
+                  <!-- Tranh gợi ý phản xạ -->
+                  <div class="w-full h-36 rounded-2xl overflow-hidden shadow-2xs border border-slate-200 bg-slate-100">
+                    <img src="${p.imgUrl}" alt="${p.en}" class="w-full h-full object-cover" />
+                  </div>
+
+                  <!-- Câu hỏi Tiếng Việt -->
                   <div class="text-sm sm:text-base font-black text-slate-900 leading-snug">
                     🇻🇳 ${p.vi}
                   </div>
                 </div>
 
+                <!-- Khung mở đáp án -->
                 <div class="space-y-2 pt-2 border-t border-slate-100">
                   <div id="practice-ans-${idx}" class="hidden space-y-2">
                     <div class="bg-emerald-50 border border-emerald-200 p-3 rounded-xl text-xs sm:text-sm font-black text-emerald-900">
@@ -2244,129 +3064,135 @@ ${curV.rhyme}
                     </div>
                   </div>
 
-                  <button id="practice-btn-${idx}" onclick="togglePracticeAnswer(${idx})" class="w-full py-2 bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-700 rounded-xl text-xs font-black transition">
+                  <button id="practice-btn-${idx}" onclick="togglePracticeAnswer(${idx})" class="w-full py-2.5 bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-700 rounded-xl text-xs font-black transition flex items-center justify-center gap-1.5">
                     <span>👁️ Xem đáp án &amp; Phát âm</span>
                   </button>
                 </div>
+
               </div>
             `;
           }).join('')}
         </div>
       </div>
     `;
-  } else if (activeTab === 'song') {
+  } else if (activeTab === 'quiz') {
+    const curQ = u.quiz[currentQuizIdx];
+    const isFinished = (currentQuizIdx >= u.quiz.length);
+
+    if (isFinished) {
+      main.innerHTML = `
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xl text-center space-y-5 max-w-xl mx-auto">
+          <div class="text-6xl animate-bounce">🎉</div>
+          <div class="space-y-1">
+            <h3 class="text-2xl sm:text-3xl font-black text-slate-900">Hoan Hô! Em Đã Xuất Sắc Hoàn Thành!</h3>
+            <p class="text-sm text-slate-500 font-bold">Thử thách ôn tập kiến thức ${u.title}</p>
+          </div>
+
+          <div class="p-5 bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300 rounded-3xl space-y-2">
+            <div class="text-xs uppercase font-black text-amber-800 tracking-wider">Kết Quả Điểm Số Của Em:</div>
+            <div class="text-4xl sm:text-5xl font-black text-amber-600">
+              ${quizScore} / ${u.quiz.length} ⭐
+            </div>
+            <p class="text-xs sm:text-sm font-bold text-amber-900">
+              ${quizScore === u.quiz.length ? 'Xuất sắc tuyệt đối! Em nhớ bài rất siêu!' : 'Rất tốt! Em hãy tiếp tục rèn luyện thêm nhé!'}
+            </p>
+          </div>
+
+          <div class="flex items-center justify-center gap-3 pt-2">
+            <button onclick="restartQuiz()" class="pulse-btn px-5 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-black rounded-2xl text-sm shadow-md transition flex items-center gap-2">
+              <span>🔄 Chơi Lại Lượt Mới</span>
+            </button>
+            <button onclick="switchTab('vocab')" class="pulse-btn px-5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-black rounded-2xl text-sm transition flex items-center gap-2">
+              <span>📚 Quay Lại Ôn Từ Vựng</span>
+            </button>
+          </div>
+        </div>
+      `;
+      return;
+    }
+
     main.innerHTML = `
-      <div class="space-y-5">
+      <div class="bg-white rounded-3xl p-5 sm:p-7 border border-slate-200 shadow-xl space-y-6 max-w-2xl mx-auto">
         
-        <!-- Video & Music Header Banner -->
-        <div class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <div>
-              <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-xs font-black uppercase tracking-wider">
-                <span>🎵 Ca Khúc &amp; Giai Điệu SGK</span>
-              </div>
-              <h3 class="text-lg sm:text-xl font-black text-slate-900 mt-1">${u.song.title}</h3>
-              <p class="text-xs text-slate-500 font-bold">${u.song.musicName}</p>
-            </div>
-
-            <!-- Toggle Buttons -->
-            <div class="flex flex-wrap items-center gap-2">
-              <button id="btn-toggle-video" onclick="toggleVideoEmbed()" class="pulse-btn px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl text-xs sm:text-sm font-black flex items-center gap-1.5 transition shadow-sm">
-                <span>🎬 Xem Video Hoạt Hình Ca Nhạc (YouTube)</span>
-              </button>
-              <button id="btn-toggle-bg-music" onclick="toggleBgMusic()" class="pulse-btn px-4 py-2 ${isBgMusicPlaying ? 'bg-pink-600 hover:bg-pink-700 text-white' : 'bg-pink-100 hover:bg-pink-200 text-pink-700'} rounded-2xl text-xs sm:text-sm font-black flex items-center gap-1.5 transition shadow-sm">
-                <span>${isBgMusicPlaying ? '<span class="animate-bounce">⏸️</span> Tắt Nhạc Nền' : '🎵 Bật Nhạc Nền Vui Nhộn'}</span>
-              </button>
-            </div>
+        <!-- Header: Question Count & Stars -->
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-xs font-black rounded-full uppercase tracking-wider">
+              🎮 Câu hỏi ${currentQuizIdx + 1} / ${u.quiz.length}
+            </span>
           </div>
-
-          <!-- YouTube Video Embed (collapsible) -->
-          <div id="youtube-video-container" class="hidden rounded-2xl overflow-hidden shadow-lg border-2 border-slate-200 bg-slate-900 aspect-video w-full">
-            <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/${u.song.youtubeId}?enablejsapi=1" title="${u.song.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-
-          <!-- Volume Slider -->
-          <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-2xl border border-slate-200">
-            <span class="text-xs font-black text-slate-600">🔊 Âm lượng nhạc nền:</span>
-            <input type="range" min="0" max="1" step="0.05" value="0.35" onchange="setBgVolume(this.value)" class="w-36 accent-pink-600 cursor-pointer" />
-            <span id="bg-music-indicator" class="${isBgMusicPlaying ? '' : 'hidden'} text-xs font-black text-pink-600 animate-pulse">🎵 Đang phát nhạc nền...</span>
+          <div class="flex items-center gap-1 text-sm font-black text-amber-500">
+            <span>⭐ ${quizScore * 10} điểm</span>
           </div>
         </div>
 
-        <!-- Karaoke / Chant Reader Mode -->
-        <div class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
-          <div class="flex items-center justify-between">
-            <div>
-              <h4 class="text-sm sm:text-base font-black text-slate-800">🎤 Luyện Đọc Chant Từng Câu Theo Nhạc</h4>
-              <p class="text-xs text-slate-500 font-bold">Chạm vào từng câu để nghe hát mẫu hoặc bấm Hát Cả Bài</p>
+        <!-- Question Prompt, Illustration & Sound -->
+        <div class="space-y-4 text-center">
+          ${curQ.imgUrl ? `
+            <div class="w-full max-w-md mx-auto h-48 sm:h-64 rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-indigo-200 shadow-md bg-slate-100 flex items-center justify-center">
+              <img src="${curQ.imgUrl}" alt="Hình gợi ý câu hỏi" class="w-full h-full object-cover hover:scale-105 transition duration-300">
             </div>
-            <div class="flex items-center gap-2">
-              <button onclick="playChantAll()" class="pulse-btn px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl text-xs sm:text-sm font-black flex items-center gap-1.5 shadow-sm transition">
-                <span>▶ Hát Cả Bài</span>
-              </button>
-              <button onclick="stopAudio()" class="pulse-btn px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-2xl text-xs font-black transition">
-                <span>⏹ Dừng</span>
-              </button>
-            </div>
-          </div>
-
+          ` : ''}
           <div class="space-y-2.5">
-            ${u.song.lines.map((l, idx) => `
-              <div id="chant-line-${idx}" onclick="playAudio('${l.en.replace(/'/g, "\\'")}')" class="p-3.5 rounded-2xl border border-slate-200 hover:border-pink-300 hover:bg-pink-50/50 cursor-pointer transition flex items-center justify-between gap-3 shadow-2xs">
-                <div>
-                  <div class="text-sm sm:text-base font-black text-slate-900">${l.en}</div>
-                  <div class="text-xs text-slate-500 font-semibold italic">${l.vi}</div>
-                </div>
-                <button class="p-2 bg-slate-100 hover:bg-pink-100 text-slate-600 hover:text-pink-600 rounded-xl text-xs transition shrink-0">
-                  🔊
-                </button>
-              </div>
-            `).join('')}
+            <h4 class="text-lg sm:text-xl font-black text-slate-900 leading-snug">
+              ${curQ.q}
+            </h4>
+            <button onclick="playAudio('${curQ.audio.replace(/'/g, "\\'")}')" class="pulse-btn px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl text-xs sm:text-sm font-black inline-flex items-center gap-2 shadow-md transition">
+              <span>🔊 Bấm Nghe Phát Âm Gợi Ý</span>
+            </button>
           </div>
         </div>
+
+        <!-- 4 Options Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+          ${curQ.options.map((opt, oIdx) => {
+            let btnClass = "p-4 rounded-2xl border-2 text-left font-black text-sm sm:text-base transition flex items-center justify-between ";
+            
+            if (!quizAnswered) {
+              btnClass += "bg-slate-50 hover:bg-indigo-50 hover:border-indigo-400 text-slate-800 border-slate-200 cursor-pointer";
+            } else {
+              if (oIdx === curQ.ans) {
+                btnClass += "bg-emerald-100 border-emerald-500 text-emerald-900 shadow-md ring-2 ring-emerald-400";
+              } else if (oIdx === selectedQuizOption) {
+                btnClass += "bg-rose-100 border-rose-500 text-rose-900";
+              } else {
+                btnClass += "bg-slate-100 border-slate-200 text-slate-400 opacity-60";
+              }
+            }
+
+            return `
+              <button onclick="answerQuiz(${oIdx})" class="pulse-btn ${btnClass}">
+                <div class="flex items-center gap-2.5">
+                  <span class="w-7 h-7 rounded-full bg-white border border-slate-300 text-xs flex items-center justify-center font-bold text-slate-600">${String.fromCharCode(65 + oIdx)}</span>
+                  <span>${opt}</span>
+                </div>
+                ${quizAnswered && oIdx === curQ.ans ? '<span class="text-emerald-600 text-lg">✓</span>' : ''}
+                ${quizAnswered && oIdx === selectedQuizOption && oIdx !== curQ.ans ? '<span class="text-rose-600 text-lg">✕</span>' : ''}
+              </button>
+            `;
+          }).join('')}
+        </div>
+
+        <!-- Explanation & Next Button (when answered) -->
+        ${quizAnswered ? `
+          <div class="p-4 rounded-2xl ${selectedQuizOption === curQ.ans ? 'bg-emerald-50 border border-emerald-200 text-emerald-900' : 'bg-rose-50 border border-rose-200 text-rose-900'} space-y-2">
+            <div class="text-xs font-black uppercase tracking-wider">
+              ${selectedQuizOption === curQ.ans ? '🎉 CHÍNH XÁC! TUYỆT VỜI!' : '💡 CHƯA ĐÚNG RỒI, BÉ XEM GIẢI THÍCH NHÉ:'}
+            </div>
+            <div class="text-xs sm:text-sm font-bold">
+              ${curQ.explain}
+            </div>
+            <div class="flex justify-end pt-2">
+              <button onclick="nextQuizQuestion()" class="pulse-btn px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs sm:text-sm font-black shadow-md transition flex items-center gap-1.5">
+                <span>Câu Tiếp Theo ▶</span>
+              </button>
+            </div>
+          </div>
+        ` : ''}
 
       </div>
     `;
   }
-}
-
-// Karaoke chant all player
-function playChantAll() {
-  const u = currentUnit();
-  if (!u || !u.song || !u.song.lines) return;
-
-  chantQueue = u.song.lines.map(l => l.en);
-  chantIndex = 0;
-  isChantPlayingAll = true;
-
-  if (!isBgMusicPlaying) {
-    toggleBgMusic();
-  }
-
-  playNextChantLine();
-}
-
-function playNextChantLine() {
-  if (!isChantPlayingAll || chantIndex >= chantQueue.length) {
-    isChantPlayingAll = false;
-    document.querySelectorAll('[id^="chant-line-"]').forEach(el => {
-      el.classList.remove('bg-pink-100', 'border-pink-500', 'ring-2', 'ring-pink-400');
-    });
-    return;
-  }
-
-  document.querySelectorAll('[id^="chant-line-"]').forEach(el => {
-    el.classList.remove('bg-pink-100', 'border-pink-500', 'ring-2', 'ring-pink-400');
-  });
-  const activeEl = document.getElementById('chant-line-' + chantIndex);
-  if (activeEl) {
-    activeEl.classList.add('bg-pink-100', 'border-pink-500', 'ring-2', 'ring-pink-400');
-    activeEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
-
-  const text = chantQueue[chantIndex];
-  chantIndex++;
-  playAudio(text);
 }
 
 // Keyboard shortcuts for wireless clickers & presentation remotes
