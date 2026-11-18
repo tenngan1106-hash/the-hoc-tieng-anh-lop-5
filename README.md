@@ -1,41 +1,43 @@
-# 🎒 Thẻ Học & Luyện Nghe Tiếng Anh Lớp 5 (Global Success)
+# 🎒 Thẻ Học & Luyện Nghe Tiếng Anh Lớp 5 (Unit 1 – Unit 10 · Global Success)
 
-Ứng dụng web thẻ học, luyện nghe và **trình chiếu bảng lớn trên lớp** dành cho học sinh Lớp 5 (8–10 tuổi) theo chương trình sách giáo khoa **Global Success – Kết nối tri thức với cuộc sống (Học kỳ 1)**.
+Ứng dụng web thẻ học, luyện nghe và **trình chiếu bảng lớn trên lớp** dành cho học sinh Lớp 5 theo chương trình sách giáo khoa **Global Success – Kết nối tri thức với cuộc sống (Trọn bộ Học kỳ 1: Unit 1 – Unit 10)**.
 
-🌐 **Trải nghiệm trực tuyến trên GitHub Pages:** https://tenngan1106-hash.github.io/the-hoc-tieng-anh-lop-5/
+🌐 **Mở Trang Chủ Chọn Bộ Bài (1 link duy nhất):** https://tenngan1106-hash.github.io/the-hoc-tieng-anh-lop-5/
 
----
-
-## 🌟 Tính Năng Nổi Bật
-
-1. **Bám sát chương trình chuẩn Lớp 5 (Unit 1 – Unit 5):**
-   * **Unit 1: All About Me!** (Địa chỉ, nơi ở, quê hương)
-   * **Unit 2: Our Homes** (Các kiểu nhà ở phố/nông thôn, các phòng trong nhà)
-   * **Unit 3: My Foreign Friends** (Bạn bè quốc tế, quốc tịch, tính cách)
-   * **Unit 4: Our Free-Time Activities** (Hoạt động thời gian rảnh, trạng từ tần suất)
-   * **Unit 5: My Future Job** (Nghề nghiệp tương lai, cấu trúc Why – Because)
-
-2. **Hình Ảnh Thực Tế Chuẩn Việt Nam & Tối Ưu Trình Chiếu Lớp Học:**
-   * Ảnh cỡ lớn, rõ nét, gần gũi đời sống trẻ em Việt Nam (ngõ nhỏ Hà Nội, biển tên đường VN, nhà sàn, cổng làng, vườn hoa Đà Lạt, học sinh tiểu học Việt Nam, máy bay Vietnam Airlines...).
-   * Tích hợp **chế độ Toàn màn hình (`📺 Toàn màn hình`)** và hỗ trợ **bút trình chiếu / phím mũi tên (`◀` `▶`, `PageUp`/`PageDown`, `Space`)** để giáo viên giảng dạy mượt mà trên bảng lớn.
-
-3. **Phiên Âm IPA Chuẩn Quốc Tế 100% & Phát Âm Tự Động:**
-   * Hiển thị **phiên âm IPA chuẩn** đồng bộ trên toàn bộ 5 mục: Từ vựng, Câu ví dụ, Mẫu câu + từng cụm tách nhỏ, Ngữ pháp, Dịch câu và Đáp án trò chơi — không dùng phiên âm bồi để các em luyện chuẩn âm đuôi.
-   * Phát âm tự động bằng Google Translate TTS (có dự phòng Web Speech API) với 2 tốc độ **1.0x (Chuẩn)** và **0.75x (Chậm)**.
-
-4. **Góc Ngữ Pháp Trực Quan & 3 Dạng Câu Khẳng Định (+) · Phủ Định (−) · Nghi Vấn (?):**
-   * Mỗi Unit đều có **Sơ đồ Infographic trực quan** (chiếc phễu `IN – ON – AT`, giới từ vị trí, bảng đối chiếu Quốc gia ⇄ Quốc tịch, thang đo % trạng từ tần suất, sơ đồ `Why – Because` & mẹo `A/An`).
-   * Trình bày rõ ràng **3 dạng câu Khẳng định (+), Phủ định (−), Nghi vấn (?)** kèm công thức ngắn gọn, giải thích dễ hiểu cho học sinh tiểu học, phiên âm IPA và nút loa bấm nghe từng ví dụ.
-
-5. **Dịch Câu Phản Xạ & Minigame Ôn Tập 10 Câu/Unit:**
-   * **Tab 4 (Dịch câu):** Học sinh nhìn tranh và tự nói tiếng Anh trước khi thầy cô bấm mở đáp án kèm IPA và phát âm chuẩn.
-   * **Tab 5 (Ôn tập & Trò chơi):** 10 câu hỏi trắc nghiệm hình ảnh + âm thanh mỗi Unit, hiển thị IPA các đáp án và chấm điểm sao khích lệ cả lớp.
+* 📘 **Mở thẳng Bộ 1 (Unit 1 – Unit 5):** https://tenngan1106-hash.github.io/the-hoc-tieng-anh-lop-5/lesson-1-5/
+* 📗 **Mở thẳng Bộ 2 (Unit 6 – Unit 10):** https://tenngan1106-hash.github.io/the-hoc-tieng-anh-lop-5/lesson-6-10/
 
 ---
 
-## 🚀 Hướng Dẫn Sử Dụng
-* **Mở trực tiếp trên máy tính:** Nhấp đúp vào file `index.html` bằng Chrome hoặc Edge (cần kết nối mạng để tải ảnh và giọng đọc).
-* **Đưa lên GitHub Pages:**
-  1. Đẩy mã nguồn lên repository GitHub (`the-hoc-tieng-anh-lop-5`).
-  2. Vào **Settings** > **Pages** > Chọn nhánh `main` > Bấm **Save**.
-  3. Mở đường link trực tiếp trên máy tính lớp học, tivi thông minh hoặc điện thoại!
+## 🌟 Nội Dung Bám Sát Chương Trình Lớp 5 (Học Kỳ 1)
+
+### 📘 Bộ 1: Lesson 1 – 5 (`lesson-1-5/`)
+* **Unit 1: All About Me!** (Địa chỉ, nơi ở, quê hương · Giới từ `in / on / at`)
+* **Unit 2: Our Homes** (Các kiểu nhà ở phố/nông thôn, các phòng trong nhà)
+* **Unit 3: My Foreign Friends** (Bạn bè quốc tế, quốc tịch, tính cách)
+* **Unit 4: Our Free-Time Activities** (Hoạt động thời gian rảnh, trạng từ tần suất)
+* **Unit 5: My Future Job** (Nghề nghiệp tương lai, cấu trúc `Why – Because`)
+
+### 📗 Bộ 2: Lesson 6 – 10 (`lesson-6-10/`)
+* **Unit 6: Our School Rooms** (Các phòng học trong trường, tầng lầu & chỉ đường)
+* **Unit 7: Our Favourite School Activities** (Hoạt động ở trường yêu thích · `like + V-ing` & `Why – Because`)
+* **Unit 8: In Our Classroom** (Đồ dùng học tập, giới từ vị trí & sở hữu cách `Whose`)
+* **Unit 9: Our Outdoor Activities** (Địa điểm vui chơi ngoài trời & Quá khứ đơn `Were / Did`)
+* **Unit 10: Our School Trip** (Chuyến đi dã ngoại trường học, thắng cảnh Việt Nam & Quá khứ đơn `Did / went`)
+
+---
+
+## ✨ Tính Năng Nổi Bật
+
+1. **Hình Ảnh Thực Tế Chuẩn Việt Nam & Tối Ưu Trình Chiếu Lớp Học:**
+   * Ảnh cỡ lớn rõ nét, gần gũi đời sống học sinh Việt Nam (ngõ phố Hà Nội, nhà sàn, phòng tin học/âm nhạc lớp 5, Cầu Vàng Bà Nà Hills, Hồ Hoàn Kiếm, Chùa Bái Đính, Suối Tiên, Nhà hát Lớn Hà Nội...).
+   * Tích hợp **chế độ Toàn màn hình (`📺 Toàn màn hình`)** và hỗ trợ **bút trình chiếu / phím mũi tên (`◀` `▶`, `PageUp`/`PageDown`, `Space`)** để thầy cô trình chiếu mượt mà trên bảng lớn.
+
+2. **Phiên Âm IPA Chuẩn Quốc Tế 100% & Phát Âm Tự Động:**
+   * Đồng bộ **phiên âm IPA chuẩn** trên cả 5 mục (Từ vựng, Câu ví dụ, Mẫu câu + từng cụm tách nhỏ, Ngữ pháp, Dịch câu, Đáp án trò chơi) giúp học sinh luyện chuẩn âm đuôi (*ending sounds*).
+   * Giọng đọc tự động Google Translate TTS (có dự phòng Web Speech API) với 2 tốc độ **1.0x (Chuẩn)** và **0.75x (Chậm)**.
+
+3. **Ngữ Pháp Trực Quan (+ / − / ?) · Dịch Phản Xạ · 100 Câu Quiz:**
+   * Mỗi Unit đều có **Sơ đồ Infographic trực quan** riêng cùng **3 dạng câu Khẳng định (+), Phủ định (−), Nghi vấn (?)** giải thích dễ hiểu cho học sinh tiểu học.
+   * **Tab 4 (Dịch câu):** Nhìn tranh phản xạ trước khi mở đáp án + IPA + phát âm.
+   * **Tab 5 (Ôn tập & Trò chơi):** 10 câu trắc nghiệm hình ảnh + âm thanh/Unit (tổng 100 câu cho cả 10 Unit), chấm điểm sao khích lệ cả lớp.
