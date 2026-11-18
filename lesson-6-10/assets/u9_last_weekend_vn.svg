@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540">
+  <rect width="960" height="540" fill="#eff6ff"/>
+  <rect x="40" y="32" width="880" height="476" rx="32" fill="#ffffff" stroke="#2563eb" stroke-width="6"/>
+  <!-- Calendar Header -->
+  <rect x="90" y="68" width="780" height="76" rx="18" fill="#1d4ed8"/>
+  <text x="480" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="32" fill="#ffffff">🗓️ LỊCH TUẦN TRƯỚC · LAST WEEKEND</text>
+  <!-- Days Mon-Fri (greyed) -->
+  <g font-family="Arial, sans-serif" font-weight="800" text-anchor="middle">
+    <rect x="95" y="168" width="96" height="225" rx="14" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="3"/>
+    <text x="143" y="218" font-size="22" fill="#64748b">MON</text>
+    <text x="143" y="305" font-size="34" fill="#94a3b8">T2</text>
+    <rect x="205" y="168" width="96" height="225" rx="14" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="3"/>
+    <text x="253" y="218" font-size="22" fill="#64748b">TUE</text>
+    <text x="253" y="305" font-size="34" fill="#94a3b8">T3</text>
+    <rect x="315" y="168" width="96" height="225" rx="14" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="3"/>
+    <text x="363" y="218" font-size="22" fill="#64748b">WED</text>
+    <text x="363" y="305" font-size="34" fill="#94a3b8">T4</text>
+    <rect x="425" y="168" width="96" height="225" rx="14" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="3"/>
+    <text x="473" y="218" font-size="22" fill="#64748b">THU</text>
+    <text x="473" y="305" font-size="34" fill="#94a3b8">T5</text>
+    <rect x="535" y="168" width="96" height="225" rx="14" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="3"/>
+    <text x="583" y="218" font-size="22" fill="#64748b">FRI</text>
+    <text x="583" y="305" font-size="34" fill="#94a3b8">T6</text>
+  </g>
+  <!-- Highlighted Weekend Box: SAT & SUN -->
+  <rect x="646" y="160" width="222" height="240" rx="20" fill="#fef3c7" stroke="#ea580c" stroke-width="7"/>
+  <rect x="660" y="176" width="90" height="150" rx="12" fill="#f97316"/>
+  <text x="705" y="228" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="26" fill="#ffffff">SAT</text>
+  <text x="705" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="30" fill="#fef08a">T7</text>
+  <rect x="764" y="176" width="90" height="150" rx="12" fill="#e11d48"/>
+  <text x="809" y="228" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="26" fill="#ffffff">SUN</text>
+  <text x="809" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="30" fill="#fef08a">CN</text>
+  <text x="757" y="378" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="22" fill="#c2410c">CUỐI TUẦN TRƯỚC</text>
+  <!-- Footer Badge -->
+  <rect x="190" y="432" width="580" height="56" rx="16" fill="#ea580c"/>
+  <text x="480" y="469" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="27" fill="#ffffff">🌟 LAST WEEKEND · Thứ 7 &amp; Chủ Nhật tuần trước</text>
+</svg>

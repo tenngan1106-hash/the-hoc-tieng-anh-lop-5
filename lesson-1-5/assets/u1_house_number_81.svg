@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540">
+  <defs>
+    <linearGradient id="wallGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fef3c7"/>
+      <stop offset="100%" stop-color="#fde68a"/>
+    </linearGradient>
+    <linearGradient id="plateGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1d4ed8"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </linearGradient>
+    <filter id="dropShadow" x="-10%" y="-10%" width="125%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#0f172a" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+
+  <!-- Vietnamese sunlit cream wall background -->
+  <rect width="960" height="540" fill="url(#wallGrad)"/>
+  <!-- Subtle brick/plaster texture lines -->
+  <g stroke="#f59e0b" stroke-opacity="0.14" stroke-width="2">
+    <line x1="0" y1="90" x2="960" y2="90"/>
+    <line x1="0" y1="180" x2="960" y2="180"/>
+    <line x1="0" y1="270" x2="960" y2="270"/>
+    <line x1="0" y1="360" x2="960" y2="360"/>
+    <line x1="0" y1="450" x2="960" y2="450"/>
+  </g>
+  <!-- Decorative tropical bougainvillea leaves in corners -->
+  <g opacity="0.88">
+    <ellipse cx="70" cy="48" rx="46" ry="20" transform="rotate(-25 70 48)" fill="#16a34a"/>
+    <ellipse cx="128" cy="76" rx="40" ry="18" transform="rotate(15 128 76)" fill="#22c55e"/>
+    <circle cx="96" cy="42" r="14" fill="#ec4899"/>
+    <circle cx="115" cy="58" r="11" fill="#f43f5e"/>
+    <ellipse cx="890" cy="480" rx="52" ry="22" transform="rotate(-20 890 480)" fill="#16a34a"/>
+    <ellipse cx="835" cy="505" rx="44" ry="18" transform="rotate(18 835 505)" fill="#22c55e"/>
+    <circle cx="878" cy="465" r="14" fill="#ec4899"/>
+  </g>
+
+  <!-- Authentic Vietnamese Blue House Number Plate -->
+  <g filter="url(#dropShadow)">
+    <rect x="190" y="95" width="580" height="350" rx="22" fill="url(#plateGrad)"/>
+    <!-- Inner white enamel border -->
+    <rect x="208" y="113" width="544" height="314" rx="14" fill="none" stroke="#ffffff" stroke-width="5"/>
+    <!-- 4 corner mounting rivets -->
+    <circle cx="228" cy="133" r="6" fill="#cbd5e1"/>
+    <circle cx="732" cy="133" r="6" fill="#cbd5e1"/>
+    <circle cx="228" cy="407" r="6" fill="#cbd5e1"/>
+    <circle cx="732" cy="407" r="6" fill="#cbd5e1"/>
+
+    <!-- Top label -->
+    <text x="480" y="162" text-anchor="middle" font-family="sans-serif" font-weight="800" font-size="24" fill="#bfdbfe" letter-spacing="4">SỐ NHÀ · VIỆT NAM</text>
+
+    <!-- Big House Number 81 -->
+    <text x="480" y="302" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="164" fill="#ffffff">81</text>
+
+    <!-- Divider -->
+    <line x1="270" y1="334" x2="690" y2="334" stroke="#93c5fd" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Street Name -->
+    <text x="480" y="384" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="36" fill="#ffffff" letter-spacing="1.5">ĐƯỜNG TRẦN PHÚ</text>
+  </g>
+
+  <!-- Educational AT badge -->
+  <g transform="translate(650, 56)">
+    <rect x="0" y="0" width="245" height="58" rx="29" fill="#059669" stroke="#ffffff" stroke-width="4"/>
+    <text x="122" y="37" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="24" fill="#ffffff">📍 CÓ SỐ NHÀ → AT</text>
+  </g>
+</svg>

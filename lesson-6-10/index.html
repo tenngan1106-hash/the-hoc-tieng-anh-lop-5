@@ -1,0 +1,3093 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="referrer" content="no-referrer" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thẻ Học &amp; Luyện Nghe Tiếng Anh 5 · Unit 6–10 · Global Success (Chuẩn Việt Nam · Full IPA)</title>
+  <!-- Tailwind CSS v3 CDN -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f1f5f9;
+      color: #1e293b;
+    }
+    .font-kids {
+      font-family: 'Nunito', sans-serif;
+    }
+    .hero-card {
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+    }
+    .unit-tab.active {
+      background: linear-gradient(135deg, #4f46e5 0%, #2563eb 100%);
+      color: #ffffff;
+      border-color: #4338ca;
+      box-shadow: 0 8px 18px -4px rgba(79, 70, 229, 0.45);
+      transform: translateY(-2px);
+    }
+    .sub-tab.active {
+      background-color: #4f46e5;
+      color: #ffffff;
+      box-shadow: 0 4px 10px -1px rgba(79, 70, 229, 0.3);
+    }
+    .sub-tab:not(.active) {
+      background-color: transparent;
+      color: #64748b;
+    }
+    .sub-tab:not(.active):hover {
+      background-color: #f8fafc;
+      color: #1e293b;
+    }
+    .active-word-pill {
+      background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+      color: #ffffff;
+      border-color: #4338ca;
+      box-shadow: 0 4px 10px -2px rgba(79, 70, 229, 0.4);
+      transform: translateY(-1px);
+    }
+    .pulse-btn {
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+    }
+    .pulse-btn:active {
+      transform: scale(0.96);
+    }
+    .ipa-badge {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    .rhyme-box {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      border: 2px dashed #f59e0b;
+    }
+  </style>
+</head>
+<body class="min-h-screen p-3 sm:p-6 pb-20">
+  <div class="max-w-5xl mx-auto space-y-4">
+
+    <!-- Top Header -->
+    <header class="bg-white rounded-3xl p-4 sm:p-6 shadow-sm border border-slate-200/80 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="space-y-1 text-center md:text-left">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-indigo-50 border border-indigo-200 text-indigo-700 rounded-full text-xs font-extrabold uppercase tracking-wider">
+          <span>🎒</span>
+          <span>Tiếng Anh Lớp 5 · Unit 6 – Unit 10 · Global Success</span>
+        </div>
+        <h1 class="text-xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center justify-center md:justify-start gap-2">
+          <span>Thẻ Học &amp; Luyện Nghe Tiếng Anh 5 (Bài 6–10)</span>
+          <span class="text-2xl">✨</span>
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-500 font-bold">
+          Trình chiếu bảng lớn · Hình ảnh thực tế gần gũi Việt Nam · Phiên âm IPA chuẩn 100% · Ngữ pháp (+ / − / ?)
+        </p>
+      </div>
+
+      <!-- Audio Speed & Classroom Fullscreen Controls -->
+      <div class="flex flex-wrap items-center justify-center md:justify-end gap-2">
+        <a href="../index.html" class="pulse-btn px-3 py-2.5 rounded-2xl text-xs font-black bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 shadow-sm flex items-center gap-1 transition" title="Quay về trang chọn bộ bài Lớp 5">
+          <span>🏠</span>
+          <span>Menu Lớp 5</span>
+        </a>
+        <div class="flex items-center gap-2 bg-slate-50 p-2 rounded-2xl border border-slate-200">
+          <span class="text-xs font-bold text-slate-600 pl-1">Tốc độ đọc:</span>
+          <button id="speed-normal" onclick="setSpeed(1.0)" class="pulse-btn px-3 py-1.5 rounded-xl text-xs font-black bg-indigo-600 text-white shadow-sm transition">1.0x Chuẩn</button>
+          <button id="speed-slow" onclick="setSpeed(0.75)" class="pulse-btn px-3 py-1.5 rounded-xl text-xs font-black bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition">0.75x Chậm</button>
+        </div>
+        <button id="fullscreen-btn" onclick="toggleFullscreen()" class="pulse-btn px-3.5 py-2.5 rounded-2xl text-xs font-black bg-slate-900 hover:bg-slate-800 text-white shadow-sm flex items-center gap-1.5 transition" title="Phóng to toàn màn hình khi chiếu trên lớp">
+          <span>📺</span>
+          <span id="fullscreen-label">Toàn màn hình</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Hidden Audio Player -->
+    <audio id="app-audio-player" playsinline preload="none" class="hidden"></audio>
+
+    <!-- Audio Status Toast -->
+    <div id="audio-toast" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-900/95 text-white px-5 py-3 rounded-2xl shadow-2xl items-center gap-3 z-50 text-sm font-semibold backdrop-blur-md border border-slate-700">
+      <span class="animate-pulse text-lg">🔊</span>
+      <span id="toast-msg">Đang phát âm...</span>
+      <button onclick="stopAudio()" class="ml-3 text-xs bg-rose-500 hover:bg-rose-600 px-2.5 py-1 rounded-lg text-white font-bold">Dừng</button>
+    </div>
+
+    <!-- Unit Navigation Tabs (Unit 6 to 10) -->
+    <nav class="grid grid-cols-2 sm:grid-cols-5 gap-2 sm:gap-3" id="unit-nav"></nav>
+
+    <!-- Unit Title Banner -->
+    <div id="unit-banner" class="bg-gradient-to-r from-sky-600 to-indigo-600 rounded-3xl p-5 sm:p-6 text-white shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3"></div>
+
+    <!-- Section Tabs (5 Tabs) -->
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-1.5 grid grid-cols-2 sm:grid-cols-5 gap-1.5" id="sub-tabs">
+      <button onclick="switchTab('vocab')" id="tab-btn-vocab" class="sub-tab px-3 py-2.5 rounded-xl text-xs sm:text-sm font-black text-center transition active">📚 1. Từ vựng &amp; Tranh lớn</button>
+      <button onclick="switchTab('sentences')" id="tab-btn-sentences" class="sub-tab px-3 py-2.5 rounded-xl text-xs sm:text-sm font-black text-center transition">🗣️ 2. Mẫu câu</button>
+      <button onclick="switchTab('grammar')" id="tab-btn-grammar" class="sub-tab px-3 py-2.5 rounded-xl text-xs sm:text-sm font-black text-center transition">💡 3. Ngữ pháp</button>
+      <button onclick="switchTab('practice')" id="tab-btn-practice" class="sub-tab px-3 py-2.5 rounded-xl text-xs sm:text-sm font-black text-center transition">🎯 4. Dịch câu</button>
+      <button onclick="switchTab('quiz')" id="tab-btn-quiz" class="sub-tab px-3 py-2.5 rounded-xl text-xs sm:text-sm font-black text-center transition col-span-2 sm:col-span-1">🎮 5. Ôn tập &amp; Trò chơi</button>
+    </div>
+
+    <!-- Main Content Area -->
+    <main id="main-content" class="space-y-4"></main>
+
+    <!-- Subtle Teacher Footer with Visual Audit Gallery Trigger -->
+    <footer class="pt-4 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-400 font-semibold">
+      <span>🎒 Tiếng Anh Lớp 5 (Unit 6–10) · Global Success · Trình chiếu lớp học &amp; Phiên âm IPA chuẩn</span>
+      <button id="open-audit-gallery-btn" onclick="openImageAuditModal()" class="pulse-btn inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white hover:bg-indigo-50 text-slate-500 hover:text-indigo-700 border border-slate-200 shadow-sm font-bold transition">
+        <span>🖼️</span>
+        <span>Kiểm tra toàn bộ ảnh (Unit 6–10)</span>
+      </button>
+    </footer>
+
+  </div>
+
+  <!-- Visual Audit Modal -->
+  <div id="image-audit-modal" class="hidden fixed inset-0 z-50 bg-slate-900/75 backdrop-blur-sm p-3 sm:p-6 overflow-y-auto">
+    <div class="max-w-6xl mx-auto bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden my-2">
+      <div class="sticky top-0 z-10 bg-white/95 backdrop-blur-md border-b border-slate-200 px-5 py-4 flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <h3 class="text-base sm:text-xl font-black text-slate-900">🖼️ Bảng Kiểm Duyệt Toàn Bộ Ảnh Minh Họa (Unit 6 – Unit 10)</h3>
+          <p class="text-xs text-slate-500 font-semibold">Rà soát nhanh từng ảnh đối chiếu với từ vựng, câu ví dụ &amp; ngữ cảnh Ngữ pháp để đảm bảo 100% chuẩn Việt Nam</p>
+        </div>
+        <button onclick="closeImageAuditModal()" class="pulse-btn px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-black">✕ Đóng bảng</button>
+      </div>
+      <div id="image-audit-body" class="p-4 sm:p-6 space-y-8"></div>
+    </div>
+  </div>
+
+  <script>
+// Hybrid Authentic Vietnamese AI Photos + Crisp Educational SVGs + Verified Wikimedia/Unsplash Real Photos
+const IMG = {
+  // Unit 6: Our School Rooms
+  u6_computer_room: "assets/u6_computer_room_vn.jpg",
+  u6_music_room: "assets/u6_music_room_vn.jpg",
+  u6_art_room: "https://live.staticflickr.com/4057/4388329924_10932dd14e_b.jpg",
+  u6_library: "https://images.unsplash.com/photo-1762475833699-53a01f26565a?w=960&auto=format&fit=crop&q=80",
+  u6_library_fb: "https://live.staticflickr.com/8364/8275314512_3cae16fb1d_b.jpg",
+  u6_ground_floor: "assets/u6_ground_floor_vn.svg",
+  u6_first_floor: "assets/u6_first_floor_vn.svg",
+  u6_second_floor: "assets/u6_second_floor_vn.svg",
+  u6_go_upstairs: "https://images.unsplash.com/photo-1722942624769-66b268f61f6d?w=960&auto=format&fit=crop&q=80",
+  u6_go_downstairs: "https://images.unsplash.com/photo-1786378172786-21161f58ba87?w=960&auto=format&fit=crop&q=80",
+  u6_go_past: "assets/u6_go_past_vn.svg",
+  u6_turn_left: "https://images.unsplash.com/photo-1768597680405-044ec79075f8?w=960&auto=format&fit=crop&q=80",
+  u6_turn_right: "https://images.unsplash.com/photo-1577455112422-eb43643acaac?w=960&auto=format&fit=crop&q=80",
+
+  // Unit 7: Our Favourite School Activities
+  u7_do_projects: "assets/u7_do_projects_vn.jpg",
+  u7_read_books: "assets/u7_read_books_vn.jpg",
+  u7_play_games: "https://live.staticflickr.com/2390/5797258921_76e54f0f33_b.jpg",
+  u7_solve_maths: "https://images.unsplash.com/photo-1758685733685-7e0f30c35a17?w=960&auto=format&fit=crop&q=80",
+  u7_fun: "https://live.staticflickr.com/2833/9140556495_26910274af_b.jpg",
+  u7_group_work: "https://live.staticflickr.com/7234/7253803456_e24afc2e88_b.jpg",
+  u7_interesting: "assets/u7_interesting_vn.jpg",
+  u7_useful: "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=960&auto=format&fit=crop&q=80",
+  u7_favourite: "https://images.unsplash.com/photo-1544773088-d142e38f5793?w=960&auto=format&fit=crop&q=80",
+
+  // Unit 8: In Our Classroom
+  u8_above: "assets/u8_above_vn.svg",
+  u8_beside: "assets/u8_beside_vn.svg",
+  u8_under: "assets/u8_under_vn.svg",
+  u8_in_front_of: "assets/u8_in_front_of_vn.svg",
+  u8_bookcase: "assets/u8_bookcase_vn.jpg",
+  u8_crayon: "https://commons.wikimedia.org/wiki/Special:FilePath/Crayons_%26_Drawing.jpg?width=960",
+  u8_glue_stick: "https://commons.wikimedia.org/wiki/Special:FilePath/Glue_Stick.jpg?width=960",
+  u8_pencil_sharpener: "https://commons.wikimedia.org/wiki/Special:FilePath/Red_pencil_sharpener.jpg?width=960",
+  u8_set_square: "https://images.unsplash.com/photo-1645830887841-2542fa41378e?w=960&auto=format&fit=crop&q=80",
+  u8_storybook: "assets/u8_storybook_vn.png",
+  u8_school_bag: "https://commons.wikimedia.org/wiki/Special:FilePath/School_bag_backpack.jpg?width=960",
+  u8_board: "https://images.unsplash.com/photo-1711062717319-393e424a3538?w=960&auto=format&fit=crop&q=80",
+
+  // Unit 9: Our Outdoor Activities
+  u9_theatre: "assets/u9_theatre_vn.jpg",
+  u9_aquarium: "assets/u9_aquarium_vn.jpg",
+  u9_campsite: "https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=960&auto=format&fit=crop&q=80",
+  u9_funfair: "https://commons.wikimedia.org/wiki/Special:FilePath/Ferris_wheel_at_a_fairground_(Unsplash).jpg?width=960",
+  u9_listen_music: "assets/u9_listen_music_vn.png",
+  u9_watch_fish: "https://commons.wikimedia.org/wiki/Special:FilePath/Amphiprion_ocellaris_(_Clownfish).jpg?width=960",
+  u9_campfire: "assets/u9_campfire_vn.png",
+  u9_play_chess: "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=960&auto=format&fit=crop&q=80",
+  u9_jog: "https://commons.wikimedia.org/wiki/Special:FilePath/Central_Park_jogging.jpg?width=960",
+  u9_ride_horses: "https://images.unsplash.com/photo-1559918095-bc2c205b2b46?w=960&auto=format&fit=crop&q=80",
+  u9_yesterday: "https://images.unsplash.com/photo-1560420025-9453f02b4751?w=960&auto=format&fit=crop&q=80",
+  u9_last_weekend: "assets/u9_last_weekend_vn.svg",
+
+  // Unit 10: Our School Trip
+  u10_bana_hills: "assets/u10_bana_hills_vn.jpg",
+  u10_hoan_kiem_lake: "assets/u10_hoan_kiem_lake_vn.jpg",
+  u10_suoi_tien: "https://commons.wikimedia.org/wiki/Special:FilePath/SuoiTien1.JPG?width=960",
+  u10_bai_dinh_pagoda: "https://commons.wikimedia.org/wiki/Special:FilePath/Chua_Bai_Dinh_X4.JPG?width=960",
+  u10_old_buildings: "https://commons.wikimedia.org/wiki/Special:FilePath/Hoi_An_Ancient_Town.jpg?width=960",
+  u10_plant_trees: "https://commons.wikimedia.org/wiki/Special:FilePath/Tree_planting_with_children.jpg?width=960",
+  u10_walk_lake: "assets/u10_walk_lake_vn.png",
+  u10_school_trip: "https://images.unsplash.com/photo-1527058918112-6e17a8213943?w=960&auto=format&fit=crop&q=80",
+  u10_pagoda: "https://commons.wikimedia.org/wiki/Special:FilePath/Tran_quoc_pagoda.jpg?width=960",
+  u10_theme_park: "https://commons.wikimedia.org/wiki/Special:FilePath/Roller_Coaster.JPG?width=960",
+  u10_lake: "https://commons.wikimedia.org/wiki/Special:FilePath/West_Lake_(Hanoi).jpg?width=960",
+  u10_trip_games: "https://images.unsplash.com/photo-1777489689168-497290f235d5?w=960&auto=format&fit=crop&q=80"
+};
+
+const APP_UNITS = [
+  // ===================== UNIT 6 =====================
+  {
+    id: 6,
+    title: "Unit 6: Our School Rooms",
+    subtitle: "Các phòng học trong trường · Vị trí các tầng & Chỉ đường trong trường",
+    themeColor: "from-sky-600 to-indigo-600",
+    icon: "🏫",
+    vocab: [
+      {
+        word: "computer room",
+        pos: "noun",
+        ipa: "/kəmˈpjuː.tər ruːm/",
+        meaning: "phòng tin học, phòng máy tính",
+        icon: "💻",
+        imgUrl: IMG.u6_computer_room,
+        tip: "Học sinh tiểu học Việt Nam vui vẻ học Tin học trên máy tính ở trường",
+        visualSpec: "Học sinh tiểu học Việt Nam mặc áo trắng khăn quàng đỏ ngồi học tại phòng máy tính sáng sủa",
+        rhyme: "“Gõ phím lách cách vui tay,\nComputer room đó, học ngay Tin học!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Computer</strong> (máy tính) + <strong>room</strong> (căn phòng) ➜ Phòng đặt nhiều máy tính để cả lớp thực hành Tin học.",
+        example: "The computer room is on the second floor.",
+        exampleVi: "(Phòng tin học ở trên tầng hai.)",
+        exampleIpa: "/ðə kəmˈpjuː.tər ruːm ɪz ɒn ðə ˈsek.ənd flɔːr/"
+      },
+      {
+        word: "music room",
+        pos: "noun",
+        ipa: "/ˈmjuː.zɪk ruːm/",
+        meaning: "phòng âm nhạc",
+        icon: "🎵",
+        imgUrl: IMG.u6_music_room,
+        tip: "Cô giáo đánh đàn cho các em học sinh cùng hòa giọng hát thật vui",
+        visualSpec: "Cô giáo và học sinh tiểu học VN ca hát bên đàn phím trong phòng âm nhạc nhiều nốt nhạc",
+        rhyme: "“Tiếng đàn vang khắp hành lang,\nMusic room rộn rã lời ca ngân vang!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Music</strong> (âm nhạc) + <strong>room</strong> (phòng) ➜ Căn phòng tràn ngập tiếng hát và tiếng đàn piano.",
+        example: "Where is the music room? - It's on the first floor.",
+        exampleVi: "(Phòng âm nhạc ở đâu? - Nó ở trên tầng một.)",
+        exampleIpa: "/weər ɪz ðə ˈmjuː.zɪk ruːm/ — /ɪts ɒn ðə fɜːst flɔːr/"
+      },
+      {
+        word: "art room",
+        pos: "noun",
+        ipa: "/ɑːt ruːm/",
+        meaning: "phòng mỹ thuật",
+        icon: "🎨",
+        imgUrl: IMG.u6_art_room,
+        tip: "Các bạn nhỏ say sưa tô màu nước và vẽ tranh phong cảnh trong phòng mỹ thuật",
+        visualSpec: "Học sinh tiểu học VN vẽ tranh màu nước trong phòng mỹ thuật có treo nhiều tranh đẹp",
+        rhyme: "“Cọ màu, giấy trắng sẵn sàng,\nVào art room vẽ bức tranh quê hương!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Art</strong> (nghệ thuật, vẽ) + <strong>room</strong> (phòng) ➜ Phòng mỹ thuật đầy màu sắc của các họa sĩ nhí.",
+        example: "Could you tell me the way to the art room, please?",
+        exampleVi: "(Bạn có thể chỉ cho mình đường đến phòng mỹ thuật được không?)",
+        exampleIpa: "/kʊd juː tel miː ðə weɪ tuː ði ɑːt ruːm, pliːz/"
+      },
+      {
+        word: "library",
+        pos: "noun",
+        ipa: "/ˈlaɪ.brə.ri/",
+        meaning: "thư viện",
+        icon: "📚",
+        imgUrl: IMG.u6_library,
+        tip: "Thư viện trường học yên tĩnh với những kệ sách gỗ đầy ắp sách hay",
+        visualSpec: "Thư viện trường tiểu học VN ấm áp với kệ sách đầy màu sắc và hai học sinh ngồi đọc sách",
+        rhyme: "“Ngàn trang sách quý xếp hàng,\nVào library đọc, mở mang trí tài!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Library</strong> có 3 âm tiết <em>/ˈlaɪ.brə.ri/</em> — nhớ giữ yên lặng khi vào thư viện đọc sách nhé!",
+        example: "Go past the library and turn left.",
+        exampleVi: "(Đi ngang qua thư viện rồi rẽ trái nhé.)",
+        exampleIpa: "/ɡəʊ pɑːst ðə ˈlaɪ.brə.ri ænd tɜːn left/"
+      },
+      {
+        word: "ground floor",
+        pos: "noun",
+        ipa: "/ˌɡraʊnd ˈflɔːr/",
+        meaning: "tầng trệt (sát mặt đất)",
+        icon: "🏢",
+        imgUrl: IMG.u6_ground_floor,
+        tip: "Sơ đồ trường học tô sáng tầng sát mặt đất (Ground floor)",
+        visualSpec: "Sơ đồ tòa nhà trường tiểu học 3 tầng làm nổi bật tầng trệt Ground Floor",
+        rhyme: "“Vừa qua cổng lớn sân trường,\nGround floor tầng trệt, thẳng đường bước vô!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Ground</strong> (mặt đất) + <strong>floor</strong> (tầng) ➜ Tầng nằm ngay sát mặt đất, không cần leo cầu thang.",
+        example: "Our classroom is on the ground floor.",
+        exampleVi: "(Lớp học của chúng mình nằm ở tầng trệt.)",
+        exampleIpa: "/ˈaʊ.ər ˈklɑːs.ruːm ɪz ɒn ðə ˌɡraʊnd ˈflɔːr/"
+      },
+      {
+        word: "first floor",
+        pos: "noun",
+        ipa: "/ˌfɜːst ˈflɔːr/",
+        meaning: "tầng một (trên tầng trệt)",
+        icon: "1️⃣",
+        imgUrl: IMG.u6_first_floor,
+        tip: "Sơ đồ trường học tô sáng tầng 1 (First floor - ngay phía trên tầng trệt)",
+        visualSpec: "Sơ đồ tòa nhà trường tiểu học 3 tầng làm nổi bật tầng 1 First Floor",
+        rhyme: "“Leo lên một nhịp cầu thang,\nFirst floor tầng một, thênh thang lớp mình!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> Theo chuẩn Anh-Anh trong sách Global Success: <strong>Ground floor</strong> (tầng trệt) ➔ <strong>First floor</strong> (tầng 1) ➔ <strong>Second floor</strong> (tầng 2). Luôn dùng giới từ <strong>ON</strong>!",
+        example: "The library is on the first floor.",
+        exampleVi: "(Thư viện nằm ở trên tầng một.)",
+        exampleIpa: "/ðə ˈlaɪ.brə.ri ɪz ɒn ðə ˌfɜːst ˈflɔːr/"
+      },
+      {
+        word: "second floor",
+        pos: "noun",
+        ipa: "/ˌsek.ənd ˈflɔːr/",
+        meaning: "tầng hai (trên tầng một)",
+        icon: "2️⃣",
+        imgUrl: IMG.u6_second_floor,
+        tip: "Sơ đồ trường học tô sáng tầng 2 (Second floor - trên cùng)",
+        visualSpec: "Sơ đồ tòa nhà trường tiểu học 3 tầng làm nổi bật tầng 2 Second Floor",
+        rhyme: "“Thêm tầng nữa ngắm mây trời,\nSecond floor đó, sáng ngời phòng tranh!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Second</strong> (thứ hai) + <strong>floor</strong> (tầng) ➜ Tầng 2. Đừng quên <strong>on the second floor</strong> nhé!",
+        example: "The art room is on the second floor.",
+        exampleVi: "(Phòng mỹ thuật nằm ở trên tầng hai.)",
+        exampleIpa: "/ði ɑːt ruːm ɪz ɒn ðə ˌsek.ənd ˈflɔːr/"
+      },
+      {
+        word: "go upstairs",
+        pos: "verb phrase",
+        ipa: "/ɡəʊ ʌpˈsteəz/",
+        meaning: "đi lên lầu, đi lên cầu thang",
+        icon: "⬆️",
+        imgUrl: IMG.u6_go_upstairs,
+        tip: "Mũi tên xanh chỉ hướng bước lên các bậc cầu thang trường học",
+        visualSpec: "Đồ họa cầu thang với mũi tên xanh nổi bật hướng đi lên lầu Go Upstairs",
+        rhyme: "“Bước chân leo bậc đi lên,\nGo upstairs nhớ giữ đều nhịp nha!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Up</strong> (lên trên) + <strong>stairs</strong> (cầu thang) ➜ Đi lên cầu thang / lên tầng trên.",
+        example: "Go upstairs and turn right to see the music room.",
+        exampleVi: "(Đi lên lầu rồi rẽ phải sẽ thấy phòng âm nhạc.)",
+        exampleIpa: "/ɡəʊ ʌpˈsteəz ænd tɜːn raɪt tuː siː ðə ˈmjuː.zɪk ruːm/"
+      },
+      {
+        word: "go downstairs",
+        pos: "verb phrase",
+        ipa: "/ɡəʊ ˌdaʊnˈsteəz/",
+        meaning: "đi xuống lầu, đi xuống cầu thang",
+        icon: "⬇️",
+        imgUrl: IMG.u6_go_downstairs,
+        tip: "Mũi tên cam chỉ hướng bước xuống cầu thang thật cẩn thận",
+        visualSpec: "Đồ họa cầu thang với mũi tên cam nổi bật hướng đi xuống lầu Go Downstairs",
+        rhyme: "“Ra chơi xuống dưới sân trường,\nGo downstairs nhẹ, nhường đường bạn nha!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Down</strong> (xuống dưới) + <strong>stairs</strong> (cầu thang) ➜ Đi xuống cầu thang về tầng dưới.",
+        example: "Go downstairs to the ground floor.",
+        exampleVi: "(Hãy đi xuống lầu tới tầng trệt.)",
+        exampleIpa: "/ɡəʊ ˌdaʊnˈsteəz tuː ðə ˌɡraʊnd ˈflɔːr/"
+      },
+      {
+        word: "go past",
+        pos: "verb phrase",
+        ipa: "/ɡəʊ pɑːst/",
+        meaning: "đi ngang qua",
+        icon: "🚶",
+        imgUrl: IMG.u6_go_past,
+        tip: "Mũi tên đi thẳng ngang qua cửa phòng Thư viện trên hành lang",
+        visualSpec: "Đồ họa hành lang có phòng Library và mũi tên xanh đi thẳng ngang qua Go Past",
+        rhyme: "“Bước qua cửa lớp nhẹ nhàng,\nGo past thư viện, rẽ sang bên này!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Go</strong> (đi) + <strong>past</strong> (qua) ➜ Đi ngang qua một phòng nào đó mà không dừng lại.",
+        example: "Go past the library and you will see Class 5A.",
+        exampleVi: "(Đi ngang qua thư viện rồi bạn sẽ thấy lớp 5A.)",
+        exampleIpa: "/ɡəʊ pɑːst ðə ˈlaɪ.brə.ri ænd juː wɪl siː klɑːs faɪv eɪ/"
+      },
+      {
+        word: "turn left",
+        pos: "verb phrase",
+        ipa: "/tɜːn left/",
+        meaning: "rẽ trái",
+        icon: "⬅️",
+        imgUrl: IMG.u6_turn_left,
+        tip: "Biển chỉ dẫn hành lang màu xanh dương chỉ mũi tên rẽ sang trái",
+        visualSpec: "Biển chỉ dẫn mũi tên trắng rẽ trái nổi bật trên nền xanh dương Turn Left",
+        rhyme: "“Đưa tay bên trái em xem,\nTurn left rẽ trái, tìm xem phòng nào!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Turn</strong> (rẽ/quẹo) + <strong>left</strong> (bên trái) ➜ Rẽ sang bên tay trái.",
+        example: "Go upstairs, go past Class 5B, and turn left.",
+        exampleVi: "(Đi lên lầu, đi ngang qua lớp 5B rồi rẽ trái.)",
+        exampleIpa: "/ɡəʊ ʌpˈsteəz, ɡəʊ pɑːst klɑːs faɪv biː, ænd tɜːn left/"
+      },
+      {
+        word: "turn right",
+        pos: "verb phrase",
+        ipa: "/tɜːn raɪt/",
+        meaning: "rẽ phải",
+        icon: "➡️",
+        imgUrl: IMG.u6_turn_right,
+        tip: "Biển chỉ dẫn hành lang màu xanh lá chỉ mũi tên rẽ sang phải",
+        visualSpec: "Biển chỉ dẫn mũi tên trắng rẽ phải nổi bật trên nền xanh lá Turn Right",
+        rhyme: "“Tay cầm bút viết hằng ngày,\nTurn right rẽ phải, gặp ngay phòng đàn!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Turn</strong> (rẽ) + <strong>right</strong> (bên phải — cũng là tay cầm bút của đa số các bạn!) ➜ Rẽ sang bên tay phải.",
+        example: "Turn right and the computer room is on your left.",
+        exampleVi: "(Rẽ phải và phòng tin học nằm ở bên tay trái của bạn.)",
+        exampleIpa: "/tɜːn raɪt ænd ðə kəmˈpjuː.tər ruːm ɪz ɒn jɔːr left/"
+      }
+    ],
+    sentences: [
+      {
+        en: "Where's the computer room? — It's on the second floor.",
+        vi: "Phòng tin học ở đâu? — Nó ở trên tầng hai.",
+        ipa: "/weəz ðə kəmˈpjuː.tər ruːm/ — /ɪts ɒn ðə ˈsek.ənd flɔːr/",
+        imgUrl: IMG.u6_computer_room,
+        chunks: [
+          { en: "Where's the computer room?", ipa: "/weəz ðə kəmˈpjuː.tər ruːm/", vi: "Phòng tin học ở đâu?" },
+          { en: "It's on", ipa: "/ɪts ɒn/", vi: "Nó ở trên" },
+          { en: "the second floor.", ipa: "/ðə ˈsek.ənd flɔːr/", vi: "tầng hai." }
+        ]
+      },
+      {
+        en: "Where's the library? — It's on the ground floor.",
+        vi: "Thư viện ở đâu? — Nó ở tầng trệt.",
+        ipa: "/weəz ðə ˈlaɪ.brə.ri/ — /ɪts ɒn ðə ˌɡraʊnd ˈflɔːr/",
+        imgUrl: IMG.u6_library,
+        chunks: [
+          { en: "Where's the library?", ipa: "/weəz ðə ˈlaɪ.brə.ri/", vi: "Thư viện ở đâu?" },
+          { en: "It's on", ipa: "/ɪts ɒn/", vi: "Nó nằm ở" },
+          { en: "the ground floor.", ipa: "/ðə ˌɡraʊnd ˈflɔːr/", vi: "tầng trệt." }
+        ]
+      },
+      {
+        en: "Could you tell me the way to the art room, please?",
+        vi: "Bạn có thể chỉ cho mình đường đến phòng mỹ thuật được không?",
+        ipa: "/kʊd juː tel miː ðə weɪ tuː ði ɑːt ruːm, pliːz/",
+        imgUrl: IMG.u6_art_room,
+        chunks: [
+          { en: "Could you tell me", ipa: "/kʊd juː tel miː/", vi: "Bạn có thể chỉ cho mình" },
+          { en: "the way to the art room,", ipa: "/ðə weɪ tuː ði ɑːt ruːm/", vi: "đường tới phòng mỹ thuật," },
+          { en: "please?", ipa: "/pliːz/", vi: "làm ơn nhé?" }
+        ]
+      },
+      {
+        en: "Go upstairs, go past the music room, and turn left.",
+        vi: "Đi lên lầu, đi ngang qua phòng âm nhạc rồi rẽ trái nhé.",
+        ipa: "/ɡəʊ ʌpˈsteəz, ɡəʊ pɑːst ðə ˈmjuː.zɪk ruːm, ænd tɜːn left/",
+        imgUrl: IMG.u6_go_upstairs,
+        chunks: [
+          { en: "Go upstairs,", ipa: "/ɡəʊ ʌpˈsteəz/", vi: "Đi lên lầu," },
+          { en: "go past the music room,", ipa: "/ɡəʊ pɑːst ðə ˈmjuː.zɪk ruːm/", vi: "đi ngang qua phòng âm nhạc," },
+          { en: "and turn left.", ipa: "/ænd tɜːn left/", vi: "và rẽ trái." }
+        ]
+      }
+    ],
+    grammar: {
+      title: "Hỏi Vị Trí Phòng Học & Cách Chỉ Đường Trong Trường",
+      summary: "Dùng 'on the + số thứ tự + floor' để nói vị trí tầng, và dùng 'Could you tell me the way to...?' để hỏi đường thật lịch sự.",
+      infographicType: "school-floors-directions",
+      funnelImages: [
+        { tier: "Ground Floor", caption: "Tầng trệt (sát mặt đất)", imgUrl: IMG.u6_ground_floor, visualSpec: "Sơ đồ làm nổi bật tầng trệt" },
+        { tier: "First Floor", caption: "Tầng 1 (trên tầng trệt)", imgUrl: IMG.u6_first_floor, visualSpec: "Sơ đồ làm nổi bật tầng 1" },
+        { tier: "Second Floor", caption: "Tầng 2 (trên tầng 1)", imgUrl: IMG.u6_second_floor, visualSpec: "Sơ đồ làm nổi bật tầng 2" }
+      ],
+      sentenceForms: [
+        {
+          type: "+",
+          name: "Câu Khẳng định (+) — Nói vị trí phòng học",
+          formula: "The + [tên phòng] / It + is + on the + [tầng] floor.",
+          example: "The music room is on the first floor.",
+          ipa: "/ðə ˈmjuː.zɪk ruːm ɪz ɒn ðə fɜːst flɔːr/",
+          vi: "Phòng âm nhạc nằm ở trên tầng một.",
+          imgUrl: IMG.u6_music_room,
+          visualSpec: "Phòng âm nhạc vui vẻ của học sinh tiểu học VN",
+          kidExplain: "Nhớ kỹ nhé: Trước tên tầng lầu (ground floor, first floor, second floor) luôn phải có bộ đôi <strong>on the</strong>!"
+        },
+        {
+          type: "-",
+          name: "Câu Phủ định (−) — Phòng KHÔNG ở tầng đó",
+          formula: "The + [tên phòng] / It + isn't (is not) + on the + [tầng] floor.",
+          example: "The art room isn't on the ground floor.",
+          ipa: "/ði ɑːt ruːm ˈɪz.ənt ɒn ðə ˌɡraʊnd ˈflɔːr/",
+          vi: "Phòng mỹ thuật không nằm ở tầng trệt.",
+          imgUrl: IMG.u6_art_room,
+          visualSpec: "Phòng mỹ thuật đầy tranh màu sắc của học sinh VN",
+          kidExplain: "Muốn nói phòng <strong>không ở</strong> tầng nào, em chỉ việc thêm <strong>not</strong> ngay sau <strong>is</strong> thành <strong>isn't</strong> cực gọn!"
+        },
+        {
+          type: "?",
+          name: "Câu Nghi vấn (?) — Hỏi vị trí & Hỏi đường lịch sự",
+          formula: "1) Where is (Where's) the + [tên phòng]?\n2) Could you tell me the way to the + [tên phòng], please?",
+          example: "Could you tell me the way to the library, please?",
+          ipa: "/kʊd juː tel miː ðə weɪ tuː ðə ˈlaɪ.brə.ri, pliːz/",
+          vi: "Bạn có thể chỉ cho mình đường đến thư viện được không?",
+          imgUrl: IMG.u6_library,
+          visualSpec: "Thư viện trường tiểu học VN ấm áp",
+          kidExplain: "Khi nhờ người khác chỉ đường, dùng <strong>Could you tell me the way to..., please?</strong> sẽ vô cùng lễ phép và ghi điểm tối đa!"
+        }
+      ],
+      rules: [
+        {
+          label: "1. Luôn dùng ON THE + tên tầng",
+          example: "It's on the second floor.",
+          exampleIpa: "/ɪts ɒn ðə ˈsek.ənd flɔːr/",
+          color: "bg-sky-50 border-sky-300 text-sky-900",
+          rule: "Không dùng 'in' hay 'at' cho tầng lầu! Cứ thấy từ 'floor' là chọn ngay 'on the... floor'.",
+          imgUrl: IMG.u6_second_floor,
+          visualSpec: "Sơ đồ tầng 2 trường học"
+        },
+        {
+          label: "2. Chuỗi câu mệnh lệnh chỉ đường",
+          example: "Go upstairs, go past Class 5A, and turn right.",
+          exampleIpa: "/ɡəʊ ʌpˈsteəz, ɡəʊ pɑːst klɑːs faɪv eɪ, ænd tɜːn raɪt/",
+          color: "bg-emerald-50 border-emerald-300 text-emerald-900",
+          rule: "Câu chỉ đường bắt đầu thẳng bằng động từ nguyên mẫu: Go upstairs, Go downstairs, Go past, Turn left, Turn right.",
+          imgUrl: IMG.u6_turn_right,
+          visualSpec: "Biển chỉ dẫn Turn Right màu xanh lá"
+        }
+      ],
+      tip: "💡 Mẹo nhớ siêu tốc: Lầu nào cũng đi với <strong>ON THE</strong> (on the ground/first/second floor). Gặp câu <strong>Could you tell me the way to...?</strong> là trả lời ngay bằng các mũi tên chỉ hướng!"
+    },
+    practice: [
+      {
+        vi: "Phòng tin học ở đâu? — Nó ở trên tầng hai.",
+        en: "Where's the computer room? - It's on the second floor.",
+        ipa: "/weəz ðə kəmˈpjuː.tər ruːm/ — /ɪts ɒn ðə ˈsek.ənd flɔːr/",
+        imgUrl: IMG.u6_computer_room,
+        tip: "Dùng Where's... và nhớ giới từ 'on the second floor'."
+      },
+      {
+        vi: "Thư viện nằm ở tầng trệt.",
+        en: "The library is on the ground floor.",
+        ipa: "/ðə ˈlaɪ.brə.ri ɪz ɒn ðə ˌɡraʊnd ˈflɔːr/",
+        imgUrl: IMG.u6_ground_floor,
+        tip: "Tầng trệt tiếng Anh là 'ground floor'."
+      },
+      {
+        vi: "Bạn có thể chỉ cho mình đường tới phòng âm nhạc được không?",
+        en: "Could you tell me the way to the music room, please?",
+        ipa: "/kʊd juː tel miː ðə weɪ tuː ðə ˈmjuː.zɪk ruːm, pliːz/",
+        imgUrl: IMG.u6_music_room,
+        tip: "Mẫu câu lịch sự: Could you tell me the way to the..., please?"
+      },
+      {
+        vi: "Đi lên lầu, đi ngang qua thư viện rồi rẽ trái.",
+        en: "Go upstairs, go past the library, and turn left.",
+        ipa: "/ɡəʊ ʌpˈsteəz, ɡəʊ pɑːst ðə ˈlaɪ.brə.ri, ænd tɜːn left/",
+        imgUrl: IMG.u6_go_past,
+        tip: "Ghép 3 động tác chỉ đường: Go upstairs ➔ go past ➔ turn left."
+      }
+    ],
+    quiz: [
+      { q: "Căn phòng có nhiều máy tính để học Tin học gọi là gì?", audio: "computer room", imgUrl: IMG.u6_computer_room, options: ["music room", "computer room", "art room", "library"], ans: 1, explain: "Computer room (/kəmˈpjuː.tər ruːm/) là phòng tin học / phòng máy tính." },
+      { q: "Phòng học nơi các em ca hát và học đàn gọi là gì?", audio: "music room", imgUrl: IMG.u6_music_room, options: ["music room", "art room", "library", "ground floor"], ans: 0, explain: "Music room (/ˈmjuː.zɪk ruːm/) là phòng âm nhạc." },
+      { q: "Nơi có rất nhiều kệ sách để học sinh đọc và mượn sách là gì?", audio: "library", imgUrl: IMG.u6_library, options: ["art room", "computer room", "library", "music room"], ans: 2, explain: "Library (/ˈlaɪ.brə.ri/) là thư viện." },
+      { q: "Phòng để các em vẽ tranh và tô màu nước gọi là gì?", audio: "art room", imgUrl: IMG.u6_art_room, options: ["library", "music room", "computer room", "art room"], ans: 3, explain: "Art room (/ɑːt ruːm/) là phòng mỹ thuật." },
+      { q: "Tầng nằm ngay sát mặt đất trong trường học gọi là gì?", audio: "ground floor", imgUrl: IMG.u6_ground_floor, options: ["ground floor", "first floor", "second floor", "turn left"], ans: 0, explain: "Ground floor (/ˌɡraʊnd ˈflɔːr/) là tầng trệt." },
+      { q: "Tầng nằm ngay phía trên tầng trệt gọi là gì?", audio: "first floor", imgUrl: IMG.u6_first_floor, options: ["ground floor", "first floor", "second floor", "go past"], ans: 1, explain: "First floor (/ˌfɜːst ˈflɔːr/) là tầng một (trên tầng trệt)." },
+      { q: "Hành động bước lên cầu thang lên tầng trên gọi là gì?", audio: "go upstairs", imgUrl: IMG.u6_go_upstairs, options: ["go downstairs", "turn right", "go upstairs", "go past"], ans: 2, explain: "Go upstairs (/ɡəʊ ʌpˈsteəz/) nghĩa là đi lên lầu." },
+      { q: "Hành động đi xuống cầu thang về tầng dưới gọi là gì?", audio: "go downstairs", imgUrl: IMG.u6_go_downstairs, options: ["go upstairs", "go downstairs", "turn left", "turn right"], ans: 1, explain: "Go downstairs (/ɡəʊ ˌdaʊnˈsteəz/) nghĩa là đi xuống lầu." },
+      { q: "Đi thẳng ngang qua cửa thư viện trong tiếng Anh nói thế nào?", audio: "go past", imgUrl: IMG.u6_go_past, options: ["turn left", "turn right", "go upstairs", "go past"], ans: 3, explain: "Go past (/ɡəʊ pɑːst/) là đi ngang qua." },
+      { q: "Biển mũi tên chỉ rẽ sang bên tay trái gọi là gì?", audio: "turn left", imgUrl: IMG.u6_turn_left, options: ["turn left", "turn right", "go upstairs", "second floor"], ans: 0, explain: "Turn left (/tɜːn left/) là rẽ trái." }
+    ]
+  },
+
+  // ===================== UNIT 7 =====================
+  {
+    id: 7,
+    title: "Unit 7: Our Favourite School Activities",
+    subtitle: "Các hoạt động ở trường yêu thích · Hỏi thích làm gì & Lý do Why – Because",
+    themeColor: "from-emerald-600 to-teal-500",
+    icon: "🎨",
+    vocab: [
+      {
+        word: "do projects",
+        pos: "verb phrase",
+        ipa: "/duː ˈprɒdʒ.ekts/",
+        meaning: "làm các dự án học tập",
+        icon: "📊",
+        imgUrl: IMG.u7_do_projects,
+        tip: "Nhóm 4 bạn lớp 5 cùng cắt dán và làm áp phích dự án bảo vệ môi trường",
+        visualSpec: "Nhóm học sinh lớp 5 VN cùng nhau làm dự án poster sáng tạo trên bàn học",
+        rhyme: "“Cắt dán, vẽ bảng thật nhanh,\nDo projects nhóm, bức tranh thêm màu!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Do</strong> (làm) + <strong>projects</strong> (dự án) ➜ Khi đứng sau <strong>like</strong> sẽ thành <strong>doing projects</strong>!",
+        example: "She likes doing projects with her classmates.",
+        exampleVi: "(Bạn ấy thích làm các dự án học tập cùng bạn cùng lớp.)",
+        exampleIpa: "/ʃiː laɪks ˈduː.ɪŋ ˈprɒdʒ.ekts wɪð hɜːr ˈklɑːs.meɪts/"
+      },
+      {
+        word: "read books",
+        pos: "verb phrase",
+        ipa: "/riːd bʊks/",
+        meaning: "đọc sách",
+        icon: "📖",
+        imgUrl: IMG.u7_read_books,
+        tip: "Cô bé học sinh tiểu học Việt Nam cười tươi khi đọc cuốn sách tranh hay",
+        visualSpec: "Nữ sinh lớp 5 VN đeo khăn quàng đỏ vui vẻ đọc sách tranh tại bàn học sáng sủa",
+        rhyme: "“Mỗi ngày mở sách em xem,\nRead books chăm chỉ, lớn thêm từng giờ!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Read</strong> (đọc) + <strong>books</strong> (những quyển sách) ➜ Sau <strong>like</strong> nhớ thêm <em>-ing</em> thành <strong>reading books</strong>!",
+        example: "He likes reading books in the school library.",
+        exampleVi: "(Cậu ấy thích đọc sách ở thư viện trường.)",
+        exampleIpa: "/hiː laɪks ˈriː.dɪŋ bʊks ɪn ðə skuːl ˈlaɪ.brə.ri/"
+      },
+      {
+        word: "play games",
+        pos: "verb phrase",
+        ipa: "/pleɪ ɡeɪmz/",
+        meaning: "chơi các trò chơi",
+        icon: "🎲",
+        imgUrl: IMG.u7_play_games,
+        tip: "Các em học sinh vui đùa chơi trò chơi tập thể dưới sân trường rợp bóng cây",
+        visualSpec: "Học sinh tiểu học VN cười rạng rỡ chơi trò chơi tập thể ngoài sân trường nắng đẹp",
+        rhyme: "“Giờ chơi rộn rã tiếng cười,\nPlay games cùng bạn, vui tươi sân trường!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Play</strong> (chơi) + <strong>games</strong> (trò chơi) ➜ Chơi trò chơi vừa vui vừa đoàn kết.",
+        example: "They like playing games at break time.",
+        exampleVi: "(Các bạn ấy thích chơi trò chơi vào giờ ra chơi.)",
+        exampleIpa: "/ðeɪ laɪk ˈpleɪ.ɪŋ ɡeɪmz æt breɪk taɪm/"
+      },
+      {
+        word: "solve maths problems",
+        pos: "verb phrase",
+        ipa: "/sɒlv mæθs ˈprɒb.ləmz/",
+        meaning: "giải các bài toán",
+        icon: "🧮",
+        imgUrl: IMG.u7_solve_maths,
+        tip: "Cậu bé học sinh lớp 5 tự tin giải bài toán trên bảng xanh bằng phấn trắng",
+        visualSpec: "Nam sinh lớp 5 VN mặc áo trắng khăn quàng đỏ mỉm cười giải toán trên bảng xanh",
+        rhyme: "“Con số cộng trừ thật hay,\nSolve maths problems giải ngay ra liền!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Solve</strong> (giải quyết) + <strong>maths problems</strong> (các bài toán) ➜ Sau <strong>like</strong> bỏ chữ <em>e</em> thêm <em>-ing</em>: <strong>solving maths problems</strong>!",
+        example: "He likes solving maths problems because it's useful.",
+        exampleVi: "(Cậu ấy thích giải toán vì nó rất hữu ích.)",
+        exampleIpa: "/hiː laɪks ˈsɒl.vɪŋ mæθs ˈprɒb.ləmz bɪˈkɒz ɪts ˈjuːs.fəl/"
+      },
+      {
+        word: "fun",
+        pos: "adjective",
+        ipa: "/fʌn/",
+        meaning: "vui vẻ, hào hứng",
+        icon: "😄",
+        imgUrl: IMG.u7_fun,
+        tip: "Niềm vui rạng rỡ của học sinh khi cùng tham gia trò chơi ở trường",
+        visualSpec: "Học sinh tiểu học VN cười tươi hết cỡ khi chơi trò chơi vui vẻ trên sân trường",
+        rhyme: "“Tiếng cười vang khắp lớp mình,\nFun vui hết ý, chúng mình cùng chơi!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Fun</strong> ngắn gọn chỉ 3 chữ cái, đọc là <em>/fʌn/</em> — luôn mang lại niềm vui!",
+        example: "She likes playing games because she thinks it's fun.",
+        exampleVi: "(Bạn ấy thích chơi trò chơi vì bạn ấy nghĩ nó rất vui.)",
+        exampleIpa: "/ʃiː laɪks ˈpleɪ.ɪŋ ɡeɪmz bɪˈkɒz ʃiː θɪŋks ɪts fʌn/"
+      },
+      {
+        word: "good for group work",
+        pos: "phrase",
+        ipa: "/ɡʊd fɔːr ɡruːp wɜːk/",
+        meaning: "tốt cho làm việc nhóm",
+        icon: "🤝",
+        imgUrl: IMG.u7_group_work,
+        tip: "Cả nhóm 4 bạn đập tay ăn mừng khi hoàn thành sản phẩm học tập chung",
+        visualSpec: "Bốn học sinh tiểu học VN đập tay vui vẻ quanh bàn dự án nhóm",
+        rhyme: "“Bốn bạn chung sức đồng lòng,\nGood for group work, việc xong thật tài!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Good for</strong> (tốt cho) + <strong>group work</strong> (làm việc nhóm) ➜ Cụm từ vàng trả lời lý do thích <em>doing projects</em>!",
+        example: "He likes doing projects because it's good for group work.",
+        exampleVi: "(Cậu ấy thích làm dự án vì nó tốt cho làm việc nhóm.)",
+        exampleIpa: "/hiː laɪks ˈduː.ɪŋ ˈprɒdʒ.ekts bɪˈkɒz ɪts ɡʊd fɔːr ɡruːp wɜːk/"
+      },
+      {
+        word: "interesting",
+        pos: "adjective",
+        ipa: "/ˈɪn.trə.stɪŋ/",
+        meaning: "thú vị, hấp dẫn",
+        icon: "🤩",
+        imgUrl: IMG.u7_interesting,
+        tip: "Các bạn học sinh tròn mắt thích thú xem thí nghiệm núi lửa phun trào trong lớp",
+        visualSpec: "Học sinh lớp 5 VN hào hứng ngạc nhiên xem thí nghiệm khoa học thú vị cùng cô giáo",
+        rhyme: "“Thí nghiệm kì diệu quá chừng,\nInteresting lắm, tưng bừng niềm vui!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Interesting</strong> đọc nhẹ 3 âm <em>/ˈɪn.trə.stɪŋ/</em> — điều gì cuốn hút khiến mắt sáng rực lên là <em>interesting</em>!",
+        example: "Why does she like reading books? - Because she thinks it's interesting.",
+        exampleVi: "(Tại sao bạn ấy thích đọc sách? - Vì bạn ấy nghĩ nó rất thú vị.)",
+        exampleIpa: "/waɪ dʌz ʃiː laɪk ˈriː.dɪŋ bʊks/ — /bɪˈkɒz ʃiː θɪŋks ɪts ˈɪn.trə.stɪŋ/"
+      },
+      {
+        word: "useful",
+        pos: "adjective",
+        ipa: "/ˈjuːs.fəl/",
+        meaning: "hữu ích, có ích",
+        icon: "💡",
+        imgUrl: IMG.u7_useful,
+        tip: "Học sinh học với quả địa cầu và vở ghi chép gọn gàng — kiến thức rất bổ ích",
+        visualSpec: "Học sinh lớp 5 VN học tập chăm chỉ bên quả địa cầu và vở ghi chép ngăn nắp",
+        rhyme: "“Học hay áp dụng mỗi ngày,\nUseful có ích, biết bao điều cần!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Use</strong> (dùng) + <strong>-ful</strong> (đầy) ➜ Đầy giá trị sử dụng, rất hữu ích!",
+        example: "Why does he like solving maths problems? - Because he thinks it's useful.",
+        exampleVi: "(Tại sao cậu ấy thích giải toán? - Vì cậu ấy nghĩ nó rất hữu ích.)",
+        exampleIpa: "/waɪ dʌz hiː laɪk ˈsɒl.vɪŋ mæθs ˈprɒb.ləmz/ — /bɪˈkɒz hiː θɪŋks ɪts ˈjuːs.fəl/"
+      },
+      {
+        word: "favourite",
+        pos: "adjective",
+        ipa: "/ˈfeɪ.vər.ɪt/",
+        meaning: "yêu thích nhất",
+        icon: "❤️",
+        imgUrl: IMG.u7_favourite,
+        tip: "Bạn nhỏ cười thật rạng rỡ khi giơ cao bức tranh vẽ yêu thích nhất của mình",
+        visualSpec: "Bé gái lớp 5 VN cười rạng rỡ giơ cao bức tranh yêu thích nhất trong lớp học",
+        rhyme: "“Điều chi em mến nhất đời,\nFavourite gọi tên, rạng ngời trái tim!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Favourite</strong> (Anh-Anh trong SGK Global Success) là thứ mình thích số 1!",
+        example: "What is your favourite school activity?",
+        exampleVi: "(Hoạt động ở trường yêu thích nhất của bạn là gì?)",
+        exampleIpa: "/wɒt ɪz jɔːr ˈfeɪ.vər.ɪt skuːl ækˈtɪv.ə.ti/"
+      },
+      {
+        word: "school activity",
+        pos: "noun",
+        ipa: "/skuːl ækˈtɪv.ə.ti/",
+        meaning: "hoạt động ở trường",
+        icon: "🎒",
+        imgUrl: IMG.u7_do_projects,
+        tip: "Những hoạt động học tập sôi nổi cùng thầy cô và bạn bè tại trường tiểu học",
+        visualSpec: "Học sinh tiểu học VN hào hứng tham gia hoạt động nhóm học tập trên lớp",
+        rhyme: "“Đọc sách, giải toán, vẽ tranh,\nSchool activity đẹp lung linh tuổi hồng!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> Số ít: <strong>school activity</strong>; số nhiều đổi <em>y ➔ ies</em> thành <strong>school activities</strong>.",
+        example: "What school activity does she like?",
+        exampleVi: "(Bạn ấy thích hoạt động ở trường nào?)",
+        exampleIpa: "/wɒt skuːl ækˈtɪv.ə.ti dʌz ʃiː laɪk/"
+      }
+    ],
+    sentences: [
+      {
+        en: "What school activity does he like? — He likes solving maths problems.",
+        vi: "Cậu ấy thích hoạt động ở trường nào? — Cậu ấy thích giải toán.",
+        ipa: "/wɒt skuːl ækˈtɪv.ə.ti dʌz hiː laɪk/ — /hiː laɪks ˈsɒl.vɪŋ mæθs ˈprɒb.ləmz/",
+        imgUrl: IMG.u7_solve_maths,
+        chunks: [
+          { en: "What school activity", ipa: "/wɒt skuːl ækˈtɪv.ə.ti/", vi: "Hoạt động ở trường nào" },
+          { en: "does he like?", ipa: "/dʌz hiː laɪk/", vi: "mà cậu ấy thích?" },
+          { en: "He likes solving maths problems.", ipa: "/hiː laɪks ˈsɒl.vɪŋ mæθs ˈprɒb.ləmz/", vi: "Cậu ấy thích giải toán." }
+        ]
+      },
+      {
+        en: "Why does he like solving maths problems? — Because he thinks it's useful.",
+        vi: "Tại sao cậu ấy thích giải toán? — Vì cậu ấy nghĩ nó rất hữu ích.",
+        ipa: "/waɪ dʌz hiː laɪk ˈsɒl.vɪŋ mæθs ˈprɒb.ləmz/ — /bɪˈkɒz hiː θɪŋks ɪts ˈjuːs.fəl/",
+        imgUrl: IMG.u7_useful,
+        chunks: [
+          { en: "Why does he like", ipa: "/waɪ dʌz hiː laɪk/", vi: "Tại sao cậu ấy thích" },
+          { en: "solving maths problems?", ipa: "/ˈsɒl.vɪŋ mæθs ˈprɒb.ləmz/", vi: "giải các bài toán?" },
+          { en: "Because he thinks it's useful.", ipa: "/bɪˈkɒz hiː θɪŋks ɪts ˈjuːs.fəl/", vi: "Vì cậu ấy nghĩ nó hữu ích." }
+        ]
+      },
+      {
+        en: "What school activity does she like? — She likes doing projects.",
+        vi: "Bạn ấy thích hoạt động ở trường nào? — Bạn ấy thích làm dự án.",
+        ipa: "/wɒt skuːl ækˈtɪv.ə.ti dʌz ʃiː laɪk/ — /ʃiː laɪks ˈduː.ɪŋ ˈprɒdʒ.ekts/",
+        imgUrl: IMG.u7_do_projects,
+        chunks: [
+          { en: "What school activity", ipa: "/wɒt skuːl ækˈtɪv.ə.ti/", vi: "Hoạt động ở trường nào" },
+          { en: "does she like?", ipa: "/dʌz ʃiː laɪk/", vi: "mà bạn ấy thích?" },
+          { en: "She likes doing projects.", ipa: "/ʃiː laɪks ˈduː.ɪŋ ˈprɒdʒ.ekts/", vi: "Bạn ấy thích làm dự án." }
+        ]
+      },
+      {
+        en: "Why does she like doing projects? — Because she thinks it's good for group work.",
+        vi: "Tại sao bạn ấy thích làm dự án? — Vì bạn ấy nghĩ nó tốt cho làm việc nhóm.",
+        ipa: "/waɪ dʌz ʃiː laɪk ˈduː.ɪŋ ˈprɒdʒ.ekts/ — /bɪˈkɒz ʃiː θɪŋks ɪts ɡʊd fɔːr ɡruːp wɜːk/",
+        imgUrl: IMG.u7_group_work,
+        chunks: [
+          { en: "Why does she like", ipa: "/waɪ dʌz ʃiː laɪk/", vi: "Tại sao bạn ấy thích" },
+          { en: "doing projects?", ipa: "/ˈduː.ɪŋ ˈprɒdʒ.ekts/", vi: "làm dự án?" },
+          { en: "Because she thinks it's good for group work.", ipa: "/bɪˈkɒz ʃiː θɪŋks ɪts ɡʊd fɔːr ɡruːp wɜːk/", vi: "Vì bạn ấy nghĩ nó tốt cho làm việc nhóm." }
+        ]
+      }
+    ],
+    grammar: {
+      title: "Hỏi Hoạt Động Yêu Thích (like + V-ing) & Nêu Lý Do (Why – Because)",
+      summary: "Sau động từ 'like / likes' luôn dùng động từ thêm đuôi -ing (V-ing), và nhớ thêm 's' vào likes/thinks khi chủ ngữ là He / She!",
+      infographicType: "like-ving-why",
+      sentenceForms: [
+        {
+          type: "+",
+          name: "Câu Khẳng định (+) — Nói hoạt động yêu thích",
+          formula: "He / She + likes + V-ing.\nI / You / We / They + like + V-ing.",
+          example: "She likes reading books because she thinks it's interesting.",
+          ipa: "/ʃiː laɪks ˈriː.dɪŋ bʊks bɪˈkɒz ʃiː θɪŋks ɪts ˈɪn.trə.stɪŋ/",
+          vi: "Bạn ấy thích đọc sách vì bạn ấy nghĩ nó rất thú vị.",
+          imgUrl: IMG.u7_read_books,
+          visualSpec: "Nữ sinh VN vui vẻ đọc sách tranh tại bàn học",
+          kidExplain: "Thấy chủ ngữ <strong>He / She</strong> (1 người), nhớ thêm đuôi <strong>-s</strong> vào cả hai động từ <strong>likes</strong> và <strong>thinks</strong> nha! Và sau <em>like</em> nhớ gắn đuôi <strong>-ing</strong> (read ➔ reading, do ➔ doing)."
+        },
+        {
+          type: "-",
+          name: "Câu Phủ định (−) — KHÔNG thích hoạt động nào đó",
+          formula: "He / She + doesn't like + V-ing.\nI / We / They + don't like + V-ing.",
+          example: "He doesn't like playing games in class.",
+          ipa: "/hiː ˈdʌz.ənt laɪk ˈpleɪ.ɪŋ ɡeɪmz ɪn klɑːs/",
+          vi: "Cậu ấy không thích chơi trò chơi trong giờ học.",
+          imgUrl: IMG.u7_play_games,
+          visualSpec: "Học sinh tiểu học VN chơi trò chơi ngoài sân trường",
+          kidExplain: "Khi đã có <strong>doesn't</strong> giúp sức rồi thì chữ <strong>like</strong> cởi bỏ đuôi <em>-s</em> (trở về nguyên mẫu <em>like</em>), nhưng động từ phía sau vẫn giữ nguyên <strong>V-ing</strong>!"
+        },
+        {
+          type: "?",
+          name: "Câu Nghi vấn (?) — Hỏi hoạt động & Hỏi Tại sao",
+          formula: "1) What school activity does he/she like?\n2) Why does he/she like + V-ing?",
+          example: "Why does he like doing projects?",
+          ipa: "/waɪ dʌz hiː laɪk ˈduː.ɪŋ ˈprɒdʒ.ekts/",
+          vi: "Tại sao cậu ấy thích làm dự án?",
+          imgUrl: IMG.u7_do_projects,
+          visualSpec: "Nhóm học sinh lớp 5 VN làm dự án nhóm",
+          kidExplain: "Đảo <strong>does</strong> (với He/She) hoặc <strong>do</strong> (với You/They) ra trước chủ ngữ. Hỏi <strong>Why</strong> thì mở đầu câu trả lời ngay bằng <strong>Because...</strong>!"
+        }
+      ],
+      rules: [
+        {
+          label: "1. Quy tắc thêm -ING sau LIKE",
+          example: "solve ➔ solving · do ➔ doing · read ➔ reading · play ➔ playing",
+          exampleIpa: "/ˈsɒl.vɪŋ · ˈduː.ɪŋ · ˈriː.dɪŋ · ˈpleɪ.ɪŋ/",
+          color: "bg-emerald-50 border-emerald-300 text-emerald-900",
+          rule: "Từ kết thúc bằng chữ 'e' câm như 'solve' thì bỏ 'e' trước khi thêm '-ing' ➔ solving!",
+          imgUrl: IMG.u7_solve_maths,
+          visualSpec: "Nam sinh lớp 5 giải toán trên bảng xanh"
+        },
+        {
+          label: "2. Bốn tính từ vàng nêu lý do",
+          example: "fun · interesting · useful · good for group work",
+          exampleIpa: "/fʌn · ˈɪn.trə.stɪŋ · ˈjuːs.fəl · ɡʊd fɔːr ɡruːp wɜːk/",
+          color: "bg-teal-50 border-teal-300 text-teal-900",
+          rule: "Đặt ngay sau 'Because he/she thinks it's...' để tạo câu trả lời chuẩn sách giáo khoa 10/10.",
+          imgUrl: IMG.u7_interesting,
+          visualSpec: "Học sinh lớp 5 thích thú xem thí nghiệm khoa học"
+        }
+      ],
+      tip: "💡 Mẹo nhớ siêu tốc: Cứ thấy <strong>He / She</strong> là phải nhớ 2 chữ <strong>S</strong>: <em>He like<strong>s</strong>... Because he think<strong>s</strong> it's...</em>"
+    },
+    practice: [
+      {
+        vi: "Bạn ấy (nữ) thích hoạt động ở trường nào? — Bạn ấy thích đọc sách.",
+        en: "What school activity does she like? - She likes reading books.",
+        ipa: "/wɒt skuːl ækˈtɪv.ə.ti dʌz ʃiː laɪk/ — /ʃiː laɪks ˈriː.dɪŋ bʊks/",
+        imgUrl: IMG.u7_read_books,
+        tip: "Nhớ thêm -s vào likes và -ing vào reading."
+      },
+      {
+        vi: "Tại sao cậu ấy thích làm dự án? — Vì cậu ấy nghĩ nó tốt cho làm việc nhóm.",
+        en: "Why does he like doing projects? - Because he thinks it's good for group work.",
+        ipa: "/waɪ dʌz hiː laɪk ˈduː.ɪŋ ˈprɒdʒ.ekts/ — /bɪˈkɒz hiː θɪŋks ɪts ɡʊd fɔːr ɡruːp wɜːk/",
+        imgUrl: IMG.u7_group_work,
+        tip: "Why ➔ Because he thinks it's good for group work."
+      },
+      {
+        vi: "Cậu ấy thích giải toán vì cậu ấy nghĩ nó rất hữu ích.",
+        en: "He likes solving maths problems because he thinks it's useful.",
+        ipa: "/hiː laɪks ˈsɒl.vɪŋ mæθs ˈprɒb.ləmz bɪˈkɒz hiː θɪŋks ɪts ˈjuːs.fəl/",
+        imgUrl: IMG.u7_solve_maths,
+        tip: "solve ➔ solving (bỏ e thêm -ing)."
+      },
+      {
+        vi: "Mình thích chơi trò chơi vì nó rất vui.",
+        en: "I like playing games because I think it's fun.",
+        ipa: "/aɪ laɪk ˈpleɪ.ɪŋ ɡeɪmz bɪˈkɒz aɪ θɪŋk ɪts fʌn/",
+        imgUrl: IMG.u7_play_games,
+        tip: "Chủ ngữ 'I' thì like và think giữ nguyên, không thêm -s."
+      }
+    ],
+    quiz: [
+      { q: "Hoạt động nhóm cắt dán, làm áp phích chung gọi là gì?", audio: "do projects", imgUrl: IMG.u7_do_projects, options: ["read books", "do projects", "play games", "solve maths problems"], ans: 1, explain: "Do projects (/duː ˈprɒdʒ.ekts/) là làm các dự án học tập." },
+      { q: "Hoạt động mở sách ra đọc chăm chú gọi là gì?", audio: "read books", imgUrl: IMG.u7_read_books, options: ["read books", "do projects", "play games", "useful"], ans: 0, explain: "Read books (/riːd bʊks/) là đọc sách." },
+      { q: "Hoạt động giải các bài toán trên bảng gọi là gì?", audio: "solve maths problems", imgUrl: IMG.u7_solve_maths, options: ["play games", "do projects", "solve maths problems", "read books"], ans: 2, explain: "Solve maths problems (/sɒlv mæθs ˈprɒb.ləmz/) là giải các bài toán." },
+      { q: "Hoạt động vui chơi cùng bạn bè trên sân trường là gì?", audio: "play games", imgUrl: IMG.u7_play_games, options: ["read books", "solve maths problems", "useful", "play games"], ans: 3, explain: "Play games (/pleɪ ɡeɪmz/) là chơi trò chơi." },
+      { q: "Tính từ có nghĩa là 'thú vị, hấp dẫn' là từ nào?", audio: "interesting", imgUrl: IMG.u7_interesting, options: ["interesting", "useful", "fun", "favourite"], ans: 0, explain: "Interesting (/ˈɪn.trə.stɪŋ/) nghĩa là thú vị, hấp dẫn." },
+      { q: "Tính từ có nghĩa là 'hữu ích, có ích' là từ nào?", audio: "useful", imgUrl: IMG.u7_useful, options: ["fun", "useful", "interesting", "favourite"], ans: 1, explain: "Useful (/ˈjuːs.fəl/) nghĩa là hữu ích." },
+      { q: "Cụm từ 'tốt cho làm việc nhóm' trong tiếng Anh là gì?", audio: "good for group work", imgUrl: IMG.u7_group_work, options: ["school activity", "solve maths problems", "good for group work", "do projects"], ans: 2, explain: "Good for group work (/ɡʊd fɔːr ɡruːp wɜːk/) nghĩa là tốt cho làm việc nhóm." },
+      { q: "Từ có nghĩa 'yêu thích nhất' là từ nào?", audio: "favourite", imgUrl: IMG.u7_favourite, options: ["useful", "fun", "interesting", "favourite"], ans: 3, explain: "Favourite (/ˈfeɪ.vər.ɪt/) nghĩa là yêu thích nhất." },
+      { q: "Chọn từ đúng điền vào chỗ trống: 'He likes _____ books.'", audio: "reading books", imgUrl: IMG.u7_read_books, options: ["read", "reads", "reading", "to reading"], ans: 2, explain: "Sau động từ 'like/likes' ta dùng V-ing ➔ reading books (/ˈriː.dɪŋ bʊks/)." },
+      { q: "Tại sao lại vui vẻ, hào hứng? Tính từ ngắn 3 chữ cái đó là gì?", audio: "fun", imgUrl: IMG.u7_play_games, options: ["fun", "useful", "favourite", "interesting"], ans: 0, explain: "Fun (/fʌn/) nghĩa là vui vẻ, thú vị." }
+    ]
+  },
+
+  // ===================== UNIT 8 =====================
+  {
+    id: 8,
+    title: "Unit 8: In Our Classroom",
+    subtitle: "Trong lớp học của chúng em · Đồ dùng học tập, Giới từ vị trí & Sở hữu Whose",
+    themeColor: "from-amber-500 to-orange-500",
+    icon: "✏️",
+    vocab: [
+      {
+        word: "above",
+        pos: "preposition",
+        ipa: "/əˈbʌv/",
+        meaning: "ở phía trên (không chạm vào)",
+        icon: "⬆️",
+        imgUrl: IMG.u8_above,
+        tip: "Bức tranh treo trên tường nằm cao hơn phía trên tủ sách (có khoảng trống)",
+        visualSpec: "Đồ họa lớp học: bức tranh treo ở phía trên không chạm vào tủ sách Above",
+        rhyme: "“Tranh treo lơ lửng trên tường,\nAbove phía trên đó, chẳng vướng tủ đâu!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>On</strong> là nằm chạm lên mặt bàn, còn <strong>Above</strong> là treo/ở cao hơn phía trên, KHÔNG chạm vào vật dưới!",
+        example: "The pictures are above the bookcase.",
+        exampleVi: "(Những bức tranh treo ở phía trên tủ sách.)",
+        exampleIpa: "/ðə ˈpɪk.tʃəz ɑːr əˈbʌv ðə ˈbʊk.keɪs/"
+      },
+      {
+        word: "beside",
+        pos: "preposition",
+        ipa: "/bɪˈsaɪd/",
+        meaning: "ở bên cạnh",
+        icon: "↔️",
+        imgUrl: IMG.u8_beside,
+        tip: "Quyển sách nằm ngay bên cạnh hộp bút trên mặt bàn học",
+        visualSpec: "Đồ họa quyển sách đặt ngay bên cạnh hộp bút với mũi tên hai chiều Beside",
+        rhyme: "“Bút nằm sát cạnh vở em,\nBeside bên cạnh, nhìn xem rõ ràng!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Be</strong> + <strong>side</strong> (bên hông/cạnh) ➜ Nằm ngay bên cạnh (gần nghĩa với <em>next to</em>).",
+        example: "The pencil case is beside the book.",
+        exampleVi: "(Hộp bút nằm ở bên cạnh quyển sách.)",
+        exampleIpa: "/ðə ˈpen.səl keɪs ɪz bɪˈsaɪd ðə bʊk/"
+      },
+      {
+        word: "under",
+        pos: "preposition",
+        ipa: "/ˈʌn.dər/",
+        meaning: "ở phía dưới",
+        icon: "⬇️",
+        imgUrl: IMG.u8_under,
+        tip: "Chiếc cặp sách màu xanh nằm gọn gàng ở phía dưới gầm bàn học",
+        visualSpec: "Đồ họa chiếc cặp sách đặt phía dưới gầm bàn học có mũi tên chỉ xuống Under",
+        rhyme: "“Cặp xinh đặt dưới gầm bàn,\nUnder phía dưới, gọn gàng lớp em!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Under</strong> là nằm lọt xuống phía dưới một vật khác (dưới gầm bàn, dưới ghế).",
+        example: "My school bag is under the desk.",
+        exampleVi: "(Cặp sách của mình ở phía dưới bàn học.)",
+        exampleIpa: "/maɪ skuːl bæɡ ɪz ˈʌn.dər ðə desk/"
+      },
+      {
+        word: "in front of",
+        pos: "preposition",
+        ipa: "/ɪn frʌnt əv/",
+        meaning: "ở phía trước",
+        icon: "🔼",
+        imgUrl: IMG.u8_in_front_of,
+        tip: "Bàn giáo viên đặt ngay ở phía trước tấm bảng xanh trong lớp học",
+        visualSpec: "Đồ họa bàn giáo viên đặt ở phía trước tấm bảng xanh In Front Of",
+        rhyme: "“Bàn cô đặt trước bảng xanh,\nIn front of đó, nhớ nhanh kẻo nhầm!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Front</strong> là mặt trước (như ghế trước, hàng trước) ➜ <strong>In front of</strong> là ở phía trước.",
+        example: "The teacher's desk is in front of the board.",
+        exampleVi: "(Bàn giáo viên nằm ở phía trước tấm bảng.)",
+        exampleIpa: "/ðə ˈtiː.tʃəz desk ɪz ɪn frʌnt əv ðə bɔːd/"
+      },
+      {
+        word: "bookcase",
+        pos: "noun",
+        ipa: "/ˈbʊk.keɪs/",
+        meaning: "tủ sách, giá sách",
+        icon: "📚",
+        imgUrl: IMG.u8_bookcase,
+        tip: "Tủ sách gỗ gọn gàng ở góc lớp tiểu học xếp đầy sách giáo khoa và truyện tranh",
+        visualSpec: "Tủ sách gỗ gọn gàng đầy sách màu sắc trong lớp học tiểu học VN",
+        rhyme: "“Góc lớp tủ gỗ xinh xinh,\nBookcase xếp sách lớp mình ngay ngắn!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Book</strong> (sách) + <strong>case</strong> (hộp/tủ đựng) ➜ Tủ đựng sách trong lớp học.",
+        example: "The storybooks are in the bookcase.",
+        exampleVi: "(Những cuốn sách truyện nằm trong tủ sách.)",
+        exampleIpa: "/ðə ˈstɔː.ri.bʊks ɑːr ɪn ðə ˈbʊk.keɪs/"
+      },
+      {
+        word: "crayon",
+        pos: "noun",
+        ipa: "/ˈkreɪ.ɒn/",
+        meaning: "bút sáp màu",
+        icon: "🖍️",
+        imgUrl: IMG.u8_crayon,
+        tip: "Hộp bút sáp màu rực rỡ bên bức tranh cầu vồng trên bàn học sinh",
+        visualSpec: "Hộp bút sáp nhiều màu trên giấy vẽ có bức tranh cầu vồng trên bàn gỗ",
+        rhyme: "“Bảy màu rực rỡ cầu vồng,\nCrayon sáp đẹp, tô hồng bức tranh!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Crayon</strong> đọc là <em>/ˈkreɪ.ɒn/</em> — cây bút sáp tô màu quen thuộc trong giờ Mỹ thuật.",
+        example: "Whose crayon is this? - It's Linh's.",
+        exampleVi: "(Cây bút sáp màu này là của ai? - Nó là của Linh.)",
+        exampleIpa: "/huːz ˈkreɪ.ɒn ɪz ðɪs/ — /ɪts lɪŋz/"
+      },
+      {
+        word: "glue stick",
+        pos: "noun",
+        ipa: "/ɡluː stɪk/",
+        meaning: "hồ dán khô, keo dán thỏi",
+        icon: "🧴",
+        imgUrl: IMG.u8_glue_stick,
+        tip: "Thỏi hồ dán khô gọn sạch nằm bên giấy thủ công gấp hoa nhiều màu",
+        visualSpec: "Thỏi hồ dán khô gọn sạch bên giấy thủ công đầy màu sắc trên bàn học",
+        rhyme: "“Thủ công dán giấy thật tài,\nGlue stick thỏi nhỏ, không hề dính tay!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Glue</strong> (keo dán) + <strong>stick</strong> (thỏi/que) ➜ Keo dán dạng thỏi vặn lên.",
+        example: "Whose glue stick is this? - It's Minh's.",
+        exampleVi: "(Thỏi hồ dán này là của ai? - Nó là của Minh.)",
+        exampleIpa: "/huːz ɡluː stɪk ɪz ðɪs/ — /ɪts mɪnz/"
+      },
+      {
+        word: "pencil sharpener",
+        pos: "noun",
+        ipa: "/ˈpen.səl ˈʃɑː.pə.nər/",
+        meaning: "cái gọt bút chì",
+        icon: "✏️",
+        imgUrl: IMG.u8_pencil_sharpener,
+        tip: "Chiếc gọt bút chì xinh xắn cùng cây bút chì vàng mới chuốt nhọn",
+        visualSpec: "Cái gọt bút chì màu tươi sáng cùng cây bút chì vàng và vỏ gỗ xoăn trên bàn học",
+        rhyme: "“Bút chì gãy ngòi xoay xoay,\nPencil sharpener chuốt ngay nhọn đều!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Pencil</strong> (bút chì) + <strong>sharp</strong> (sắc nhọn) + <strong>-ener</strong> ➜ Đồ dùng làm nhọn bút chì.",
+        example: "Whose pencil sharpener is this? - It's Nam's.",
+        exampleVi: "(Cái gọt bút chì này là của ai? - Nó là của Nam.)",
+        exampleIpa: "/huːz ˈpen.səl ˈʃɑː.pə.nər ɪz ðɪs/ — /ɪts næmz/"
+      },
+      {
+        word: "set square",
+        pos: "noun",
+        ipa: "/set skweər/",
+        meaning: "thước ê-ke (thước tam giác)",
+        icon: "📐",
+        imgUrl: IMG.u8_set_square,
+        tip: "Chiếc thước ê-ke tam giác trong suốt đặt trên quyển vở ô li vẽ hình học",
+        visualSpec: "Thước ê-ke tam giác trong suốt đặt trên vở ô li toán học vẽ hình tam giác",
+        rhyme: "“Đo vuông góc chuẩn chẳng sai,\nSet square thước nhỏ, học bài Hình ngon!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Set square</strong> là chiếc thước hình tam giác có góc vuông để kẻ hình trong môn Toán.",
+        example: "Whose set square is this? - It's Mai's.",
+        exampleVi: "(Chiếc thước ê-ke này là của ai? - Nó là của Mai.)",
+        exampleIpa: "/huːz set skweər ɪz ðɪs/ — /ɪts maɪz/"
+      },
+      {
+        word: "storybook",
+        pos: "noun",
+        ipa: "/ˈstɔː.ri.bʊk/",
+        meaning: "sách truyện",
+        icon: "📖",
+        imgUrl: IMG.u8_storybook,
+        tip: "Quyển sách truyện cổ tích mở ra nhiều hình minh họa sinh động ấm áp",
+        visualSpec: "Quyển sách truyện thiếu nhi mở trang tranh màu sắc trên bàn gỗ dưới nắng ấm",
+        rhyme: "“Tấm Cám, Thạch Sanh diệu kì,\nStorybook kể chuyện, mê ly quá trời!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Story</strong> (câu chuyện) + <strong>book</strong> (quyển sách) ➜ Sách truyện thiếu nhi.",
+        example: "There are many storybooks in our classroom.",
+        exampleVi: "(Có rất nhiều sách truyện trong lớp học của chúng mình.)",
+        exampleIpa: "/ðeər ɑːr ˈmen.i ˈstɔː.ri.bʊks ɪn ˈaʊ.ər ˈklɑːs.ruːm/"
+      },
+      {
+        word: "school bag",
+        pos: "noun",
+        ipa: "/skuːl bæɡ/",
+        meaning: "cặp sách đi học",
+        icon: "🎒",
+        imgUrl: IMG.u8_school_bag,
+        tip: "Chiếc cặp sách màu xanh dương đặt gọn gàng trên ghế gỗ lớp học Việt Nam",
+        visualSpec: "Cặp sách tiểu học màu xanh dương đặt gọn trên ghế gỗ cạnh bàn học VN",
+        rhyme: "“Đeo lên đôi vai tung tăng,\nSchool bag đầy sách, siêng năng đến trường!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>School</strong> (trường học) + <strong>bag</strong> (chiếc túi/cặp) ➜ Cặp sách mang đến trường mỗi ngày.",
+        example: "Where is your school bag? - It's under the desk.",
+        exampleVi: "(Cặp sách của bạn ở đâu? - Nó ở dưới gầm bàn.)",
+        exampleIpa: "/weər ɪz jɔːr skuːl bæɡ/ — /ɪts ˈʌn.dər ðə desk/"
+      },
+      {
+        word: "board",
+        pos: "noun",
+        ipa: "/bɔːd/",
+        meaning: "tấm bảng lớp học",
+        icon: "🟩",
+        imgUrl: IMG.u8_board,
+        tip: "Tấm bảng xanh quen thuộc trong lớp học tiểu học Việt Nam cùng phấn và khăn lau",
+        visualSpec: "Bảng xanh lớp học tiểu học VN sạch sẽ có phấn màu và đồ lau bảng trên khay gỗ",
+        rhyme: "“Phấn trắng nét chữ thẳng hàng,\nBoard xanh thân thuộc, dịu dàng lời cô!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Board</strong> đọc là <em>/bɔːd/</em> — nhớ âm đuôi <strong>/d/</strong> nhẹ ở cuối từ nhé!",
+        example: "The map is beside the board.",
+        exampleVi: "(Tấm bản đồ ở bên cạnh tấm bảng.)",
+        exampleIpa: "/ðə mæp ɪz bɪˈsaɪd ðə bɔːd/"
+      }
+    ],
+    sentences: [
+      {
+        en: "Where are the pencils? — They're beside the book.",
+        vi: "Những cây bút chì ở đâu? — Chúng ở bên cạnh quyển sách.",
+        ipa: "/weər ɑːr ðə ˈpen.səlz/ — /ðeər bɪˈsaɪd ðə bʊk/",
+        imgUrl: IMG.u8_beside,
+        chunks: [
+          { en: "Where are the pencils?", ipa: "/weər ɑːr ðə ˈpen.səlz/", vi: "Những cây bút chì ở đâu?" },
+          { en: "They're beside", ipa: "/ðeər bɪˈsaɪd/", vi: "Chúng ở bên cạnh" },
+          { en: "the book.", ipa: "/ðə bʊk/", vi: "quyển sách." }
+        ]
+      },
+      {
+        en: "Where are the pictures? — They're above the bookcase.",
+        vi: "Những bức tranh ở đâu? — Chúng ở phía trên tủ sách.",
+        ipa: "/weər ɑːr ðə ˈpɪk.tʃəz/ — /ðeər əˈbʌv ðə ˈbʊk.keɪs/",
+        imgUrl: IMG.u8_above,
+        chunks: [
+          { en: "Where are the pictures?", ipa: "/weər ɑːr ðə ˈpɪk.tʃəz/", vi: "Những bức tranh ở đâu?" },
+          { en: "They're above", ipa: "/ðeər əˈbʌv/", vi: "Chúng ở phía trên" },
+          { en: "the bookcase.", ipa: "/ðə ˈbʊk.keɪs/", vi: "tủ sách." }
+        ]
+      },
+      {
+        en: "Whose crayon is this? — It's Linh's.",
+        vi: "Cây bút sáp màu này là của ai? — Nó là của Linh.",
+        ipa: "/huːz ˈkreɪ.ɒn ɪz ðɪs/ — /ɪts lɪŋz/",
+        imgUrl: IMG.u8_crayon,
+        chunks: [
+          { en: "Whose crayon", ipa: "/huːz ˈkreɪ.ɒn/", vi: "Bút sáp màu của ai" },
+          { en: "is this?", ipa: "/ɪz ðɪs/", vi: "cái này vậy?" },
+          { en: "It's Linh's.", ipa: "/ɪts lɪŋz/", vi: "Nó là của Linh." }
+        ]
+      },
+      {
+        en: "Whose set square is this? — It's Minh's.",
+        vi: "Chiếc thước ê-ke này là của ai? — Nó là của Minh.",
+        ipa: "/huːz set skweər ɪz ðɪs/ — /ɪts mɪnz/",
+        imgUrl: IMG.u8_set_square,
+        chunks: [
+          { en: "Whose set square", ipa: "/huːz set skweər/", vi: "Thước ê-ke của ai" },
+          { en: "is this?", ipa: "/ɪz ðɪs/", vi: "cái này vậy?" },
+          { en: "It's Minh's.", ipa: "/ɪts mɪnz/", vi: "Nó là của Minh." }
+        ]
+      }
+    ],
+    grammar: {
+      title: "Hỏi Vị Trí Đồ Vật (Where are...?) & Hỏi Quyền Sở Hữu (Whose...?)",
+      summary: "Phân biệt số ít (Where is ➔ It's) vs số nhiều (Where are ➔ They're) và cách thêm 's vào sau tên người để nói 'của ai đó'.",
+      infographicType: "classroom-preps-whose",
+      funnelImages: [
+        { tier: "ABOVE", caption: "Ở phía trên (không chạm)", imgUrl: IMG.u8_above, visualSpec: "Tranh treo phía trên tủ sách" },
+        { tier: "BESIDE", caption: "Ở ngay bên cạnh", imgUrl: IMG.u8_beside, visualSpec: "Sách đặt bên cạnh hộp bút" },
+        { tier: "UNDER", caption: "Ở phía dưới gầm", imgUrl: IMG.u8_under, visualSpec: "Cặp sách dưới gầm bàn" },
+        { tier: "IN FRONT OF", caption: "Ở phía trước", imgUrl: IMG.u8_in_front_of, visualSpec: "Bàn cô ở trước bảng xanh" }
+      ],
+      sentenceForms: [
+        {
+          type: "+",
+          name: "Câu Khẳng định (+) — Nói vị trí & Nói chủ nhân đồ vật",
+          formula: "1) It's / They're + [above / beside / under / in front of] + [vật].\n2) It's + [Tên người]'s.",
+          example: "The glue stick is beside the notebook. It's Mai's.",
+          ipa: "/ðə ɡluː stɪk ɪz bɪˈsaɪd ðə ˈnəʊt.bʊk/ — /ɪts maɪz/",
+          vi: "Thỏi hồ dán nằm bên cạnh quyển vở. Nó là của Mai.",
+          imgUrl: IMG.u8_glue_stick,
+          visualSpec: "Thỏi hồ dán khô gọn gàng trên bàn học",
+          kidExplain: "Muốn nói <strong>của Mai</strong>, em chỉ cần viết tên bạn ấy rồi gắn thêm dấu phẩy trên và chữ s: <strong>Mai's</strong>! Quá dễ luôn!"
+        },
+        {
+          type: "-",
+          name: "Câu Phủ định (−) — KHÔNG ở đó / KHÔNG phải của ai",
+          formula: "It isn't / They aren't + [giới từ / Tên's].",
+          example: "This pencil sharpener isn't Nam's.",
+          ipa: "/ðɪs ˈpen.səl ˈʃɑː.pə.nər ˈɪz.ənt næmz/",
+          vi: "Cái gọt bút chì này không phải của Nam.",
+          imgUrl: IMG.u8_pencil_sharpener,
+          visualSpec: "Cái gọt bút chì và bút chì vàng trên bàn gỗ",
+          kidExplain: "1 món đồ dùng <strong>isn't</strong>, từ 2 món đồ trở lên dùng <strong>aren't</strong> (ví dụ: <em>The crayons aren't under the desk</em>)."
+        },
+        {
+          type: "?",
+          name: "Câu Nghi vấn (?) — Hỏi ở đâu (Where) & Của ai (Whose)",
+          formula: "1) Where is + [1 vật]? / Where are + [nhiều vật]?\n2) Whose + [đồ vật] + is this?",
+          example: "Whose crayon is this? — It's Linh's.",
+          ipa: "/huːz ˈkreɪ.ɒn ɪz ðɪs/ — /ɪts lɪŋz/",
+          vi: "Cây bút sáp màu này là của ai? — Nó là của Linh.",
+          imgUrl: IMG.u8_crayon,
+          visualSpec: "Hộp bút sáp màu tươi sáng trên bàn học",
+          kidExplain: "Đừng nhầm <strong>Who's</strong> (Ai là...) với <strong>Whose</strong> (Của ai)! Ngay sau <strong>Whose</strong> luôn đặt tên đồ vật rồi mới tới <em>is this</em>!"
+        }
+      ],
+      rules: [
+        {
+          label: "1. Số ít (is) vs Số nhiều (are)",
+          example: "Where's the bag? — It's under the desk. | Where are the books? — They're in the bookcase.",
+          exampleIpa: "/weəz ðə bæɡ/ — /weər ɑːr ðə bʊks/",
+          color: "bg-amber-50 border-amber-300 text-amber-900",
+          rule: "Đồ vật không có 's' (1 cái) ➔ dùng 'is / It's'. Đồ vật có 's' (nhiều cái) ➔ dùng 'are / They're'.",
+          imgUrl: IMG.u8_bookcase,
+          visualSpec: "Tủ sách lớp học chứa nhiều quyển sách"
+        },
+        {
+          label: "2. Sở hữu cách 's sau tên riêng",
+          example: "It's Hoa's storybook. / It's Hoa's.",
+          exampleIpa: "/ɪts hwɑːz ˈstɔː.ri.bʊk/ — /ɪts hwɑːz/",
+          color: "bg-orange-50 border-orange-300 text-orange-900",
+          rule: "Dấu 's sau tên riêng nghĩa là 'của...'. Có thể trả lời ngắn gọn: It's Nam's (Nó là của Nam).",
+          imgUrl: IMG.u8_storybook,
+          visualSpec: "Quyển sách truyện minh họa đẹp mắt"
+        }
+      ],
+      tip: "💡 Mẹo nhớ siêu tốc: <strong>WHOSE</strong> + [đồ vật] + <strong>is this?</strong> ➔ Trả lời nhanh <strong>It's [Tên]'s</strong>. Đừng bao giờ quên dấu phẩy trên <strong>'s</strong> nhé!"
+    },
+    practice: [
+      {
+        vi: "Những bức tranh ở đâu? — Chúng ở phía trên tủ sách.",
+        en: "Where are the pictures? - They're above the bookcase.",
+        ipa: "/weər ɑːr ðə ˈpɪk.tʃəz/ — /ðeər əˈbʌv ðə ˈbʊk.keɪs/",
+        imgUrl: IMG.u8_above,
+        tip: "Nhiều bức tranh dùng Where are / They're, phía trên không chạm dùng 'above'."
+      },
+      {
+        vi: "Cặp sách của mình ở phía dưới bàn học.",
+        en: "My school bag is under the desk.",
+        ipa: "/maɪ skuːl bæɡ ɪz ˈʌn.dər ðə desk/",
+        imgUrl: IMG.u8_under,
+        tip: "Phía dưới dùng giới từ 'under'."
+      },
+      {
+        vi: "Thỏi hồ dán này là của ai? — Nó là của Minh.",
+        en: "Whose glue stick is this? - It's Minh's.",
+        ipa: "/huːz ɡluː stɪk ɪz ðɪs/ — /ɪts mɪnz/",
+        imgUrl: IMG.u8_glue_stick,
+        tip: "Hỏi của ai dùng Whose + đồ vật + is this?"
+      },
+      {
+        vi: "Cái gọt bút chì này là của ai? — Nó là của Hoa.",
+        en: "Whose pencil sharpener is this? - It's Hoa's.",
+        ipa: "/huːz ˈpen.səl ˈʃɑː.pə.nər ɪz ðɪs/ — /ɪts hwɑːz/",
+        imgUrl: IMG.u8_pencil_sharpener,
+        tip: "Thêm 's vào sau tên Hoa ➔ Hoa's."
+      }
+    ],
+    quiz: [
+      { q: "Bức tranh treo cao hơn phía trên tủ sách (không chạm vào) dùng giới từ nào?", audio: "above", imgUrl: IMG.u8_above, options: ["under", "above", "beside", "in front of"], ans: 1, explain: "Above (/əˈbʌv/) là ở phía trên, không tiếp xúc bề mặt." },
+      { q: "Quyển sách nằm ngay bên cạnh hộp bút dùng giới từ nào?", audio: "beside", imgUrl: IMG.u8_beside, options: ["beside", "under", "above", "in front of"], ans: 0, explain: "Beside (/bɪˈsaɪd/) nghĩa là ở bên cạnh." },
+      { q: "Cặp sách nằm phía dưới gầm bàn dùng giới từ nào?", audio: "under", imgUrl: IMG.u8_under, options: ["above", "beside", "under", "in front of"], ans: 2, explain: "Under (/ˈʌn.dər/) nghĩa là ở phía dưới." },
+      { q: "Bàn giáo viên đặt ở phía trước tấm bảng dùng cụm từ nào?", audio: "in front of", imgUrl: IMG.u8_in_front_of, options: ["under", "above", "beside", "in front of"], ans: 3, explain: "In front of (/ɪn frʌnt əv/) nghĩa là ở phía trước." },
+      { q: "Đồ dùng hình tam giác dùng đo góc vuông trong môn Toán gọi là gì?", audio: "set square", imgUrl: IMG.u8_set_square, options: ["set square", "crayon", "glue stick", "bookcase"], ans: 0, explain: "Set square (/set skweər/) là chiếc thước ê-ke." },
+      { q: "Đồ dùng để chuốt nhọn đầu bút chì gọi là gì?", audio: "pencil sharpener", imgUrl: IMG.u8_pencil_sharpener, options: ["glue stick", "pencil sharpener", "crayon", "storybook"], ans: 1, explain: "Pencil sharpener (/ˈpen.səl ˈʃɑː.pə.nər/) là cái gọt bút chì." },
+      { q: "Thỏi hồ dán khô dùng trong giờ Thủ công gọi là gì?", audio: "glue stick", imgUrl: IMG.u8_glue_stick, options: ["crayon", "set square", "glue stick", "school bag"], ans: 2, explain: "Glue stick (/ɡluː stɪk/) là hồ dán khô." },
+      { q: "Cây bút sáp nhiều màu dùng để tô tranh gọi là gì?", audio: "crayon", imgUrl: IMG.u8_crayon, options: ["board", "bookcase", "glue stick", "crayon"], ans: 3, explain: "Crayon (/ˈkreɪ.ɒn/) là bút sáp màu." },
+      { q: "Tủ gỗ dùng để xếp sách vở trong lớp học gọi là gì?", audio: "bookcase", imgUrl: IMG.u8_bookcase, options: ["bookcase", "board", "school bag", "storybook"], ans: 0, explain: "Bookcase (/ˈbʊk.keɪs/) là tủ sách / giá sách." },
+      { q: "Muốn hỏi 'Cái này là của ai?' ta dùng từ để hỏi nào?", audio: "Whose crayon is this?", imgUrl: IMG.u8_crayon, options: ["Where", "Whose", "Why", "When"], ans: 1, explain: "Whose (/huːz/) nghĩa là 'của ai' (Whose crayon is this? — It's Linh's)." }
+    ]
+  },
+  // ===================== UNIT 9 =====================
+  {
+    id: 9,
+    title: "Unit 9: Our Outdoor Activities",
+    subtitle: "Các hoạt động ngoài trời · Địa điểm vui chơi & Thì Quá khứ đơn (Were / Did)",
+    themeColor: "from-cyan-600 to-blue-600",
+    icon: "⛺",
+    vocab: [
+      {
+        word: "theatre",
+        pos: "noun",
+        ipa: "/ˈθɪə.tər/",
+        meaning: "nhà hát",
+        icon: "🎭",
+        imgUrl: IMG.u9_theatre,
+        tip: "Nhà hát Lớn Hà Nội rực rỡ sắc vàng cổ kính giữa nắng sớm",
+        visualSpec: "Nhà hát Lớn Hà Nội màu vàng cổ kính với các gia đình và em nhỏ đi dạo phía trước",
+        rhyme: "“Sân khấu rực sáng đèn hoa,\nTheatre nhà hát, cả nhà cùng xem!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Theatre</strong> (Anh-Anh trong SGK Global Success) là nơi xem kịch, xem biểu diễn ca nhạc nghệ thuật.",
+        example: "Were you at the theatre yesterday? - Yes, we were.",
+        exampleVi: "(Hôm qua các bạn có ở nhà hát không? - Có, chúng mình có ở đó.)",
+        exampleIpa: "/wɜːr juː æt ðə ˈθɪə.tər ˈjes.tə.deɪ/ — /jes, wiː wɜːr/"
+      },
+      {
+        word: "aquarium",
+        pos: "noun",
+        ipa: "/əˈkweə.ri.əm/",
+        meaning: "thủy cung",
+        icon: "🐠",
+        imgUrl: IMG.u9_aquarium,
+        tip: "Đường hầm kính thủy cung xanh biếc với rùa biển và cá nhiệt đới bơi trên đầu",
+        visualSpec: "Đường hầm kính thủy cung màu xanh dương với học sinh VN đeo khăn quàng đỏ ngắm cá và rùa biển",
+        rhyme: "“Đường hầm xanh biếc đại dương,\nAquarium đó, cá lượn muôn màu!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Aqua</strong> nghĩa là nước (giống nước khoáng Aquafina!) ➜ <strong>Aquarium</strong> là cung điện nước nuôi cá — Thủy cung!",
+        example: "We were at the aquarium last weekend.",
+        exampleVi: "(Cuối tuần trước chúng mình đã ở thủy cung.)",
+        exampleIpa: "/wiː wɜːr æt ði əˈkweə.ri.əm lɑːst ˌwiːkˈend/"
+      },
+      {
+        word: "campsite",
+        pos: "noun",
+        ipa: "/ˈkæmp.saɪt/",
+        meaning: "khu cắm trại",
+        icon: "⛺",
+        imgUrl: IMG.u9_campsite,
+        tip: "Lều trại giữa thiên nhiên xanh mát yên bình cho buổi dã ngoại ngoài trời",
+        visualSpec: "Khu cắm trại có lều trại rực rỡ giữa rừng cây thiên nhiên thoáng đãng",
+        rhyme: "“Dựng lều giữa bãi cỏ xanh,\nCampsite cắm trại, trong lành gió mây!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Camp</strong> (cắm trại) + <strong>site</strong> (địa điểm) ➜ Khu cắm trại ngoài trời.",
+        example: "Were they at the campsite yesterday? - No, they weren't.",
+        exampleVi: "(Hôm qua họ có ở khu cắm trại không? - Không, họ không ở đó.)",
+        exampleIpa: "/wɜːr ðeɪ æt ðə ˈkæmp.saɪt ˈjes.tə.deɪ/ — /nəʊ, ðeɪ wɜːnt/"
+      },
+      {
+        word: "funfair",
+        pos: "noun",
+        ipa: "/ˈfʌn.feər/",
+        meaning: "khu hội chợ, khu vui chơi",
+        icon: "🎡",
+        imgUrl: IMG.u9_funfair,
+        tip: "Vòng quay khổng lồ rực rỡ giữa khu hội chợ vui chơi giải trí ngoài trời",
+        visualSpec: "Vòng quay đu quay rực rỡ trong khu hội chợ vui chơi ban ngày",
+        rhyme: "“Đu quay cao vút bầu trời,\nFunfair hội chợ, vui chơi thỏa lòng!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Fun</strong> (vui) + <strong>fair</strong> (hội chợ) ➜ Khu hội chợ vui chơi náo nhiệt.",
+        example: "We were at the funfair on Sunday.",
+        exampleVi: "(Chúng mình đã ở khu hội chợ vào ngày Chủ Nhật.)",
+        exampleIpa: "/wiː wɜːr æt ðə ˈfʌn.feər ɒn ˈsʌn.deɪ/"
+      },
+      {
+        word: "listen to music",
+        pos: "verb phrase",
+        ipa: "/ˈlɪs.ən tuː ˈmjuː.zɪk/",
+        meaning: "nghe nhạc",
+        icon: "🎧",
+        imgUrl: IMG.u9_listen_music,
+        tip: "Chiếc tai nghe âm nhạc giúp thư giãn với những giai điệu êm dịu",
+        visualSpec: "Tai nghe chụp tai nghe nhạc hiện đại sắc nét",
+        rhyme: "“Đeo tai nghe khúc nhạc hay,\nListen to music, mê say cả chiều!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> Chữ <strong>t</strong> trong <strong>listen</strong> bị câm (không đọc <em>lít-tần</em> mà đọc <em>/ˈlɪs.ən/</em>!). Quá khứ: <strong>listened to music</strong>.",
+        example: "We listened to music at the theatre yesterday.",
+        exampleVi: "(Hôm qua chúng mình đã nghe nhạc ở nhà hát.)",
+        exampleIpa: "/wiː ˈlɪs.ənd tuː ˈmjuː.zɪk æt ðə ˈθɪə.tər ˈjes.tə.deɪ/"
+      },
+      {
+        word: "watch the fish",
+        pos: "verb phrase",
+        ipa: "/wɒtʃ ðə fɪʃ/",
+        meaning: "ngắm cá",
+        icon: "🐡",
+        imgUrl: IMG.u9_watch_fish,
+        tip: "Chú cá hề màu cam sọc trắng rực rỡ bơi lội trong bể kính thủy cung",
+        visualSpec: "Cận cảnh cá hề cam sọc trắng sống động trong bể kính thủy cung",
+        rhyme: "“Cá hề sọc trắng lung linh,\nWatch the fish ngắm, đẹp xinh lạ thường!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Watch</strong> (xem, ngắm) + <strong>the fish</strong> (đàn cá) ➜ Quá khứ thêm <em>-ed</em>: <strong>watched the fish</strong> <em>/wɒtʃt ðə fɪʃ/</em>!",
+        example: "We watched the fish at the aquarium.",
+        exampleVi: "(Chúng mình đã ngắm cá ở thủy cung.)",
+        exampleIpa: "/wiː wɒtʃt ðə fɪʃ æt ði əˈkweə.ri.əm/"
+      },
+      {
+        word: "dance around the campfire",
+        pos: "verb phrase",
+        ipa: "/dɑːns əˈraʊnd ðə ˈkæmp.faɪər/",
+        meaning: "nhảy múa quanh lửa trại",
+        icon: "🔥",
+        imgUrl: IMG.u9_campfire,
+        tip: "Ngọn lửa trại bập bùng ấm áp trong đêm cắm trại cùng thầy cô và bạn bè",
+        visualSpec: "Đống lửa trại rực ấm vào buổi tối tại khu cắm trại ngoài trời",
+        rhyme: "“Lửa trại bập bùng đêm thanh,\nDance around the campfire quanh vòng vui ca!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Dance</strong> (múa) + <strong>around</strong> (xung quanh) + <strong>campfire</strong> (lửa trại) ➜ Quá khứ: <strong>danced around the campfire</strong>!",
+        example: "We danced around the campfire at the campsite.",
+        exampleVi: "(Chúng mình đã nhảy múa quanh lửa trại ở khu cắm trại.)",
+        exampleIpa: "/wiː dɑːnst əˈraʊnd ðə ˈkæmp.faɪər æt ðə ˈkæmp.saɪt/"
+      },
+      {
+        word: "play chess",
+        pos: "verb phrase",
+        ipa: "/pleɪ tʃes/",
+        meaning: "chơi cờ vua",
+        icon: "♟️",
+        imgUrl: IMG.u9_play_chess,
+        tip: "Bàn cờ vua gỗ với các quân cờ tinh xảo giúp rèn trí thông minh",
+        visualSpec: "Bàn cờ vua và các quân cờ gỗ sắc nét",
+        rhyme: "“Xe, Pháo, Mã, Tượng bày ra,\nPlay chess đấu trí, thật là thông minh!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Play</strong> + <strong>chess</strong> (cờ vua) ➜ Quá khứ thêm <em>-ed</em>: <strong>played chess</strong>!",
+        example: "They played chess together yesterday afternoon.",
+        exampleVi: "(Chiều hôm qua họ đã cùng nhau chơi cờ vua.)",
+        exampleIpa: "/ðeɪ pleɪd tʃes təˈɡeð.ər ˈjes.tə.deɪ ˌɑːf.təˈnuːn/"
+      },
+      {
+        word: "jog",
+        pos: "verb",
+        ipa: "/dʒɒɡ/",
+        meaning: "chạy bộ nhẹ",
+        icon: "🏃",
+        imgUrl: IMG.u9_jog,
+        tip: "Chạy bộ nhẹ nhàng dưới hàng cây xanh trong công viên để rèn sức khỏe",
+        visualSpec: "Người chạy bộ rèn sức khỏe trên con đường công viên nhiều cây xanh",
+        rhyme: "“Sáng sớm hít thở khí trời,\nJog chạy bộ nhẹ, khỏe người lắm nha!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Jog</strong> chỉ có 3 chữ cái <em>/dʒɒɡ/</em> — chạy chậm thể dục (khác với <em>run</em> là chạy nhanh). Quá khứ gấp đôi g: <strong>jogged</strong>!",
+        example: "My father and I jogged in the park yesterday.",
+        exampleVi: "(Hôm qua bố và mình đã chạy bộ trong công viên.)",
+        exampleIpa: "/maɪ ˈfɑː.ðər ænd aɪ dʒɒɡd ɪn ðə pɑːk ˈjes.tə.deɪ/"
+      },
+      {
+        word: "ride horses",
+        pos: "verb phrase",
+        ipa: "/raɪd ˈhɔː.sɪz/",
+        meaning: "cưỡi ngựa",
+        icon: "🐎",
+        imgUrl: IMG.u9_ride_horses,
+        tip: "Em nhỏ vui vẻ cưỡi chú ngựa hiền lành có người hướng dẫn đi bên cạnh an toàn",
+        visualSpec: "Trẻ em đội mũ bảo hiểm vui vẻ cưỡi ngựa pony ngoài trời an toàn",
+        rhyme: "“Ngựa nâu hiền quá đi thôi,\nRide horses dạo bước trên đồi cỏ xanh!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Ride</strong> (cưỡi/đạp) + <strong>horses</strong> (ngựa) ➜ Chú ý quá khứ bất quy tắc: <strong>ride ➔ rode</strong>!",
+        example: "We rode horses at the farm last Sunday.",
+        exampleVi: "(Chủ Nhật tuần trước chúng mình đã cưỡi ngựa ở nông trại.)",
+        exampleIpa: "/wiː rəʊd ˈhɔː.sɪz æt ðə fɑːm lɑːst ˈsʌn.deɪ/"
+      },
+      {
+        word: "yesterday",
+        pos: "adverb",
+        ipa: "/ˈjes.tə.deɪ/",
+        meaning: "hôm qua",
+        icon: "📅",
+        imgUrl: IMG.u9_yesterday,
+        tip: "Tờ lịch chỉ lùi lại 1 ngày so với Today (hôm nay) chính là Yesterday (hôm qua)",
+        visualSpec: "Đồ họa lịch đối chiếu mũi tên lùi 1 ngày từ Today sang Yesterday màu đỏ nổi bật",
+        rhyme: "“Ngày qua đã hết mất rồi,\nYesterday nhớ chia thì Quá khứ nha!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> Hễ cuối câu có <strong>yesterday</strong> là tín hiệu đỏ báo phải dùng thì Quá khứ đơn (<strong>was / were / did / V-ed</strong>)!",
+        example: "What did you do yesterday? - We watched the fish.",
+        exampleVi: "(Hôm qua các bạn đã làm gì? - Chúng mình đã ngắm cá.)",
+        exampleIpa: "/wɒt dɪd juː duː ˈjes.tə.deɪ/ — /wiː wɒtʃt ðə fɪʃ/"
+      },
+      {
+        word: "last weekend",
+        pos: "noun phrase",
+        ipa: "/lɑːst ˌwiːkˈend/",
+        meaning: "cuối tuần trước",
+        icon: "🗓️",
+        imgUrl: IMG.u9_last_weekend,
+        tip: "Lịch tuần tô sáng Thứ Bảy (SAT) và Chủ Nhật (SUN) của tuần vừa qua",
+        visualSpec: "Đồ họa lịch tuần tô cam nổi bật Thứ 7 & Chủ Nhật tuần trước Last Weekend",
+        rhyme: "“Thứ Bảy, Chủ Nhật tuần qua,\nLast weekend dã ngoại cả nhà thật vui!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Last</strong> (vừa qua/trước) + <strong>weekend</strong> (cuối tuần) ➜ Dấu hiệu nhận biết thì Quá khứ đơn!",
+        example: "Were you at the funfair last weekend?",
+        exampleVi: "(Cuối tuần trước bạn có ở khu hội chợ không?)",
+        exampleIpa: "/wɜːr juː æt ðə ˈfʌn.feər lɑːst ˌwiːkˈend/"
+      }
+    ],
+    sentences: [
+      {
+        en: "Were you at the theatre yesterday? — Yes, we were.",
+        vi: "Hôm qua các bạn có ở nhà hát không? — Có, chúng mình có ở đó.",
+        ipa: "/wɜːr juː æt ðə ˈθɪə.tər ˈjes.tə.deɪ/ — /jes, wiː wɜːr/",
+        imgUrl: IMG.u9_theatre,
+        chunks: [
+          { en: "Were you", ipa: "/wɜːr juː/", vi: "Các bạn đã có ở" },
+          { en: "at the theatre yesterday?", ipa: "/æt ðə ˈθɪə.tər ˈjes.tə.deɪ/", vi: "nhà hát hôm qua không?" },
+          { en: "Yes, we were.", ipa: "/jes, wiː wɜːr/", vi: "Có, chúng mình có." }
+        ]
+      },
+      {
+        en: "Were you at the campsite yesterday? — No, we weren't.",
+        vi: "Hôm qua các bạn có ở khu cắm trại không? — Không, chúng mình không ở đó.",
+        ipa: "/wɜːr juː æt ðə ˈkæmp.saɪt ˈjes.tə.deɪ/ — /nəʊ, wiː wɜːnt/",
+        imgUrl: IMG.u9_campsite,
+        chunks: [
+          { en: "Were you", ipa: "/wɜːr juː/", vi: "Các bạn đã có ở" },
+          { en: "at the campsite yesterday?", ipa: "/æt ðə ˈkæmp.saɪt ˈjes.tə.deɪ/", vi: "khu cắm trại hôm qua không?" },
+          { en: "No, we weren't.", ipa: "/nəʊ, wiː wɜːnt/", vi: "Không, chúng mình không." }
+        ]
+      },
+      {
+        en: "What did you do yesterday? — We watched the fish at the aquarium.",
+        vi: "Hôm qua các bạn đã làm gì? — Chúng mình đã ngắm cá ở thủy cung.",
+        ipa: "/wɒt dɪd juː duː ˈjes.tə.deɪ/ — /wiː wɒtʃt ðə fɪʃ æt ði əˈkweə.ri.əm/",
+        imgUrl: IMG.u9_aquarium,
+        chunks: [
+          { en: "What did you do yesterday?", ipa: "/wɒt dɪd juː duː ˈjes.tə.deɪ/", vi: "Hôm qua các bạn đã làm gì?" },
+          { en: "We watched the fish", ipa: "/wiː wɒtʃt ðə fɪʃ/", vi: "Chúng mình đã ngắm cá" },
+          { en: "at the aquarium.", ipa: "/æt ði əˈkweə.ri.əm/", vi: "ở thủy cung." }
+        ]
+      },
+      {
+        en: "What did you do at the campsite? — We danced around the campfire.",
+        vi: "Các bạn đã làm gì ở khu cắm trại? — Chúng mình đã nhảy múa quanh lửa trại.",
+        ipa: "/wɒt dɪd juː duː æt ðə ˈkæmp.saɪt/ — /wiː dɑːnst əˈraʊnd ðə ˈkæmp.faɪər/",
+        imgUrl: IMG.u9_campfire,
+        chunks: [
+          { en: "What did you do", ipa: "/wɒt dɪd juː duː/", vi: "Các bạn đã làm gì" },
+          { en: "at the campsite?", ipa: "/æt ðə ˈkæmp.saɪt/", vi: "ở khu cắm trại?" },
+          { en: "We danced around the campfire.", ipa: "/wiː dɑːnst əˈraʊnd ðə ˈkæmp.faɪər/", vi: "Chúng mình nhảy múa quanh lửa trại." }
+        ]
+      }
+    ],
+    grammar: {
+      title: "Thì Quá Khứ Đơn: Hỏi Địa Điểm (Were you...?) & Hỏi Hoạt Động (What did you do...?)",
+      summary: "Phân biệt thật rõ: Hỏi ĐÃ Ở ĐÂU (địa điểm) dùng WERE, còn hỏi ĐÃ LÀM GÌ (hành động) dùng DID và động từ thêm -ed!",
+      infographicType: "past-were-did",
+      sentenceForms: [
+        {
+          type: "+",
+          name: "Câu Khẳng định (+) — Kể nơi đã đến & việc đã làm",
+          formula: "1) We / They + were + at the + [địa điểm] + yesterday.\n2) We / They + V-ed (hoặc V2) + yesterday.",
+          example: "We were at the aquarium. We watched the fish.",
+          ipa: "/wiː wɜːr æt ði əˈkweə.ri.əm/ — /wiː wɒtʃt ðə fɪʃ/",
+          vi: "Chúng mình đã ở thủy cung. Chúng mình đã ngắm cá.",
+          imgUrl: IMG.u9_aquarium,
+          visualSpec: "Học sinh tiểu học VN tham quan thủy cung ngắm cá",
+          kidExplain: "Kể chuyện đã xảy ra hôm qua (<em>yesterday</em>): Với địa điểm dùng <strong>were</strong>, còn với hành động nhớ gắn đuôi <strong>-ed</strong> (watch ➔ watch<strong>ed</strong>, dance ➔ danc<strong>ed</strong>, listen ➔ listen<strong>ed</strong>)!"
+        },
+        {
+          type: "-",
+          name: "Câu Phủ định (−) — Đã KHÔNG ở đó / KHÔNG làm việc đó",
+          formula: "1) We / They + weren't (were not) + at the + [địa điểm].\n2) We / They + didn't + V (nguyên mẫu).",
+          example: "We weren't at the funfair yesterday.",
+          ipa: "/wiː wɜːnt æt ðə ˈfʌn.feər ˈjes.tə.deɪ/",
+          vi: "Hôm qua chúng mình đã không ở khu hội chợ.",
+          imgUrl: IMG.u9_funfair,
+          visualSpec: "Khu hội chợ đu quay rực rỡ ban ngày",
+          kidExplain: "Muốn nói <strong>không ở đó</strong> dùng <strong>weren't</strong>. Còn muốn nói <strong>không làm gì</strong> dùng <strong>didn't</strong> (nhớ: sau <em>didn't</em> động từ KHÔNG thêm <em>-ed</em> nữa nhé!)."
+        },
+        {
+          type: "?",
+          name: "Câu Nghi vấn (?) — Hỏi ĐÃ Ở ĐÂU & ĐÃ LÀM GÌ",
+          formula: "1) Were you at the + [địa điểm] + yesterday? ➔ Yes, we were. / No, we weren't.\n2) What did you do yesterday?",
+          example: "Were you at the theatre yesterday? — Yes, we were.",
+          ipa: "/wɜːr juː æt ðə ˈθɪə.tər ˈjes.tə.deɪ/ — /jes, wiː wɜːr/",
+          vi: "Hôm qua các bạn có ở nhà hát không? — Có, chúng mình có.",
+          imgUrl: IMG.u9_theatre,
+          visualSpec: "Nhà hát Lớn Hà Nội màu vàng cổ kính",
+          kidExplain: "Thấy câu hỏi bắt đầu bằng <strong>Were you...?</strong> thì trả lời <strong>Yes, we were</strong> (nếu hỏi nhiều bạn) hoặc <strong>Yes, I was</strong> (nếu hỏi 1 mình em)!"
+        }
+      ],
+      rules: [
+        {
+          label: "1. Động từ thêm -ed quen thuộc trong Unit 9",
+          example: "watch ➔ watched · listen ➔ listened · dance ➔ danced · play ➔ played",
+          exampleIpa: "/wɒtʃt · ˈlɪs.ənd · dɑːnst · pleɪd/",
+          color: "bg-cyan-50 border-cyan-300 text-cyan-900",
+          rule: "Động từ đã có sẵn chữ 'e' như 'dance' thì chỉ cần thêm 'd' thôi ➔ danced!",
+          imgUrl: IMG.u9_watch_fish,
+          visualSpec: "Cá hề màu cam rực rỡ trong thủy cung"
+        },
+        {
+          label: "2. Dấu hiệu thời gian Quá khứ đơn",
+          example: "yesterday (hôm qua) · last weekend (cuối tuần trước) · last Sunday",
+          exampleIpa: "/ˈjes.tə.deɪ · lɑːst ˌwiːkˈend · lɑːst ˈsʌn.deɪ/",
+          color: "bg-blue-50 border-blue-300 text-blue-900",
+          rule: "Gặp 'yesterday' hoặc 'last...' là chia ngay Quá khứ đơn (was/were/did/V-ed)!",
+          imgUrl: IMG.u9_yesterday,
+          visualSpec: "Tờ lịch Yesterday lùi 1 ngày"
+        }
+      ],
+      tip: "💡 Mẹo nhớ siêu tốc: Hỏi <strong>Ở ĐÂU</strong> dùng <strong>WERE</strong> (<em>Were you at the...?</em>). Hỏi <strong>LÀM GÌ</strong> dùng <strong>DID</strong> (<em>What did you do...?</em>)."
+    },
+    practice: [
+      {
+        vi: "Hôm qua các bạn có ở thủy cung không? — Có, chúng mình có.",
+        en: "Were you at the aquarium yesterday? - Yes, we were.",
+        ipa: "/wɜːr juː æt ði əˈkweə.ri.əm ˈjes.tə.deɪ/ — /jes, wiː wɜːr/",
+        imgUrl: IMG.u9_aquarium,
+        tip: "Hỏi địa điểm quá khứ: Were you at the... yesterday?"
+      },
+      {
+        vi: "Hôm qua các bạn có ở khu hội chợ không? — Không, chúng mình không ở đó.",
+        en: "Were you at the funfair yesterday? - No, we weren't.",
+        ipa: "/wɜːr juː æt ðə ˈfʌn.feər ˈjes.tə.deɪ/ — /nəʊ, wiː wɜːnt/",
+        imgUrl: IMG.u9_funfair,
+        tip: "Phủ định của were là weren't."
+      },
+      {
+        vi: "Hôm qua các bạn đã làm gì? — Chúng mình đã nghe nhạc ở nhà hát.",
+        en: "What did you do yesterday? - We listened to music at the theatre.",
+        ipa: "/wɒt dɪd juː duː ˈjes.tə.deɪ/ — /wiː ˈlɪs.ənd tuː ˈmjuː.zɪk æt ðə ˈθɪə.tər/",
+        imgUrl: IMG.u9_theatre,
+        tip: "Quá khứ của listen là listened."
+      },
+      {
+        vi: "Chúng mình đã nhảy múa quanh lửa trại vào cuối tuần trước.",
+        en: "We danced around the campfire last weekend.",
+        ipa: "/wiː dɑːnst əˈraʊnd ðə ˈkæmp.faɪər lɑːst ˌwiːkˈend/",
+        imgUrl: IMG.u9_campfire,
+        tip: "Quá khứ của dance là danced."
+      }
+    ],
+    quiz: [
+      { q: "Nơi xem biểu diễn nghệ thuật, kịch, ca nhạc (như Nhà hát Lớn Hà Nội) gọi là gì?", audio: "theatre", imgUrl: IMG.u9_theatre, options: ["campsite", "theatre", "funfair", "aquarium"], ans: 1, explain: "Theatre (/ˈθɪə.tər/) là nhà hát." },
+      { q: "Nơi có đường hầm kính ngắm cá nhiệt đới và rùa biển gọi là gì?", audio: "aquarium", imgUrl: IMG.u9_aquarium, options: ["aquarium", "funfair", "theatre", "campsite"], ans: 0, explain: "Aquarium (/əˈkweə.ri.əm/) là thủy cung." },
+      { q: "Khu vực dựng lều nghỉ ngơi giữa thiên nhiên gọi là gì?", audio: "campsite", imgUrl: IMG.u9_campsite, options: ["theatre", "aquarium", "campsite", "funfair"], ans: 2, explain: "Campsite (/ˈkæmp.saɪt/) là khu cắm trại." },
+      { q: "Khu vui chơi hội chợ có vòng đu quay rực rỡ gọi là gì?", audio: "funfair", imgUrl: IMG.u9_funfair, options: ["campsite", "theatre", "aquarium", "funfair"], ans: 3, explain: "Funfair (/ˈfʌn.feər/) là khu hội chợ, khu vui chơi." },
+      { q: "Hoạt động ngắm những chú cá xinh đẹp bơi trong bể kính là gì?", audio: "watch the fish", imgUrl: IMG.u9_watch_fish, options: ["watch the fish", "listen to music", "play chess", "ride horses"], ans: 0, explain: "Watch the fish (/wɒtʃ ðə fɪʃ/) là ngắm cá." },
+      { q: "Hoạt động nhảy múa vui vẻ quanh đống lửa trại gọi là gì?", audio: "dance around the campfire", imgUrl: IMG.u9_campfire, options: ["listen to music", "dance around the campfire", "play chess", "jog"], ans: 1, explain: "Dance around the campfire (/dɑːns əˈraʊnd ðə ˈkæmp.faɪər/) là nhảy múa quanh lửa trại." },
+      { q: "Hoạt động đeo tai nghe thưởng thức những bản nhạc hay là gì?", audio: "listen to music", imgUrl: IMG.u9_listen_music, options: ["jog", "ride horses", "listen to music", "watch the fish"], ans: 2, explain: "Listen to music (/ˈlɪs.ən tuː ˈmjuː.zɪk/) là nghe nhạc." },
+      { q: "Từ chỉ thời gian 'hôm qua' trong tiếng Anh là gì?", audio: "yesterday", imgUrl: IMG.u9_yesterday, options: ["last weekend", "today", "tomorrow", "yesterday"], ans: 3, explain: "Yesterday (/ˈjes.tə.deɪ/) nghĩa là hôm qua." },
+      { q: "Hoạt động chạy bộ nhẹ trong công viên gọi là gì?", audio: "jog", imgUrl: IMG.u9_jog, options: ["jog", "play chess", "ride horses", "watch the fish"], ans: 0, explain: "Jog (/dʒɒɡ/) là chạy bộ nhẹ." },
+      { q: "Chọn đáp án đúng: 'Were you at the aquarium yesterday? — Yes, we _____.'", audio: "Yes, we were", imgUrl: IMG.u9_aquarium, options: ["did", "were", "are", "was"], ans: 1, explain: "Câu hỏi bắt đầu bằng 'Were you...' với chủ ngữ 'we' ➔ trả lời 'Yes, we were.' (/jes, wiː wɜːr/)." }
+    ]
+  },
+
+  // ===================== UNIT 10 =====================
+  {
+    id: 10,
+    title: "Unit 10: Our School Trip",
+    subtitle: "Chuyến đi dã ngoại của trường · Thắng cảnh Việt Nam & Quá khứ đơn với DID",
+    themeColor: "from-purple-600 to-pink-500",
+    icon: "🚌",
+    vocab: [
+      {
+        word: "Ba Na Hills",
+        pos: "proper noun",
+        ipa: "/bɑː nɑː hɪlz/",
+        meaning: "Bà Nà Hills (Đà Nẵng)",
+        icon: "🌉",
+        imgUrl: IMG.u10_bana_hills,
+        tip: "Cầu Vàng nổi tiếng với đôi bàn tay đá khổng lồ giữa mây núi Bà Nà (Đà Nẵng)",
+        visualSpec: "Cầu Vàng Bà Nà Hills Đà Nẵng với đôi bàn tay đá khổng lồ giữa núi non xanh biếc",
+        rhyme: "“Cầu Vàng tay đá nâng mây,\nBa Na Hills đẹp ngất ngây đất trời!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Ba Na Hills</strong> là khu du lịch nổi tiếng ở thành phố Đà Nẵng với Cầu Vàng và cáp treo dài nhất thế giới.",
+        example: "Did they go to Ba Na Hills? - Yes, they did.",
+        exampleVi: "(Họ có đi Bà Nà Hills không? - Có, họ có đi.)",
+        exampleIpa: "/dɪd ðeɪ ɡəʊ tuː bɑː nɑː hɪlz/ — /jes, ðeɪ dɪd/"
+      },
+      {
+        word: "Hoan Kiem Lake",
+        pos: "proper noun",
+        ipa: "/hwɑːn kiːəm leɪk/",
+        meaning: "Hồ Hoàn Kiếm (Hà Nội)",
+        icon: "🌊",
+        imgUrl: IMG.u10_hoan_kiem_lake,
+        tip: "Hồ Hoàn Kiếm (Hồ Gươm) xanh biếc với cầu Thê Húc sơn đỏ và Tháp Rùa cổ kính",
+        visualSpec: "Hồ Hoàn Kiếm Hà Nội có cầu Thê Húc đỏ, Tháp Rùa giữa hồ xanh và hàng liễu rủ",
+        rhyme: "“Tháp Rùa soi bóng mặt gương,\nHoan Kiem Lake đó, vấn vương Thủ đô!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Hoan Kiem</strong> (Hoàn Kiếm) + <strong>Lake</strong> (hồ) ➜ Trái tim lịch sử của Thủ đô Hà Nội!",
+        example: "We went to Hoan Kiem Lake last Saturday.",
+        exampleVi: "(Thứ Bảy tuần trước chúng mình đã đi Hồ Hoàn Kiếm.)",
+        exampleIpa: "/wiː went tuː hwɑːn kiːəm leɪk lɑːst ˈsæt.ə.deɪ/"
+      },
+      {
+        word: "Suoi Tien Theme Park",
+        pos: "proper noun",
+        ipa: "/swɔɪ tiːən θiːm pɑːk/",
+        meaning: "Công viên Văn hóa Suối Tiên (TP.HCM)",
+        icon: "🎢",
+        imgUrl: IMG.u10_suoi_tien,
+        tip: "Công viên Văn hóa Suối Tiên rực rỡ sắc màu tại TP. Hồ Chí Minh",
+        visualSpec: "Quang cảnh Công viên Văn hóa Suối Tiên rực rỡ tại TP.HCM",
+        rhyme: "“Công viên rực rỡ sắc màu,\nSuoi Tien Theme Park vui đâu sánh bằng!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Theme park</strong> (công viên giải trí theo chủ đề) ➜ Suối Tiên là công viên văn hóa nổi tiếng ở TP.HCM.",
+        example: "Did they go to Suoi Tien Theme Park? - No, they didn't.",
+        exampleVi: "(Họ có đi Công viên Suối Tiên không? - Không, họ không đi.)",
+        exampleIpa: "/dɪd ðeɪ ɡəʊ tuː swɔɪ tiːən θiːm pɑːk/ — /nəʊ, ðeɪ ˈdɪd.ənt/"
+      },
+      {
+        word: "Bai Dinh Pagoda",
+        pos: "proper noun",
+        ipa: "/baɪ dɪn pəˈɡəʊ.də/",
+        meaning: "Chùa Bái Đính (Ninh Bình)",
+        icon: "🏯",
+        imgUrl: IMG.u10_bai_dinh_pagoda,
+        tip: "Quần thể Chùa Bái Đính uy nghiêm với mái ngói cong truyền thống ở Ninh Bình",
+        visualSpec: "Chùa Bái Đính Ninh Bình với mái ngói cong truyền thống uy nghiêm giữa núi non",
+        rhyme: "“Mái chùa cong vút Ninh Bình,\nBai Dinh Pagoda thanh bình khói hương!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Pagoda</strong> <em>/pəˈɡəʊ.də/</em> là ngôi chùa. Chùa Bái Đính là ngôi chùa nổi tiếng ở Ninh Bình.",
+        example: "They visited Bai Dinh Pagoda on their school trip.",
+        exampleVi: "(Họ đã tham quan Chùa Bái Đính trong chuyến đi dã ngoại của trường.)",
+        exampleIpa: "/ðeɪ ˈvɪz.ɪ.tɪd baɪ dɪn pəˈɡəʊ.də ɒn ðeər skuːl trɪp/"
+      },
+      {
+        word: "visit the old buildings",
+        pos: "verb phrase",
+        ipa: "/ˈvɪz.ɪt ði əʊld ˈbɪl.dɪŋz/",
+        meaning: "tham quan các tòa nhà cổ",
+        icon: "🏛️",
+        imgUrl: IMG.u10_old_buildings,
+        tip: "Những ngôi nhà cổ mái ngói tường vàng trăm tuổi tuyệt đẹp ở Phố cổ Hội An",
+        visualSpec: "Những tòa nhà cổ tường vàng mái ngói truyền thống rực nắng tại Hội An Việt Nam",
+        rhyme: "“Phố xưa mái ngói tường vàng,\nVisit the old buildings càng thêm yêu!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Visit</strong> (thăm) + <strong>old buildings</strong> (các tòa nhà cổ) ➜ Quá khứ: <strong>visited the old buildings</strong>!",
+        example: "What did they do there? - They visited the old buildings.",
+        exampleVi: "(Họ đã làm gì ở đó? - Họ đã tham quan các tòa nhà cổ.)",
+        exampleIpa: "/wɒt dɪd ðeɪ duː ðeər/ — /ðeɪ ˈvɪz.ɪ.tɪd ði əʊld ˈbɪl.dɪŋz/"
+      },
+      {
+        word: "plant trees",
+        pos: "verb phrase",
+        ipa: "/plɑːnt triːz/",
+        meaning: "trồng cây xanh",
+        icon: "🌱",
+        imgUrl: IMG.u10_plant_trees,
+        tip: "Các bạn nhỏ hào hứng cùng nhau vun đất trồng cây xanh bảo vệ Trái Đất",
+        visualSpec: "Trẻ em vui vẻ cùng nhau trồng cây xanh ngoài trời",
+        rhyme: "“Ươm mầm xanh mát muôn nơi,\nPlant trees góp sức cho đời thêm tươi!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Plant</strong> (trồng cây) + <strong>trees</strong> (những cái cây) ➜ Quá khứ thêm <em>-ed</em> đọc là <strong>planted</strong> <em>/ˈplɑːn.tɪd/</em>!",
+        example: "We planted trees on the farm last weekend.",
+        exampleVi: "(Cuối tuần trước chúng mình đã trồng cây ở nông trại.)",
+        exampleIpa: "/wiː ˈplɑːn.tɪd triːz ɒn ðə fɑːm lɑːst ˌwiːkˈend/"
+      },
+      {
+        word: "walk around the lake",
+        pos: "verb phrase",
+        ipa: "/wɔːk əˈraʊnd ðə leɪk/",
+        meaning: "đi dạo quanh hồ",
+        icon: "🚶",
+        imgUrl: IMG.u10_walk_lake,
+        tip: "Tản bộ thong thả trên con đường ven Hồ Hoàn Kiếm rợp bóng cây xanh mát",
+        visualSpec: "Gia đình và các em nhỏ đi dạo vui vẻ bên bờ Hồ Hoàn Kiếm rợp bóng cây",
+        rhyme: "“Bờ hồ lộng gió mát trong,\nWalk around the lake thong dong chuyện trò!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> Chữ <strong>l</strong> trong <strong>walk</strong> bị câm (đọc <em>/wɔːk/</em>). Quá khứ: <strong>walked around the lake</strong> <em>/wɔːkt/</em>!",
+        example: "They walked around the lake in the morning.",
+        exampleVi: "(Họ đã đi dạo quanh hồ vào buổi sáng.)",
+        exampleIpa: "/ðeɪ wɔːkt əˈraʊnd ðə leɪk ɪn ðə ˈmɔː.nɪŋ/"
+      },
+      {
+        word: "school trip",
+        pos: "noun",
+        ipa: "/skuːl trɪp/",
+        meaning: "chuyến đi dã ngoại của trường",
+        icon: "🚌",
+        imgUrl: IMG.u10_school_trip,
+        tip: "Chiếc xe buýt vàng rực rỡ đưa cả lớp lên đường đi dã ngoại đầy hào hứng",
+        visualSpec: "Xe buýt trường học màu vàng tươi đưa học sinh đi dã ngoại",
+        rhyme: "“Xe lăn bánh chở niềm vui,\nSchool trip đáng nhớ, nụ cười trên môi!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>School</strong> (trường học) + <strong>trip</strong> (chuyến đi ngắn) ➜ Chuyến dã ngoại trải nghiệm của trường.",
+        example: "Where did you go on your school trip?",
+        exampleVi: "(Các bạn đã đi đâu trong chuyến đi dã ngoại của trường?)",
+        exampleIpa: "/weər dɪd juː ɡəʊ ɒn jɔːr skuːl trɪp/"
+      },
+      {
+        word: "pagoda",
+        pos: "noun",
+        ipa: "/pəˈɡəʊ.də/",
+        meaning: "ngôi chùa",
+        icon: "🛕",
+        imgUrl: IMG.u10_pagoda,
+        tip: "Chùa Trấn Quốc cổ kính bên Hồ Tây (Hà Nội) với tòa bảo tháp uy nghiêm",
+        visualSpec: "Chùa Trấn Quốc cổ kính bên Hồ Tây Hà Nội",
+        rhyme: "“Mái cong cổ kính thanh cao,\nPagoda đẹp biết bao quê mình!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Pagoda</strong> nhấn trọng âm vào âm số 2: <em>pə-<strong>GÔU</strong>-đə (/pəˈɡəʊ.də/)</em>.",
+        example: "There is a famous pagoda in Ninh Binh.",
+        exampleVi: "(Có một ngôi chùa nổi tiếng ở Ninh Bình.)",
+        exampleIpa: "/ðeər ɪz ə ˈfeɪ.məs pəˈɡəʊ.də ɪn nɪn bɪn/"
+      },
+      {
+        word: "theme park",
+        pos: "noun",
+        ipa: "/θiːm pɑːk/",
+        meaning: "công viên giải trí theo chủ đề",
+        icon: "🎠",
+        imgUrl: IMG.u10_theme_park,
+        tip: "Đường tàu lượn siêu tốc rực rỡ tại công viên giải trí ngoài trời",
+        visualSpec: "Tàu lượn siêu tốc rực rỡ tại công viên giải trí",
+        rhyme: "“Lâu đài, tàu lượn mê say,\nTheme park rực rỡ cả ngày chẳng quên!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Theme</strong> (chủ đề) + <strong>park</strong> (công viên) ➜ Công viên giải trí theo chủ đề (như Suối Tiên, Đầm Sen, VinWonders).",
+        example: "We went to a theme park last weekend.",
+        exampleVi: "(Cuối tuần trước chúng mình đã đi một công viên giải trí.)",
+        exampleIpa: "/wiː went tuː ə θiːm pɑːk lɑːst ˌwiːkˈend/"
+      },
+      {
+        word: "lake",
+        pos: "noun",
+        ipa: "/leɪk/",
+        meaning: "hồ nước",
+        icon: "🏞️",
+        imgUrl: IMG.u10_lake,
+        tip: "Hồ Tây (Hà Nội) mênh mông xanh biếc dưới nắng trời thanh bình",
+        visualSpec: "Mặt hồ Tây rộng lớn xanh biếc tại Hà Nội",
+        rhyme: "“Mặt hồ xanh biếc mênh mông,\nLake trong in bóng mây hồng bay qua!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Lake</strong> <em>/leɪk/</em> vần với <em>cake</em> (bánh kem) — dễ đọc, dễ nhớ!",
+        example: "The lake is very big and beautiful.",
+        exampleVi: "(Hồ nước rất rộng và đẹp.)",
+        exampleIpa: "/ðə leɪk ɪz ˈver.i bɪɡ ænd ˈbjuː.tɪ.fəl/"
+      },
+      {
+        word: "play outdoor games",
+        pos: "verb phrase",
+        ipa: "/pleɪ ˈaʊt.dɔːr ɡeɪmz/",
+        meaning: "chơi các trò chơi ngoài trời",
+        icon: "⚽",
+        imgUrl: IMG.u10_trip_games,
+        tip: "Các bạn học sinh Việt Nam vui chơi năng động, hết mình trong buổi dã ngoại",
+        visualSpec: "Học sinh Việt Nam vui vẻ chơi trò chơi thể thao ngoài trời đầy năng lượng",
+        rhyme: "“Cỏ xanh nắng ấm chan hòa,\nPlay outdoor games tiếng ca rộn ràng!”",
+        mnemonic: "💡 <strong>Cách nhớ:</strong> <strong>Outdoor</strong> (ngoài trời) + <strong>games</strong> (trò chơi) ➜ Quá khứ: <strong>played outdoor games</strong>!",
+        example: "They played outdoor games at the park.",
+        exampleVi: "(Họ đã chơi các trò chơi ngoài trời ở công viên.)",
+        exampleIpa: "/ðeɪ pleɪd ˈaʊt.dɔːr ɡeɪmz æt ðə pɑːk/"
+      }
+    ],
+    sentences: [
+      {
+        en: "Did they go to Ba Na Hills? — Yes, they did.",
+        vi: "Họ có đi Bà Nà Hills không? — Có, họ có đi.",
+        ipa: "/dɪd ðeɪ ɡəʊ tuː bɑː nɑː hɪlz/ — /jes, ðeɪ dɪd/",
+        imgUrl: IMG.u10_bana_hills,
+        chunks: [
+          { en: "Did they go", ipa: "/dɪd ðeɪ ɡəʊ/", vi: "Họ đã có đi" },
+          { en: "to Ba Na Hills?", ipa: "/tuː bɑː nɑː hɪlz/", vi: "đến Bà Nà Hills không?" },
+          { en: "Yes, they did.", ipa: "/jes, ðeɪ dɪd/", vi: "Có, họ có đi." }
+        ]
+      },
+      {
+        en: "Did they go to Suoi Tien Theme Park? — No, they didn't.",
+        vi: "Họ có đi Công viên Suối Tiên không? — Không, họ không đi.",
+        ipa: "/dɪd ðeɪ ɡəʊ tuː swɔɪ tiːən θiːm pɑːk/ — /nəʊ, ðeɪ ˈdɪd.ənt/",
+        imgUrl: IMG.u10_suoi_tien,
+        chunks: [
+          { en: "Did they go", ipa: "/dɪd ðeɪ ɡəʊ/", vi: "Họ đã có đi" },
+          { en: "to Suoi Tien Theme Park?", ipa: "/tuː swɔɪ tiːən θiːm pɑːk/", vi: "tới Suối Tiên không?" },
+          { en: "No, they didn't.", ipa: "/nəʊ, ðeɪ ˈdɪd.ənt/", vi: "Không, họ không đi." }
+        ]
+      },
+      {
+        en: "What did they do there? — They visited the old buildings.",
+        vi: "Họ đã làm gì ở đó? — Họ đã tham quan các tòa nhà cổ.",
+        ipa: "/wɒt dɪd ðeɪ duː ðeər/ — /ðeɪ ˈvɪz.ɪ.tɪd ði əʊld ˈbɪl.dɪŋz/",
+        imgUrl: IMG.u10_old_buildings,
+        chunks: [
+          { en: "What did they do", ipa: "/wɒt dɪd ðeɪ duː/", vi: "Họ đã làm gì" },
+          { en: "there?", ipa: "/ðeər/", vi: "ở đó?" },
+          { en: "They visited the old buildings.", ipa: "/ðeɪ ˈvɪz.ɪ.tɪd ði əʊld ˈbɪl.dɪŋz/", vi: "Họ đã thăm các tòa nhà cổ." }
+        ]
+      },
+      {
+        en: "What did they do at Hoan Kiem Lake? — They walked around the lake.",
+        vi: "Họ đã làm gì ở Hồ Hoàn Kiếm? — Họ đã đi dạo quanh hồ.",
+        ipa: "/wɒt dɪd ðeɪ duː æt hwɑːn kiːəm leɪk/ — /ðeɪ wɔːkt əˈraʊnd ðə leɪk/",
+        imgUrl: IMG.u10_hoan_kiem_lake,
+        chunks: [
+          { en: "What did they do", ipa: "/wɒt dɪd ðeɪ duː/", vi: "Họ đã làm gì" },
+          { en: "at Hoan Kiem Lake?", ipa: "/æt hwɑːn kiːəm leɪk/", vi: "ở Hồ Hoàn Kiếm?" },
+          { en: "They walked around the lake.", ipa: "/ðeɪ wɔːkt əˈraʊnd ðə leɪk/", vi: "Họ đã đi dạo quanh hồ." }
+        ]
+      }
+    ],
+    grammar: {
+      title: "Thì Quá Khứ Đơn Với Động Từ Thường (Did they go...? & What did they do...?)",
+      summary: "Khi kể chuyến đi đã qua dùng 'went' và 'V-ed', nhưng hễ có trợ động từ 'DID / DIDN'T' thì động từ quay về nguyên mẫu ngay!",
+      infographicType: "school-trip-past-did",
+      funnelImages: [
+        { tier: "Hà Nội", caption: "Hoan Kiem Lake (Hồ Hoàn Kiếm)", imgUrl: IMG.u10_hoan_kiem_lake, visualSpec: "Hồ Hoàn Kiếm cầu Thê Húc" },
+        { tier: "Ninh Bình", caption: "Bai Dinh Pagoda (Chùa Bái Đính)", imgUrl: IMG.u10_bai_dinh_pagoda, visualSpec: "Chùa Bái Đính Ninh Bình" },
+        { tier: "Đà Nẵng", caption: "Ba Na Hills (Cầu Vàng Bà Nà)", imgUrl: IMG.u10_bana_hills, visualSpec: "Cầu Vàng Bà Nà Hills" },
+        { tier: "TP.HCM", caption: "Suoi Tien Theme Park (Suối Tiên)", imgUrl: IMG.u10_suoi_tien, visualSpec: "Công viên Suối Tiên TP.HCM" }
+      ],
+      sentenceForms: [
+        {
+          type: "+",
+          name: "Câu Khẳng định (+) — Kể đã đi đâu & làm gì",
+          formula: "S + went to + [địa điểm].\nS + V-ed (visited / planted / walked / played)...",
+          example: "They went to Bai Dinh Pagoda and visited the old buildings.",
+          ipa: "/ðeɪ went tuː baɪ dɪn pəˈɡəʊ.də ænd ˈvɪz.ɪ.tɪd ði əʊld ˈbɪl.dɪŋz/",
+          vi: "Họ đã đi Chùa Bái Đính và tham quan các tòa nhà cổ.",
+          imgUrl: IMG.u10_bai_dinh_pagoda,
+          visualSpec: "Chùa Bái Đính Ninh Bình uy nghiêm",
+          kidExplain: "Nhớ đặc biệt nhé: Động từ <strong>go</strong> (đi) khi chuyển sang Quá khứ KHÔNG thêm <em>-ed</em> mà biến hình thành <strong>went</strong> (<em>go ➔ went</em>)!"
+        },
+        {
+          type: "-",
+          name: "Câu Phủ định (−) — Đã KHÔNG đi / KHÔNG làm",
+          formula: "S + didn't (did not) + V nguyên mẫu (go / visit / plant...).",
+          example: "They didn't go to Suoi Tien Theme Park.",
+          ipa: "/ðeɪ ˈdɪd.ənt ɡəʊ tuː swɔɪ tiːən θiːm pɑːk/",
+          vi: "Họ đã không đi Công viên Văn hóa Suối Tiên.",
+          imgUrl: IMG.u10_suoi_tien,
+          visualSpec: "Công viên Văn hóa Suối Tiên TP.HCM",
+          kidExplain: "<strong>SIÊU QUAN TRỌNG:</strong> Hễ có anh cảnh sát <strong>didn't</strong> đứng trước thì <strong>went</strong> phải quay về nguyên mẫu <strong>go</strong>! Tuyệt đối KHÔNG viết <em>didn't went</em> nha!"
+        },
+        {
+          type: "?",
+          name: "Câu Nghi vấn (?) — Hỏi Có đi không & Đã làm gì",
+          formula: "1) Did + S + go to + [địa điểm]? ➔ Yes, S + did. / No, S + didn't.\n2) What did + S + do there?",
+          example: "Did they go to Ba Na Hills? — Yes, they did.",
+          ipa: "/dɪd ðeɪ ɡəʊ tuː bɑː nɑː hɪlz/ — /jes, ðeɪ dɪd/",
+          vi: "Họ có đi Bà Nà Hills không? — Có, họ có đi.",
+          imgUrl: IMG.u10_bana_hills,
+          visualSpec: "Cầu Vàng Bà Nà Hills Đà Nẵng",
+          kidExplain: "Đưa <strong>Did</strong> lên đầu câu hỏi cho TẤT CẢ các chủ ngữ (I, you, we, they, he, she) — và động từ phía sau giữ nguyên mẫu <strong>go / do</strong> cực dễ luôn!"
+        }
+      ],
+      rules: [
+        {
+          label: "1. Quy tắc vàng: ĐÃ CÓ DID ➔ BỎ -ED / DÙNG GO",
+          example: "Did they GO to Ba Na Hills? (ĐÚNG) | They WENT to Ba Na Hills. (ĐÚNG)",
+          exampleIpa: "/dɪd ðeɪ ɡəʊ tuː bɑː nɑː hɪlz/ — /ðeɪ went tuː bɑː nɑː hɪlz/",
+          color: "bg-purple-50 border-purple-300 text-purple-900",
+          rule: "Câu hỏi có 'Did' hoặc câu phủ định có 'didn't' ➔ dùng 'go'. Câu khẳng định không có 'did' ➔ dùng 'went'!",
+          imgUrl: IMG.u10_school_trip,
+          visualSpec: "Xe buýt vàng đưa học sinh đi dã ngoại"
+        },
+        {
+          label: "2. 4 hoạt động Quá khứ trọng tâm Unit 10",
+          example: "visited the old buildings · planted trees · walked around the lake · played games",
+          exampleIpa: "/ˈvɪz.ɪ.tɪd · ˈplɑːn.tɪd · wɔːkt · pleɪd/",
+          color: "bg-pink-50 border-pink-300 text-pink-900",
+          rule: "Cả 4 động từ (visit, plant, walk, play) đều là động từ có quy tắc: chỉ cần thêm đuôi '-ed' khi trả lời!",
+          imgUrl: IMG.u10_plant_trees,
+          visualSpec: "Các bạn nhỏ trồng cây xanh ngoài trời"
+        }
+      ],
+      tip: "💡 Mẹo nhớ siêu tốc: Câu khẳng định dùng <strong>went / V-ed</strong>. Thấy <strong>Did / didn't</strong> xuất hiện là biến ngay về <strong>go / V nguyên mẫu</strong>!"
+    },
+    practice: [
+      {
+        vi: "Họ có đi Bà Nà Hills không? — Có, họ có đi.",
+        en: "Did they go to Ba Na Hills? - Yes, they did.",
+        ipa: "/dɪd ðeɪ ɡəʊ tuː bɑː nɑː hɪlz/ — /jes, ðeɪ dɪd/",
+        imgUrl: IMG.u10_bana_hills,
+        tip: "Có 'Did' ở đầu câu nên dùng 'go' nguyên mẫu."
+      },
+      {
+        vi: "Họ đã đi đâu trong chuyến dã ngoại của trường? — Họ đã đi Hồ Hoàn Kiếm.",
+        en: "Where did they go on their school trip? - They went to Hoan Kiem Lake.",
+        ipa: "/weər dɪd ðeɪ ɡəʊ ɒn ðeər skuːl trɪp/ — /ðeɪ went tuː hwɑːn kiːəm leɪk/",
+        imgUrl: IMG.u10_hoan_kiem_lake,
+        tip: "Câu trả lời khẳng định chuyển go ➔ went."
+      },
+      {
+        vi: "Họ đã làm gì ở đó? — Họ đã trồng cây xanh.",
+        en: "What did they do there? - They planted trees.",
+        ipa: "/wɒt dɪd ðeɪ duː ðeər/ — /ðeɪ ˈplɑːn.tɪd triːz/",
+        imgUrl: IMG.u10_plant_trees,
+        tip: "plant ➔ planted (/ˈplɑːn.tɪd/)."
+      },
+      {
+        vi: "Họ đã tham quan các tòa nhà cổ và đi dạo quanh hồ.",
+        en: "They visited the old buildings and walked around the lake.",
+        ipa: "/ðeɪ ˈvɪz.ɪ.tɪd ði əʊld ˈbɪl.dɪŋz ænd wɔːkt əˈraʊnd ðə leɪk/",
+        imgUrl: IMG.u10_old_buildings,
+        tip: "Nhớ thêm -ed cho cả hai động từ visited và walked."
+      }
+    ],
+    quiz: [
+      { q: "Địa danh nổi tiếng ở Đà Nẵng có Cầu Vàng bàn tay đá khổng lồ là nơi nào?", audio: "Ba Na Hills", imgUrl: IMG.u10_bana_hills, options: ["Hoan Kiem Lake", "Ba Na Hills", "Bai Dinh Pagoda", "Suoi Tien Theme Park"], ans: 1, explain: "Ba Na Hills (/bɑː nɑː hɪlz/) ở Đà Nẵng nổi tiếng với Cầu Vàng." },
+      { q: "Hồ nước nổi tiếng giữa lòng Hà Nội có cầu Thê Húc đỏ và Tháp Rùa gọi là gì?", audio: "Hoan Kiem Lake", imgUrl: IMG.u10_hoan_kiem_lake, options: ["Hoan Kiem Lake", "Ba Na Hills", "Suoi Tien Theme Park", "Bai Dinh Pagoda"], ans: 0, explain: "Hoan Kiem Lake (/hwɑːn kiːəm leɪk/) là Hồ Hoàn Kiếm." },
+      { q: "Công viên văn hóa giải trí rực rỡ nổi tiếng ở TP. Hồ Chí Minh là nơi nào?", audio: "Suoi Tien Theme Park", imgUrl: IMG.u10_suoi_tien, options: ["Bai Dinh Pagoda", "Ba Na Hills", "Suoi Tien Theme Park", "Hoan Kiem Lake"], ans: 2, explain: "Suoi Tien Theme Park (/swɔɪ tiːən θiːm pɑːk/) là Công viên Văn hóa Suối Tiên." },
+      { q: "Ngôi chùa lớn nổi tiếng với mái ngói cong uy nghiêm ở Ninh Bình là nơi nào?", audio: "Bai Dinh Pagoda", imgUrl: IMG.u10_bai_dinh_pagoda, options: ["Hoan Kiem Lake", "Suoi Tien Theme Park", "Ba Na Hills", "Bai Dinh Pagoda"], ans: 3, explain: "Bai Dinh Pagoda (/baɪ dɪn pəˈɡəʊ.də/) là Chùa Bái Đính." },
+      { q: "Hoạt động tham quan những ngôi nhà cổ tường vàng mái ngói gọi là gì?", audio: "visit the old buildings", imgUrl: IMG.u10_old_buildings, options: ["visit the old buildings", "plant trees", "walk around the lake", "play outdoor games"], ans: 0, explain: "Visit the old buildings (/ˈvɪz.ɪt ði əʊld ˈbɪl.dɪŋz/) là tham quan các tòa nhà cổ." },
+      { q: "Hoạt động vun đất trồng cây non xanh mát gọi là gì?", audio: "plant trees", imgUrl: IMG.u10_plant_trees, options: ["walk around the lake", "plant trees", "visit the old buildings", "school trip"], ans: 1, explain: "Plant trees (/plɑːnt triːz/) là trồng cây xanh." },
+      { q: "Hoạt động tản bộ quanh bờ hồ nước mát mẻ gọi là gì?", audio: "walk around the lake", imgUrl: IMG.u10_walk_lake, options: ["plant trees", "play outdoor games", "walk around the lake", "visit the old buildings"], ans: 2, explain: "Walk around the lake (/wɔːk əˈraʊnd ðə leɪk/) là đi dạo quanh hồ." },
+      { q: "Chuyến đi tham quan dã ngoại của cả trường gọi là gì?", audio: "school trip", imgUrl: IMG.u10_school_trip, options: ["theme park", "pagoda", "lake", "school trip"], ans: 3, explain: "School trip (/skuːl trɪp/) là chuyến đi dã ngoại của trường." },
+      { q: "Chọn từ đúng điền vào chỗ trống: 'Did they _____ to Ba Na Hills?'", audio: "Did they go to Ba Na Hills?", imgUrl: IMG.u10_bana_hills, options: ["go", "went", "going", "goes"], ans: 0, explain: "Đã có trợ động từ 'Did' ở đầu câu ➔ động từ giữ nguyên mẫu 'go' (/ɡəʊ/)." },
+      { q: "Chọn dạng quá khứ đúng của 'go': 'Last Sunday, they _____ to Hoan Kiem Lake.'", audio: "They went to Hoan Kiem Lake", imgUrl: IMG.u10_hoan_kiem_lake, options: ["go", "went", "goed", "going"], ans: 1, explain: "Quá khứ bất quy tắc của 'go' là 'went' (/went/)." }
+    ]
+  }
+];
+
+// Global App State
+let activeUnitId = 6;
+let activeTab = 'vocab';
+let selectedVocabIdx = 0;
+let currentSpeed = 1.0;
+
+// Quiz State
+let currentQuizIdx = 0;
+let quizScore = 0;
+let quizAnswered = false;
+let selectedQuizOption = null;
+
+// Safe HTML escaping & JS inline string escaping
+function escAttr(str) {
+  return String(str || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+function escJs(str) {
+  return String(str || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+}
+
+// Offline-safe SVG fallback generator (so images NEVER show broken icon)
+function makeSvgFallback(label, emoji) {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480">
+    <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#e0e7ff"/><stop offset="100%" stop-color="#dbeafe"/></linearGradient></defs>
+    <rect width="800" height="480" fill="url(#g)"/>
+    <text x="400" y="210" text-anchor="middle" font-size="96">${emoji || '🖼️'}</text>
+    <text x="400" y="300" text-anchor="middle" font-family="sans-serif" font-weight="800" font-size="32" fill="#312e81">${String(label || '').replace(/[<>&]/g, '')}</text>
+  </svg>`;
+  return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+}
+
+function handleImgError(imgEl) {
+  const stage = imgEl.dataset.errStage || '0';
+  if (stage === '0' && imgEl.dataset.fallback && imgEl.src !== imgEl.dataset.fallback) {
+    imgEl.dataset.errStage = '1';
+    imgEl.src = imgEl.dataset.fallback;
+  } else if (stage !== '2') {
+    imgEl.dataset.errStage = '2';
+    imgEl.src = makeSvgFallback(imgEl.alt, imgEl.dataset.icon || '🖼️');
+  }
+}
+
+function buildImgTag(src, fallback, alt, className, icon, eager) {
+  const s = String(src || '');
+  const isLocalSvg = s.endsWith('.svg');
+  const isPeopleTop = s.includes('u6_music_room') || s.includes('u7_read_books') || s.includes('u7_do_projects') || s.includes('u7_interesting') || s.includes('u9_listen_music') || s.includes('1544773088-d142e38f5793') || s.includes('1559918095-bc2c205b2b46') || s.includes('1758685733685-7e0f30c35a17') || s.includes('1762475833699-53a01f26565a');
+  let finalClass = className;
+  if (isLocalSvg) {
+    finalClass = className.replace(/\bobject-cover\b/g, 'object-contain bg-white');
+  } else if (isPeopleTop) {
+    finalClass += ' object-[center_20%]';
+  }
+  const fb = fallback || (s === IMG.u6_library ? IMG.u6_library_fb : '');
+  return `<img src="${escAttr(src)}" data-fallback="${escAttr(fb)}" data-icon="${escAttr(icon || '🖼️')}" referrerpolicy="no-referrer" ${eager ? '' : 'loading="lazy"'} onerror="handleImgError(this)" alt="${escAttr(alt)}" class="${finalClass}" />`;
+}
+
+// LocalStorage learned progress (separate key for Lesson 6-10)
+const STORAGE_KEY = 'g5_u6_10_learned_items';
+
+function getLearnedSet() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? new Set(JSON.parse(raw)) : new Set();
+  } catch (e) {
+    return new Set();
+  }
+}
+
+function saveLearned(id) {
+  const set = getLearnedSet();
+  if (set.has(id)) {
+    set.delete(id);
+  } else {
+    set.add(id);
+  }
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(set)));
+  } catch (e) {}
+  updateProgressDisplay();
+  renderContent();
+}
+
+function markLearned(id) {
+  const set = getLearnedSet();
+  if (!set.has(id)) {
+    set.add(id);
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(set)));
+    } catch (e) {}
+    updateProgressDisplay();
+  }
+}
+
+function isLearned(id) {
+  return getLearnedSet().has(id);
+}
+
+// Audio Engine (Google Translate TTS + Web Speech fallback)
+function playAudio(text, customSpeed) {
+  stopVocalAudio();
+  const player = document.getElementById('app-audio-player');
+  const toast = document.getElementById('audio-toast');
+  const toastMsg = document.getElementById('toast-msg');
+
+  if (!player || !text) return;
+
+  const rate = customSpeed || currentSpeed;
+  const cleanText = text.replace(/\s*—\s*/g, '. ').trim();
+  const q = encodeURIComponent(cleanText);
+  const url = 'https://translate.googleapis.com/translate_tts?ie=UTF-8&tl=en&client=tw-ob&q=' + q;
+
+  player.src = url;
+  player.playbackRate = rate;
+
+  if (toast && toastMsg) {
+    toastMsg.textContent = 'Đang đọc (' + rate + 'x): "' + (cleanText.length > 42 ? cleanText.substring(0, 42) + '...' : cleanText) + '"';
+    toast.classList.remove('hidden');
+    toast.classList.add('flex');
+  }
+
+  player.onended = function() {
+    if (toast) {
+      toast.classList.add('hidden');
+      toast.classList.remove('flex');
+    }
+  };
+
+  player.onerror = function() {
+    if ('speechSynthesis' in window) {
+      const u = new SpeechSynthesisUtterance(cleanText);
+      u.lang = 'en-US';
+      u.rate = rate;
+      u.onend = () => {
+        if (toast) {
+          toast.classList.add('hidden');
+          toast.classList.remove('flex');
+        }
+      };
+      window.speechSynthesis.speak(u);
+    } else if (toast) {
+      toast.classList.add('hidden');
+      toast.classList.remove('flex');
+    }
+  };
+
+  player.play().catch(() => {
+    player.onerror();
+  });
+}
+
+function stopVocalAudio() {
+  const player = document.getElementById('app-audio-player');
+  if (player) {
+    player.pause();
+    player.currentTime = 0;
+  }
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+  }
+  const toast = document.getElementById('audio-toast');
+  if (toast) {
+    toast.classList.add('hidden');
+    toast.classList.remove('flex');
+  }
+}
+
+function stopAudio() {
+  stopVocalAudio();
+}
+
+function setSpeed(speed) {
+  currentSpeed = speed;
+  const btnNorm = document.getElementById('speed-normal');
+  const btnSlow = document.getElementById('speed-slow');
+
+  if (speed === 1.0) {
+    if (btnNorm) btnNorm.className = 'pulse-btn px-3 py-1.5 rounded-xl text-xs font-black bg-indigo-600 text-white shadow-sm transition';
+    if (btnSlow) btnSlow.className = 'pulse-btn px-3 py-1.5 rounded-xl text-xs font-black bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition';
+  } else {
+    if (btnSlow) btnSlow.className = 'pulse-btn px-3 py-1.5 rounded-xl text-xs font-black bg-indigo-600 text-white shadow-sm transition';
+    if (btnNorm) btnNorm.className = 'pulse-btn px-3 py-1.5 rounded-xl text-xs font-black bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition';
+  }
+}
+
+function toggleFullscreen() {
+  const label = document.getElementById('fullscreen-label');
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen().then(() => {
+      if (label) label.textContent = 'Thoát phóng to';
+    }).catch(() => {});
+  } else {
+    document.exitFullscreen().then(() => {
+      if (label) label.textContent = 'Toàn màn hình';
+    }).catch(() => {});
+  }
+}
+
+document.addEventListener('fullscreenchange', () => {
+  const label = document.getElementById('fullscreen-label');
+  if (label) {
+    label.textContent = document.fullscreenElement ? 'Thoát phóng to' : 'Toàn màn hình';
+  }
+});
+
+// Navigation & Tab Switching
+function selectUnit(unitId) {
+  activeUnitId = unitId;
+  selectedVocabIdx = 0;
+  currentQuizIdx = 0;
+  quizScore = 0;
+  quizAnswered = false;
+  selectedQuizOption = null;
+  stopAudio();
+  renderUnitNav();
+  renderUnitBanner();
+  renderContent();
+}
+
+function switchTab(tabName) {
+  activeTab = tabName;
+  stopAudio();
+  const tabs = ['vocab', 'sentences', 'grammar', 'practice', 'quiz'];
+  tabs.forEach(t => {
+    const btn = document.getElementById('tab-btn-' + t);
+    if (btn) {
+      btn.classList.toggle('active', t === tabName);
+    }
+  });
+  renderContent();
+}
+
+function currentUnit() {
+  return APP_UNITS.find(u => u.id === activeUnitId) || APP_UNITS[0];
+}
+
+function selectVocabWord(idx) {
+  selectedVocabIdx = idx;
+  const u = currentUnit();
+  if (u && u.vocab[idx]) {
+    playAudio(u.vocab[idx].word);
+  }
+  renderContent();
+  const showcase = document.getElementById('big-vocab-showcase');
+  if (showcase && window.innerWidth < 640) {
+    showcase.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+
+function nextWord() {
+  const u = currentUnit();
+  selectedVocabIdx = (selectedVocabIdx + 1) % u.vocab.length;
+  playAudio(u.vocab[selectedVocabIdx].word);
+  renderContent();
+}
+
+function prevWord() {
+  const u = currentUnit();
+  selectedVocabIdx = (selectedVocabIdx - 1 + u.vocab.length) % u.vocab.length;
+  playAudio(u.vocab[selectedVocabIdx].word);
+  renderContent();
+}
+
+function playAudioCurrentWord() {
+  const u = currentUnit();
+  const v = u.vocab[selectedVocabIdx];
+  if (v) playAudio(v.word);
+}
+
+function playAudioCurrentSentence() {
+  const u = currentUnit();
+  const v = u.vocab[selectedVocabIdx];
+  if (v && v.example) playAudio(v.example);
+}
+
+// Render Header & Navigation
+function renderUnitNav() {
+  const nav = document.getElementById('unit-nav');
+  if (!nav) return;
+
+  nav.innerHTML = APP_UNITS.map(u => {
+    const isActive = u.id === activeUnitId;
+    return `
+      <button onclick="selectUnit(${u.id})" class="unit-tab pulse-btn p-3 rounded-2xl font-black text-xs sm:text-sm flex items-center justify-center gap-1.5 border transition ${isActive ? 'active' : 'bg-white text-slate-700 hover:bg-slate-50 border-slate-200 shadow-sm'}">
+        <span class="text-base sm:text-lg">${u.icon}</span>
+        <span>Unit ${u.id}</span>
+      </button>
+    `;
+  }).join('');
+}
+
+function renderUnitBanner() {
+  const banner = document.getElementById('unit-banner');
+  if (!banner) return;
+  const u = currentUnit();
+  banner.className = `bg-gradient-to-r ${u.themeColor} rounded-3xl p-5 sm:p-6 text-white shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3`;
+  banner.innerHTML = `
+    <div>
+      <span class="inline-block px-2.5 py-0.5 bg-white/20 rounded-md text-xs font-bold uppercase tracking-wide">Chương trình Tiếng Anh 5 Global Success · Unit 6–10</span>
+      <h2 class="text-xl sm:text-2xl font-black mt-1">${u.title}</h2>
+      <p class="text-xs sm:text-sm text-white/90 font-medium">${u.subtitle}</p>
+    </div>
+    <div id="unit-progress-badge" class="bg-white/20 backdrop-blur-md px-3.5 py-2 rounded-2xl text-xs font-black flex items-center gap-2">
+      <span>⭐ Tiến độ: Đang tải...</span>
+    </div>
+  `;
+  updateProgressDisplay();
+}
+
+function updateProgressDisplay() {
+  const badge = document.getElementById('unit-progress-badge');
+  if (!badge) return;
+  const u = currentUnit();
+  const set = getLearnedSet();
+
+  const total = u.vocab.length + u.sentences.length + u.practice.length;
+  let done = 0;
+
+  u.vocab.forEach(v => { if (set.has('u' + u.id + '_v_' + v.word)) done++; });
+  u.sentences.forEach((s, idx) => { if (set.has('u' + u.id + '_s_' + idx)) done++; });
+  u.practice.forEach((p, idx) => { if (set.has('u' + u.id + '_p_' + idx)) done++; });
+
+  badge.innerHTML = `⭐ Đã thuộc: ${done}/${total} mục (${Math.round((done / total) * 100)}%)`;
+}
+
+// Toggle Practice Answer
+function togglePracticeAnswer(idx) {
+  const ansEl = document.getElementById('practice-ans-' + idx);
+  const btnEl = document.getElementById('practice-btn-' + idx);
+  if (!ansEl) return;
+  if (ansEl.classList.contains('hidden')) {
+    ansEl.classList.remove('hidden');
+    if (btnEl) btnEl.innerHTML = '<span>🙈 Ẩn đáp án</span>';
+  } else {
+    ansEl.classList.add('hidden');
+    if (btnEl) btnEl.innerHTML = '<span>👁️ Xem đáp án, IPA &amp; Phát âm</span>';
+  }
+}
+
+// Interactive Quiz Game Functions
+function answerQuiz(optIdx) {
+  if (quizAnswered) return;
+  quizAnswered = true;
+  selectedQuizOption = optIdx;
+
+  const u = currentUnit();
+  const curQ = u.quiz[currentQuizIdx];
+  if (optIdx === curQ.ans) {
+    quizScore++;
+  }
+  playAudio(curQ.audio);
+  renderContent();
+}
+
+function nextQuizQuestion() {
+  quizAnswered = false;
+  selectedQuizOption = null;
+  currentQuizIdx++;
+  renderContent();
+}
+
+function restartQuiz() {
+  currentQuizIdx = 0;
+  quizScore = 0;
+  quizAnswered = false;
+  selectedQuizOption = null;
+  renderContent();
+}
+
+// Visual Grammar Infographics (Custom per Unit 6–10)
+function renderGrammarInfographic(type) {
+  if (type === 'school-floors-directions') {
+    const dirs = [
+      { en: 'go upstairs', ipa: '/ɡəʊ ʌpˈsteəz/', vi: 'đi lên lầu', icon: '⬆️' },
+      { en: 'go downstairs', ipa: '/ɡəʊ ˌdaʊnˈsteəz/', vi: 'đi xuống lầu', icon: '⬇️' },
+      { en: 'go past', ipa: '/ɡəʊ pɑːst/', vi: 'đi ngang qua', icon: '🚶' },
+      { en: 'turn left', ipa: '/tɜːn left/', vi: 'rẽ trái', icon: '⬅️' },
+      { en: 'turn right', ipa: '/tɜːn raɪt/', vi: 'rẽ phải', icon: '➡️' }
+    ];
+    return `
+      <div class="bg-gradient-to-b from-sky-50 to-indigo-50/60 border-2 border-sky-200 rounded-3xl p-4 sm:p-6 space-y-4">
+        <div class="text-center space-y-0.5">
+          <span class="inline-block px-3 py-1 bg-sky-600 text-white rounded-full text-xs font-black uppercase tracking-wider">🏫 Sơ Đồ 3 Tầng Trường Học (ON THE...) &amp; 5 Mũi Tên Chỉ Đường</span>
+          <p class="text-xs sm:text-sm text-slate-600 font-bold">Bấm vào từng tầng hoặc mũi tên để nghe phát âm chuẩn bản xứ</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <button onclick="playAudio('on the second floor')" class="pulse-btn bg-purple-600 hover:bg-purple-700 text-white rounded-2xl p-3.5 text-left space-y-1.5 shadow-sm">
+            <div class="text-xs font-black uppercase text-purple-200">Tầng trên cùng (2F)</div>
+            <div class="text-base font-black">2️⃣ on the second floor 🔊</div>
+            <div class="text-xs ipa-badge bg-white/15 px-2 py-0.5 rounded-lg inline-block">/ɒn ðə ˈsek.ənd flɔːr/</div>
+          </button>
+          <button onclick="playAudio('on the first floor')" class="pulse-btn bg-blue-600 hover:bg-blue-700 text-white rounded-2xl p-3.5 text-left space-y-1.5 shadow-sm">
+            <div class="text-xs font-black uppercase text-blue-200">Tầng giữa (1F)</div>
+            <div class="text-base font-black">1️⃣ on the first floor 🔊</div>
+            <div class="text-xs ipa-badge bg-white/15 px-2 py-0.5 rounded-lg inline-block">/ɒn ðə fɜːst flɔːr/</div>
+          </button>
+          <button onclick="playAudio('on the ground floor')" class="pulse-btn bg-amber-500 hover:bg-amber-600 text-white rounded-2xl p-3.5 text-left space-y-1.5 shadow-sm">
+            <div class="text-xs font-black uppercase text-amber-100">Tầng sát đất (G)</div>
+            <div class="text-base font-black">🏢 on the ground floor 🔊</div>
+            <div class="text-xs ipa-badge bg-white/15 px-2 py-0.5 rounded-lg inline-block">/ɒn ðə ˌɡraʊnd ˈflɔːr/</div>
+          </button>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-2">
+          ${dirs.map(d => `
+            <button onclick="playAudio('${d.en}')" class="pulse-btn bg-white hover:bg-sky-50 border-2 border-sky-200 rounded-2xl p-2.5 text-center shadow-sm space-y-0.5">
+              <div class="text-2xl">${d.icon}</div>
+              <div class="text-xs sm:text-sm font-black text-slate-900">${d.en} 🔊</div>
+              <div class="text-[11px] ipa-badge font-bold text-indigo-700">${d.ipa}</div>
+              <div class="text-xs font-extrabold text-sky-800">${d.vi}</div>
+            </button>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  if (type === 'like-ving-why') {
+    const reasons = [
+      { act: 'playing games', r: 'fun', ipa: '/fʌn/', vi: 'vui vẻ', icon: '😄' },
+      { act: 'reading books', r: 'interesting', ipa: '/ˈɪn.trə.stɪŋ/', vi: 'thú vị', icon: '🤩' },
+      { act: 'solving maths problems', r: 'useful', ipa: '/ˈjuːs.fəl/', vi: 'hữu ích', icon: '💡' },
+      { act: 'doing projects', r: 'good for group work', ipa: '/ɡʊd fɔːr ɡruːp wɜːk/', vi: 'tốt cho nhóm', icon: '🤝' }
+    ];
+    return `
+      <div class="bg-gradient-to-b from-emerald-50 to-teal-50/60 border-2 border-emerald-200 rounded-3xl p-4 sm:p-6 space-y-4">
+        <div class="text-center space-y-0.5">
+          <span class="inline-block px-3 py-1 bg-emerald-600 text-white rounded-full text-xs font-black uppercase tracking-wider">🎨 Sơ Đồ Ghép Cặp: LIKE + V-ing ➔ WHY? ➔ BECAUSE it's + Tính từ</span>
+          <p class="text-xs sm:text-sm text-slate-600 font-bold">Bấm từng thẻ ghép đôi chuẩn sách giáo khoa Global Success để nghe đọc!</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          ${reasons.map(item => `
+            <button onclick="playAudio('He likes ${item.act} because he thinks it is ${item.r}.')" class="pulse-btn bg-white hover:bg-emerald-50 border-2 border-emerald-200 rounded-2xl p-3.5 text-left flex items-center justify-between gap-3 shadow-sm">
+              <div class="space-y-1">
+                <div class="text-xs font-black text-emerald-700 uppercase">${item.icon} Hoạt động (V-ing) ➔ Lý do</div>
+                <div class="text-sm sm:text-base font-black text-slate-900">likes <span class="text-indigo-700">${item.act}</span></div>
+                <div class="text-xs sm:text-sm font-black text-teal-700">➜ because it's <span class="underline">${item.r}</span> (${item.vi})</div>
+                <div class="text-xs ipa-badge font-bold text-slate-500">${item.ipa}</div>
+              </div>
+              <span class="text-xl shrink-0">🔊</span>
+            </button>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  if (type === 'classroom-preps-whose') {
+    const preps = [
+      { en: 'above', ipa: '/əˈbʌv/', vi: 'phía trên (không chạm)', icon: '⬆️' },
+      { en: 'beside', ipa: '/bɪˈsaɪd/', vi: 'bên cạnh', icon: '↔️' },
+      { en: 'under', ipa: '/ˈʌn.dər/', vi: 'phía dưới', icon: '⬇️' },
+      { en: 'in front of', ipa: '/ɪn frʌnt əv/', vi: 'phía trước', icon: '🔼' }
+    ];
+    return `
+      <div class="bg-gradient-to-b from-amber-50 to-orange-50/60 border-2 border-amber-200 rounded-3xl p-4 sm:p-6 space-y-4">
+        <div class="text-center">
+          <span class="inline-block px-3 py-1 bg-amber-600 text-white rounded-full text-xs font-black uppercase tracking-wider">✏️ Sơ Đồ 4 Giới Từ Lớp Học &amp; Công Thức Sở Hữu WHOSE ➔ Tên's</span>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+          ${preps.map(p => `
+            <button onclick="playAudio('${p.en}')" class="pulse-btn bg-white hover:bg-amber-50 border-2 border-amber-200 rounded-2xl p-3 text-center shadow-sm space-y-1">
+              <div class="text-2xl">${p.icon}</div>
+              <div class="text-sm sm:text-base font-black text-slate-900">${p.en} 🔊</div>
+              <div class="text-xs ipa-badge font-bold text-indigo-700">${p.ipa}</div>
+              <div class="text-xs font-extrabold text-amber-800">${p.vi}</div>
+            </button>
+          `).join('')}
+        </div>
+        <button onclick="playAudio('Whose crayon is this? It is Linhs.')" class="pulse-btn w-full bg-white hover:bg-orange-50 border-2 border-orange-300 rounded-2xl p-3.5 text-center shadow-sm space-y-1">
+          <div class="text-xs font-black uppercase text-orange-700">🔑 Công thức hỏi Của Ai (Bấm nghe ví dụ 🔊)</div>
+          <div class="text-sm sm:text-lg font-black text-slate-900">WHOSE + [Đồ vật] + is this? &nbsp;➔&nbsp; It's + <span class="text-orange-600">[Tên]'s</span>!</div>
+          <div class="text-xs ipa-badge font-bold text-indigo-700">Ví dụ: Whose crayon is this? — It's Linh's. (/huːz ˈkreɪ.ɒn ɪz ðɪs/ — /ɪts lɪŋz/)</div>
+        </button>
+      </div>
+    `;
+  }
+
+  if (type === 'past-were-did') {
+    const verbs = [
+      { v1: 'watch', v2: 'watched', ipa: '/wɒtʃt/', vi: 'đã ngắm' },
+      { v1: 'listen', v2: 'listened', ipa: '/ˈlɪs.ənd/', vi: 'đã nghe' },
+      { v1: 'dance', v2: 'danced', ipa: '/dɑːnst/', vi: 'đã nhảy múa' },
+      { v1: 'play', v2: 'played', ipa: '/pleɪd/', vi: 'đã chơi' }
+    ];
+    return `
+      <div class="bg-gradient-to-b from-cyan-50 to-blue-50/60 border-2 border-cyan-200 rounded-3xl p-4 sm:p-6 space-y-4">
+        <div class="text-center">
+          <span class="inline-block px-3 py-1 bg-cyan-600 text-white rounded-full text-xs font-black uppercase tracking-wider">⛺ Bảng Phân Biệt Quá Khứ Đơn: WERE (Nơi chốn) ⇄ DID (Hành động)</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <button onclick="playAudio('Were you at the aquarium yesterday? Yes, we were.')" class="pulse-btn bg-white hover:bg-cyan-50 border-2 border-cyan-300 rounded-2xl p-4 text-left space-y-1.5 shadow-sm">
+            <span class="px-2.5 py-1 bg-cyan-600 text-white rounded-lg text-xs font-black inline-block">1. Hỏi ĐÃ Ở ĐÂU ➔ Dùng WERE 🔊</span>
+            <div class="text-sm sm:text-base font-black text-slate-900">Were you at the aquarium yesterday?</div>
+            <div class="text-xs ipa-badge font-bold text-indigo-700">/wɜːr juː æt ði əˈkweə.ri.əm ˈjes.tə.deɪ/</div>
+            <div class="text-sm font-black text-emerald-700">➜ Yes, we were. / No, we weren't.</div>
+          </button>
+          <button onclick="playAudio('What did you do yesterday? We watched the fish.')" class="pulse-btn bg-white hover:bg-blue-50 border-2 border-blue-300 rounded-2xl p-4 text-left space-y-1.5 shadow-sm">
+            <span class="px-2.5 py-1 bg-blue-600 text-white rounded-lg text-xs font-black inline-block">2. Hỏi ĐÃ LÀM GÌ ➔ Dùng DID 🔊</span>
+            <div class="text-sm sm:text-base font-black text-slate-900">What did you do yesterday?</div>
+            <div class="text-xs ipa-badge font-bold text-indigo-700">/wɒt dɪd juː duː ˈjes.tə.deɪ/</div>
+            <div class="text-sm font-black text-blue-700">➜ We watched the fish. (Động từ thêm -ed!)</div>
+          </button>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          ${verbs.map(v => `
+            <button onclick="playAudio('${v.v1}, ${v.v2}')" class="pulse-btn bg-white hover:bg-indigo-50 border border-cyan-200 rounded-xl p-2.5 text-center shadow-sm">
+              <div class="text-xs font-black text-slate-500">${v.v1} ➔</div>
+              <div class="text-sm font-black text-indigo-700">${v.v2} 🔊</div>
+              <div class="text-[11px] ipa-badge font-bold text-slate-600">${v.ipa}</div>
+              <div class="text-xs font-bold text-cyan-800">${v.vi}</div>
+            </button>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  if (type === 'school-trip-past-did') {
+    const places = [
+      { name: 'Hoan Kiem Lake', city: 'Hà Nội', ipa: '/hwɑːn kiːəm leɪk/', img: IMG.u10_hoan_kiem_lake },
+      { name: 'Bai Dinh Pagoda', city: 'Ninh Bình', ipa: '/baɪ dɪn pəˈɡəʊ.də/', img: IMG.u10_bai_dinh_pagoda },
+      { name: 'Ba Na Hills', city: 'Đà Nẵng', ipa: '/bɑː nɑː hɪlz/', img: IMG.u10_bana_hills },
+      { name: 'Suoi Tien Theme Park', city: 'TP.HCM', ipa: '/swɔɪ tiːən θiːm pɑːk/', img: IMG.u10_suoi_tien }
+    ];
+    return `
+      <div class="bg-gradient-to-b from-purple-50 to-pink-50/60 border-2 border-purple-200 rounded-3xl p-4 sm:p-6 space-y-4">
+        <div class="text-center space-y-0.5">
+          <span class="inline-block px-3 py-1 bg-purple-600 text-white rounded-full text-xs font-black uppercase tracking-wider">🚌 Hành Trình 4 Điểm Dã Ngoại Nổi Tiếng Việt Nam &amp; Quy Tắc DID ⇄ WENT</span>
+          <p class="text-xs sm:text-sm text-slate-600 font-bold">Bấm vào từng địa danh để nghe phát âm tiếng Anh chuẩn!</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+          ${places.map(p => `
+            <button onclick="playAudio('${p.name}')" class="pulse-btn bg-white hover:bg-purple-50 border-2 border-purple-200 rounded-2xl overflow-hidden text-left shadow-sm flex flex-col">
+              <div class="h-24 w-full bg-slate-100 overflow-hidden">
+                ${buildImgTag(p.img, '', p.name, 'w-full h-full object-cover', '🗺️', false)}
+              </div>
+              <div class="p-2.5 space-y-0.5">
+                <div class="text-[11px] font-black text-purple-600 uppercase">📍 ${p.city}</div>
+                <div class="text-xs sm:text-sm font-black text-slate-900">${p.name} 🔊</div>
+                <div class="text-[11px] ipa-badge font-bold text-indigo-700">${p.ipa}</div>
+              </div>
+            </button>
+          `).join('')}
+        </div>
+        <div class="bg-white border-2 border-pink-200 rounded-2xl p-3.5 text-center space-y-1 shadow-sm">
+          <div class="text-xs sm:text-sm font-black text-purple-900">⚡ MẸO CHỐNG SAI BÀI THI: <span class="text-emerald-700">They WENT to...</span> &nbsp;|&nbsp; <span class="text-indigo-700">Did they GO to...?</span> &nbsp;|&nbsp; <span class="text-rose-700">They didn't GO to...</span></div>
+        </div>
+      </div>
+    `;
+  }
+
+  return '';
+}
+
+// Render Content Views
+function renderContent() {
+  const main = document.getElementById('main-content');
+  if (!main) return;
+
+  const u = currentUnit();
+
+  if (activeTab === 'vocab') {
+    const curV = u.vocab[selectedVocabIdx] || u.vocab[0];
+    const vId = 'u' + u.id + '_v_' + curV.word;
+    const learned = isLearned(vId);
+
+    main.innerHTML = `
+      <div class="space-y-4">
+
+        <!-- Word Selector Carousel Pills -->
+        <div class="bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-200 space-y-2.5">
+          <div class="flex items-center justify-between px-1">
+            <span class="text-xs font-black uppercase text-slate-500 tracking-wider">👉 Chọn nhanh từ vựng để trình chiếu (${u.vocab.length} từ):</span>
+            <span class="text-xs text-indigo-600 font-black">${selectedVocabIdx + 1} / ${u.vocab.length} từ</span>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            ${u.vocab.map((v, idx) => {
+              const isCur = (idx === selectedVocabIdx);
+              const vLearned = isLearned('u' + u.id + '_v_' + v.word);
+              return `
+                <button onclick="selectVocabWord(${idx})" class="pulse-btn px-3 py-1.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center gap-1.5 border ${
+                  isCur
+                    ? 'active-word-pill'
+                    : 'bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200'
+                }">
+                  <span>${v.icon}</span>
+                  <span>${v.word}</span>
+                  ${vLearned ? `<span class="${isCur ? 'text-amber-300' : 'text-emerald-500'} font-bold">✓</span>` : ''}
+                </button>
+              `;
+            }).join('')}
+          </div>
+        </div>
+
+        <!-- THẺ TRÌNH CHIẾU HÌNH LỚN -->
+        <div id="big-vocab-showcase" class="bg-white rounded-3xl p-4 sm:p-6 shadow-xl border-2 border-indigo-200/80 space-y-5">
+
+          <!-- Header Status Bar -->
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="text-xs font-black uppercase tracking-wider px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full">
+                🔍 Thẻ Trình Chiếu (${selectedVocabIdx + 1}/${u.vocab.length})
+              </span>
+              ${learned ? '<span class="text-xs bg-emerald-100 text-emerald-800 font-black px-2.5 py-0.5 rounded-full">✓ Đã thuộc từ này</span>' : ''}
+            </div>
+            <button onclick="saveLearned('${escJs(vId)}')" class="pulse-btn text-xs font-black text-slate-600 hover:text-indigo-600 bg-slate-50 hover:bg-indigo-50 px-3 py-1.5 rounded-xl border border-slate-200 flex items-center gap-1 transition">
+              <span>${learned ? '⭐ Đã thuộc' : '☆ Đánh dấu thuộc'}</span>
+            </button>
+          </div>
+
+          <!-- 1. HÌNH ẢNH MINH HỌA CỠ LỚN -->
+          <div class="space-y-1.5">
+            <div class="relative w-full h-64 sm:h-80 md:h-[420px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-md border-2 border-slate-200 bg-slate-100 flex items-center justify-center">
+              ${buildImgTag(curV.imgUrl, curV.fallbackUrl, curV.word, 'w-full h-full object-cover transition-all duration-300', curV.icon, true)}
+
+              <!-- Top-Left Badge: Word + IPA + Meaning -->
+              <div class="absolute top-3 left-3 max-w-[92%] px-3.5 py-2 bg-slate-900/85 backdrop-blur-md text-white rounded-2xl text-xs sm:text-base font-black flex flex-wrap items-center gap-2 shadow-lg border border-white/20">
+                <span>${curV.icon}</span>
+                <span class="tracking-wide uppercase">${curV.word}</span>
+                <span class="ipa-badge text-cyan-300 font-bold">${curV.ipa}</span>
+                <span class="text-amber-300">•</span>
+                <span class="text-amber-300 uppercase">${curV.meaning}</span>
+              </div>
+
+              <!-- Bottom-Left Caption -->
+              <div class="absolute bottom-3 left-3 px-3 py-1.5 bg-black/75 backdrop-blur-md text-white/95 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-1.5 shadow-md border border-white/10 max-w-[65%]">
+                <span>💡</span>
+                <span class="truncate">${curV.tip}</span>
+              </div>
+
+              <!-- Audio Button Right on the Picture -->
+              <button onclick="playAudioCurrentWord()" class="pulse-btn absolute bottom-3 right-3 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs sm:text-sm font-black flex items-center gap-1.5 shadow-lg transition">
+                <span>🔊</span>
+                <span>Bấm Nghe</span>
+              </button>
+            </div>
+            <p class="text-center text-xs text-slate-400 font-extrabold uppercase tracking-wider">Tranh minh họa cỡ lớn chuẩn Việt Nam — Học sinh ngồi bàn cuối vẫn nhìn rõ</p>
+          </div>
+
+          <!-- 2. KHUNG TIÊU ĐỀ TỪ VỰNG + IPA TO RÕ -->
+          <div class="bg-indigo-50/80 p-4 sm:p-5 rounded-2xl border border-indigo-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex items-baseline gap-3 flex-wrap">
+                <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight">${curV.word}</h2>
+                <span class="text-sm font-black px-3 py-0.5 rounded-lg bg-indigo-200 text-indigo-900">(${curV.pos})</span>
+                <span class="text-lg sm:text-2xl font-bold text-indigo-700 ipa-badge bg-white px-3 py-0.5 rounded-xl border border-indigo-200 shadow-sm">${curV.ipa}</span>
+              </div>
+              <div class="text-xl sm:text-2xl font-black text-indigo-700">${curV.meaning}</div>
+            </div>
+
+            <!-- Pronunciation Audio Buttons -->
+            <div class="flex items-center gap-2">
+              <button onclick="playAudioCurrentWord()" class="pulse-btn px-4 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs sm:text-sm font-black flex items-center gap-1.5 shadow-sm transition">
+                <span>🔊 Đọc từ</span>
+              </button>
+              <button onclick="playAudioCurrentSentence()" class="pulse-btn px-4 py-3 bg-white hover:bg-slate-50 text-slate-800 border-2 border-slate-200 rounded-xl text-xs sm:text-sm font-black flex items-center gap-1.5 transition">
+                <span>🎧 Đọc câu ví dụ</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 3. THƠ LỤC BÁT & MẸO NHỚ TỪ -->
+          <div class="bg-[#fffbeb] border-2 border-[#fde68a] rounded-3xl p-4 sm:p-5 space-y-3 text-slate-800 shadow-sm">
+            <div class="flex items-center gap-2 text-xs font-black text-amber-900 uppercase tracking-wide">
+              <span class="text-base">📜</span>
+              <span>Thơ Lục Bát &amp; Mẹo Liên Tưởng Nhớ Từ</span>
+            </div>
+            <div class="text-base sm:text-xl font-black text-amber-950 italic whitespace-pre-line leading-relaxed pl-3.5 border-l-4 border-amber-400 bg-white/80 p-3.5 rounded-2xl shadow-sm">
+${curV.rhyme}
+            </div>
+            <div class="text-xs sm:text-sm text-amber-950 font-semibold leading-relaxed pt-1">
+              ${curV.mnemonic}
+            </div>
+          </div>
+
+          <!-- 4. CÂU VÍ DỤ + FULL IPA -->
+          <div class="bg-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-200 space-y-2">
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-xs font-black uppercase text-slate-500 tracking-wider">Câu ví dụ áp dụng trong giao tiếp:</span>
+              <button onclick="playAudioCurrentSentence()" class="pulse-btn px-3 py-1 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-black flex items-center gap-1">
+                <span>🔊 Nghe câu</span>
+              </button>
+            </div>
+            <div class="text-base sm:text-xl font-black text-slate-900">
+              "${curV.example}"
+            </div>
+            <div class="text-xs sm:text-base ipa-badge font-bold text-indigo-800 bg-indigo-50 px-3.5 py-1.5 rounded-xl border border-indigo-200 inline-block shadow-sm">
+              🗣️ IPA: ${curV.exampleIpa}
+            </div>
+            <div class="text-xs sm:text-sm text-slate-600 font-semibold italic">
+              ${curV.exampleVi}
+            </div>
+          </div>
+
+          <!-- 5. ĐIỀU HƯỚNG TRÌNH CHIẾU -->
+          <div class="flex items-center justify-between pt-2 border-t border-slate-100 gap-2">
+            <button onclick="prevWord()" class="pulse-btn px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl text-xs sm:text-sm font-black flex items-center gap-1.5 transition">
+              <span>◀ Từ Trước</span>
+            </button>
+            <span class="text-xs text-slate-500 font-bold hidden md:inline">Bút trình chiếu / Bàn phím: ◀ ▶ chuyển từ · Phím Space đọc từ</span>
+            <button onclick="nextWord()" class="pulse-btn px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs sm:text-sm font-black flex items-center gap-1.5 shadow-sm transition">
+              <span>Từ Tiếp Theo ▶</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    `;
+  } else if (activeTab === 'sentences') {
+    main.innerHTML = `
+      <div class="space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+          <h3 class="text-base sm:text-lg font-black text-slate-800">🗣️ Mẫu Câu Trọng Tâm Có Tranh &amp; Phiên Âm IPA Chuẩn</h3>
+          <span class="text-xs text-slate-500 font-bold">Bấm nghe cả câu hoặc tách từng cụm để học sinh đọc đuổi theo</span>
+        </div>
+        <div class="space-y-4">
+          ${u.sentences.map((s, idx) => {
+            const sId = 'u' + u.id + '_s_' + idx;
+            const learned = isLearned(sId);
+            return `
+              <div class="bg-white rounded-3xl p-4 sm:p-6 border border-slate-200 shadow-md space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+                  <span class="text-xs font-black uppercase tracking-wider px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full">Mẫu câu ${idx + 1} / ${u.sentences.length}</span>
+                  <button onclick="saveLearned('${escJs(sId)}')" class="pulse-btn text-xs font-black px-3 py-1 rounded-xl border ${learned ? 'bg-emerald-50 border-emerald-200 text-emerald-700' : 'bg-slate-50 border-slate-200 text-slate-500 hover:text-indigo-600'}">
+                    ${learned ? '⭐ Đã thuộc' : '☆ Đánh dấu thuộc'}
+                  </button>
+                </div>
+
+                <!-- Hai cột: Tranh bối cảnh & Mẫu câu -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+                  <div class="md:col-span-5">
+                    <div class="w-full h-48 sm:h-56 rounded-2xl overflow-hidden shadow-sm border border-slate-200 bg-slate-100">
+                      ${buildImgTag(s.imgUrl, '', s.en, 'w-full h-full object-cover', '🗣️', false)}
+                    </div>
+                  </div>
+
+                  <div class="md:col-span-7 space-y-3">
+                    <div class="space-y-2">
+                      <div class="text-lg sm:text-2xl font-black text-slate-900 leading-snug">${s.en}</div>
+                      <div class="text-xs sm:text-sm ipa-badge font-bold text-indigo-800 bg-indigo-50 px-3.5 py-1.5 rounded-xl border border-indigo-200 inline-block shadow-sm">
+                        🗣️ IPA: <span class="text-indigo-950">${s.ipa}</span>
+                      </div>
+                      <div class="text-sm sm:text-base font-extrabold text-indigo-600">${s.vi}</div>
+                    </div>
+                    <button onclick="playAudio('${escJs(s.en)}'); markLearned('${escJs(sId)}')" class="pulse-btn px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs sm:text-sm font-black inline-flex items-center gap-2 shadow-sm transition">
+                      <span>🔊 Nghe Cả Câu Chuẩn Bản Xứ</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Chunks breakdown -->
+                <div class="bg-slate-50 rounded-2xl p-3.5 border border-slate-200 space-y-2.5">
+                  <div class="text-xs font-black text-slate-500 uppercase tracking-wider">🎧 Tách nhỏ từng cụm (kèm IPA chuẩn) để cả lớp luyện phát âm chuẩn âm đuôi:</div>
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                    ${s.chunks.map(c => `
+                      <button onclick="playAudio('${escJs(c.en)}')" class="pulse-btn p-3 rounded-xl bg-white border border-slate-200 hover:border-indigo-400 text-left transition flex items-center justify-between gap-2 shadow-sm">
+                        <div class="space-y-0.5">
+                          <div class="text-sm font-black text-slate-900">${c.en}</div>
+                          <div class="text-xs ipa-badge font-bold text-indigo-700">${c.ipa}</div>
+                          <div class="text-xs text-slate-500 font-semibold">${c.vi}</div>
+                        </div>
+                        <span class="text-base text-indigo-600 shrink-0">🔊</span>
+                      </button>
+                    `).join('')}
+                  </div>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      </div>
+    `;
+  } else if (activeTab === 'grammar') {
+    const formStyles = {
+      '+': { badge: 'bg-emerald-600 text-white', border: 'border-emerald-300 bg-emerald-50/40', title: 'text-emerald-900' },
+      '-': { badge: 'bg-rose-600 text-white', border: 'border-rose-300 bg-rose-50/40', title: 'text-rose-900' },
+      '?': { badge: 'bg-indigo-600 text-white', border: 'border-indigo-300 bg-indigo-50/40', title: 'text-indigo-900' }
+    };
+
+    main.innerHTML = `
+      <div class="space-y-5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+          <h3 class="text-base sm:text-lg font-black text-slate-800">💡 Góc Ngữ Pháp Trực Quan &amp; 3 Dạng Câu (+ / − / ?)</h3>
+          <span class="text-xs text-slate-500 font-bold">Giải thích dễ hiểu cho học sinh lớp 5 · Có IPA &amp; loa nghe</span>
+        </div>
+
+        <div class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-200 shadow-md space-y-6">
+          <div class="space-y-1 border-b border-slate-100 pb-3">
+            <h4 class="text-xl sm:text-2xl font-black text-indigo-700 flex items-center gap-2">
+              <span>📌</span>
+              <span>${u.grammar.title}</span>
+            </h4>
+            <p class="text-xs sm:text-sm text-slate-600 font-semibold">${u.grammar.summary}</p>
+          </div>
+
+          <!-- 1. SƠ ĐỒ TRỰC QUAN (INFOGRAPHIC) -->
+          ${renderGrammarInfographic(u.grammar.infographicType)}
+
+          <!-- 2. KHẲNG ĐỊNH (+) · PHỦ ĐỊNH (−) · NGHI VẤN (?) -->
+          <div class="space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="px-3 py-1 bg-slate-900 text-white rounded-full text-xs font-black uppercase tracking-wider">📝 3 Dạng Câu Cơ Bản: Khẳng định (+) · Phủ định (−) · Nghi vấn (?)</span>
+            </div>
+            <div class="grid grid-cols-1 gap-4">
+              ${u.grammar.sentenceForms.map(f => {
+                const st = formStyles[f.type] || formStyles['+'];
+                return `
+                  <div class="rounded-3xl border-2 ${st.border} p-4 sm:p-5 space-y-3 shadow-sm">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                      <div class="flex items-center gap-2.5">
+                        <span class="w-8 h-8 rounded-xl ${st.badge} font-black text-base flex items-center justify-center shadow-sm">${f.type}</span>
+                        <h5 class="text-base sm:text-lg font-black ${st.title}">${f.name}</h5>
+                      </div>
+                      <button onclick="playAudio('${escJs(f.example)}')" class="pulse-btn px-3.5 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-black flex items-center gap-1.5 shadow-sm">
+                        <span>🔊 Nghe ví dụ</span>
+                      </button>
+                    </div>
+
+                    <!-- Công thức ngắn gọn -->
+                    <div class="bg-white/90 border border-slate-200 rounded-2xl p-3 font-mono text-xs sm:text-sm font-extrabold text-slate-800 whitespace-pre-line">
+📐 Công thức: ${f.formula}
+                    </div>
+
+                    <!-- Câu ví dụ + IPA + Dịch nghĩa -->
+                    <div class="bg-white rounded-2xl p-3.5 border border-slate-200 ${f.imgUrl ? 'grid grid-cols-1 md:grid-cols-12 gap-3.5 items-center' : 'space-y-1.5'}">
+                      ${f.imgUrl ? `
+                        <div class="md:col-span-4 h-36 sm:h-40 rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
+                          ${buildImgTag(f.imgUrl, '', f.name, 'w-full h-full object-cover', '🖼️', false)}
+                        </div>
+                      ` : ''}
+                      <div class="${f.imgUrl ? 'md:col-span-8' : ''} space-y-1.5">
+                        <div class="text-sm sm:text-lg font-black text-slate-900">🇬🇧 "${f.example}"</div>
+                        <div class="text-xs sm:text-sm ipa-badge font-bold text-indigo-800 bg-indigo-50 px-3 py-1 rounded-xl border border-indigo-200 inline-block">
+                          🗣️ ${f.ipa}
+                        </div>
+                        <div class="text-xs sm:text-sm font-bold text-slate-600">🇻🇳 ${f.vi}</div>
+                      </div>
+                    </div>
+
+                    <!-- Giải thích gần gũi cho học sinh -->
+                    <div class="bg-amber-50/90 border border-amber-200 rounded-2xl p-3 text-xs sm:text-sm font-semibold text-amber-950 leading-relaxed">
+                      🌟 <strong>Giải thích dễ hiểu cho bé:</strong> ${f.kidExplain}
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+
+          <!-- 3. THẺ QUY TẮC CÓ HÌNH MINH HỌA + IPA + LOA -->
+          <div class="space-y-3">
+            <span class="px-3 py-1 bg-indigo-100 text-indigo-900 rounded-full text-xs font-black uppercase tracking-wider inline-block">🖼️ Quy Tắc Chi Tiết Kèm Tranh Minh Họa</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              ${u.grammar.rules.map(r => `
+                <div class="p-4 sm:p-5 rounded-3xl border-2 ${r.color} space-y-3 shadow-sm flex flex-col justify-between bg-white">
+                  <div class="space-y-3">
+                    <div class="flex items-center justify-between gap-2">
+                      <span class="text-xs font-black uppercase tracking-wider px-3 py-1 rounded-lg bg-indigo-100 text-indigo-900 inline-block">${r.label}</span>
+                      <button onclick="playAudio('${escJs(r.example)}')" class="pulse-btn px-2.5 py-1 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-black">🔊 Nghe</button>
+                    </div>
+                    <div class="w-full h-44 sm:h-52 rounded-2xl overflow-hidden border border-slate-200 bg-slate-100">
+                      ${buildImgTag(r.imgUrl, '', r.label, 'w-full h-full object-cover hover:scale-105 transition duration-300', '💡', false)}
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-1.5">
+                      <div class="text-sm sm:text-base font-black text-slate-900">💬 "${r.example}"</div>
+                      <div class="text-xs ipa-badge font-bold text-indigo-700">🗣️ ${r.exampleIpa}</div>
+                    </div>
+                  </div>
+                  <div class="text-xs sm:text-sm font-bold leading-relaxed text-slate-700 bg-indigo-50/60 p-3 rounded-xl border border-indigo-100">
+                    ✨ <strong>Ghi nhớ:</strong> ${r.rule}
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- Tip Box -->
+          <div class="bg-amber-50 border-2 border-amber-300 rounded-2xl p-4 text-xs sm:text-sm text-amber-950 font-black leading-relaxed flex items-start gap-2.5 shadow-sm">
+            <span class="text-xl">💡</span>
+            <div class="pt-0.5">${u.grammar.tip}</div>
+          </div>
+        </div>
+      </div>
+    `;
+  } else if (activeTab === 'practice') {
+    main.innerHTML = `
+      <div class="space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+          <h3 class="text-base sm:text-lg font-black text-slate-800">🎯 Dịch Câu Thuộc Lòng (Thử Thách Phản Xạ)</h3>
+          <span class="text-xs text-slate-500 font-bold">Học sinh nhìn tranh và tự nói tiếng Anh trước khi thầy cô mở đáp án</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          ${u.practice.map((p, idx) => {
+            const pId = 'u' + u.id + '_p_' + idx;
+            const learned = isLearned(pId);
+            return `
+              <div class="bg-white rounded-3xl p-4 sm:p-5 border border-slate-200 shadow-md space-y-3 flex flex-col justify-between">
+                <div class="space-y-2.5">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-black text-indigo-600 uppercase tracking-wider">Câu hỏi ${idx + 1}</span>
+                    <button onclick="saveLearned('${escJs(pId)}')" class="text-xs font-bold ${learned ? 'text-amber-600' : 'text-slate-400 hover:text-amber-500'}">
+                      ${learned ? '⭐ Đã thuộc' : '☆ Đánh dấu'}
+                    </button>
+                  </div>
+
+                  <!-- Tranh gợi ý phản xạ -->
+                  <div class="w-full h-44 rounded-2xl overflow-hidden shadow-sm border border-slate-200 bg-slate-100">
+                    ${buildImgTag(p.imgUrl, '', p.en, 'w-full h-full object-cover', '🎯', false)}
+                  </div>
+
+                  <!-- Câu hỏi Tiếng Việt -->
+                  <div class="text-base sm:text-lg font-black text-slate-900 leading-snug">
+                    🇻🇳 ${p.vi}
+                  </div>
+                </div>
+
+                <!-- Khung mở đáp án + Full IPA + Phát âm -->
+                <div class="space-y-2.5 pt-2 border-t border-slate-100">
+                  <div id="practice-ans-${idx}" class="hidden space-y-2">
+                    <div class="bg-emerald-50 border border-emerald-200 p-3.5 rounded-xl space-y-1.5">
+                      <div class="text-sm sm:text-base font-black text-emerald-950">🇬🇧 ${p.en}</div>
+                      <div class="text-xs sm:text-sm ipa-badge font-bold text-indigo-800 bg-white/90 px-2.5 py-1 rounded-lg border border-indigo-200 inline-block">
+                        🗣️ ${p.ipa}
+                      </div>
+                    </div>
+                    <div class="flex items-center justify-between gap-2">
+                      <span class="text-xs text-slate-600 font-semibold italic">💡 ${p.tip}</span>
+                      <button onclick="playAudio('${escJs(p.en)}'); markLearned('${escJs(pId)}')" class="pulse-btn px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-black flex items-center gap-1 shadow-sm shrink-0">
+                        <span>🔊 Phát âm</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <button id="practice-btn-${idx}" onclick="togglePracticeAnswer(${idx})" class="pulse-btn w-full py-2.5 bg-slate-100 hover:bg-indigo-50 hover:text-indigo-700 text-slate-700 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-1.5">
+                    <span>👁️ Xem đáp án, IPA &amp; Phát âm</span>
+                  </button>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      </div>
+    `;
+  } else if (activeTab === 'quiz') {
+    const isFinished = (currentQuizIdx >= u.quiz.length);
+
+    if (isFinished) {
+      main.innerHTML = `
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xl text-center space-y-5 max-w-xl mx-auto">
+          <div class="text-6xl animate-bounce">🎉</div>
+          <div class="space-y-1">
+            <h3 class="text-2xl sm:text-3xl font-black text-slate-900">Hoan Hô! Cả Lớp Xuất Sắc Hoàn Thành!</h3>
+            <p class="text-sm text-slate-500 font-bold">Thử thách ôn tập kiến thức ${u.title}</p>
+          </div>
+
+          <div class="p-5 bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300 rounded-3xl space-y-2">
+            <div class="text-xs uppercase font-black text-amber-800 tracking-wider">Kết Quả Điểm Số:</div>
+            <div class="text-4xl sm:text-5xl font-black text-amber-600">
+              ${quizScore} / ${u.quiz.length} ⭐
+            </div>
+            <p class="text-xs sm:text-sm font-bold text-amber-900">
+              ${quizScore === u.quiz.length ? 'Xuất sắc tuyệt đối 10/10! Các em nhớ bài siêu đỉnh!' : 'Rất tốt! Các em cùng luyện thêm một lượt để đạt 10/10 nhé!'}
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+            <button onclick="restartQuiz()" class="pulse-btn px-5 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-black rounded-2xl text-sm shadow-md transition flex items-center gap-2">
+              <span>🔄 Chơi Lại Lượt Mới</span>
+            </button>
+            <button onclick="switchTab('vocab')" class="pulse-btn px-5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-black rounded-2xl text-sm transition flex items-center gap-2">
+              <span>📚 Quay Lại Ôn Từ Vựng</span>
+            </button>
+          </div>
+        </div>
+      `;
+      return;
+    }
+
+    const curQ = u.quiz[currentQuizIdx];
+    const matchedVocab = u.vocab.find(v => v.word.toLowerCase() === curQ.audio.toLowerCase());
+
+    main.innerHTML = `
+      <div class="bg-white rounded-3xl p-5 sm:p-7 border border-slate-200 shadow-xl space-y-6 max-w-3xl mx-auto">
+
+        <!-- Header: Question Count & Stars -->
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+          <span class="px-3.5 py-1 bg-indigo-50 text-indigo-700 text-xs sm:text-sm font-black rounded-full uppercase tracking-wider">
+            🎮 Câu hỏi ${currentQuizIdx + 1} / ${u.quiz.length}
+          </span>
+          <div class="flex items-center gap-1 text-sm sm:text-base font-black text-amber-500">
+            <span>⭐ ${quizScore * 10} điểm</span>
+          </div>
+        </div>
+
+        <!-- Question Prompt, Illustration & Sound -->
+        <div class="space-y-4 text-center">
+          <div class="w-full max-w-lg mx-auto h-56 sm:h-72 rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-indigo-200 shadow-md bg-slate-100 flex items-center justify-center">
+            ${buildImgTag(curQ.imgUrl, '', curQ.audio, 'w-full h-full object-cover hover:scale-105 transition duration-300', '🎮', true)}
+          </div>
+          <div class="space-y-2.5">
+            <h4 class="text-lg sm:text-2xl font-black text-slate-900 leading-snug">
+              ${curQ.q}
+            </h4>
+            <button onclick="playAudio('${escJs(curQ.audio)}')" class="pulse-btn px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl text-xs sm:text-sm font-black inline-flex items-center gap-2 shadow-md transition">
+              <span>🔊 Bấm Nghe Phát Âm Gợi Ý</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 Options Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+          ${curQ.options.map((opt, oIdx) => {
+            let btnClass = "p-4 rounded-2xl border-2 text-left font-black text-base sm:text-lg transition flex items-center justify-between ";
+
+            if (!quizAnswered) {
+              btnClass += "bg-slate-50 hover:bg-indigo-50 hover:border-indigo-400 text-slate-800 border-slate-200 cursor-pointer";
+            } else if (oIdx === curQ.ans) {
+              btnClass += "bg-emerald-100 border-emerald-500 text-emerald-950 shadow-md ring-2 ring-emerald-400";
+            } else if (oIdx === selectedQuizOption) {
+              btnClass += "bg-rose-100 border-rose-500 text-rose-900";
+            } else {
+              btnClass += "bg-slate-100 border-slate-200 text-slate-400 opacity-60";
+            }
+
+            const optVocab = u.vocab.find(v => v.word.toLowerCase() === opt.toLowerCase());
+
+            return `
+              <button onclick="answerQuiz(${oIdx})" class="pulse-btn ${btnClass}">
+                <div class="flex items-center gap-3">
+                  <span class="w-8 h-8 rounded-full bg-white border border-slate-300 text-xs flex items-center justify-center font-black text-slate-700 shrink-0">${String.fromCharCode(65 + oIdx)}</span>
+                  <div>
+                    <div>${opt}</div>
+                    ${quizAnswered && optVocab ? `<div class="text-xs ipa-badge font-bold text-indigo-700">${optVocab.ipa}</div>` : ''}
+                  </div>
+                </div>
+                ${quizAnswered && oIdx === curQ.ans ? '<span class="text-emerald-600 text-xl">✓</span>' : ''}
+                ${quizAnswered && oIdx === selectedQuizOption && oIdx !== curQ.ans ? '<span class="text-rose-600 text-xl">✕</span>' : ''}
+              </button>
+            `;
+          }).join('')}
+        </div>
+
+        <!-- Explanation & Next Button (when answered) -->
+        ${quizAnswered ? `
+          <div class="p-4 sm:p-5 rounded-2xl ${selectedQuizOption === curQ.ans ? 'bg-emerald-50 border-2 border-emerald-200 text-emerald-950' : 'bg-rose-50 border-2 border-rose-200 text-rose-950'} space-y-2.5">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div class="text-xs sm:text-sm font-black uppercase tracking-wider">
+                ${selectedQuizOption === curQ.ans ? '🎉 CHÍNH XÁC! TUYỆT VỜI!' : '💡 CHƯA ĐÚNG RỒI, XEM GIẢI THÍCH NHÉ:'}
+              </div>
+              <button onclick="playAudio('${escJs(curQ.audio)}')" class="pulse-btn px-3 py-1 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-black">
+                🔊 Nghe lại ${matchedVocab ? matchedVocab.ipa : ''}
+              </button>
+            </div>
+            <div class="text-sm sm:text-base font-bold">
+              ${curQ.explain}
+            </div>
+            <div class="flex justify-end pt-1">
+              <button onclick="nextQuizQuestion()" class="pulse-btn px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs sm:text-sm font-black shadow-md transition flex items-center gap-1.5">
+                <span>${currentQuizIdx + 1 === u.quiz.length ? 'Xem Tổng Điểm 🏆' : 'Câu Tiếp Theo ▶'}</span>
+              </button>
+            </div>
+          </div>
+        ` : ''}
+
+      </div>
+    `;
+  }
+}
+
+// Visual Audit Modal (Teacher quick-check for all 5 Units' images vs context)
+function openImageAuditModal() {
+  const modal = document.getElementById('image-audit-modal');
+  const body = document.getElementById('image-audit-body');
+  if (!modal || !body) return;
+
+  body.innerHTML = APP_UNITS.map(u => {
+    const vocabCards = u.vocab.map((v, idx) => `
+      <div class="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden flex flex-col">
+        <div class="relative h-36 bg-slate-200 overflow-hidden">
+          ${buildImgTag(v.imgUrl, v.fallbackUrl, v.word, 'w-full h-full object-cover', v.icon, false)}
+          <span class="absolute top-2 left-2 px-2 py-0.5 bg-slate-900/80 text-white rounded-lg text-[11px] font-black">#${idx + 1} ${v.word}</span>
+        </div>
+        <div class="p-2.5 space-y-1 text-xs flex-1">
+          <div class="font-black text-indigo-700">${v.meaning} <span class="ipa-badge text-slate-500 font-semibold">${v.ipa}</span></div>
+          <div class="text-[11px] text-slate-700 font-semibold">"${v.example}"</div>
+          ${v.visualSpec ? `<div class="text-[11px] text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-lg px-2 py-1 font-bold">🎯 Tiêu chí: ${v.visualSpec}</div>` : ''}
+        </div>
+      </div>
+    `).join('');
+
+    const grammarItems = [];
+    if (u.grammar.funnelImages) {
+      u.grammar.funnelImages.forEach(fi => grammarItems.push({ label: 'Sơ đồ ' + fi.tier, caption: fi.caption, imgUrl: fi.imgUrl, spec: fi.visualSpec }));
+    }
+    if (u.grammar.sentenceForms) {
+      u.grammar.sentenceForms.forEach(sf => {
+        if (sf.imgUrl) grammarItems.push({ label: sf.name, caption: sf.example, imgUrl: sf.imgUrl, spec: sf.visualSpec });
+      });
+    }
+    if (u.grammar.rules) {
+      u.grammar.rules.forEach(r => {
+        if (r.imgUrl) grammarItems.push({ label: r.label, caption: r.example, imgUrl: r.imgUrl, spec: r.visualSpec });
+      });
+    }
+
+    const grammarSection = grammarItems.length ? `
+      <div class="space-y-2 pt-2">
+        <div class="text-xs font-black uppercase text-amber-700 tracking-wider">💡 Ảnh phần Ngữ pháp Unit ${u.id} (${grammarItems.length} ảnh):</div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+          ${grammarItems.map(g => `
+            <div class="bg-amber-50/50 rounded-2xl border border-amber-200 overflow-hidden flex flex-col">
+              <div class="relative h-32 bg-slate-200 overflow-hidden">
+                ${buildImgTag(g.imgUrl, '', g.label, 'w-full h-full object-cover', '💡', false)}
+              </div>
+              <div class="p-2.5 space-y-1 text-xs">
+                <div class="font-black text-slate-900">${g.label}</div>
+                <div class="text-[11px] text-slate-600 font-semibold">${g.caption}</div>
+                ${g.spec ? `<div class="text-[11px] text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-lg px-2 py-1 font-bold">🎯 ${g.spec}</div>` : ''}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    ` : '';
+
+    return `
+      <section class="space-y-3 pb-4 border-b border-slate-200 last:border-b-0">
+        <div class="flex items-center gap-2">
+          <span class="text-xl">${u.icon}</span>
+          <h4 class="text-base sm:text-lg font-black text-slate-900">${u.title} (${u.vocab.length} từ vựng)</h4>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+          ${vocabCards}
+        </div>
+        ${grammarSection}
+      </section>
+    `;
+  }).join('');
+
+  modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeImageAuditModal() {
+  const modal = document.getElementById('image-audit-modal');
+  if (modal) modal.classList.add('hidden');
+  document.body.style.overflow = '';
+}
+
+// Keyboard shortcuts for wireless clickers & presentation remotes
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeImageAuditModal();
+    return;
+  }
+  if (activeTab === 'vocab') {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+      e.preventDefault();
+      nextWord();
+    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+      e.preventDefault();
+      prevWord();
+    } else if (e.key === ' ' && document.activeElement.tagName !== 'BUTTON') {
+      e.preventDefault();
+      playAudioCurrentWord();
+    }
+  }
+});
+
+// Initial boot
+window.addEventListener('DOMContentLoaded', () => {
+  renderUnitNav();
+  renderUnitBanner();
+  renderContent();
+});
+  </script>
+</body>
+</html>
