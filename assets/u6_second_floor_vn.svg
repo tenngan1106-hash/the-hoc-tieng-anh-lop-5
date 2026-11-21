@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#bae6fd"/>
+      <stop offset="100%" stop-color="#e0f2fe"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#9333ea"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#sky)"/>
+  <rect y="455" width="960" height="85" fill="#4ade80"/>
+  <rect y="450" width="960" height="12" fill="#22c55e"/>
+  <polygon points="140,120 480,36 820,120" fill="#dc2626" stroke="#991b1b" stroke-width="5"/>
+  <rect x="370" y="72" width="220" height="36" rx="8" fill="#fef3c7" stroke="#b45309" stroke-width="3"/>
+  <text x="480" y="96" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="20" fill="#991b1b">PRIMARY SCHOOL</text>
+  <rect x="170" y="120" width="620" height="335" fill="#fefce8" stroke="#cbd5e1" stroke-width="4"/>
+  <!-- Second Floor (HIGHLIGHTED) -->
+  <rect x="176" y="128" width="608" height="102" rx="12" fill="url(#glow)" stroke="#5b21b6" stroke-width="5"/>
+  <rect x="200" y="144" width="290" height="70" rx="12" fill="#ffffff"/>
+  <text x="345" y="176" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="24" fill="#6d28d9">SECOND FLOOR (2F)</text>
+  <text x="345" y="202" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="17" fill="#0f172a">Tầng 2 (trên tầng 1)</text>
+  <rect x="515" y="148" width="115" height="64" rx="8" fill="#ede9fe" stroke="#4c1d95" stroke-width="3"/>
+  <text x="572" y="186" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="17" fill="#4c1d95">Art Room</text>
+  <rect x="645" y="148" width="115" height="64" rx="8" fill="#ede9fe" stroke="#4c1d95" stroke-width="3"/>
+  <text x="702" y="186" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="17" fill="#4c1d95">Music Room</text>
+  <!-- First Floor (dimmed) -->
+  <rect x="180" y="240" width="600" height="96" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="215" y="295" font-family="Arial, sans-serif" font-weight="800" font-size="22" fill="#64748b">1F · First Floor</text>
+  <!-- Ground Floor (dimmed) -->
+  <rect x="180" y="348" width="600" height="98" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="215" y="405" font-family="Arial, sans-serif" font-weight="800" font-size="22" fill="#64748b">G · Ground Floor</text>
+  <!-- Arrow Pointer -->
+  <polygon points="65,179 125,147 125,165 165,165 165,193 125,193 125,211" fill="#7c3aed" transform="rotate(180 115 179)"/>
+  <text x="90" y="136" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="20" fill="#6d28d9">TẦNG 2</text>
+</svg>

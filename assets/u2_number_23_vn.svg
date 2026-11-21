@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540">
+  <rect width="960" height="540" fill="#f8fafc"/>
+  <rect x="40" y="32" width="880" height="476" rx="32" fill="#ffffff" stroke="#2563eb" stroke-width="6"/>
+  <!-- Vietnamese Standard Blue House Number Plate -->
+  <rect x="220" y="100" width="520" height="300" rx="28" fill="#1d4ed8" stroke="#ffffff" stroke-width="10"/>
+  <rect x="240" y="120" width="480" height="260" rx="20" fill="none" stroke="#93c5fd" stroke-width="4" stroke-dasharray="8 6"/>
+  <text x="480" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="26" fill="#93c5fd" letter-spacing="4">SỐ NHÀ / PHỐ VIỆT NAM</text>
+  <text x="480" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="130" fill="#ffffff">23</text>
+  <text x="480" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="24" fill="#fde047">ĐƯỜNG TRẦN PHÚ</text>
+  <!-- Badge -->
+  <rect x="180" y="440" width="600" height="54" rx="16" fill="#1d4ed8"/>
+  <text x="480" y="476" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="28" fill="#ffffff">🔢 TWENTY-THREE · Số 23 (Số nhà em)</text>
+</svg>
