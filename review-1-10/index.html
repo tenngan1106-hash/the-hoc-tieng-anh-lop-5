@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="referrer" content="no-referrer" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thẻ Học &amp; Luyện Thi Học Kỳ 1 · Unit 1–10 · Tiếng Anh Lớp 5 Global Success</title>
+  <!-- Tailwind CSS v3 CDN -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+    }
+    .font-kids {
+      font-family: 'Nunito', sans-serif;
+    }
+    .hero-card {
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+    }
+    .main-tab.active {
+      background: linear-gradient(135deg, #4f46e5 0%, #2563eb 100%);
+      color: #ffffff;
+      border-color: #4338ca;
+      box-shadow: 0 8px 18px -4px rgba(79, 70, 229, 0.45);
+      transform: translateY(-2px);
+    }
+    .main-tab:not(.active) {
+      background-color: #ffffff;
+      color: #475569;
+      border-color: #e2e8f0;
+    }
+    .main-tab:not(.active):hover {
+      background-color: #f1f5f9;
+      color: #1e293b;
+    }
+    .sub-filter-pill.active {
+      background-color: #4f46e5;
+      color: #ffffff;
+      box-shadow: 0 4px 10px -1px rgba(79, 70, 229, 0.3);
+    }
+    .sub-filter-pill:not(.active) {
+      background-color: #ffffff;
+      color: #64748b;
+      border: 1px solid #e2e8f0;
+    }
+    .sub-filter-pill:not(.active):hover {
+      background-color: #f8fafc;
+      color: #0f172a;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      height: 8px;
+      width: 8px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 9999px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-indigo-100 selection:text-indigo-900">
+
+  <!-- AUDIO TOAST POPUP -->
+  <div id="audio-toast" class="fixed bottom-6 right-6 z-50 hidden items-center gap-3 bg-slate-900/95 text-white px-5 py-3 rounded-2xl shadow-2xl border border-slate-700/60 backdrop-blur-md transition-all">
+    <span class="inline-block w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></span>
+    <span id="toast-msg" class="text-sm font-semibold tracking-wide">Đang phát âm...</span>
+  </div>
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
+      
+      <!-- Logo & Back to Portal -->
+      <div class="flex items-center gap-3">
+        <a href="../index.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-700 text-xs sm:text-sm font-bold rounded-xl border border-slate-200 transition-colors shadow-sm" title="Quay lại Trang chủ">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          Trang chủ Lớp 5
+        </a>
+        <div class="h-5 w-px bg-slate-300 hidden sm:block"></div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-extrabold text-[10px] sm:text-xs rounded-md shadow-sm uppercase tracking-wider">Học Kỳ 1 · Toàn Diện</span>
+            <h1 class="text-base sm:text-lg font-black text-slate-900 tracking-tight">Ôn Tập &amp; Luyện Thi Unit 1–10</h1>
+          </div>
+          <p class="text-[11px] text-slate-500 hidden md:block">60 Từ vựng trọng tâm · 10 Mẫu câu 3 cụm · 5 Sơ đồ ngữ pháp · 40 Câu luyện dịch có tranh · 10 Đề thi thử</p>
+        </div>
+      </div>
+
+      <!-- Control Tools (Speed, TV Fullscreen, Progress) -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Speed Toggle -->
+        <div class="inline-flex p-0.5 bg-slate-100 rounded-xl border border-slate-200 shadow-inner">
+          <button id="btn-speed-1" onclick="setSpeed(1.0)" class="px-2.5 py-1 text-xs font-bold rounded-lg transition-all bg-white text-indigo-700 shadow-sm">1.0x Chuẩn</button>
+          <button id="btn-speed-075" onclick="setSpeed(0.75)" class="px-2.5 py-1 text-xs font-bold rounded-lg transition-all text-slate-600 hover:text-slate-900">0.75x Chậm</button>
+        </div>
+
+        <!-- TV Fullscreen Toggle -->
+        <button onclick="toggleFullscreen()" class="p-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl border border-slate-200 transition-all shadow-sm" title="Chế độ Trình Chiếu TV / Toàn Màn Hình">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-5h-4m4 0v4m0 0l-5-5m-7 11l-5 5m0 0h4m-4 0v-4m16 4v-4m0 4h-4m4 0l-5-5"></path></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- MAIN 5 NAVIGATION TABS (NUMBERED & RESPONSIVE) -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-100 bg-slate-50/60">
+      <div class="flex space-x-2 py-2 overflow-x-auto custom-scroll">
+        <button onclick="switchTab(1)" id="tab-btn-1" class="main-tab active px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold whitespace-nowrap border transition-all flex items-center gap-1.5">
+          <span>📚</span> 1. 60 Từ Vựng
+        </button>
+        <button onclick="switchTab(2)" id="tab-btn-2" class="main-tab px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold whitespace-nowrap border transition-all flex items-center gap-1.5">
+          <span>🗣️</span> 2. 10 Mẫu Câu (3 Cụm)
+        </button>
+        <button onclick="switchTab(3)" id="tab-btn-3" class="main-tab px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold whitespace-nowrap border transition-all flex items-center gap-1.5">
+          <span>💡</span> 3. 5 Cẩm Nang Ngữ Pháp
+        </button>
+        <button onclick="switchTab(4)" id="tab-btn-4" class="main-tab px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold whitespace-nowrap border transition-all flex items-center gap-1.5">
+          <span>🎯</span> 4. 40 Câu Luyện Dịch
+        </button>
+        <button onclick="switchTab(5)" id="tab-btn-5" class="main-tab px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold whitespace-nowrap border transition-all flex items-center gap-1.5">
+          <span>🏆</span> 5. 10 Đề Thi HK1
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div id="tab-content" class="transition-opacity duration-200">
+      <!-- Dynamic tab view rendered by JS -->
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t border-slate-200/80 py-5 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      
+      <!-- Progress counter -->
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-1.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-indigo-600"></span>
+          <span>Đã thuộc: <strong id="footer-learned-count" class="text-indigo-600 font-bold">0</strong> / 60 từ</span>
+        </div>
+        <span class="text-slate-300">|</span>
+        <button onclick="resetLearnedProgress()" class="hover:text-rose-600 underline transition-colors">Xóa tiến độ học</button>
+      </div>
+
+      <!-- Standards Info & Teacher Audit Modal Button -->
+      <div class="flex items-center gap-3 flex-wrap justify-center">
+        <span>Tiếng Anh 5 Global Success · 100% Phiên âm Quốc tế IPA · Tối ưu TV &amp; Bút trình chiếu</span>
+        <button onclick="openImageAuditModal()" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-lg transition-colors border border-slate-200 shadow-sm">
+          🖼️ Kiểm tra toàn bộ ảnh (Teacher Audit)
+        </button>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- TEACHER AUDIT MODAL -->
+  <div id="image-audit-modal" class="fixed inset-0 z-50 hidden bg-slate-900/70 backdrop-blur-sm overflow-y-auto p-4 sm:p-6 lg:p-8 flex items-center justify-center">
+    <div class="bg-white rounded-3xl max-w-5xl w-full max-h-[90vh] flex flex-col shadow-2xl border border-slate-200 overflow-hidden">
+      
+      <!-- Modal Header -->
+      <div class="px-6 py-4 border-b border-slate-200 flex items-center justify-between bg-slate-50">
+        <div>
+          <h3 class="text-lg font-black text-slate-900">🖼️ Kiểm Tra Ảnh &amp; Giáo Án Văn Hóa (Teacher Audit)</h3>
+          <p class="text-xs text-slate-500">Toàn bộ 60 từ vựng Unit 1–10 chuẩn văn hóa Việt Nam, không bồi IPA, ảnh sắc nét</p>
+        </div>
+        <button onclick="closeImageAuditModal()" class="p-2 text-slate-400 hover:text-slate-700 rounded-xl hover:bg-slate-200 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <!-- Modal Body (Grid of 60 items) -->
+      <div id="audit-grid" class="flex-1 overflow-y-auto p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 custom-scroll">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-6 py-3 border-t border-slate-200 bg-slate-50 flex justify-end">
+        <button onclick="closeImageAuditModal()" class="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm rounded-xl transition-all shadow-sm">
+          Đóng cửa sổ
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- HIDDEN AUDIO TAG -->
+  <audio id="app-audio-player" class="hidden" preload="auto"></audio>
+
+  <!-- DATA & APP SCRIPT -->
+  <script>
+    // Embedded Data
+    const VOCAB_DATA = [{"id": "u1_1", "unit": 1, "unitTitle": "Unit 1: All About Me", "word": "lane", "pos": "noun", "ipa": "/leɪn/", "meaning": "ngõ, hẻm nhỏ", "icon": "🏡", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Narrow_Lane,_Hanoi,_Vietnam_(7060655639).jpg?width=960", "tip": "Con ngõ nhỏ Hà Nội râm mát bóng cây", "visualSpec": "Ngõ nhỏ lát gạch sạch sẽ ở phố cổ Hà Nội", "rhyme": "Ngõ sâu râm mát hàng cây,\nLane đường hẻm nhỏ sum vầy bình yên.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Lane</strong> đọc tựa như <em>làn</em> ➜ Làn đường hẻm nhỏ rẽ về ngôi nhà thân yêu.", "example": "He lives in Hoa Binh Lane.", "exampleIpa": "/hiː lɪvz ɪn hoɑː bɪn leɪn/", "exampleVi": "Cậu ấy sống ở ngõ Hòa Bình."}, {"id": "u1_2", "unit": 1, "unitTitle": "Unit 1: All About Me", "word": "address", "pos": "noun", "ipa": "/əˈdres/", "meaning": "địa chỉ nhà", "icon": "📮", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/L%C3%AA_Lai_street_sign,_Hanoi_(2018).jpg?width=960", "tip": "Biển số nhà và tên đường quen thuộc tại Việt Nam", "visualSpec": "Biển chỉ dẫn tên phố Lê Lai tại Hà Nội", "rhyme": "Tìm nhà ghi nhớ số nhà,\nAddress địa chỉ gần xa rõ ràng.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Address</strong> là địa chỉ cụ thể gồm số nhà và tên đường.", "example": "What is your address?", "exampleIpa": "/wɒt ɪz jɔːr əˈdres/", "exampleVi": "Địa chỉ của bạn ở đâu?"}, {"id": "u1_3", "unit": 1, "unitTitle": "Unit 1: All About Me", "word": "city", "pos": "noun", "ipa": "/ˈsɪti/", "meaning": "thành phố", "icon": "🏙️", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Ho_Chi_Minh_City,_Saigon,_Vietnam_(49579791152).jpg?width=960", "tip": "Thành phố rực rỡ hiện đại của Việt Nam", "visualSpec": "Quang cảnh đô thị năng động TP. Hồ Chí Minh", "rhyme": "Phố đông xe cộ rộn ràng,\nCity thành phố thênh thang muôn màu.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>City</strong> là đô thị sầm uất với nhiều nhà cao tầng và xe cộ.", "example": "Ha Noi is a big and beautiful city.", "exampleIpa": "/haː nɔɪ ɪz ə bɪɡ ænd ˈbjuːtɪfl ˈsɪti/", "exampleVi": "Hà Nội là một thành phố lớn và tươi đẹp."}, {"id": "u1_4", "unit": 1, "unitTitle": "Unit 1: All About Me", "word": "countryside", "pos": "noun", "ipa": "/ˈkʌntrisaɪd/", "meaning": "vùng quê, nông thôn", "icon": "🌾", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Rice_fields_in_Vietnam.jpg?width=960", "tip": "Đồng lúa chín vàng êm ả làng quê Việt Nam", "visualSpec": "Cánh đồng lúa vàng óng ả và lũy tre làng Việt Nam", "rhyme": "Đồng quê lúa chín vàng ươm,\nCountryside cảnh thơm lừng ngát hương.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Country</strong> (đất nước) + <strong>side</strong> (phía) ➜ Phía vùng quê thanh bình, tĩnh lặng.", "example": "My grandparents live in the peaceful countryside.", "exampleIpa": "/maɪ ˈɡrænpeərənts lɪv ɪn ðə ˈpiːsfl ˈkʌntrisaɪd/", "exampleVi": "Ông bà mình sống ở vùng quê thanh bình."}, {"id": "u1_5", "unit": 1, "unitTitle": "Unit 1: All About Me", "word": "mountains", "pos": "noun", "ipa": "/ˈmaʊntɪnz/", "meaning": "vùng núi non", "icon": "⛰️", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Terraced_rice_fields_in_Mu_Cang_Chai,_Yen_Bai,_Vietnam.jpg?width=960", "tip": "Ruộng bậc thang kỳ vĩ trên vùng núi phía Bắc", "visualSpec": "Ruộng bậc thang Mù Cang Chải ngút ngàn mây trắng", "rhyme": "Non cao mây trắng ngút ngàn,\nMountains đồi núi đại ngàn bao la.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Mountains</strong> là những dãy núi cao chót vót chạm mây trời.", "example": "Sapa is located in the high mountains.", "exampleIpa": "/saːpaː ɪz ləʊˈkeɪtɪd ɪn ðə haɪ ˈmaʊntɪnz/", "exampleVi": "Sa Pa nằm ở trên vùng núi cao."}, {"id": "u1_6", "unit": 1, "unitTitle": "Unit 1: All About Me", "word": "favourite", "pos": "adj", "ipa": "/ˈfeɪvərɪt/", "meaning": "yêu thích nhất", "icon": "💖", "img": "https://images.unsplash.com/photo-1544773088-d142e38f5793?w=960&auto=format&fit=crop&q=80", "tip": "Niềm vui thích và nụ cười rạng rỡ của học sinh", "visualSpec": "Học sinh rạng rỡ với hoạt động học tập yêu thích", "rhyme": "Món ngon hay thú vui chơi,\nFavourite thích nhất trọn đời mến yêu.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Favourite</strong> là thứ mà em quý mến và say mê nhất.", "example": "English is my favourite subject at school.", "exampleIpa": "/ˈɪŋɡlɪʃ ɪz maɪ ˈfeɪvərɪt ˈsʌbdʒɪkt æt skuːl/", "exampleVi": "Tiếng Anh là môn học yêu thích nhất của mình ở trường."}, {"id": "u2_1", "unit": 2, "unitTitle": "Unit 2: Our Homes", "word": "flat", "pos": "noun", "ipa": "/flæt/", "meaning": "căn hộ chung cư", "icon": "🏢", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Modern_living_room_with_stylish_furniture_and_a_view_of_the_outdoors_in_a_cozy_apartment_setting.jpg?width=960", "tip": "Căn hộ chung cư hiện đại, ấm cúng", "visualSpec": "Căn phòng khách chung cư tiện nghi với góc nhìn thoáng đãng", "rhyme": "Tầng cao gió mát trăng thanh,\nFlat căn hộ nhỏ vách lành ấm êm.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Flat</strong> là căn hộ chung cư nằm trên một mặt sàn tiện lợi.", "example": "They live in Flat 23 on the second floor.", "exampleIpa": "/ðeɪ lɪv ɪn flæt ˌtwenti ˈθriː ɒn ðə ˈsekənd flɔːr/", "exampleVi": "Họ sống ở căn hộ 23 trên tầng hai."}, {"id": "u2_2", "unit": 2, "unitTitle": "Unit 2: Our Homes", "word": "tower", "pos": "noun", "ipa": "/ˈtaʊər/", "meaning": "tòa tháp cao tầng", "icon": "🗼", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Bitexco_Financial_Tower_Saigon.jpg?width=960", "tip": "Tòa tháp Bitexco vươn cao kiêu hãnh giữa Sài Gòn", "visualSpec": "Tòa tháp tài chính Bitexco biểu tượng hiện đại TP.HCM", "rhyme": "Vươn lên tận cõi mây ngàn,\nTower tòa tháp hiên ngang giữa trời.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Tower</strong> là tòa tháp rất cao chọc trời.", "example": "Bitexco is a famous tower in Ho Chi Minh City.", "exampleIpa": "/bɪˈtekskəʊ ɪz ə ˈfeɪməs ˈtaʊər ɪn hoʊ tʃiː mɪn ˈsɪti/", "exampleVi": "Bitexco là một tòa tháp nổi tiếng ở Thành phố Hồ Chí Minh."}, {"id": "u2_3", "unit": 2, "unitTitle": "Unit 2: Our Homes", "word": "building", "pos": "noun", "ipa": "/ˈbɪldɪŋ/", "meaning": "tòa nhà, cao ốc", "icon": "🏬", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Landmark_81_December_2020.jpg?width=960", "tip": "Tòa nhà Landmark 81 sừng sững bên bờ sông", "visualSpec": "Tòa cao ốc Landmark 81 sừng sững tráng lệ", "rhyme": "Công trình sừng sững uy nghi,\nBuilding nhà lớn lối đi rộn ràng.", "mnemonic": "💡 <strong>Cách nhớ:</strong> Bắt nguồn từ <strong>build</strong> (xây dựng) ➜ <strong>Building</strong> là tòa nhà được xây cất kiên cố.", "example": "Landmark 81 is the tallest building in Vietnam.", "exampleIpa": "/ˈlændmɑːk ˈeɪti wʌn ɪz ðə ˈtɔːlɪst ˈbɪldɪŋ ɪn ˌvjetˈnæm/", "exampleVi": "Landmark 81 là tòa nhà cao nhất Việt Nam."}, {"id": "u2_4", "unit": 2, "unitTitle": "Unit 2: Our Homes", "word": "floor", "pos": "noun", "ipa": "/flɔːr/", "meaning": "tầng lầu, sàn nhà", "icon": "📶", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Saigon_cafe_apartment.jpg?width=960", "tip": "Tòa nhà nhiều tầng với ban công rực rỡ sắc màu", "visualSpec": "Chung cư cà phê phố đi bộ Nguyễn Huệ nhiều tầng rực rỡ", "rhyme": "Lên lầu từng bậc bước qua,\nFloor tầng cao ngắm bao la sân trường.", "mnemonic": "💡 <strong>Cách nhớ:</strong> Đi với giới từ <strong>on</strong>: <em>on the second floor</em> (ở trên tầng 2).", "example": "My classroom is on the first floor.", "exampleIpa": "/maɪ ˈklɑːsruːm ɪz ɒn ðə fɜːst flɔːr/", "exampleVi": "Lớp học của mình ở trên tầng một."}, {"id": "u2_5", "unit": 2, "unitTitle": "Unit 2: Our Homes", "word": "street", "pos": "noun", "ipa": "/striːt/", "meaning": "con đường, phố", "icon": "🛣️", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Phan_%C4%90%C3%ACnh_Ph%C3%B9ng_Street,_Hanoi.jpg?width=960", "tip": "Đường phố rợp bóng cây xanh mát ở Hà Nội", "visualSpec": "Phố Phan Đình Phùng rợp bóng xà cừ cổ thụ Hà Nội", "rhyme": "Phố phường xe chạy dập dìu,\nStreet con đường rộng sáng chiều đông vui.", "mnemonic": "💡 <strong>Cách nhớ:</strong> Tên đường đi với <strong>on</strong>: <em>on Tran Phu Street</em>.", "example": "We walk along the beautiful street.", "exampleIpa": "/wiː wɔːk əˈlɒŋ ðə ˈbjuːtɪfl striːt/", "exampleVi": "Chúng mình đi dạo dọc theo con đường tươi đẹp."}, {"id": "u2_6", "unit": 2, "unitTitle": "Unit 2: Our Homes", "word": "twenty-three", "pos": "num", "ipa": "/ˌtwenti ˈθriː/", "meaning": "số 23 (số nhà)", "icon": "🔢", "img": "assets/u2_number_23_vn.svg", "tip": "Biển số nhà 23 màu xanh chữ trắng đặc trưng Việt Nam", "visualSpec": "Biển số nhà 23 màu xanh dương viền trắng phố Việt Nam", "rhyme": "Hai mươi cùng với số ba,\nTwenty-three đó số nhà của em.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Twenty</strong> (20) + <strong>three</strong> (3) = 23.", "example": "I live at 23 Tran Phu Street.", "exampleIpa": "/aɪ lɪv æt ˌtwenti ˈθriː trɑːn fuː striːt/", "exampleVi": "Mình sống ở số nhà 23 đường Trần Phú."}, {"id": "u3_1", "unit": 3, "unitTitle": "Unit 3: My Foreign Friends", "word": "Vietnamese", "pos": "adj", "ipa": "/ˌvjetnəˈmiːz/", "meaning": "người/tiếng Việt Nam", "icon": "🇻🇳", "img": "assets/u1_vietnam_map_hs_ts.png", "tip": "Bản đồ đất nước Việt Nam với Hoàng Sa và Trường Sa", "visualSpec": "Bản đồ chữ S Việt Nam đầy đủ quần đảo Hoàng Sa và Trường Sa", "rhyme": "Dòng máu Lạc Hồng tự hào,\nVietnamese đẹp biết bao nghĩa tình.", "mnemonic": "💡 <strong>Cách nhớ:</strong> Trọng âm rơi vào âm cuối: <em>Vietna'mese</em>.", "example": "Nam is proud to be Vietnamese.", "exampleIpa": "/nɑːm ɪz praʊd tuː biː ˌvjetnəˈmiːz/", "exampleVi": "Nam rất tự hào là người Việt Nam."}, {"id": "u3_2", "unit": 3, "unitTitle": "Unit 3: My Foreign Friends", "word": "American", "pos": "adj", "ipa": "/əˈmerɪkən/", "meaning": "người Mỹ, mang quốc tịch Mỹ", "icon": "🇺🇸", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_the_United_States.svg?width=960", "tip": "Quốc kỳ Hợp chủng quốc Hoa Kỳ với sao và sọc", "visualSpec": "Lá cờ nước Mỹ 50 ngôi sao và các sọc đỏ trắng", "rhyme": "Xứ cờ hoa bạn phương xa,\nAmerican mến thật thà dễ thương.", "mnemonic": "💡 <strong>Cách nhớ:</strong> Trọng âm rơi vào âm 2: <em>A'merican</em>.", "example": "John is an American student.", "exampleIpa": "/dʒɒn ɪz ən əˈmerɪkən ˈstjuːdnt/", "exampleVi": "John là một học sinh người Mỹ."}, {"id": "u3_3", "unit": 3, "unitTitle": "Unit 3: My Foreign Friends", "word": "Australian", "pos": "adj", "ipa": "/ɒˈstreɪliən/", "meaning": "người Úc, quốc tịch Úc", "icon": "🇦🇺", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Australia.svg?width=960", "tip": "Quốc kỳ Úc với chòm sao Nam Thập Tự", "visualSpec": "Lá cờ nước Úc với chòm sao chữ thập phương Nam", "rhyme": "Xứ sở chuột túi Kangaroo,\nAustralian bạn vi vu học cùng.", "mnemonic": "💡 <strong>Cách nhớ:</strong> Trọng âm rơi vào âm 2: <em>Aus'tralian</em>.", "example": "Linda is Australian, and she is very kind.", "exampleIpa": "/ˈlɪndə ɪz ɒˈstreɪliən, ænd ʃiː ɪz ˈveri kaɪnd/", "exampleVi": "Linda là người Úc, và bạn ấy rất tốt bụng."}, {"id": "u3_4", "unit": 3, "unitTitle": "Unit 3: My Foreign Friends", "word": "friendly", "pos": "adj", "ipa": "/ˈfrendli/", "meaning": "thân thiện, cởi mở", "icon": "🤝", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Children_in_Middle_Vietnam.jpg?width=960", "tip": "Nụ cười hồn nhiên, thân thiện của các em nhỏ Việt Nam", "visualSpec": "Các em nhỏ Việt Nam mỉm cười thân thiện chào đón khách", "rhyme": "Nụ cười luôn nở trên môi,\nFriendly thân thiện đón mời bạn sang.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Friend</strong> (bạn bè) + <strong>ly</strong> ➜ Cư xử hòa nhã như một người bạn thân.", "example": "The people in my village are very friendly.", "exampleIpa": "/ðə ˈpiːpl ɪn maɪ ˈvɪlɪdʒ ɑːr ˈveri ˈfrendli/", "exampleVi": "Người dân ở làng mình rất thân thiện."}, {"id": "u3_5", "unit": 3, "unitTitle": "Unit 3: My Foreign Friends", "word": "helpful", "pos": "adj", "ipa": "/ˈhelpfl/", "meaning": "hay giúp đỡ mọi người", "icon": "🤲", "img": "assets/u3_helpful_students_vn.png", "tip": "Học sinh Việt Nam giúp đỡ bạn bè nhặt sách vở", "visualSpec": "Học sinh tiểu học VN mặc áo trắng khăn quàng đỏ nhiệt tình giúp bạn", "rhyme": "Thấy ai khó nhọc đỡ đần,\nHelpful giúp đỡ ân cần sớm hôm.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Help</strong> (giúp đỡ) + <strong>ful</strong> (đầy) ➜ Người luôn sẵn lòng giúp người khác.", "example": "Ba is a clever and helpful boy.", "exampleIpa": "/baː ɪz ə ˈklevər ænd ˈhelpfl bɔɪ/", "exampleVi": "Ba là một cậu bé thông minh và hay giúp đỡ bạn bè."}, {"id": "u3_6", "unit": 3, "unitTitle": "Unit 3: My Foreign Friends", "word": "clever", "pos": "adj", "ipa": "/ˈklevər/", "meaning": "thông minh, sáng dạ", "icon": "🧠", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Students_in_classroom_Vietnam.jpg?width=960", "tip": "Học sinh say sưa giơ tay phát biểu xây dựng bài", "visualSpec": "Học sinh hăng hái giơ tay trong giờ học trên lớp", "rhyme": "Trạng Tí tài trí hơn người,\nClever thông minh rạng ngời nước non.", "mnemonic": "💡 <strong>Cách nhớ:</strong> Trọng âm rơi vào âm đầu: <em>'clever</em>.", "example": "She is clever at solving difficult maths problems.", "exampleIpa": "/ʃiː ɪz ˈklevər æt ˈsɒlvɪŋ ˈdɪfɪkəlt mæθs ˈprɒbləmz/", "exampleVi": "Bạn ấy rất thông minh khi giải các bài toán khó."}, {"id": "u4_1", "unit": 4, "unitTitle": "Unit 4: Our Free-time Activities", "word": "always", "pos": "adv", "ipa": "/ˈɔːlweɪz/", "meaning": "luôn luôn (100%)", "icon": "💯", "img": "assets/u4_always_brush_teeth_vn.jpg", "tip": "Bé luôn luôn đánh răng sạch sẽ mỗi buổi sáng", "visualSpec": "Em bé Việt Nam vui vẻ đánh răng sáng sớm chuẩn bị đi học", "rhyme": "Trăm phần trăm chẳng đổi dời,\nAlways luôn nhớ từng lời mẹ khuyên.", "mnemonic": "💡 <strong>Cách nhớ:</strong> Chỉ tần suất cao nhất (100%), ngày nào cũng thực hiện.", "example": "I always brush my teeth in the morning.", "exampleIpa": "/aɪ ˈɔːlweɪz brʌʃ maɪ tiːθ ɪn ðə ˈmɔːnɪŋ/", "exampleVi": "Mình luôn luôn đánh răng vào buổi sáng."}, {"id": "u4_2", "unit": 4, "unitTitle": "Unit 4: Our Free-time Activities", "word": "usually", "pos": "adv", "ipa": "/ˈjuːʒuəli/", "meaning": "thường xuyên (80%)", "icon": "🔄", "img": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=960&auto=format&fit=crop&q=80", "tip": "Thói quen học bài và đọc sách thường xuyên", "visualSpec": "Bàn học ngăn nắp với thói quen học tập đều đặn", "rhyme": "Thói quen đều đặn mỗi chiều,\nUsually hay làm bao điều niềm vui.", "mnemonic": "💡 <strong>Cách nhớ:</strong> Tần suất khoảng 80% (hầu như ngày nào cũng làm).", "example": "She usually rides a bike after school.", "exampleIpa": "/ʃiː ˈjuːʒuəli raɪdz ə baɪk ˈɑːftər skuːl/", "exampleVi": "Bạn ấy thường xuyên đi xe đạp sau giờ học."}, {"id": "u4_3", "unit": 4, "unitTitle": "Unit 4: Our Free-time Activities", "word": "often", "pos": "adv", "ipa": "/ˈɒfn/", "meaning": "thường lệ (60%)", "icon": "🥋", "img": "assets/u4_often_martial_arts_vn.jpg", "tip": "Các bạn nhỏ tập võ Vovinam khỏe khoắn ngày cuối tuần", "visualSpec": "Các võ sinh nhí Việt Nam tập võ Vovinam khỏe khoắn", "rhyme": "Bảy ngày thì có bốn năm,\nOften thường tập siêng năng chuyên cần.", "mnemonic": "💡 <strong>Cách nhớ:</strong> Âm 't' là âm câm: phát âm là /ˈɒfn/.", "example": "We often do martial arts on Sunday.", "exampleIpa": "/wiː ˈɒfn duː ˈmɑːʃl ɑːts ɒn ˈsʌndeɪ/", "exampleVi": "Chúng mình thường tập võ thuật vào Chủ Nhật."}, {"id": "u4_4", "unit": 4, "unitTitle": "Unit 4: Our Free-time Activities", "word": "sometimes", "pos": "adv", "ipa": "/ˈsʌmtaɪmz/", "meaning": "thỉnh thoảng (40%)", "icon": "⏳", "img": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=960&auto=format&fit=crop&q=80", "tip": "Thỉnh thoảng cùng bạn bè tra cứu thông tin trên mạng", "visualSpec": "Nhóm học sinh cùng thảo luận bên máy tính", "rhyme": "Khi rảnh rỗi mới ghé chơi,\nSometimes thỉnh thoảng đôi nơi dạo cùng.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Some</strong> (một vài) + <strong>times</strong> (lần) ➜ Một vài lần, thỉnh thoảng.", "example": "He sometimes surfs the Internet for project info.", "exampleIpa": "/hiː ˈsʌmtaɪmz sɜːfs ðiː ˈɪntənet fər ˈprɒdʒekt ˈɪnfəʊ/", "exampleVi": "Cậu ấy thỉnh thoảng lướt mạng để tìm thông tin dự án."}, {"id": "u4_5", "unit": 4, "unitTitle": "Unit 4: Our Free-time Activities", "word": "never", "pos": "adv", "ipa": "/ˈnevər/", "meaning": "không bao giờ (0%)", "icon": "🚫", "img": "https://images.unsplash.com/photo-1508962914676-124849a017f6?w=960&auto=format&fit=crop&q=80", "tip": "Bữa sáng dinh dưỡng không bao giờ bỏ bữa", "visualSpec": "Bữa ăn sáng dinh dưỡng lành mạnh của học sinh", "rhyme": "Số không tròn trĩnh không làm,\nNever chẳng dám tham lam điều xằng.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Never</strong> mang nghĩa phủ định hoàn toàn (0%).", "example": "I never skip my healthy breakfast.", "exampleIpa": "/aɪ ˈnevər skɪp maɪ ˈhelθi ˈbrekfəst/", "exampleVi": "Mình không bao giờ bỏ bữa sáng lành mạnh."}, {"id": "u4_6", "unit": 4, "unitTitle": "Unit 4: Our Free-time Activities", "word": "go for a walk", "pos": "vp", "ipa": "/ɡəʊ fər ə wɔːk/", "meaning": "đi dạo bộ", "icon": "🚶", "img": "assets/u10_walk_lake_vn.png", "tip": "Đi dạo bộ ngắm cảnh ven hồ râm mát", "visualSpec": "Các bạn học sinh vui vẻ đi bộ dạo quanh hồ nước xanh mát", "rhyme": "Chiều tà hóng mát thảnh thơi,\nGo for a walk dạo chơi ngắm trời.", "mnemonic": "💡 <strong>Cách nhớ:</strong> Cụm từ cố định: <strong>go for a walk</strong> (đi bách bộ thư giãn).", "example": "We go for a walk around the lake every afternoon.", "exampleIpa": "/wiː ɡəʊ fər ə wɔːk əˈraʊnd ðə leɪk ˈevri ˌɑːftəˈnuːn/", "exampleVi": "Chúng mình đi dạo quanh hồ vào mỗi buổi chiều."}, {"id": "u5_1", "unit": 5, "unitTitle": "Unit 5: Future Jobs", "word": "firefighter", "pos": "noun", "ipa": "/ˈfaɪəfaɪtər/", "meaning": "lính cứu hỏa", "icon": "🚒", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Firefighter_extinguishing_fire.jpg?width=960", "tip": "Chiến sĩ cứu hỏa dũng cảm xông pha dập lửa", "visualSpec": "Người lính cứu hỏa trong bộ quân phục dũng cảm xịt vòi rồng", "rhyme": "Lửa bùng nguy hiểm xông pha,\nFirefighter cứu nhà giúp dân.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Fire</strong> (lửa) + <strong>fighter</strong> (chiến sĩ) ➜ Người chiến đấu chống lại lửa.", "example": "He would like to be a brave firefighter.", "exampleIpa": "/hiː wʊd laɪk tuː biː ə breɪv ˈfaɪəfaɪtər/", "exampleVi": "Cậu ấy muốn trở thành một người lính cứu hỏa dũng cảm."}, {"id": "u5_2", "unit": 5, "unitTitle": "Unit 5: Future Jobs", "word": "put out fires", "pos": "vp", "ipa": "/pʊt aʊt ˈfaɪəz/", "meaning": "dập tắt các đám cháy", "icon": "🧯", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Firefighter_fighting_a_fire.jpg?width=960", "tip": "Dùng vòi nước công suất lớn dập tắt đám cháy", "visualSpec": "Vòi phun nước áp lực dập tắt đám lửa bảo vệ cuộc sống", "rhyme": "Nước phun cuồn cuộn dập tàn,\nPut out fires tắt hỏa hoạn hiểm nguy.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Put out</strong> nghĩa là dập tắt ngọn lửa.", "example": "Firefighters put out fires and save people.", "exampleIpa": "/ˈfaɪəfaɪtəz pʊt aʊt ˈfaɪəz ænd seɪv ˈpiːpl/", "exampleVi": "Lính cứu hỏa dập tắt các đám cháy và cứu giúp mọi người."}, {"id": "u5_3", "unit": 5, "unitTitle": "Unit 5: Future Jobs", "word": "gardener", "pos": "noun", "ipa": "/ˈɡɑːdnər/", "meaning": "người làm vườn", "icon": "🧑‍🌾", "img": "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=960&auto=format&fit=crop&q=80", "tip": "Người chăm sóc vườn hoa cây cảnh tốt tươi", "visualSpec": "Người làm vườn cẩn thận tưới nước và tỉa cây xanh tươi", "rhyme": "Bàn tay vun xới luống hoa,\nGardener chăm sóc cây nhà tốt tươi.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Garden</strong> (khu vườn) + <strong>er</strong> ➜ Người chăm sóc khu vườn.", "example": "The gardener grows beautiful flowers and vegetables.", "exampleIpa": "/ðə ˈɡɑːdnər ɡrəʊz ˈbjuːtɪfl ˈflaʊəz ænd ˈvedʒtəblz/", "exampleVi": "Người làm vườn trồng nhiều loài hoa đẹp và rau củ."}, {"id": "u5_4", "unit": 5, "unitTitle": "Unit 5: Future Jobs", "word": "reporter", "pos": "noun", "ipa": "/rɪˈpɔːtər/", "meaning": "phóng viên truyền hình, báo chí", "icon": "🎤", "img": "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=960&auto=format&fit=crop&q=80", "tip": "Phóng viên cầm micro đưa tin tức nóng hổi", "visualSpec": "Phóng viên truyền hình tay cầm micro tác nghiệp tại hiện trường", "rhyme": "Tay cầm micro phỏng vấn,\nReporter đưa tin chuẩn tức thì.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Report</strong> (báo cáo, đưa tin) + <strong>er</strong> ➜ Người đưa tin tức.", "example": "She wants to be a TV reporter.", "exampleIpa": "/ʃiː wɒnts tuː biː ə ˌtiː ˈviː rɪˈpɔːtər/", "exampleVi": "Bạn ấy muốn trở thành phóng viên truyền hình."}, {"id": "u5_5", "unit": 5, "unitTitle": "Unit 5: Future Jobs", "word": "writer", "pos": "noun", "ipa": "/ˈraɪtər/", "meaning": "nhà văn, tác giả", "icon": "✍️", "img": "assets/u5_writer_vn.jpg", "tip": "Tác phẩm văn học thiếu nhi kinh điển Việt Nam", "visualSpec": "Tác phẩm văn học Kính Vạn Hoa của nhà văn Nguyễn Nhật Ánh", "rhyme": "Từng trang sách nhỏ thơm tho,\nWriter nhà văn dệt cho em vần.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Write</strong> (viết) + <strong>er</strong> ➜ Người chuyên viết sách, truyện.", "example": "Nguyen Nhat Anh is a famous writer in Vietnam.", "exampleIpa": "/ŋwiːən ɲət ɑːn ɪz ə ˈfeɪməs ˈraɪtər ɪn ˌvjetˈnæm/", "exampleVi": "Nguyễn Nhật Ánh là một nhà văn nổi tiếng ở Việt Nam."}, {"id": "u5_6", "unit": 5, "unitTitle": "Unit 5: Future Jobs", "word": "actor", "pos": "noun", "ipa": "/ˈæktər/", "meaning": "diễn viên nam/kịch nghệ", "icon": "🎭", "img": "assets/u9_theatre_vn.jpg", "tip": "Sân khấu kịch nghệ rực rỡ ánh đèn biểu diễn", "visualSpec": "Sân khấu Nhà hát lớn với rèm nhung đỏ và ánh đèn lung linh", "rhyme": "Hóa thân bao cảnh trên sàn,\nActor diễn xuất muôn vàn tiếng khen.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Act</strong> (diễn xuất) + <strong>or</strong> ➜ Diễn viên trên sân khấu.", "example": "He acts in popular children plays at the theatre.", "exampleIpa": "/hiː ækts ɪn ˈpɒpjələr ˈtʃɪldrən pleɪz æt ðə ˈθɪətər/", "exampleVi": "Chú ấy diễn xuất trong các vở kịch thiếu nhi được yêu thích."}, {"id": "u6_1", "unit": 6, "unitTitle": "Unit 6: Our School Rooms", "word": "computer room", "pos": "noun", "ipa": "/kəmˈpjuːtər ruːm/", "meaning": "phòng tin học, máy tính", "icon": "💻", "img": "assets/u6_computer_room_vn.jpg", "tip": "Học sinh Việt Nam thực hành trên máy vi tính", "visualSpec": "Phòng máy tính trường học khang trang với học sinh đeo khăn quàng đỏ", "rhyme": "Màn hình phím gõ tinh nhanh,\nComputer room học thực hành mê say.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Computer</strong> (máy tính) + <strong>room</strong> (phòng).", "example": "We study ICT in the computer room on the first floor.", "exampleIpa": "/wiː ˈstʌdi ˌaɪ siː ˈtiː ɪn ðə kəmˈpjuːtər ruːm ɒn ðə fɜːst flɔːr/", "exampleVi": "Chúng mình học Tin học ở phòng máy tính trên tầng một."}, {"id": "u6_2", "unit": 6, "unitTitle": "Unit 6: Our School Rooms", "word": "library", "pos": "noun", "ipa": "/ˈlaɪbrəri/", "meaning": "thư viện trường học", "icon": "📚", "img": "https://images.unsplash.com/photo-1762475833699-53a01f26565a?w=960&auto=format&fit=crop&q=80", "tip": "Thư viện trường học yên tĩnh với nhiều giá sách", "visualSpec": "Học sinh say sưa đọc sách bên các kệ sách thư viện", "rhyme": "Vạn cuốn sách quý nằm chờ,\nLibrary đón em thơ tra tài.", "mnemonic": "💡 <strong>Cách nhớ:</strong> Trọng âm rơi vào âm 1: <em>'library</em>.", "example": "We read books quietly in the school library.", "exampleIpa": "/wiː riːd bʊks ˈkwaɪətli ɪn ðə skuːl ˈlaɪbrəri/", "exampleVi": "Chúng mình đọc sách giữ trật tự trong thư viện trường."}, {"id": "u6_3", "unit": 6, "unitTitle": "Unit 6: Our School Rooms", "word": "ground floor", "pos": "noun", "ipa": "/ˌɡraʊnd ˈflɔːr/", "meaning": "tầng trệt (tầng sát đất)", "icon": "🚪", "img": "assets/u6_ground_floor_vn.svg", "tip": "Sơ đồ tầng trệt trường tiểu học Việt Nam", "visualSpec": "Sơ đồ mặt bằng tầng trệt sát mặt đất tiện ra vào", "rhyme": "Sát mặt đất lối vào liền,\nGround floor tầng trệt bước liền thảnh thơi.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Ground</strong> (mặt đất) + <strong>floor</strong> (tầng) ➜ Tầng trệt tiếp giáp mặt đất.", "example": "The science lab is on the ground floor.", "exampleIpa": "/ðə ˈsaɪəns læb ɪz ɒn ðə ˌɡraʊnd ˈflɔːr/", "exampleVi": "Phòng thí nghiệm khoa học ở tầng trệt."}, {"id": "u6_4", "unit": 6, "unitTitle": "Unit 6: Our School Rooms", "word": "first floor", "pos": "noun", "ipa": "/ˌfɜːst ˈflɔːr/", "meaning": "tầng một (lầu 1)", "icon": "1️⃣", "img": "assets/u6_first_floor_vn.svg", "tip": "Sơ đồ tầng một trường học Việt Nam", "visualSpec": "Cầu thang dẫn lên tầng 1 với các phòng học nghệ thuật", "rhyme": "Bước lên một nhịp cầu thang,\nFirst floor tầng một khang trang đón chào.", "mnemonic": "💡 <strong>Cách nhớ:</strong> Ở Việt Nam và Anh, <strong>first floor</strong> là lầu 1 (trên tầng trệt).", "example": "The art room is on the first floor.", "exampleIpa": "/ðiː ɑːt ruːm ɪz ɒn ðə ˌfɜːst ˈflɔːr/", "exampleVi": "Phòng mỹ thuật nằm ở trên tầng một."}, {"id": "u6_5", "unit": 6, "unitTitle": "Unit 6: Our School Rooms", "word": "go upstairs", "pos": "vp", "ipa": "/ɡəʊ ʌpˈsteəz/", "meaning": "đi lên lầu, lên tầng trên", "icon": "⬆️", "img": "https://images.unsplash.com/photo-1722942624769-66b268f61f6d?w=960&auto=format&fit=crop&q=80", "tip": "Bước lên cầu thang sáng sủa lên tầng trên", "visualSpec": "Cầu thang trường học sạch đẹp với ánh sáng tự nhiên", "rhyme": "Từng bậc bước tiến lên cao,\nGo upstairs ngước nhìn bao phòng tài.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Up</strong> (lên) + <strong>stairs</strong> (bậc thang) ➜ Đi lên cầu thang.", "example": "Go upstairs to the music room on the second floor.", "exampleIpa": "/ɡəʊ ʌpˈsteəz tuː ðə ˈmjuːzɪk ruːm ɒn ðə ˈsekənd flɔːr/", "exampleVi": "Hãy đi lên lầu tới phòng âm nhạc ở tầng hai."}, {"id": "u6_6", "unit": 6, "unitTitle": "Unit 6: Our School Rooms", "word": "turn left", "pos": "vp", "ipa": "/tɜːn left/", "meaning": "rẽ trái, quẹo trái", "icon": "⬅️", "img": "https://images.unsplash.com/photo-1768597680405-044ec79075f8?w=960&auto=format&fit=crop&q=80", "tip": "Biển chỉ dẫn rẽ sang phía tay trái hành lang", "visualSpec": "Mũi tên chỉ dẫn hướng rẽ trái ở cuối hành lang", "rhyme": "Lối đi rẽ phía tay chiêu,\nTurn left quẹo trái đúng chiều bạn đi.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Turn</strong> (rẽ) + <strong>left</strong> (bên trái).", "example": "Turn left at the end of the school corridor.", "exampleIpa": "/tɜːn left æt ðiː end əv ðə skuːl ˈkɒrɪdɔːr/", "exampleVi": "Rẽ trái ở cuối hành lang trường học."}, {"id": "u7_1", "unit": 7, "unitTitle": "Unit 7: Learning Activities", "word": "do projects", "pos": "vp", "ipa": "/duː ˈprɒdʒekts/", "meaning": "làm các dự án học tập", "icon": "📊", "img": "assets/u7_do_projects_vn.jpg", "tip": "Học sinh Việt Nam hào hứng làm việc nhóm dán tranh dự án", "visualSpec": "Nhóm học sinh cùng cắt dán làm mô hình dự án học tập", "rhyme": "Chung tay vẽ dán tranh tài,\nDo projects học miệt mài sáng tri.", "mnemonic": "💡 <strong>Cách nhớ:</strong> Luôn dùng động từ <strong>do</strong>: <em>do projects</em> (không dùng make).", "example": "We love to do science projects together.", "exampleIpa": "/wiː lʌv tuː duː ˈsaɪəns ˈprɒdʒekts təˈɡeðər/", "exampleVi": "Chúng mình rất thích cùng nhau làm các dự án khoa học."}, {"id": "u7_2", "unit": 7, "unitTitle": "Unit 7: Learning Activities", "word": "solve maths problems", "pos": "vp", "ipa": "/sɒlv mæθs ˈprɒbləmz/", "meaning": "giải các bài toán", "icon": "📐", "img": "https://images.unsplash.com/photo-1758685733685-7e0f30c35a17?w=960&auto=format&fit=crop&q=80", "tip": "Học sinh chăm chú tính toán bài toán khó", "visualSpec": "Học sinh tập trung tính toán các con số trên vở", "rhyme": "Phép tính hóc búa nan giải,\nSolve maths problems thông thái vượt qua.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Solve</strong> nghĩa là tìm ra lời giải đáp.", "example": "Clever students can solve maths problems quickly.", "exampleIpa": "/ˈklevər ˈstjuːdnts kən sɒlv mæθs ˈprɒbləmz ˈkwɪkli/", "exampleVi": "Học sinh thông minh có thể giải bài toán rất nhanh."}, {"id": "u7_3", "unit": 7, "unitTitle": "Unit 7: Learning Activities", "word": "interesting", "pos": "adj", "ipa": "/ˈɪntrəstɪŋ/", "meaning": "thú vị, hấp dẫn", "icon": "🤩", "img": "assets/u7_interesting_vn.jpg", "tip": "Thí nghiệm hóa học nhiều màu sắc kỳ thú làm các em trầm trồ", "visualSpec": "Thí nghiệm khoa học phun bọt màu kỳ diệu thu hút học sinh", "rhyme": "Hấp dẫn lôi cuốn lạ lùng,\nInteresting thích vô cùng bạn ơi.", "mnemonic": "💡 <strong>Cách nhớ:</strong> Trọng âm rơi vào âm đầu: <em>'interesting</em>.", "example": "This science experiment is very interesting.", "exampleIpa": "/ðɪs ˈsaɪəns ɪkˈsperɪmənt ɪz ˈveri ˈɪntrəstɪŋ/", "exampleVi": "Thí nghiệm khoa học này rất thú vị."}, {"id": "u7_4", "unit": 7, "unitTitle": "Unit 7: Learning Activities", "word": "difficult", "pos": "adj", "ipa": "/ˈdɪfɪkəlt/", "meaning": "khó khăn, hóc búa", "icon": "🤔", "img": "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=960&auto=format&fit=crop&q=80", "tip": "Đề thi thử thách đòi hỏi sự tập trung suy nghĩ", "visualSpec": "Học sinh suy nghĩ chăm chú trước câu đố thử thách", "rhyme": "Đề bài hóc búa cam go,\nDifficult khó chớ lo bền lòng.", "mnemonic": "💡 <strong>Cách nhớ:</strong> Trái nghĩa với <strong>easy</strong> (dễ dàng). Trọng âm âm 1: <em>'difficult</em>.", "example": "That quiz question was difficult but exciting.", "exampleIpa": "/ðæt kwɪz ˈkwestʃən wɒz ˈdɪfɪkəlt bət ɪkˈsaɪtɪŋ/", "exampleVi": "Câu hỏi trắc nghiệm đó khó nhưng rất kích thích."}, {"id": "u7_5", "unit": 7, "unitTitle": "Unit 7: Learning Activities", "word": "useful", "pos": "adj", "ipa": "/ˈjuːsfl/", "meaning": "bổ ích, hữu dụng", "icon": "💡", "img": "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=960&auto=format&fit=crop&q=80", "tip": "Những cuốn từ điển và sách tham khảo đem lại kiến thức bổ ích", "visualSpec": "Sách hay và bút nghiên đem lại kiến thức bổ ích", "rhyme": "Mang lại kiến thức dồi dào,\nUseful hữu ích biết bao nhiêu điều.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Use</strong> (dùng) + <strong>ful</strong> (đầy) ➜ Rất có ích khi sử dụng.", "example": "Reading English books is very useful for children.", "exampleIpa": "/ˈriːdɪŋ ˈɪŋɡlɪʃ bʊks ɪz ˈveri ˈjuːsfl fər ˈtʃɪldrən/", "exampleVi": "Đọc sách tiếng Anh rất bổ ích cho trẻ nhỏ."}, {"id": "u7_6", "unit": 7, "unitTitle": "Unit 7: Learning Activities", "word": "play games", "pos": "vp", "ipa": "/pleɪ ɡeɪmz/", "meaning": "chơi trò chơi học tập", "icon": "🎮", "img": "https://live.staticflickr.com/2390/5797258921_76e54f0f33_b.jpg", "tip": "Các bạn học sinh cùng chơi trò chơi đố vui rộn rã tiếng cười", "visualSpec": "Các em nhỏ hào hứng tham gia trò chơi vận động tập thể", "rhyme": "Vừa học vừa hát vừa vui,\nPlay games rộn rã đẩy lùi âu lo.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Play</strong> (chơi) + <strong>games</strong> (trò chơi).", "example": "We play fun games in English class.", "exampleIpa": "/wiː pleɪ fʌn ɡeɪmz ɪn ˈɪŋɡlɪʃ klɑːs/", "exampleVi": "Chúng mình chơi các trò chơi vui nhộn trong lớp tiếng Anh."}, {"id": "u8_1", "unit": 8, "unitTitle": "Unit 8: School Things", "word": "crayon", "pos": "noun", "ipa": "/ˈkreɪən/", "meaning": "bút sáp màu", "icon": "🖍️", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Crayons_%26_Drawing.jpg?width=960", "tip": "Hộp bút sáp nhiều màu vẽ tranh rực rỡ", "visualSpec": "Bộ bút sáp màu tô tranh của học sinh tiểu học", "rhyme": "Bút sáp đủ sắc muôn màu,\nCrayon tô đẹp trước sau tranh hiền.", "mnemonic": "💡 <strong>Cách nhớ:</strong> Trọng âm âm đầu: <em>'crayon</em>.", "example": "She colors the national flag with a red crayon.", "exampleIpa": "/ʃiː ˈkʌləz ðə ˈnæʃnəl flæɡ wɪð ə red ˈkreɪən/", "exampleVi": "Bạn ấy tô lá quốc kỳ bằng bút sáp màu đỏ."}, {"id": "u8_2", "unit": 8, "unitTitle": "Unit 8: School Things", "word": "set square", "pos": "noun", "ipa": "/ˈset skweər/", "meaning": "thước ê-ke đo góc vuông", "icon": "📐", "img": "https://images.unsplash.com/photo-1645830887841-2542fa41378e?w=960&auto=format&fit=crop&q=80", "tip": "Cây thước ê-ke góc vuông trong bộ đồ dùng học tập", "visualSpec": "Thước ê ke tam giác trong suốt góc vuông chuẩn xác", "rhyme": "Góc vuông kẻ chuẩn thẳng tưng,\nSet square cây thước xin đừng để quên.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Square</strong> (vuông) ➜ Cây thước dùng để vẽ góc vuông.", "example": "Use a set square to draw a right angle.", "exampleIpa": "/juːz ə ˈset skweər tuː drɔː ə raɪt ˈæŋɡl/", "exampleVi": "Hãy dùng thước ê-ke để vẽ một góc vuông."}, {"id": "u8_3", "unit": 8, "unitTitle": "Unit 8: School Things", "word": "glue stick", "pos": "noun", "ipa": "/ˈɡluː stɪk/", "meaning": "hồ dán khô, keo dán dạng thỏi", "icon": "🧴", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Glue_Stick.jpg?width=960", "tip": "Thỏi keo dán giấy sạch sẽ trong giờ thủ công", "visualSpec": "Thỏi keo dán giấy tiện dụng cho học sinh làm thủ công", "rhyme": "Dán giấy liền mép gắn đôi,\nGlue stick thỏi dán xong rồi phẳng phiu.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Glue</strong> (keo) + <strong>stick</strong> (thỏi, que).", "example": "I stick the photos with a glue stick.", "exampleIpa": "/aɪ stɪk ðə ˈfəʊtəʊz wɪð ə ˈɡluː stɪk/", "exampleVi": "Mình dán những bức ảnh bằng thỏi hồ dán."}, {"id": "u8_4", "unit": 8, "unitTitle": "Unit 8: School Things", "word": "above", "pos": "prep", "ipa": "/əˈbʌv/", "meaning": "ở phía trên (không chạm vào)", "icon": "⬆️", "img": "assets/u8_above_vn.svg", "tip": "Bức tranh treo phía trên giá sách có khoảng cách", "visualSpec": "Bức tranh treo cách một khoảng phía trên kệ sách", "rhyme": "Trên cao cách một khoảng không,\nAbove treo chiếc đồng hồ tròn xoe.", "mnemonic": "💡 <strong>Cách nhớ:</strong> Khác với <em>on</em> (chạm bề mặt), <strong>above</strong> có một khoảng không ngăn cách.", "example": "The clock is above the whiteboard.", "exampleIpa": "/ðə klɒk ɪz əˈbʌv ðə ˈwaɪtbɔːd/", "exampleVi": "Chiếc đồng hồ ở phía trên bảng trắng."}, {"id": "u8_5", "unit": 8, "unitTitle": "Unit 8: School Things", "word": "behind", "pos": "prep", "ipa": "/bɪˈhaɪnd/", "meaning": "ở phía sau (bị che khuất)", "icon": "👀", "img": "assets/u8_behind_vn.svg", "tip": "Chú mèo trốn nấp ở phía sau thùng đồ chơi", "visualSpec": "Chú mèo vàng nấp phía sau hộp đồ chơi to", "rhyme": "Nấp sau tấm vách ẩn mình,\nBehind phía sau dáng hình khuất xa.", "mnemonic": "💡 <strong>Cách nhớ:</strong> Trọng âm âm 2: <em>be'hind</em>. Trái nghĩa với <em>in front of</em>.", "example": "The bookcase is behind the teacher desk.", "exampleIpa": "/ðə ˈbʊkkeɪs ɪz bɪˈhaɪnd ðə ˈtiːtʃə desk/", "exampleVi": "Tủ sách nằm ở phía sau bàn giáo viên."}, {"id": "u8_6", "unit": 8, "unitTitle": "Unit 8: School Things", "word": "between", "pos": "prep", "ipa": "/bɪˈtwiːn/", "meaning": "ở chính giữa hai vật", "icon": "↔️", "img": "assets/u8_between_vn.svg", "tip": "Quả bóng nằm ở chính giữa hai chiếc hộp", "visualSpec": "Quả bóng đặt giữa hai chiếc hộp vuông vức", "rhyme": "Đứng giữa hai phía song song,\nBetween ở giữa trong lòng thân thương.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Between A and B</strong> (ở giữa vật A và vật B).", "example": "The school garden is between two buildings.", "exampleIpa": "/ðə skuːl ˈɡɑːdn ɪz bɪˈtwiːn tuː ˈbɪldɪŋz/", "exampleVi": "Vườn trường nằm ở giữa hai dãy nhà."}, {"id": "u9_1", "unit": 9, "unitTitle": "Unit 9: Our Past Holidays", "word": "campsite", "pos": "noun", "ipa": "/ˈkæmpsaɪt/", "meaning": "khu cắm trại dã ngoại", "icon": "🏕️", "img": "https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=960&auto=format&fit=crop&q=80", "tip": "Lều trại dựng giữa thiên nhiên trong lành", "visualSpec": "Khu lều bạt cắm trại bên đồi cỏ xanh ngát", "rhyme": "Dựng lều đốt lửa thâu đêm,\nCampsite bãi trại ấm êm nghĩa tình.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Camp</strong> (trại) + <strong>site</strong> (khu đất) ➜ Nơi dựng lều trại.", "example": "We set up our tents at the campsite.", "exampleIpa": "/wiː set ʌp ˈaʊər tents æt ðə ˈkæmpsaɪt/", "exampleVi": "Chúng mình đã dựng lều tại khu cắm trại."}, {"id": "u9_2", "unit": 9, "unitTitle": "Unit 9: Our Past Holidays", "word": "aquarium", "pos": "noun", "ipa": "/əˈkweəriəm/", "meaning": "thủy cung, bể nuôi sinh vật biển", "icon": "🐠", "img": "assets/u9_aquarium_vn.jpg", "tip": "Thủy cung vòm kính ngắm các loài cá đại dương", "visualSpec": "Vòm kính thủy cung xanh biếc với đàn cá bơi lội", "rhyme": "Vòm kính ngắm cá muôn loài,\nAquarium bước dạo hoài chẳng ngơi.", "mnemonic": "💡 <strong>Cách nhớ:</strong> Tiền tố <strong>Aqua</strong> liên quan đến nước biển.", "example": "We saw colourful fish in the aquarium.", "exampleIpa": "/wiː sɔː ˈkʌləfl fɪʃ ɪn ðiː əˈkweəriəm/", "exampleVi": "Chúng mình đã nhìn thấy những chú cá rực rỡ trong thủy cung."}, {"id": "u9_3", "unit": 9, "unitTitle": "Unit 9: Our Past Holidays", "word": "funfair", "pos": "noun", "ipa": "/ˈfʌnfeər/", "meaning": "hội chợ vui chơi", "icon": "🎡", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Ferris_wheel_at_a_fairground_(Unsplash).jpg?width=960", "tip": "Vòng quay mặt trời đu quay tại hội chợ rực rỡ", "visualSpec": "Vòng đu quay khổng lồ nhiều màu sắc tại hội chợ", "rhyme": "Đu quay tàu lượn reo hò,\nFunfair hội chợ mở to cổng chào.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Fun</strong> (vui vẻ) + <strong>fair</strong> (hội chợ).", "example": "The children played exciting games at the funfair.", "exampleIpa": "/ðə ˈtʃɪldrən pleɪd ɪkˈsaɪtɪŋ ɡeɪmz æt ðə ˈfʌnfeər/", "exampleVi": "Các bạn nhỏ đã chơi những trò chơi thú vị tại hội chợ."}, {"id": "u9_4", "unit": 9, "unitTitle": "Unit 9: Our Past Holidays", "word": "yesterday", "pos": "adv", "ipa": "/ˈjestədeɪ/", "meaning": "ngày hôm qua", "icon": "📅", "img": "https://images.unsplash.com/photo-1560420025-9453f02b4751?w=960&auto=format&fit=crop&q=80", "tip": "Dấu mốc thời gian ngày hôm qua đã trôi qua", "visualSpec": "Tờ lịch đánh dấu ngày hôm qua với kỷ niệm đẹp", "rhyme": "Mặt trời lặn đã qua rồi,\nYesterday dĩ vãng bồi hồi nhớ nhung.", "mnemonic": "💡 <strong>Cách nhớ:</strong> Dấu hiệu nhận biết thì Quá khứ đơn (Past Simple).", "example": "Where were you yesterday morning?", "exampleIpa": "/weər wɜːr juː ˈjestədeɪ ˈmɔːnɪŋ/", "exampleVi": "Sáng hôm qua bạn đã ở đâu?"}, {"id": "u9_5", "unit": 9, "unitTitle": "Unit 9: Our Past Holidays", "word": "last weekend", "pos": "np", "ipa": "/lɑːst ˌwiːkˈend/", "meaning": "cuối tuần trước (thứ 7, CN vừa qua)", "icon": "⛺", "img": "assets/u9_last_weekend_vn.svg", "tip": "Lịch cuối tuần trước với hình ảnh lửa trại", "visualSpec": "Lịch cuối tuần trước với biểu tượng dã ngoại vui tươi", "rhyme": "Thứ bảy, chủ nhật tuần rồi,\nLast weekend kỷ niệm ngồi chung vui.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>Last</strong> (trước) + <strong>weekend</strong> (cuối tuần).", "example": "We danced around the campfire last weekend.", "exampleIpa": "/wiː dɑːnst əˈraʊnd ðə ˈkæmpfaɪər lɑːst ˌwiːkˈend/", "exampleVi": "Chúng mình đã nhảy múa quanh đống lửa trại vào cuối tuần trước."}, {"id": "u9_6", "unit": 9, "unitTitle": "Unit 9: Our Past Holidays", "word": "watch the fish", "pos": "vp", "ipa": "/wɒtʃ ðə fɪʃ/", "meaning": "ngắm nhìn đàn cá bơi", "icon": "🐠", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Amphiprion_ocellaris_(_Clownfish).jpg?width=960", "tip": "Chú cá hề sặc sỡ bơi lội bên rạn san hô", "visualSpec": "Đàn cá hề bơi lội tung tăng trong làn nước trong vắt", "rhyme": "Cá bơi lấp lánh sắc màu,\nWatch the fish ngắm cùng nhau thỏa lòng.", "mnemonic": "💡 <strong>Cách nhớ:</strong> Quá khứ đơn: <em>watched the fish</em> (/wɒtʃt ðə fɪʃ/).", "example": "The students watched the fish happily in the tank.", "exampleIpa": "/ðə ˈstjuːdnts wɒtʃt ðə fɪʃ ˈhæpɪli ɪn ðə tæŋk/", "exampleVi": "Các bạn học sinh đã vui vẻ ngắm nhìn đàn cá bơi trong bể."}, {"id": "u10_1", "unit": 10, "unitTitle": "Unit 10: Our School Trips", "word": "school trip", "pos": "noun", "ipa": "/skuːl trɪp/", "meaning": "chuyến tham quan, dã ngoại trường học", "icon": "🚌", "img": "https://images.unsplash.com/photo-1527058918112-6e17a8213943?w=960&auto=format&fit=crop&q=80", "tip": "Chuyến xe buýt chở thầy cô và học sinh đi dã ngoại", "visualSpec": "Học sinh cùng ba lô hân hoan bước lên xe tham quan trường", "rhyme": "Thầy cô bè bạn lên đường,\nSchool trip dã ngoại sân trường thêm vui.", "mnemonic": "💡 <strong>Cách nhớ:</strong> <strong>School</strong> (trường học) + <strong>trip</strong> (chuyến đi).", "example": "Our school trip to the eco-farm was wonderful.", "exampleIpa": "/ˈaʊər skuːl trɪp tuː ðiː ˈiːkəʊ fɑːm wɒz ˈwʌndəfl/", "exampleVi": "Chuyến dã ngoại trường học tới trang trại sinh thái thật tuyệt vời."}, {"id": "u10_2", "unit": 10, "unitTitle": "Unit 10: Our School Trips", "word": "Bai Dinh Pagoda", "pos": "prop", "ipa": "/baɪ dɪn pəˈɡəʊdə/", "meaning": "Chùa Bái Đính (Ninh Bình)", "icon": "🛕", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Chua_Bai_Dinh_X4.JPG?width=960", "tip": "Ngôi chùa Bái Đính nguy nga tráng lệ tại Ninh Bình", "visualSpec": "Quần thể tâm linh chùa Bái Đính Ninh Bình uy nghiêm giữa non ngàn", "rhyme": "Non thiêng Bái Đính ngút ngàn,\nBai Dinh Pagoda thanh nhàn viếng thăm.", "mnemonic": "💡 <strong>Cách nhớ:</strong> Danh lam thắng cảnh nổi tiếng của đất nước Việt Nam.", "example": "We visited Bai Dinh Pagoda on our trip.", "exampleIpa": "/wiː ˈvɪzɪtɪd baɪ dɪn pəˈɡəʊdə ɒn ˈaʊər trɪp/", "exampleVi": "Chúng mình đã đến thăm chùa Bái Đính trong chuyến đi."}, {"id": "u10_3", "unit": 10, "unitTitle": "Unit 10: Our School Trips", "word": "Hoan Kiem Lake", "pos": "prop", "ipa": "/hwɑːn kɪəm leɪk/", "meaning": "Hồ Hoàn Kiếm (Hà Nội)", "icon": "🐢", "img": "assets/u10_hoan_kiem_lake_vn.jpg", "tip": "Tháp Rùa cổ kính soi bóng trên làn nước hồ xanh ngọc", "visualSpec": "Tháp Rùa Hồ Gươm cổ kính giữa lòng thủ đô Hà Nội", "rhyme": "Tháp Rùa soi bóng ngọc xanh,\nHoan Kiem Lake dạo mát lành thủ đô.", "mnemonic": "💡 <strong>Cách nhớ:</strong> Hồ Gươm huyền thoại gắn liền với sự tích Trả Gươm báu.", "example": "We walked around Hoan Kiem Lake yesterday.", "exampleIpa": "/wiː wɔːkt əˈraʊnd hwɑːn kɪəm leɪk ˈjestədeɪ/", "exampleVi": "Chúng mình đã đi dạo quanh Hồ Hoàn Kiếm ngày hôm qua."}, {"id": "u10_4", "unit": 10, "unitTitle": "Unit 10: Our School Trips", "word": "Ba Na Hills", "pos": "prop", "ipa": "/baː naː hɪlz/", "meaning": "Bà Nà Hills (Đà Nẵng)", "icon": "🌉", "img": "assets/u10_bana_hills_vn.jpg", "tip": "Cầu Vàng bàn tay khổng lồ nổi tiếng thế giới tại Bà Nà", "visualSpec": "Cầu Vàng bàn tay nâng đỡ vắt giữa sương mây Bà Nà Hills", "rhyme": "Cầu Vàng vắt giữa mây bay,\nBa Na Hills cảnh đắm say lòng người.", "mnemonic": "💡 <strong>Cách nhớ:</strong> Khu du lịch trên núi tuyệt đẹp tại thành phố Đà Nẵng.", "example": "Ba Na Hills has a world-famous Golden Bridge.", "exampleIpa": "/baː naː hɪlz hæz ə wɜːld ˈfeɪməs ˈɡəʊldən brɪdʒ/", "exampleVi": "Bà Nà Hills có cây Cầu Vàng nổi tiếng khắp thế giới."}, {"id": "u10_5", "unit": 10, "unitTitle": "Unit 10: Our School Trips", "word": "plant trees", "pos": "vp", "ipa": "/plɑːnt triːz/", "meaning": "trồng cây xanh", "icon": "🌱", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Tree_planting_with_children.jpg?width=960", "tip": "Các bạn học sinh cùng nhau vun đất trồng cây xanh", "visualSpec": "Các em nhỏ vui vẻ trồng cây non bảo vệ môi trường", "rhyme": "Đào đất tưới mầm xanh non,\nPlant trees che bóng cho con sau này.", "mnemonic": "💡 <strong>Cách nhớ:</strong> Quá khứ đơn: <em>planted trees</em> (/ˈplɑːntɪd triːz/).", "example": "We planted trees around the schoolyard.", "exampleIpa": "/wiː ˈplɑːntɪd triːz əˈraʊnd ðə ˈskuːljɑːd/", "exampleVi": "Chúng mình đã trồng cây xanh xung quanh sân trường."}, {"id": "u10_6", "unit": 10, "unitTitle": "Unit 10: Our School Trips", "word": "buy souvenirs", "pos": "vp", "ipa": "/baɪ ˌsuːvəˈnɪəz/", "meaning": "mua quà lưu niệm", "icon": "🎁", "img": "https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?w=960&auto=format&fit=crop&q=80", "tip": "Cửa hàng bán các món đồ lưu niệm xinh xắn truyền thống", "visualSpec": "Gian hàng lưu niệm thủ công mỹ nghệ đậm bản sắc văn hóa", "rhyme": "Món quà kỷ niệm mang về,\nBuy souvenirs nhớ miền quê xa.", "mnemonic": "💡 <strong>Cách nhớ:</strong> Quá khứ đơn bất quy tắc: <strong>bought souvenirs</strong> (/bɔːt ˌsuːvəˈnɪəz/).", "example": "I bought souvenirs for my parents and friends.", "exampleIpa": "/aɪ bɔːt ˌsuːvəˈnɪəz fər maɪ ˈpeərənts ænd frendz/", "exampleVi": "Mình đã mua quà lưu niệm cho bố mẹ và bạn bè."}];
+    const SENTENCES_DATA = [{"unit": 1, "title": "Unit 1: Asking and Answering About Addresses", "icon": "📮", "sentence": "What's your address? - It's 105, Hoa Binh Lane.", "ipa": "/wɒts jɔːr əˈdres/ — /ɪts wʌn ˈhʌndrəd ænd faɪv, hoɑː bɪn leɪn/", "meaning": "Địa chỉ của bạn ở đâu? - Đó là số 105, ngõ Hòa Bình.", "tip": "Khi hỏi địa chỉ dùng 'What's your address?', trả lời bắt đầu bằng 'It's + [Số nhà] + [Tên đường / ngõ]'. Ngữ điệu xuống giọng ở cuối câu hỏi Wh-.", "chunks": [{"en": "What's your address?", "ipa": "/wɒts jɔːr əˈdres/", "vi": "Địa chỉ của bạn ở đâu?"}, {"en": "It's 105,", "ipa": "/ɪts wʌn ˈhʌndrəd ænd faɪv/", "vi": "Đó là số 105,"}, {"en": "Hoa Binh Lane.", "ipa": "/hoɑː bɪn leɪn/", "vi": "ngõ Hòa Bình."}]}, {"unit": 2, "title": "Unit 2: Asking and Answering Where Someone Lives", "icon": "🏢", "sentence": "Where do you live? - I live in Flat 23 on the second floor of Landmark Tower.", "ipa": "/weər duː juː lɪv/ — /aɪ lɪv ɪn flæt ˌtwenti ˈθriː ɒn ðə ˈsekənd flɔːr əv ˈlændmɑːk ˈtaʊər/", "meaning": "Bạn sống ở đâu? - Mình sống ở căn hộ 23 trên tầng hai của tòa tháp Landmark.", "tip": "Dùng 'in' với căn hộ (in Flat 23) và 'on' với tầng lầu (on the second floor).", "chunks": [{"en": "Where do you live?", "ipa": "/weər duː juː lɪv/", "vi": "Bạn sống ở đâu?"}, {"en": "I live in Flat 23", "ipa": "/aɪ lɪv ɪn flæt ˌtwenti ˈθriː/", "vi": "Mình sống ở căn hộ 23"}, {"en": "on the second floor.", "ipa": "/ɒn ðə ˈsekənd flɔːr/", "vi": "ở trên tầng hai."}]}, {"unit": 3, "title": "Unit 3: Asking and Answering About Nationality and Character", "icon": "🤝", "sentence": "What nationality is Linda? - She is Australian, and she is very helpful.", "ipa": "/wɒt ˌnæʃəˈnæləti ɪz ˈlɪndə/ — /ʃiː ɪz ɒˈstreɪliən, ænd ʃiː ɪz ˈveri ˈhelpfl/", "meaning": "Linda mang quốc tịch gì? - Bạn ấy là người Úc, và bạn ấy rất hay giúp đỡ mọi người.", "tip": "Phân biệt tên quốc gia (Australia) và quốc tịch (Australian). Tính từ chỉ tính cách đứng sau động từ to be (is very helpful).", "chunks": [{"en": "What nationality is Linda?", "ipa": "/wɒt ˌnæʃəˈnæləti ɪz ˈlɪndə/", "vi": "Linda mang quốc tịch gì?"}, {"en": "She is Australian,", "ipa": "/ʃiː ɪz ɒˈstreɪliən/", "vi": "Bạn ấy là người Úc,"}, {"en": "and she is very helpful.", "ipa": "/ænd ʃiː ɪz ˈveri ˈhelpfl/", "vi": "và bạn ấy rất hay giúp đỡ bạn bè."}]}, {"unit": 4, "title": "Unit 4: Asking and Answering About Free-time Frequency", "icon": "🚴", "sentence": "What do you do at the weekend? - I usually ride a bike and do martial arts.", "ipa": "/wɒt duː juː duː æt ðə ˌwiːkˈend/ — /aɪ ˈjuːʒuəli raɪd ə baɪk ænd duː ˈmɑːʃl ɑːts/", "meaning": "Bạn thường làm gì vào dịp cuối tuần? - Mình thường xuyên đi xe đạp và tập võ thuật.", "tip": "Trạng từ tần suất (usually, always, often, sometimes, never) đứng TRƯỚC động từ thường (usually ride).", "chunks": [{"en": "What do you do", "ipa": "/wɒt duː juː duː/", "vi": "Bạn thường làm gì"}, {"en": "at the weekend?", "ipa": "/æt ðə ˌwiːkˈend/", "vi": "vào dịp cuối tuần?"}, {"en": "I usually ride a bike.", "ipa": "/aɪ ˈjuːʒuəli raɪd ə baɪk/", "vi": "Mình thường hay đạp xe."}]}, {"unit": 5, "title": "Unit 5: Asking Future Job and Reasons (Why - Because)", "icon": "🚒", "sentence": "Why would you like to be a firefighter? - Because I'd like to put out fires and save people.", "ipa": "/waɪ wʊd juː laɪk tuː biː ə ˈfaɪəfaɪtər/ — /bɪˈkɒz aɪd laɪk tuː pʊt aʊt ˈfaɪəz ænd seɪv ˈpiːpl/", "meaning": "Tại sao bạn muốn làm lính cứu hỏa? - Vì mình muốn dập tắt các đám cháy và cứu người.", "tip": "'Would like to be' = muốn trở thành. Câu trả lời với 'Why' luôn bắt đầu bằng 'Because' (Bởi vì).", "chunks": [{"en": "Why would you like to be", "ipa": "/waɪ wʊd juː laɪk tuː biː/", "vi": "Tại sao bạn muốn trở thành"}, {"en": "a brave firefighter?", "ipa": "/ə breɪv ˈfaɪəfaɪtər/", "vi": "một lính cứu hỏa dũng cảm?"}, {"en": "Because I'd like to put out fires.", "ipa": "/bɪˈkɒz aɪd laɪk tuː pʊt aʊt ˈfaɪəz/", "vi": "Bởi vì mình muốn chữa cháy."}]}, {"unit": 6, "title": "Unit 6: Asking School Rooms and Giving Directions", "icon": "🏫", "sentence": "Where is the computer room? - Go upstairs to the first floor and turn left.", "ipa": "/weər ɪz ðə kəmˈpjuːtər ruːm/ — /ɡəʊ ʌpˈsteəz tuː ðə ˌfɜːst ˈflɔːr ænd tɜːn left/", "meaning": "Phòng tin học ở đâu? - Hãy đi lên cầu thang lên tầng một và rẽ trái.", "tip": "Mệnh lệnh chỉ đường dùng động từ nguyên mẫu đầu câu: 'Go upstairs', 'Turn left', 'Go past'.", "chunks": [{"en": "Where is the computer room?", "ipa": "/weər ɪz ðə kəmˈpjuːtər ruːm/", "vi": "Phòng máy tính ở đâu?"}, {"en": "Go upstairs to the first floor", "ipa": "/ɡəʊ ʌpˈsteəz tuː ðə ˌfɜːst ˈflɔːr/", "vi": "Đi lên lầu tầng một"}, {"en": "and turn left.", "ipa": "/ænd tɜːn left/", "vi": "và rẽ bên tay trái."}]}, {"unit": 7, "title": "Unit 7: Asking Learning Preferences and Reasons", "icon": "🔬", "sentence": "Why do you like doing projects? - Because it is fun and good for group work.", "ipa": "/waɪ duː juː laɪk ˈduːɪŋ ˈprɒdʒekts/ — /bɪˈkɒz ɪt ɪz fʌn ænd ɡʊd fər ɡruːp wɜːk/", "meaning": "Tại sao bạn thích làm dự án học tập? - Bởi vì nó vui và rất tốt cho làm việc nhóm.", "tip": "Sau động từ 'like' dùng động từ thêm -ing: like doing projects, like solving maths problems.", "chunks": [{"en": "Why do you like", "ipa": "/waɪ duː juː laɪk/", "vi": "Tại sao bạn thích"}, {"en": "doing science projects?", "ipa": "/ˈduːɪŋ ˈsaɪəns ˈprɒdʒekts/", "vi": "làm các dự án khoa học?"}, {"en": "Because it is very fun.", "ipa": "/bɪˈkɒz ɪt ɪz ˈveri fʌn/", "vi": "Bởi vì nó rất vui."}]}, {"unit": 8, "title": "Unit 8: Asking Ownership with Whose and Prepositions", "icon": "📐", "sentence": "Whose set square is this on the desk? - It's Mai's set square.", "ipa": "/huːz ˈset skweər ɪz ðɪs ɒn ðə desk/ — /ɪts maɪz ˈset skweər/", "meaning": "Chiếc thước ê-ke này trên bàn là của ai? - Đó là thước ê-ke của bạn Mai.", "tip": "'Whose' dùng để hỏi quyền sở hữu. Trả lời dùng sở hữu cách 's (Mai's = của Mai).", "chunks": [{"en": "Whose set square is this", "ipa": "/huːz ˈset skweər ɪz ðɪs/", "vi": "Chiếc thước ê-ke này là của ai"}, {"en": "on the teacher's desk?", "ipa": "/ɒn ðə ˈtiːtʃəz desk/", "vi": "ở trên bàn giáo viên?"}, {"en": "It's Mai's set square.", "ipa": "/ɪts maɪz ˈset skweər/", "vi": "Đó là thước của Mai."}]}, {"unit": 9, "title": "Unit 9: Asking Past Holiday Locations with Were", "icon": "🏕️", "sentence": "Were you at the campsite last weekend? - Yes, we were. We danced around the campfire.", "ipa": "/wɜːr juː æt ðə ˈkæmpsaɪt lɑːst ˌwiːkˈend/ — /jes wiː wɜːr/ /wiː dɑːnst əˈraʊnd ðə ˈkæmpfaɪər/", "meaning": "Cuối tuần trước bạn có ở khu cắm trại không? - Có, chúng mình đã ở đó. Chúng mình đã nhảy múa quanh lửa trại.", "tip": "Câu hỏi với 'You' số nhiều trong quá khứ dùng 'Were you...?'. Khẳng định: 'Yes, we were'. Động từ có quy tắc thêm -ed: 'danced'.", "chunks": [{"en": "Were you at the campsite", "ipa": "/wɜːr juː æt ðə ˈkæmpsaɪt/", "vi": "Bạn có ở khu cắm trại không"}, {"en": "last weekend? - Yes, we were.", "ipa": "/lɑːst ˌwiːkˈend/ — /jes wiː wɜːr/", "vi": "cuối tuần trước? - Có, chúng mình có ở đó."}, {"en": "We danced around the fire.", "ipa": "/wiː dɑːnst əˈraʊnd ðə ˈfaɪər/", "vi": "Chúng mình đã nhảy quanh đống lửa."}]}, {"unit": 10, "title": "Unit 10: Asking Past School Trips with Did", "icon": "🌉", "sentence": "Did you go to Ba Na Hills on your school trip? - Yes, we did. We visited the Golden Bridge.", "ipa": "/dɪd juː ɡəʊ tuː baː naː hɪlz ɒn jɔːr skuːl trɪp/ — /jes wiː dɪd/ /wiː ˈvɪzɪtɪd ðə ˈɡəʊldən brɪdʒ/", "meaning": "Các bạn có đi Bà Nà Hills trong chuyến dã ngoại không? - Có, chúng mình có đi. Chúng mình đã đến thăm Cầu Vàng.", "tip": "Câu hỏi quá khứ với động từ thường mượn trợ động từ 'Did' + V nguyên mẫu. Trả lời: 'Yes, we did' hoặc 'No, we didn't'.", "chunks": [{"en": "Did you go to Ba Na Hills?", "ipa": "/dɪd juː ɡəʊ tuː baː naː hɪlz/", "vi": "Các bạn có đi Bà Nà Hills không?"}, {"en": "Yes, we did.", "ipa": "/jes wiː dɪd/", "vi": "Có, chúng mình có đi."}, {"en": "We visited the Golden Bridge.", "ipa": "/wiː ˈvɪzɪtɪd ðə ˈɡəʊldən brɪdʒ/", "vi": "Chúng mình đã thăm Cầu Vàng."}]}];
+    const PRACTICE_DATA = [{"unit": 1, "vi": "Địa chỉ nhà của bạn ở đâu? - Số 81 đường Trần Phú.", "en": "What's your address? - It's 81, Tran Phu Street.", "ipa": "/wɒts jɔːr əˈdres/ — /ɪts ˈeɪ.ti wʌn, trɑːn fuː striːt/", "img": "assets/u1_house_number_81.svg", "tip": "Hỏi địa chỉ dùng 'What's your address?'", "id": 1}, {"unit": 1, "vi": "Bạn sống ở đâu? - Em sống ở căn hộ 12 trên tầng ba.", "en": "Where do you live? - I live in Flat 12 on the third floor.", "ipa": "/weər duː juː lɪv/ — /aɪ lɪv ɪn flæt twelv ɒn ðə θɜːd flɔːr/", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Modern_living_room_with_stylish_furniture_and_a_view_of_the_outdoors_in_a_cozy_apartment_setting.jpg?width=960", "tip": "Trong căn hộ là 'in Flat...', trên tầng ba là 'on the third floor'", "id": 2}, {"unit": 1, "vi": "Quê hương của bạn như thế nào? - Nó nhỏ nhắn và yên bình.", "en": "What's your hometown like? - It's small and peaceful.", "ipa": "/wɒts jɔːr ˈhəʊm.taʊn laɪk/ — /ɪts smɔːl ænd ˈpiːs.fəl/", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Golden-terraced-fields-in-Mu-Cang-Chai.jpg?width=960", "tip": "Hỏi đặc điểm dùng 'What is ... like?'", "id": 3}, {"unit": 1, "vi": "Bạn sống cùng với ai? - Em sống cùng với ông bà.", "en": "Who do you live with? - I live with my grandparents.", "ipa": "/huː duː juː lɪv wɪð/ — /aɪ lɪv wɪð maɪ ˈɡræn.peə.rənts/", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/C%E1%BB%95ng_l%C3%A0ng_Qu%E1%BB%B3nh_%C4%90%C3%B4i.jpg?width=960", "tip": "Ông bà là 'grandparents'", "id": 4}, {"unit": 2, "vi": "Nhà của bạn như thế nào? - Đó là một ngôi nhà nhỏ ấm cúng.", "en": "What's your house like? - It's a cozy cottage.", "ipa": "/wɒts jɔːr haʊs laɪk/ — /ɪts ə ˈkəʊ.zi ˈkɒt.ɪdʒ/", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/A_house_in_Vietnam_(25740942028).jpg?width=960", "tip": "Nhà nhỏ miền quê là 'cottage', ấm cúng là 'cozy'", "id": 5}, {"unit": 2, "vi": "Mẹ bạn đang ở đâu? - Mẹ đang ở trong bếp.", "en": "Where is your mother? - She is in the kitchen.", "ipa": "/weər ɪz jɔːr ˈmʌð.ər/ — /ʃiː ɪz ɪn ðə ˈkɪtʃ.ən/", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Modern_kitchen_and_dining_area_with_stylish_furnishings_and_natural_light_in_a_contemporary_home_setting.jpg?width=960", "tip": "Hỏi vị trí dùng 'Where is...?'", "id": 6}, {"unit": 2, "vi": "Phòng ngủ của em nằm cạnh phòng tắm.", "en": "My bedroom is next to the bathroom.", "ipa": "/maɪ ˈbed.ruːm ɪz nekst tuː ðə ˈbɑːθ.ruːm/", "img": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=960&auto=format&fit=crop&q=80", "tip": "Bên cạnh là 'next to'", "id": 7}, {"unit": 2, "vi": "Có một khu vườn lớn trước nhà của em.", "en": "There is a big garden in front of my house.", "ipa": "/ðeər ɪz ə bɪɡ ˈɡɑː.dən ɪn frʌnt əv maɪ haʊs/", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Da_Lat_Flower_Park_1.jpg?width=960", "tip": "Phía trước là 'in front of'", "id": 8}, {"unit": 3, "vi": "Cậu ấy đến từ đâu? - Cậu ấy đến từ nước Anh.", "en": "Where is he from? - He is from England.", "ipa": "/weər ɪz hiː frɒm/ — /hiː ɪz frɒm ˈɪŋ.ɡlənd/", "img": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=960&auto=format&fit=crop&q=80", "tip": "Nước Anh là 'England', nhớ có 'from'", "id": 9}, {"unit": 3, "vi": "Bạn của bạn là người như thế nào? - Bạn ấy rất thân thiện và thích thể thao.", "en": "What is your friend like? - She is friendly and sporty.", "ipa": "/wɒt ɪz jɔːr frend laɪk/ — /ʃiː ɪz ˈfrend.li ænd ˈspɔː.ti/", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Football_girl_Hue.jpg?width=960", "tip": "Thân thiện là 'friendly', thích thể thao là 'sporty'", "id": 10}, {"unit": 3, "vi": "Bạn ấy có phải là người Úc không? - Không, bạn ấy là người Việt Nam.", "en": "Is she Australian? - No, she isn't. She is Vietnamese.", "ipa": "/ɪz ʃiː ɒsˈtreɪ.li.ən/ — /nəʊ, ʃiː ˈɪz.ənt. ʃiː ɪz ˌvjet.nəˈmiːz/", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Vietnamese_Biometric_passport.jpg?width=960", "tip": "Câu nghi vấn đảo 'Is' lên đầu câu", "id": 11}, {"unit": 3, "vi": "Nam rất hay giúp đỡ mọi người. Cậu ấy luôn giúp đỡ bạn bè.", "en": "Nam is very helpful. He always helps his friends.", "ipa": "/nɑːm ɪz ˈver.i ˈhelp.fəl. hiː ˈɔːl.weɪz helps hɪz frendz/", "img": "assets/u3_helpful_students_vn.png", "tip": "Hay giúp đỡ là 'helpful'", "id": 12}, {"unit": 4, "vi": "Bạn làm gì vào lúc rảnh rỗi? - Em thường đi cắm trại.", "en": "What do you do in your free time? - I usually go camping.", "ipa": "/wɒt duː juː duː ɪn jɔːr friː taɪm/ — /aɪ ˈjuː.ʒu.ə.li ɡəʊ ˈkæm.pɪŋ/", "img": "https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=960&auto=format&fit=crop&q=80", "tip": "Đi cắm trại là 'go camping'", "id": 13}, {"unit": 4, "vi": "Bạn chơi cờ vua bao lâu một lần? - Em chơi một lần một tuần.", "en": "How often do you play chess? - I play chess once a week.", "ipa": "/haʊ ˈɒf.ən duː juː pleɪ tʃes/ — /aɪ pleɪ tʃes wʌns ə wiːk/", "img": "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=960&auto=format&fit=crop&q=80", "tip": "Một lần một tuần là 'once a week'", "id": 14}, {"unit": 4, "vi": "Cậu ấy không bao giờ đi học muộn.", "en": "He never goes to school late.", "ipa": "/hiː ˈnev.ər ɡəʊz tuː skuːl leɪt/", "img": "https://images.unsplash.com/photo-1508962914676-124849a017f6?w=960&auto=format&fit=crop&q=80", "tip": "Chủ ngữ 'He' nên động từ 'go' thêm 'es' thành 'goes'", "id": 15}, {"unit": 4, "vi": "Chúng tôi thường lệ tập võ 2 đến 3 buổi mỗi tuần.", "en": "We often practice martial arts two or three times a week.", "ipa": "/wiː ˈɒf.ən ˈpræk.tɪs ˈmɑː.ʃəl ɑːts tuː ɔːr θriː taɪmz ə wiːk/", "img": "assets/u4_often_martial_arts_vn.jpg", "tip": "Tập võ là 'practice martial arts', 2 hoặc 3 lần mỗi tuần là 'two or three times a week'", "id": 16}, {"unit": 5, "vi": "Bạn muốn làm nghề gì trong tương lai? - Em muốn làm kiến trúc sư.", "en": "What would you like to be in the future? - I'd like to be an architect.", "ipa": "/wɒt wʊd juː laɪk tuː biː ɪn ðə ˈfjuː.tʃər/ — /aɪd laɪk tuː biː ən ˈɑː.kɪ.tekt/", "img": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=960&auto=format&fit=crop&q=80", "tip": "Architect bắt đầu bằng chữ A nên dùng 'an architect'", "id": 17}, {"unit": 5, "vi": "Tại sao bạn muốn làm nhà văn? - Bởi vì em muốn viết truyện cho thiếu nhi.", "en": "Why would you like to be a writer? - Because I'd like to write stories for children.", "ipa": "/waɪ wʊd juː laɪk tuː biː ə ˈraɪ.tər/ — /bɪˈkɒz aɪd laɪk tuː raɪt ˈstɔː.riz fɔːr ˈtʃɪl.drən/", "img": "assets/u5_writer_vn.jpg", "tip": "Hỏi 'Why' thì trả lời bằng 'Because'", "id": 18}, {"unit": 5, "vi": "Bạn có muốn trở thành bác sĩ không? - Có, mình muốn chăm sóc bệnh nhân.", "en": "Would you like to be a doctor? - Yes, I would. I'd like to look after patients.", "ipa": "/wʊd juː laɪk tuː biː ə ˈdɒk.tər/ — /jes, aɪ wʊd. aɪd laɪk tuː lʊk ˈɑːf.tər ˈpeɪ.ʃənts/", "img": "assets/u5_doctor_vn.jpg", "tip": "Câu hỏi Có/Không đảo 'Would' lên đầu câu", "id": 19}, {"unit": 5, "vi": "Khi lớn lên, cậu ấy muốn trở thành phi công lái máy bay.", "en": "When he grows up, he wants to be a pilot to fly a plane.", "ipa": "/wen hiː ɡrəʊz ʌp, hiː wɒnts tuː biː ə ˈpaɪ.lət tuː flaɪ ə pleɪn/", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Vietnam_Airlines_Airbus_A350-941_VN-A886.JPG?width=960", "tip": "Lớn lên là 'grow up', với 'he' thêm 's' thành 'grows up'", "id": 20}, {"unit": 6, "vi": "Phòng tin học ở đâu? — Nó ở trên tầng hai.", "en": "Where's the computer room? - It's on the second floor.", "ipa": "/weəz ðə kəmˈpjuː.tər ruːm/ — /ɪts ɒn ðə ˈsek.ənd flɔːr/", "img": "assets/u6_computer_room_vn.jpg", "tip": "Dùng Where's... và nhớ giới từ 'on the second floor'.", "id": 21}, {"unit": 6, "vi": "Thư viện nằm ở tầng trệt.", "en": "The library is on the ground floor.", "ipa": "/ðə ˈlaɪ.brə.ri ɪz ɒn ðə ˌɡraʊnd ˈflɔːr/", "img": "assets/u6_ground_floor_vn.svg", "tip": "Tầng trệt tiếng Anh là 'ground floor'.", "id": 22}, {"unit": 6, "vi": "Bạn có thể chỉ cho mình đường tới phòng âm nhạc được không?", "en": "Could you tell me the way to the music room, please?", "ipa": "/kʊd juː tel miː ðə weɪ tuː ðə ˈmjuː.zɪk ruːm, pliːz/", "img": "assets/u6_music_room_vn.jpg", "tip": "Mẫu câu lịch sự: Could you tell me the way to the..., please?", "id": 23}, {"unit": 6, "vi": "Đi lên lầu, đi ngang qua thư viện rồi rẽ trái.", "en": "Go upstairs, go past the library, and turn left.", "ipa": "/ɡəʊ ʌpˈsteəz, ɡəʊ pɑːst ðə ˈlaɪ.brə.ri, ænd tɜːn left/", "img": "assets/u6_go_past_vn.svg", "tip": "Ghép 3 động tác chỉ đường: Go upstairs ➔ go past ➔ turn left.", "id": 24}, {"unit": 7, "vi": "Bạn ấy (nữ) thích hoạt động ở trường nào? — Bạn ấy thích đọc sách.", "en": "What school activity does she like? - She likes reading books.", "ipa": "/wɒt skuːl ækˈtɪv.ə.ti dʌz ʃiː laɪk/ — /ʃiː laɪks ˈriː.dɪŋ bʊks/", "img": "assets/u7_read_books_vn.jpg", "tip": "Nhớ thêm -s vào likes và -ing vào reading.", "id": 25}, {"unit": 7, "vi": "Tại sao cậu ấy thích làm dự án? — Vì cậu ấy nghĩ nó tốt cho làm việc nhóm.", "en": "Why does he like doing projects? - Because he thinks it's good for group work.", "ipa": "/waɪ dʌz hiː laɪk ˈduː.ɪŋ ˈprɒdʒ.ekts/ — /bɪˈkɒz hiː θɪŋks ɪts ɡʊd fɔːr ɡruːp wɜːk/", "img": "https://live.staticflickr.com/7234/7253803456_e24afc2e88_b.jpg", "tip": "Why ➔ Because he thinks it's good for group work.", "id": 26}, {"unit": 7, "vi": "Cậu ấy thích giải toán vì cậu ấy nghĩ nó rất hữu ích.", "en": "He likes solving maths problems because he thinks it's useful.", "ipa": "/hiː laɪks ˈsɒl.vɪŋ mæθs ˈprɒb.ləmz bɪˈkɒz hiː θɪŋks ɪts ˈjuːs.fəl/", "img": "https://images.unsplash.com/photo-1758685733685-7e0f30c35a17?w=960&auto=format&fit=crop&q=80", "tip": "solve ➔ solving (bỏ e thêm -ing).", "id": 27}, {"unit": 7, "vi": "Mình thích chơi trò chơi vì nó rất vui.", "en": "I like playing games because I think it's fun.", "ipa": "/aɪ laɪk ˈpleɪ.ɪŋ ɡeɪmz bɪˈkɒz aɪ θɪŋk ɪts fʌn/", "img": "https://live.staticflickr.com/2390/5797258921_76e54f0f33_b.jpg", "tip": "Chủ ngữ 'I' thì like và think giữ nguyên, không thêm -s.", "id": 28}, {"unit": 8, "vi": "Những bức tranh ở đâu? — Chúng ở phía trên tủ sách.", "en": "Where are the pictures? - They're above the bookcase.", "ipa": "/weər ɑːr ðə ˈpɪk.tʃəz/ — /ðeər əˈbʌv ðə ˈbʊk.keɪs/", "img": "assets/u8_above_vn.svg", "tip": "Nhiều bức tranh dùng Where are / They're, phía trên không chạm dùng 'above'.", "id": 29}, {"unit": 8, "vi": "Cặp sách của mình ở phía dưới bàn học.", "en": "My school bag is under the desk.", "ipa": "/maɪ skuːl bæɡ ɪz ˈʌn.dər ðə desk/", "img": "assets/u8_under_vn.svg", "tip": "Phía dưới dùng giới từ 'under'.", "id": 30}, {"unit": 8, "vi": "Thỏi hồ dán này là của ai? — Nó là của Minh.", "en": "Whose glue stick is this? - It's Minh's.", "ipa": "/huːz ɡluː stɪk ɪz ðɪs/ — /ɪts mɪnz/", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Glue_Stick.jpg?width=960", "tip": "Hỏi của ai dùng Whose + đồ vật + is this?", "id": 31}, {"unit": 8, "vi": "Cái gọt bút chì này là của ai? — Nó là của Hoa.", "en": "Whose pencil sharpener is this? - It's Hoa's.", "ipa": "/huːz ˈpen.səl ˈʃɑː.pə.nər ɪz ðɪs/ — /ɪts hwɑːz/", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Red_pencil_sharpener.jpg?width=960", "tip": "Thêm 's vào sau tên Hoa ➔ Hoa's.", "id": 32}, {"unit": 9, "vi": "Hôm qua các bạn có ở thủy cung không? — Có, chúng mình có.", "en": "Were you at the aquarium yesterday? - Yes, we were.", "ipa": "/wɜːr juː æt ði əˈkweə.ri.əm ˈjes.tə.deɪ/ — /jes, wiː wɜːr/", "img": "assets/u9_aquarium_vn.jpg", "tip": "Hỏi địa điểm quá khứ: Were you at the... yesterday?", "id": 33}, {"unit": 9, "vi": "Hôm qua các bạn có ở khu hội chợ không? — Không, chúng mình không ở đó.", "en": "Were you at the funfair yesterday? - No, we weren't.", "ipa": "/wɜːr juː æt ðə ˈfʌn.feər ˈjes.tə.deɪ/ — /nəʊ, wiː wɜːnt/", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Ferris_wheel_at_a_fairground_(Unsplash).jpg?width=960", "tip": "Phủ định của were là weren't.", "id": 34}, {"unit": 9, "vi": "Hôm qua các bạn đã làm gì? — Chúng mình đã nghe nhạc ở nhà hát.", "en": "What did you do yesterday? - We listened to music at the theatre.", "ipa": "/wɒt dɪd juː duː ˈjes.tə.deɪ/ — /wiː ˈlɪs.ənd tuː ˈmjuː.zɪk æt ðə ˈθɪə.tər/", "img": "assets/u9_theatre_vn.jpg", "tip": "Quá khứ của listen là listened.", "id": 35}, {"unit": 9, "vi": "Chúng mình đã nhảy múa quanh lửa trại vào cuối tuần trước.", "en": "We danced around the campfire last weekend.", "ipa": "/wiː dɑːnst əˈraʊnd ðə ˈkæmp.faɪər lɑːst ˌwiːkˈend/", "img": "assets/u9_campfire_vn.png", "tip": "Quá khứ của dance là danced.", "id": 36}, {"unit": 10, "vi": "Họ có đi Bà Nà Hills không? — Có, họ có đi.", "en": "Did they go to Ba Na Hills? - Yes, they did.", "ipa": "/dɪd ðeɪ ɡəʊ tuː bɑː nɑː hɪlz/ — /jes, ðeɪ dɪd/", "img": "assets/u10_bana_hills_vn.jpg", "tip": "Có 'Did' ở đầu câu nên dùng 'go' nguyên mẫu.", "id": 37}, {"unit": 10, "vi": "Họ đã đi đâu trong chuyến dã ngoại của trường? — Họ đã đi Hồ Hoàn Kiếm.", "en": "Where did they go on their school trip? - They went to Hoan Kiem Lake.", "ipa": "/weər dɪd ðeɪ ɡəʊ ɒn ðeər skuːl trɪp/ — /ðeɪ went tuː hwɑːn kiːəm leɪk/", "img": "assets/u10_hoan_kiem_lake_vn.jpg", "tip": "Câu trả lời khẳng định chuyển go ➔ went.", "id": 38}, {"unit": 10, "vi": "Họ đã làm gì ở đó? — Họ đã trồng cây xanh.", "en": "What did they do there? - They planted trees.", "ipa": "/wɒt dɪd ðeɪ duː ðeər/ — /ðeɪ ˈplɑːn.tɪd triːz/", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Tree_planting_with_children.jpg?width=960", "tip": "plant ➔ planted (/ˈplɑːn.tɪd/).", "id": 39}, {"unit": 10, "vi": "Họ đã tham quan các tòa nhà cổ và đi dạo quanh hồ.", "en": "They visited the old buildings and walked around the lake.", "ipa": "/ðeɪ ˈvɪz.ɪ.tɪd ði əʊld ˈbɪl.dɪŋz ænd wɔːkt əˈraʊnd ðə leɪk/", "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Hoi_An_Ancient_Town.jpg?width=960", "tip": "Nhớ thêm -ed cho cả hai động từ visited và walked.", "id": 40}];
+    const EXAMS_DATA = [{"id": 1, "title": "Đề 1: Khởi Động & Ôn Tập Học Kỳ 1 (Căn Bản)", "desc": "Kiểm tra kỹ năng nghe, nhận diện từ vựng Unit 1–3, quy tắc trọng âm 2 âm tiết và giới từ địa chỉ.", "questions": [{"id": "t1_q1", "type": "listening", "question": "🎧 Nghe và chọn địa chỉ đúng của bạn Nam:", "audio": "He lives at 81, Tran Phu Street, Ha Noi.", "options": ["81 Tran Phu Street", "18 Tran Phu Street", "81 Le Loi Street", "Hoa Binh Lane"], "ans": 0, "explanation": "Lời thoại: 'He lives at 81, Tran Phu Street, Ha Noi.' Số 81 phát âm là /ˈeɪti wʌn/, tên đường là Tran Phu Street."}, {"id": "t1_q2", "type": "listening", "question": "🎧 Nghe và chọn thông tin về bạn Linda:", "audio": "Linda is Australian, and she is very helpful.", "options": ["Linda is American and clever.", "Linda is Australian and very helpful.", "Linda lives in a flat in London.", "Linda is Vietnamese."], "ans": 1, "explanation": "Lời thoại: 'Linda is Australian, and she is very helpful.' Bạn ấy là người Úc và rất hay giúp đỡ mọi người."}, {"id": "t1_q3", "type": "listening", "question": "🎧 Nghe và cho biết bạn Mai thường làm gì vào cuối tuần:", "audio": "I usually ride a bike in the park on Sunday.", "options": ["She surfs the Internet.", "She watches TV at home.", "She usually rides a bike in the park.", "She does martial arts."], "ans": 2, "explanation": "Lời thoại: 'I usually ride a bike in the park on Sunday.' Mai thường đạp xe trong công viên vào Chủ Nhật."}, {"id": "t1_q4", "type": "stress", "question": "🔍 Chọn từ có trọng âm khác với các từ còn lại:", "options": ["'clever", "'helpful", "a'bove", "'city"], "ans": 2, "explanation": "'above' (/əˈbʌv/) có trọng âm rơi vào âm tiết thứ 2. Các từ còn lại ('clever, 'helpful, 'city) đều có trọng âm rơi vào âm tiết thứ 1."}, {"id": "t1_q5", "type": "stress", "question": "🔍 Chọn từ có trọng âm rơi vào âm tiết thứ HAI:", "options": ["'countryside", "re'porter", "'mountains", "'building"], "ans": 1, "explanation": "'reporter' (/rɪˈpɔːtər/) có trọng âm rơi vào âm tiết thứ 2. Các từ 'countryside, 'mountains, 'building đều có trọng âm ở âm tiết thứ 1."}, {"id": "t1_q6", "type": "grammar", "question": "I live ________ Flat 23 ________ the second floor.", "options": ["on / in", "in / on", "at / on", "in / at"], "ans": 1, "explanation": "Quy tắc giới từ: Dùng 'in' với căn hộ chung cư (in Flat 23) và dùng 'on' với số tầng (on the second floor)."}, {"id": "t1_q7", "type": "grammar", "question": "Why would you like to be a firefighter? - ________ I'd like to put out fires.", "options": ["So", "And", "Because", "But"], "ans": 2, "explanation": "Câu hỏi lý do với 'Why' (Tại sao) luôn được trả lời bằng liên từ 'Because' (Bởi vì)."}, {"id": "t1_q8", "type": "grammar", "question": "My father ________ skips breakfast. He has breakfast every morning.", "options": ["always", "never", "sometimes", "usually"], "ans": 1, "explanation": "Bố ăn sáng mỗi buổi sáng (100%), suy ra bố 'không bao giờ' bỏ bữa sáng ➔ Dùng trạng từ 'never' (0%)."}, {"id": "t1_q9", "type": "reading", "question": "Đọc và hoàn thành câu: 'Where is the computer room?' - 'Go upstairs to the first floor and ________.'", "options": ["turn left", "at home", "in the park", "yesterday"], "ans": 0, "explanation": "Chỉ đường trong trường học dùng cụm mệnh lệnh 'turn left' (rẽ trái) hoặc 'turn right' (rẽ phải)."}, {"id": "t1_q10", "type": "reading", "question": "Đọc đoạn văn ngắn: 'Nam lives at 105 Hoa Binh Lane. His hometown is a small village in the mountains. The village is peaceful.' Where does Nam live now?", "options": ["In a small village", "At 105 Hoa Binh Lane", "In Da Nang City", "In London"], "ans": 1, "explanation": "Câu đầu tiên nêu rõ nơi ở hiện tại: 'Nam lives at 105 Hoa Binh Lane.' (Ngôi làng ở vùng núi là quê hương của cậu ấy)."}]}, {"id": 2, "title": "Đề 2: Chuyên Đề Giới Từ (In / On / At) & Địa Chỉ", "desc": "Luyện thành thạo giới từ chỉ nơi chốn, tầng lầu và vị trí đồ dùng học tập.", "questions": [{"id": "t2_q1", "type": "listening", "question": "🎧 Nghe và chọn vị trí căn phòng:", "audio": "The art room is on the first floor, next to the library.", "options": ["On the ground floor", "On the first floor", "On the second floor", "In the garden"], "ans": 1, "explanation": "Lời thoại: 'The art room is on the first floor, next to the library.' Phòng mỹ thuật ở tầng một."}, {"id": "t2_q2", "type": "listening", "question": "🎧 Nghe và xác định vị trí đồ vật:", "audio": "The big clock is above the whiteboard in our classroom.", "options": ["Under the whiteboard", "Behind the door", "Above the whiteboard", "On the table"], "ans": 2, "explanation": "Lời thoại: 'The big clock is above the whiteboard.' Chiếc đồng hồ ở phía trên bảng trắng."}, {"id": "t2_q3", "type": "listening", "question": "🎧 Nghe và chọn địa điểm bạn nhỏ đang sống:", "audio": "My family lives in a quiet village in the countryside.", "options": ["In a noisy city", "In a tall tower", "In the mountains", "In the countryside"], "ans": 3, "explanation": "Lời thoại: 'in a quiet village in the countryside' ➔ sống ở vùng quê nông thôn."}, {"id": "t2_q4", "type": "stress", "question": "🔍 Chọn từ có trọng âm khác:", "options": ["'village", "be'hind", "'campsite", "'crayon"], "ans": 1, "explanation": "'behind' (/bɪˈhaɪnd/) nhấn âm tiết thứ 2. Các từ còn lại ('village, 'campsite, 'crayon) đều nhấn âm tiết 1."}, {"id": "t2_q5", "type": "stress", "question": "🔍 Tìm từ có phát âm phần gạch chân khác (chữ 'i'):", "options": ["campsite (/aɪ/)", "favourite (/ɪ/)", "city (/ɪ/)", "building (/ɪ/)"], "ans": 0, "explanation": "Trong 'campsite' (/ˈkæmpsaɪt/), chữ 'i' phát âm là /aɪ/. Trong các từ còn lại, chữ 'i' phát âm là /ɪ/."}, {"id": "t2_q6", "type": "grammar", "question": "She lives ________ 54 Le Loi Street ________ Da Nang City.", "options": ["in / at", "at / in", "on / at", "at / on"], "ans": 1, "explanation": "Có số nhà cụ thể (54 Le Loi Street) dùng 'at'. Tên thành phố (Da Nang City) dùng 'in'."}, {"id": "t2_q7", "type": "grammar", "question": "The science lab is ________ the ground floor.", "options": ["in", "at", "on", "under"], "ans": 2, "explanation": "Tất cả các tầng lầu trong tòa nhà đều dùng giới từ 'on' (on the ground floor, on the first floor)."}, {"id": "t2_q8", "type": "grammar", "question": "The soccer ball is ________ the red box and the blue box.", "options": ["above", "between", "behind", "on"], "ans": 1, "explanation": "Cấu trúc 'between A and B' nghĩa là ở chính giữa hai vật A và B."}, {"id": "t2_q9", "type": "reading", "question": "Chọn câu trả lời phù hợp: 'Whose glue stick is this on the desk?'", "options": ["It's on the first floor.", "It's Mai's glue stick.", "Yes, I do.", "Because I like it."], "ans": 1, "explanation": "Câu hỏi với 'Whose' (Của ai) hỏi quyền sở hữu, trả lời dùng sở hữu cách 'It's Mai's glue stick'."}, {"id": "t2_q10", "type": "reading", "question": "Đọc câu: 'Turn right at the corridor, the computer room is opposite the library.' Bạn Nam muốn đến phòng nào?", "options": ["Phòng tin học (Computer room)", "Khu cắm trại", "Sân trường", "Phòng ăn"], "ans": 0, "explanation": "Chỉ đường dẫn đến 'the computer room' (phòng tin học)."}]}, {"id": 3, "title": "Đề 3: Quốc Tịch, Tính Cách & Nghề Nghiệp Tương Lai", "desc": "Kiểm tra từ vựng quốc gia/quốc tịch, tính từ miêu tả và mẫu câu 'Why would you like to be a...'.", "questions": [{"id": "t3_q1", "type": "listening", "question": "🎧 Nghe và chọn ước mơ nghề nghiệp:", "audio": "Tony would like to be an architect because he wants to design tall buildings.", "options": ["Firefighter", "Writer", "Architect", "Reporter"], "ans": 2, "explanation": "Lời thoại: 'Tony would like to be an architect' (kiến trúc sư)."}, {"id": "t3_q2", "type": "listening", "question": "🎧 Nghe và chọn tính cách của bạn Mai:", "audio": "Mai is very clever and friendly. She always helps her classmates.", "options": ["Lazy and quiet", "Clever and friendly", "Difficult and strict", "Noisy"], "ans": 1, "explanation": "Lời thoại: 'Mai is very clever and friendly.' Mai rất thông minh và thân thiện."}, {"id": "t3_q3", "type": "listening", "question": "🎧 Nghe và chọn quốc tịch:", "audio": "Akiko is from Tokyo. She is Japanese.", "options": ["Vietnamese", "Australian", "American", "Japanese"], "ans": 3, "explanation": "Lời thoại: 'She is Japanese.' Bạn ấy là người Nhật Bản."}, {"id": "t3_q4", "type": "stress", "question": "🔍 Chọn từ có trọng âm nhấn vào âm tiết cuối cùng (-ese):", "options": ["'English", "'American", "Vietna'mese", "'Australian"], "ans": 2, "explanation": "Quy tắc trọng âm: Các từ có đuôi '-ese' (Vietnamese, Japanese, Chinese) luôn có trọng âm nhấn vào chính đuôi này."}, {"id": "t3_q5", "type": "stress", "question": "🔍 Chọn từ có trọng âm khác với các từ còn lại:", "options": ["'gardener", "'actor", "'writer", "re'porter"], "ans": 3, "explanation": "'reporter' (/rɪˈpɔːtər/) nhấn âm 2. Các từ 'gardener, 'actor, 'writer đều là danh từ chỉ nghề nghiệp nhấn âm 1."}, {"id": "t3_q6", "type": "grammar", "question": "What nationality is your new friend? - He is ________.", "options": ["America", "Australia", "Australian", "England"], "ans": 2, "explanation": "Sau 'He is...' cần một từ chỉ quốc tịch (nationality): 'Australian'. America, Australia, England là tên quốc gia."}, {"id": "t3_q7", "type": "grammar", "question": "Why would she like to be a writer? - Because she wants to ________ stories for children.", "options": ["write", "put out", "grow", "solve"], "ans": 0, "explanation": "Nhà văn (writer) làm công việc 'write stories' (viết truyện)."}, {"id": "t3_q8", "type": "grammar", "question": "A ________ grows vegetables and takes care of flowers in the garden.", "options": ["firefighter", "gardener", "doctor", "actor"], "ans": 1, "explanation": "Người trồng rau và chăm sóc hoa trong vườn là 'gardener' (người làm vườn)."}, {"id": "t3_q9", "type": "reading", "question": "Hoàn thành câu: 'Brave firefighters work hard to ________.'", "options": ["put out fires and save people", "write books", "teach English", "solve maths problems"], "ans": 0, "explanation": "Lính cứu hỏa làm nhiệm vụ 'put out fires and save people' (chữa cháy và cứu người)."}, {"id": "t3_q10", "type": "reading", "question": "Đọc câu: 'Nam is very helpful. Whenever an old person crosses the street, he helps them.' Từ 'helpful' mang nghĩa gì?", "options": ["Hay cáu gắt", "Thông minh", "Hay giúp đỡ mọi người", "Thích vẽ tranh"], "ans": 2, "explanation": "'helpful' (/ˈhelpfl/) là tính từ chỉ người tốt bụng, luôn sẵn sàng giúp đỡ người khác."}]}, {"id": 4, "title": "Đề 4: Trạng Từ Tần Suất & Hoạt Động Thời Gian Rảnh", "desc": "Kiểm tra thang đo 100% đến 0% (always, usually, often, sometimes, never) và vị trí trong câu.", "questions": [{"id": "t4_q1", "type": "listening", "question": "🎧 Nghe và chọn mức độ tần suất:", "audio": "I always brush my teeth twice a day.", "options": ["Never (0%)", "Sometimes (40%)", "Often (60%)", "Always (100%)"], "ans": 3, "explanation": "Lời thoại: 'I always brush my teeth' ➔ Always là luôn luôn (100%)."}, {"id": "t4_q2", "type": "listening", "question": "🎧 Nghe và cho biết hoạt động của bạn Phong:", "audio": "In his free time, Phong often surfs the Internet for English lessons.", "options": ["Goes for a walk", "Surfs the Internet", "Plays football", "Rides a horse"], "ans": 1, "explanation": "Lời thoại: 'Phong often surfs the Internet for English lessons' ➔ lướt mạng tra bài học tiếng Anh."}, {"id": "t4_q3", "type": "listening", "question": "🎧 Nghe và chọn thông tin đúng:", "audio": "We never go swimming alone without our parents.", "options": ["They always swim alone.", "They never go swimming alone.", "They swim every Sunday.", "They dislike swimming."], "ans": 1, "explanation": "Lời thoại: 'We never go swimming alone without our parents' ➔ không bao giờ đi bơi một mình."}, {"id": "t4_q4", "type": "stress", "question": "🔍 Chọn từ có trọng âm rơi vào âm tiết đầu tiên:", "options": ["be'tween", "a'bove", "'often", "to'day"], "ans": 2, "explanation": "'often' (/ˈɒfn/) có trọng âm rơi vào âm 1. Các từ 'between, 'above, 'today đều có trọng âm rơi vào âm 2."}, {"id": "t4_q5", "type": "stress", "question": "🔍 Tìm từ có âm câm (silent letter):", "options": ["often (t câm)", "always", "sometimes", "never"], "ans": 0, "explanation": "Trong từ 'often' (/ˈɒfn/), chữ 't' là âm câm không được phát âm."}, {"id": "t4_q6", "type": "grammar", "question": "She ________ rides a bike to school. She does it every single day.", "options": ["sometimes", "never", "always", "often"], "ans": 2, "explanation": "Làm việc đó mỗi ngày (every single day = 100%) ➔ dùng trạng từ 'always'."}, {"id": "t4_q7", "type": "grammar", "question": "Where does the frequency adverb go? 'Tom (1) is (2) late (3) for school.'", "options": ["Vị trí (1)", "Vị trí (2) - sau động từ to be", "Vị trí (3)", "Cuối câu"], "ans": 1, "explanation": "Quy tắc: Trạng từ tần suất đứng SAU động từ To Be (Tom is always late for school)."}, {"id": "t4_q8", "type": "grammar", "question": "What do you do ________ your free time? - I read comic books.", "options": ["on", "at", "in", "to"], "ans": 2, "explanation": "Cụm từ cố định: 'in your free time' (trong thời gian rảnh rỗi)."}, {"id": "t4_q9", "type": "reading", "question": "Sắp xếp lại câu đúng: 'walk / for / they / a / usually / go / .'", "options": ["They go usually for a walk.", "They usually go for a walk.", "They for a walk go usually.", "Usually go they for a walk."], "ans": 1, "explanation": "Trạng từ 'usually' đứng trước động từ thường 'go': 'They usually go for a walk.'"}, {"id": "t4_q10", "type": "reading", "question": "Đọc đoạn văn: 'Hoa has a healthy lifestyle. She always wakes up early, usually does morning exercise, and never stays up late.' Điều gì Hoa KHÔNG BAO GIỜ làm?", "options": ["Dậy sớm", "Tập thể dục", "Thức khuya", "Ăn sáng"], "ans": 2, "explanation": "'never stays up late' nghĩa là không bao giờ thức khuya."}]}, {"id": 5, "title": "Đề 5: Vị Trí Phòng Học & Chỉ Đường Trong Trường", "desc": "Kiểm tra tên các phòng chức năng, số tầng và các chỉ dẫn: go upstairs/downstairs, turn left/right.", "questions": [{"id": "t5_q1", "type": "listening", "question": "🎧 Nghe và chọn phòng học được nhắc đến:", "audio": "Excuse me, where is the music room? - It's on the second floor.", "options": ["Library", "Computer room", "Music room", "Gym"], "ans": 2, "explanation": "Lời thoại: 'where is the music room?' ➔ phòng âm nhạc."}, {"id": "t5_q2", "type": "listening", "question": "🎧 Nghe và chọn chỉ đường đúng:", "audio": "Go downstairs to the ground floor and turn right.", "options": ["Go upstairs and turn left", "Go downstairs to the ground floor and turn right", "Go past the gate", "Turn left on the second floor"], "ans": 1, "explanation": "Lời thoại: 'Go downstairs to the ground floor and turn right' ➔ đi xuống tầng trệt và rẽ phải."}, {"id": "t5_q3", "type": "listening", "question": "🎧 Nghe và chọn hoạt động trong phòng chức năng:", "audio": "We are having an art lesson in the art room on the first floor.", "options": ["Reading books", "Drawing and painting", "Playing computers", "Singing"], "ans": 1, "explanation": "Học trong phòng mỹ thuật (art room) là hoạt động vẽ và tô màu (drawing and painting)."}, {"id": "t5_q4", "type": "stress", "question": "🔍 Chọn từ có trọng âm khác:", "options": ["'library", "up'stairs", "'classroom", "'building"], "ans": 1, "explanation": "'upstairs' (/ʌpˈsteəz/) có trọng âm rơi vào âm 2. Các từ 'library, 'classroom, 'building nhấn âm 1."}, {"id": "t5_q5", "type": "stress", "question": "🔍 Từ 'computer' có trọng âm rơi vào âm tiết thứ mấy?", "options": ["Âm tiết 1", "Âm tiết 2 (/kəmˈpjuːtər/)", "Âm tiết 3", "Không có trọng âm"], "ans": 1, "explanation": "'computer' phát âm là /kəmˈpjuːtər/, trọng âm rơi vào âm tiết thứ 2 (pjuː)."}, {"id": "t5_q6", "type": "grammar", "question": "The library is on the first floor. Please ________ upstairs.", "options": ["go", "goes", "going", "went"], "ans": 0, "explanation": "Câu mệnh lệnh bắt đầu bằng động từ nguyên mẫu: 'Please go upstairs.'"}, {"id": "t5_q7", "type": "grammar", "question": "Walk straight and ________ past the teachers' room.", "options": ["go", "turn", "have", "stay"], "ans": 0, "explanation": "Cụm từ chỉ đường: 'go past' nghĩa là đi ngang qua."}, {"id": "t5_q8", "type": "grammar", "question": "Where is the science lab? - It's ________ the ground floor.", "options": ["in", "on", "at", "to"], "ans": 1, "explanation": "Tất cả các tầng đều dùng giới từ 'on': on the ground floor."}, {"id": "t5_q9", "type": "reading", "question": "Điền vào chỗ trống: 'Go upstairs and ________ left at the corridor.'", "options": ["look", "turn", "take", "make"], "ans": 1, "explanation": "Cụm từ rẽ trái là 'turn left'."}, {"id": "t5_q10", "type": "reading", "question": "Đọc biển chỉ dẫn: 'QUIET PLEASE! STUDENTS ARE READING.' Biển này thường đặt ở đâu?", "options": ["Computer room", "School yard", "Library", "Canteen"], "ans": 2, "explanation": "Biển yêu cầu giữ trật tự vì học sinh đang đọc sách thường được đặt ở Thư viện (Library)."}]}, {"id": 6, "title": "Đề 6: Hoạt Động Học Tập & Cấu Trúc Why – Because", "desc": "Kiểm tra kỹ năng diễn đạt lý do thích hoạt động học tập: useful, fun, interesting, difficult.", "questions": [{"id": "t6_q1", "type": "listening", "question": "🎧 Nghe và chọn lý do bạn Nam thích làm dự án:", "audio": "I like doing projects because it is very fun and good for group work.", "options": ["Because it is difficult.", "Because it is fun and good for group work.", "Because he likes sleeping.", "Because it is boring."], "ans": 1, "explanation": "Lời thoại: 'because it is very fun and good for group work'."}, {"id": "t6_q2", "type": "listening", "question": "🎧 Nghe và xác định hoạt động học tập:", "audio": "Quan and Phong are solving difficult maths problems together.", "options": ["Reading stories", "Drawing posters", "Playing games", "Solving maths problems"], "ans": 3, "explanation": "Lời thoại: 'solving difficult maths problems together' ➔ giải bài toán khó."}, {"id": "t6_q3", "type": "listening", "question": "🎧 Nghe và chọn tính từ nhận xét thí nghiệm:", "audio": "This science experiment is really interesting!", "options": ["Tired", "Difficult", "Interesting", "Bad"], "ans": 2, "explanation": "Lời thoại: 'This science experiment is really interesting!' ➔ rất thú vị."}, {"id": "t6_q4", "type": "stress", "question": "🔍 Chọn từ có trọng âm rơi vào âm tiết đầu tiên:", "options": ["be'cause", "'useful", "re'port", "a'bove"], "ans": 1, "explanation": "'useful' (/ˈjuːsfl/) có trọng âm nhấn vào âm 1. Các từ 'because, 'report, 'above đều nhấn âm 2."}, {"id": "t6_q5", "type": "stress", "question": "🔍 Từ 'interesting' có trọng âm rơi vào âm tiết thứ mấy?", "options": ["Âm tiết 1 (/ˈɪntrəstɪŋ/)", "Âm tiết 2", "Âm tiết 3", "Âm tiết 4"], "ans": 0, "explanation": "'interesting' chuẩn quốc tế đọc là /ˈɪntrəstɪŋ/, trọng âm rơi vào âm tiết thứ 1."}, {"id": "t6_q6", "type": "grammar", "question": "Why do you like ________ English? - Because it is useful.", "options": ["learn", "learning", "learnt", "learns"], "ans": 1, "explanation": "Sau động từ 'like' dùng động từ dạng V-ing: 'learning English'."}, {"id": "t6_q7", "type": "grammar", "question": "________ does Linda like studying science? - Because she loves nature.", "options": ["What", "Where", "Why", "When"], "ans": 2, "explanation": "Câu trả lời bắt đầu bằng 'Because' nên câu hỏi phải dùng từ để hỏi lý do 'Why'."}, {"id": "t6_q8", "type": "grammar", "question": "We like reading books because they provide ________ knowledge.", "options": ["useless", "useful", "difficult", "bad"], "ans": 1, "explanation": "Sách mang lại kiến thức 'bổ ích, hữu ích' ➔ dùng tính từ 'useful'."}, {"id": "t6_q9", "type": "reading", "question": "Chọn câu đối đáp phù hợp nhất: 'Why do you like playing English games?'", "options": ["Yes, I do.", "Because it helps me practice speaking English happily.", "I live in Ha Noi.", "At 8 o'clock."], "ans": 1, "explanation": "Hỏi 'Why' trả lời bằng 'Because it helps me practice speaking English happily'."}, {"id": "t6_q10", "type": "reading", "question": "Đọc câu: 'Mai finds Maths difficult, but she tries her best to solve all the problems.' Bạn Mai thấy môn Toán thế nào?", "options": ["Rất dễ", "Khó khăn nhưng cố gắng", "Nhàm chán", "Không muốn học"], "ans": 1, "explanation": "'finds Maths difficult, but tries her best' nghĩa là thấy môn Toán khó nhưng bạn luôn nỗ lực hết mình."}]}, {"id": 7, "title": "Đề 7: Đồ Dùng Học Tập & Đại Từ Sở Hữu Whose", "desc": "Kiểm tra từ vựng set square, crayon, glue stick, sở hữu cách ('s) và giới từ vị trí.", "questions": [{"id": "t7_q1", "type": "listening", "question": "🎧 Nghe và chọn đồ vật được nhắc đến:", "audio": "Whose set square is this on the desk? - It's Nam's.", "options": ["Pencil case", "Set square", "Glue stick", "School bag"], "ans": 1, "explanation": "Lời thoại: 'Whose set square is this' ➔ thước ê-ke."}, {"id": "t7_q2", "type": "listening", "question": "🎧 Nghe và chọn chủ sở hữu của thỏi hồ dán:", "audio": "This pink glue stick belongs to Mai. It's Mai's glue stick.", "options": ["Phong's", "Tom's", "Mai's", "The teacher's"], "ans": 2, "explanation": "Lời thoại: 'This pink glue stick belongs to Mai. It's Mai's glue stick' ➔ của Mai."}, {"id": "t7_q3", "type": "listening", "question": "🎧 Nghe và cho biết các bạn đang dùng gì để tô màu:", "audio": "The children are coloring the picture with bright crayons.", "options": ["Pens", "Watercolors", "Bright crayons", "Chalk"], "ans": 2, "explanation": "Lời thoại: 'with bright crayons' ➔ bút sáp màu sáng rực rỡ."}, {"id": "t7_q4", "type": "stress", "question": "🔍 Chọn từ có trọng âm khác:", "options": ["'crayon", "'set square", "a'bove", "'storybook"], "ans": 2, "explanation": "'above' (/əˈbʌv/) nhấn âm 2. Các từ 'crayon, 'set square, 'storybook nhấn âm 1."}, {"id": "t7_q5", "type": "stress", "question": "🔍 Tìm từ có cách phát âm đuôi 's' là /z/:", "options": ["books (/s/)", "crayons (/z/)", "desks (/s/)", "hats (/s/)"], "ans": 1, "explanation": "Sau nguyên âm hoặc phụ âm hữu thanh /n/, đuôi 's' trong 'crayons' được phát âm là /z/. Trong 'books', 'desks', 'hats' đuôi s phát âm là /s/."}, {"id": "t7_q6", "type": "grammar", "question": "________ notebook is this on the floor? - It's Peter's.", "options": ["Who", "Whose", "Where", "What"], "ans": 1, "explanation": "Hỏi quyền sở hữu (cuốn vở của ai) dùng từ để hỏi 'Whose'."}, {"id": "t7_q7", "type": "grammar", "question": "These are not my crayons. They are ________.", "options": ["Linh", "Linh's", "Linhs", "of Linh"], "ans": 1, "explanation": "Đại từ sở hữu dạng sở hữu cách có dấu nháy: 'Linh's' (của Linh)."}, {"id": "t7_q8", "type": "grammar", "question": "The cat is sleeping ________ the chair, under the shadow.", "options": ["under", "above", "between", "on"], "ans": 0, "explanation": "Dưới bóng râm ở dưới ghế dùng giới từ 'under'."}, {"id": "t7_q9", "type": "reading", "question": "Điền từ thích hợp: 'You need a ________ to draw accurate right angles in maths class.'", "options": ["crayon", "set square", "glue stick", "eraser"], "ans": 1, "explanation": "Vẽ góc vuông chuẩn xác trong môn toán cần cây thước ê-ke 'set square'."}, {"id": "t7_q10", "type": "reading", "question": "Đọc câu: 'Lan borrowed a glue stick from Nam to stick pictures onto her poster.' Lan mượn gì của Nam?", "options": ["Bút sáp", "Thước kẻ", "Thỏi keo dán", "Kéo cắt giấy"], "ans": 2, "explanation": "'glue stick' nghĩa là thỏi keo dán / hồ dán."}]}, {"id": 8, "title": "Đề 8: Thì Quá Khứ Đơn với To Be (Was / Were)", "desc": "Kiểm tra cách chia was/were, câu hỏi Were you...? và từ vựng địa điểm kỳ nghỉ.", "questions": [{"id": "t8_q1", "type": "listening", "question": "🎧 Nghe và chọn địa điểm các bạn đã ở vào cuối tuần trước:", "audio": "Were you at the campsite last weekend? - Yes, we were.", "options": ["At the zoo", "At the campsite", "At the funfair", "At school"], "ans": 1, "explanation": "Lời thoại: 'Were you at the campsite last weekend? - Yes, we were' ➔ ở khu cắm trại."}, {"id": "t8_q2", "type": "listening", "question": "🎧 Nghe và cho biết hôm qua Linda ở đâu:", "audio": "Linda was at the aquarium yesterday morning.", "options": ["At the aquarium", "At home", "At the cinema", "At the hospital"], "ans": 0, "explanation": "Lời thoại: 'Linda was at the aquarium yesterday morning' ➔ ở thủy cung."}, {"id": "t8_q3", "type": "listening", "question": "🎧 Nghe và chọn câu đúng:", "audio": "They were very happy at the funfair last Sunday.", "options": ["They were sad.", "They were tired.", "They were happy at the funfair.", "They were at home."], "ans": 2, "explanation": "Lời thoại: 'They were very happy at the funfair last Sunday' ➔ rất vui vẻ tại hội chợ."}, {"id": "t8_q4", "type": "stress", "question": "🔍 Chọn từ có trọng âm rơi vào âm tiết đầu tiên:", "options": ["a'quarium", "'yesterday", "be'cause", "un'til"], "ans": 1, "explanation": "'yesterday' (/ˈjestədeɪ/) nhấn âm 1. 'aquarium' nhấn âm 2 (/əˈkweəriəm/)."}, {"id": "t8_q5", "type": "stress", "question": "🔍 Chọn từ có trọng âm khác:", "options": ["'campsite", "'funfair", "'weekend", "po'goda"], "ans": 3, "explanation": "'pagoda' (/pəˈɡəʊdə/) nhấn âm 2. Các từ 'campsite, 'funfair, 'weekend nhấn âm 1."}, {"id": "t8_q6", "type": "grammar", "question": "Where ________ you yesterday? - I ________ at home.", "options": ["was / were", "were / was", "were / were", "are / am"], "ans": 1, "explanation": "Đi với chủ ngữ 'you' dùng 'were', đi với chủ ngữ 'I' số ít dùng 'was' trong quá khứ."}, {"id": "t8_q7", "type": "grammar", "question": "Were Nam and Quan at the school library yesterday afternoon? - No, they ________.", "options": ["wasn't", "weren't", "didn't", "aren't"], "ans": 1, "explanation": "Chủ ngữ số nhiều 'Nam and Quan' (they) trong câu phủ định quá khứ với To Be là 'weren't'."}, {"id": "t8_q8", "type": "grammar", "question": "Last weekend, the weather ________ warm and sunny.", "options": ["is", "was", "were", "are"], "ans": 1, "explanation": "'The weather' là danh từ không đếm được (ngôi thứ 3 số ít), quá khứ dùng 'was'."}, {"id": "t8_q9", "reading": "reading", "question": "Hoàn thành đoạn hội thoại: 'Were you at the beach last summer?' - '________. We swam in the sea every day.'", "options": ["No, we weren't.", "Yes, we were.", "Yes, I am.", "No, I don't."], "ans": 1, "explanation": "Vế sau nói 'Chúng mình đã tắm biển mỗi ngày' nên câu trả lời khẳng định là 'Yes, we were'."}, {"id": "t8_q10", "type": "reading", "question": "Đọc câu: 'Yesterday was Sunday. Ba wasn't at school. He was at the campsite with his scout team.' Hôm qua Ba ở đâu?", "options": ["Ở trường", "Ở nhà một mình", "Ở khu cắm trại cùng đội hướng đạo", "Ở rạp chiếu phim"], "ans": 2, "explanation": "Câu nêu rõ: 'He was at the campsite with his scout team.'"}]}, {"id": 9, "title": "Đề 9: Quá Khứ Đơn với Động Từ Thường (Did / V-ed)", "desc": "Kiểm tra động từ có quy tắc (planted, watched, visited) và bất quy tắc (went, saw, bought).", "questions": [{"id": "t9_q1", "type": "listening", "question": "🎧 Nghe và chọn hoạt động các bạn đã làm trên chuyến đi:", "audio": "Did you visit Bai Dinh Pagoda? - Yes, we did. We visited the pagoda and planted trees.", "options": ["Bought souvenirs", "Visited the pagoda and planted trees", "Watched TV", "Swam in the pool"], "ans": 1, "explanation": "Lời thoại: 'We visited the pagoda and planted trees' ➔ đã viếng chùa và trồng cây."}, {"id": "t9_q2", "type": "listening", "question": "🎧 Nghe và cho biết Mai đã mua gì:", "audio": "Mai bought some beautiful souvenirs for her grandmother in Da Nang.", "options": ["Comic books", "A new bike", "Beautiful souvenirs", "Clothes"], "ans": 2, "explanation": "Lời thoại: 'bought some beautiful souvenirs' ➔ đã mua những món quà lưu niệm đẹp."}, {"id": "t9_q3", "type": "listening", "question": "🎧 Nghe và xác định hoạt động tại thủy cung:", "audio": "We watched the big sharks and colorful sea fish.", "options": ["Caught the fish", "Ate seafood", "Watched the big sharks and fish", "Drew fish pictures"], "ans": 2, "explanation": "Lời thoại: 'watched the big sharks and colorful sea fish' ➔ đã ngắm nhìn cá mập và cá biển."}, {"id": "t9_q4", "type": "stress", "question": "🔍 Tìm từ có đuôi '-ed' phát âm là /ɪd/:", "options": ["watched (/t/)", "danced (/t/)", "planted (/ɪd/)", "played (/d/)"], "ans": 2, "explanation": "Quy tắc phát âm đuôi -ed: Động từ tận cùng bằng âm /t/ hoặc /d/ (như plant) thì đuôi -ed phát âm là /ɪd/ ➔ /ˈplɑːntɪd/."}, {"id": "t9_q5", "type": "stress", "question": "🔍 Tìm từ có đuôi '-ed' phát âm là /t/:", "options": ["watched (/t/)", "visited (/ɪd/)", "planted (/ɪd/)", "lived (/d/)"], "ans": 0, "explanation": "Động từ tận cùng bằng âm vô thanh /tʃ/ (watch) khi thêm -ed phát âm là /t/ ➔ /wɒtʃt/."}, {"id": "t9_q6", "type": "grammar", "question": "What did you do on your school trip? - We ________ around Hoan Kiem Lake.", "options": ["walk", "walks", "walked", "walking"], "ans": 2, "explanation": "Trả lời câu hỏi ở thì quá khứ (What did you do...), động từ phải chia ở quá khứ: 'walked'."}, {"id": "t9_q7", "type": "grammar", "question": "Did you ________ to Ba Na Hills last month? - Yes, we did.", "options": ["go", "went", "going", "goes"], "ans": 0, "explanation": "Trong câu hỏi có trợ động từ 'Did', động từ chính giữ nguyên mẫu không chia: 'Did you go...'."}, {"id": "t9_q8", "type": "grammar", "question": "Yesterday, my brother ________ a lot of postcards and gifts.", "options": ["buy", "buys", "bought", "buying"], "ans": 2, "explanation": "Dấu hiệu 'Yesterday' chỉ quá khứ. Động từ bất quy tắc của 'buy' là 'bought' (/bɔːt/)."}, {"id": "t9_q9", "type": "reading", "question": "Chọn câu phủ định đúng trong thì quá khứ:", "options": ["We didn't went to the museum.", "We didn't go to the museum.", "We not went to the museum.", "We don't went to the museum."], "ans": 1, "explanation": "Cấu trúc phủ định quá khứ: S + didn't + V nguyên mẫu ➔ 'We didn't go to the museum.'"}, {"id": "t9_q10", "type": "reading", "question": "Đọc câu: 'Last weekend our class had a memorable school trip to Cuc Phuong National Park. We planted twenty young trees.' Lớp học đã làm gì?", "options": ["Bắt chim", "Trồng 20 cây non", "Đi bơi", "Học vẽ"], "ans": 1, "explanation": "'planted twenty young trees' nghĩa là đã trồng 20 cây xanh non."}]}, {"id": 10, "title": "Đề 10: Đề Thi Thử Học Kỳ 1 Toàn Diện (Final Mock Exam)", "desc": "Bài thi tổng hợp chuẩn ma trận 4 kỹ năng Học kỳ 1 Lớp 5 (Listening, Stress, Grammar, Reading) của Bộ GD&ĐT.", "questions": [{"id": "t10_q1", "type": "listening", "question": "🎧 Nghe đoạn hội thoại và chọn câu đúng:", "audio": "Where do you live, Tony? - I live in Flat 16 on the third floor of Sunflower Tower.", "options": ["Tony lives in Flat 16 on the third floor.", "Tony lives at 16 Hoa Binh Lane.", "Tony lives on the ground floor.", "Tony lives in the countryside."], "ans": 0, "explanation": "Lời thoại: 'I live in Flat 16 on the third floor of Sunflower Tower' ➔ Căn hộ 16 tầng 3."}, {"id": "t10_q2", "type": "listening", "question": "🎧 Nghe và chọn lý do nghề nghiệp mơ ước:", "audio": "Why would you like to be a doctor? - Because I'd like to look after patients.", "options": ["To put out fires", "To look after patients and save lives", "To write interesting stories", "To design buildings"], "ans": 1, "explanation": "Lời thoại: 'Because I'd like to look after patients' ➔ chăm sóc người bệnh."}, {"id": "t10_q3", "type": "listening", "question": "🎧 Nghe và cho biết chuyến đi dã ngoại của lớp:", "audio": "Last Friday, our class went on a school trip to Ba Na Hills. We walked on the famous Golden Bridge.", "options": ["They went to Hoan Kiem Lake.", "They went to Ba Na Hills and walked on the Golden Bridge.", "They stayed at school.", "They visited Bai Dinh Pagoda."], "ans": 1, "explanation": "Lời thoại: 'went on a school trip to Ba Na Hills. We walked on the famous Golden Bridge' ➔ đi Bà Nà Hills và dạo bước trên Cầu Vàng."}, {"id": "t10_q4", "type": "stress", "question": "🔍 Chọn từ có trọng âm khác với 3 từ còn lại:", "options": ["'city", "'countryside", "in'teresting", "re'porter"], "ans": 3, "explanation": "'reporter' (/rɪˈpɔːtər/) có trọng âm nhấn vào âm 2. Các từ 'city, 'countryside, 'interesting đều có trọng âm rơi vào âm 1."}, {"id": "t10_q5", "type": "stress", "question": "🔍 Chọn cặp từ phân biệt đúng trọng âm giữa đuôi -teen và đuôi -ty:", "options": ["thir'teen (âm 2) / 'thirty (âm 1)", "'thirteen / thir'ty", "cả hai đều nhấn âm 1", "cả hai đều nhấn âm 2"], "ans": 0, "explanation": "Quy tắc vàng: Số tận cùng bằng đuôi '-teen' nhấn vào chính nó (thir'teen, four'teen). Số tận cùng bằng đuôi '-ty' nhấn vào âm đầu ('thirty, 'forty)."}, {"id": "t10_q6", "type": "grammar", "question": "I live ________ 105 Hoa Binh Lane. My house is ________ a quiet neighborhood.", "options": ["in / on", "at / in", "on / at", "at / on"], "ans": 1, "explanation": "Có số nhà cụ thể (105 Hoa Binh Lane) dùng 'at'. Trong khu vực khu phố (a quiet neighborhood) dùng 'in'."}, {"id": "t10_q7", "type": "grammar", "question": "How often do you go swimming? - I ________ go swimming, maybe once a month.", "options": ["always", "usually", "sometimes", "never"], "ans": 2, "explanation": "Tần suất 'khoảng một tháng một lần' (once a month) tương ứng với trạng từ 'sometimes' (thỉnh thoảng, 40%)."}, {"id": "t10_q8", "type": "grammar", "question": "Where ________ you last weekend? - We ________ camping near the river.", "options": ["were / went", "was / go", "did / were", "are / went"], "ans": 0, "explanation": "Hỏi vị trí trong quá khứ với You: 'Where were you...?' Trả lời hoạt động: 'We went camping' (go -> went)."}, {"id": "t10_q9", "type": "reading", "question": "Đọc câu: 'Nam is from Vietnam. He lives at 23 Tran Phu Street. He is clever and helpful. He wants to be a writer because he loves writing stories.' Nghề nghiệp tương lai của Nam là gì?", "options": ["Lính cứu hỏa", "Kiến trúc sư", "Nhà văn", "Bác sĩ"], "ans": 2, "explanation": "Câu nêu rõ: 'He wants to be a writer because he loves writing stories' ➔ nhà văn."}, {"id": "t10_q10", "type": "reading", "question": "Đọc đoạn văn: 'Yesterday, our school had an English festival. All students were excited. We played fun games, solved tricky puzzles, and sang songs together.' Không khí của lễ hội hôm qua như thế nào?", "options": ["Buồn bã và yên ắng", "Hào hứng, sôi nổi và tràn ngập niềm vui", "Mệt mỏi và chán chường", "Khó khăn và căng thẳng"], "ans": 1, "explanation": "Đoạn văn nêu: 'All students were excited. We played fun games, solved tricky puzzles, and sang songs together' ➔ không khí hào hứng và tràn ngập niềm vui."}]}];
+
+    // State
+    let activeTab = 1;
+    let currentSpeed = 1.0;
+    let vocabSubFilter = 'all'; // 'all', 'u1_5', 'u6_10', or 1..10
+    let vocabViewMode = 'card'; // 'card' or 'grid'
+    let currentVocabIdx = 0;
+    let activeInfographicId = 1;
+
+    // Practice State
+    let practiceFilter = 'all'; // 'all', 'u1_5', 'u6_10', or 1..10
+    let practiceLearnedSet = new Set();
+    let revealedPractice = {}; // { id: true }
+
+    // Exam State
+    let activeExamId = 1;
+    let examActive = false;
+    let currentExamQIdx = 0;
+    let examUserAnswers = {}; // { qIdx: chosenOptionIndex }
+    let examTimeLeft = 900; // 15 mins = 900s
+    let examTimerInterval = null;
+
+    // LocalStorage Keys
+    const STORAGE_KEY = 'g5_semester1_learned_items';
+    const PRACTICE_STORAGE_KEY = 'g5_semester1_learned_practice';
+
+    function getLearnedSet() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? new Set(JSON.parse(raw)) : new Set();
+      } catch (e) {
+        return new Set();
+      }
+    }
+
+    function toggleLearned(wordId) {
+      const set = getLearnedSet();
+      if (set.has(wordId)) {
+        set.delete(wordId);
+      } else {
+        set.add(wordId);
+      }
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(set)));
+      updateLearnedDisplay();
+      renderContent();
+    }
+
+    function isLearned(wordId) {
+      return getLearnedSet().has(wordId);
+    }
+
+    function getPracticeLearnedSet() {
+      try {
+        const raw = localStorage.getItem(PRACTICE_STORAGE_KEY);
+        return raw ? new Set(JSON.parse(raw)) : new Set();
+      } catch (e) {
+        return new Set();
+      }
+    }
+
+    function togglePracticeLearned(id) {
+      const set = getPracticeLearnedSet();
+      if (set.has(id)) {
+        set.delete(id);
+      } else {
+        set.add(id);
+      }
+      localStorage.setItem(PRACTICE_STORAGE_KEY, JSON.stringify(Array.from(set)));
+      renderContent();
+    }
+
+    function isPracticeLearned(id) {
+      return getPracticeLearnedSet().has(id);
+    }
+
+    function resetLearnedProgress() {
+      if (confirm('Bạn có chắc chắn muốn xóa toàn bộ tiến độ đã thuộc?')) {
+        localStorage.removeItem(STORAGE_KEY);
+        localStorage.removeItem(PRACTICE_STORAGE_KEY);
+        updateLearnedDisplay();
+        renderContent();
+      }
+    }
+
+    function updateLearnedDisplay() {
+      const count = getLearnedSet().size;
+      const el = document.getElementById('footer-learned-count');
+      if (el) el.textContent = count;
+    }
+
+    // ==========================================
+    // BULLETPROOF AUDIO PLAYBACK SYSTEM
+    // ==========================================
+    function hideToast() {
+      const toast = document.getElementById('audio-toast');
+      if (toast) {
+        toast.classList.add('hidden');
+        toast.classList.remove('flex');
+      }
+    }
+
+    function stopAudio() {
+      const player = document.getElementById('app-audio-player');
+      if (player) {
+        player.pause();
+        try { player.removeAttribute('src'); } catch(e) {}
+      }
+      if ('speechSynthesis' in window) {
+        try { window.speechSynthesis.cancel(); } catch(e) {}
+      }
+      hideToast();
+    }
+
+    function speakWithWebSpeech(text, rate) {
+      if (!('speechSynthesis' in window)) {
+        hideToast();
+        return;
+      }
+      try {
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.resume();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'en-US';
+        u.rate = rate || 1.0;
+
+        const voices = window.speechSynthesis.getVoices();
+        if (voices && voices.length > 0) {
+          const enVoice = voices.find(v => v.lang.startsWith('en') && (v.name.includes('Google') || v.name.includes('Natural') || v.name.includes('Samantha') || v.default));
+          if (enVoice) u.voice = enVoice;
+        }
+
+        u.onend = hideToast;
+        u.onerror = hideToast;
+        window.speechSynthesis.speak(u);
+      } catch (err) {
+        hideToast();
+      }
+    }
+
+    function playAudio(text, customSpeed) {
+      stopAudio();
+      if (!text) return;
+
+      const player = document.getElementById('app-audio-player');
+      const toast = document.getElementById('audio-toast');
+      const toastMsg = document.getElementById('toast-msg');
+
+      const rate = customSpeed || currentSpeed || 1.0;
+      const clean = String(text).replace(/\s*—\s*/g, '. ').trim();
+
+      if (toast && toastMsg) {
+        toastMsg.textContent = 'Đang phát âm (' + rate + 'x): "' + (clean.length > 36 ? clean.substring(0, 36) + '...' : clean) + '"';
+        toast.classList.remove('hidden');
+        toast.classList.add('flex');
+      }
+
+      if (player) {
+        const q = encodeURIComponent(clean);
+        const url = 'https://translate.googleapis.com/translate_tts?ie=UTF-8&tl=en&client=tw-ob&q=' + q;
+
+        player.src = url;
+        player.playbackRate = rate;
+
+        player.onended = function() {
+          hideToast();
+        };
+
+        player.onerror = function() {
+          speakWithWebSpeech(clean, rate);
+        };
+
+        const playPromise = player.play();
+        if (playPromise !== undefined) {
+          playPromise.catch((err) => {
+            if (err && err.name === 'AbortError') return;
+            speakWithWebSpeech(clean, rate);
+          });
+        }
+      } else {
+        speakWithWebSpeech(clean, rate);
+      }
+    }
+
+    // DEDICATED INDEX-BASED AUDIO CALLERS
+    function playCurrentVocab(speed) {
+      const list = getFilteredVocab();
+      const cur = list[currentVocabIdx];
+      if (cur && cur.word) playAudio(cur.word, speed);
+    }
+
+    function playCurrentVocabExample() {
+      const list = getFilteredVocab();
+      const cur = list[currentVocabIdx];
+      if (cur && cur.example) playAudio(cur.example);
+    }
+
+    function playVocabWordById(id) {
+      const v = VOCAB_DATA.find(x => x.id === id);
+      if (v && v.word) playAudio(v.word);
+    }
+
+    function selectVocabByIndex(idx) {
+      currentVocabIdx = idx;
+      renderContent();
+      playCurrentVocab();
+    }
+
+    function playSentenceByIndex(idx) {
+      const s = SENTENCES_DATA[idx];
+      if (s && s.sentence) playAudio(s.sentence);
+    }
+
+    function playChunkByIndex(sentenceIdx, chunkIdx) {
+      const s = SENTENCES_DATA[sentenceIdx];
+      if (s && s.chunks && s.chunks[chunkIdx]) {
+        playAudio(s.chunks[chunkIdx].en);
+      }
+    }
+
+    function playPracticeById(id) {
+      const p = PRACTICE_DATA.find(x => x.id === id);
+      if (p && p.en) playAudio(p.en);
+    }
+
+    function playCurrentExamAudio() {
+      const exam = EXAMS_DATA.find(e => e.id === activeExamId);
+      if (exam && exam.questions && exam.questions[currentExamQIdx]) {
+        const q = exam.questions[currentExamQIdx];
+        if (q.audio) playAudio(q.audio);
+      }
+    }
+
+    function setSpeed(speed) {
+      currentSpeed = speed;
+      const btn1 = document.getElementById('btn-speed-1');
+      const btn075 = document.getElementById('btn-speed-075');
+      if (speed === 1.0) {
+        btn1.className = 'px-2.5 py-1 text-xs font-bold rounded-lg transition-all bg-white text-indigo-700 shadow-sm';
+        btn075.className = 'px-2.5 py-1 text-xs font-bold rounded-lg transition-all text-slate-600 hover:text-slate-900';
+      } else {
+        btn075.className = 'px-2.5 py-1 text-xs font-bold rounded-lg transition-all bg-white text-indigo-700 shadow-sm';
+        btn1.className = 'px-2.5 py-1 text-xs font-bold rounded-lg transition-all text-slate-600 hover:text-slate-900';
+      }
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        if (document.exitFullscreen) document.exitFullscreen();
+      }
+    }
+
+    // Image Fallback Handling
+    function makeSvgFallback(label, icon) {
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480">
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#e0e7ff"/><stop offset="100%" stop-color="#dbeafe"/></linearGradient></defs>
+        <rect width="800" height="480" fill="url(#g)"/>
+        <text x="400" y="210" text-anchor="middle" font-size="96">${icon || '🖼️'}</text>
+        <text x="400" y="300" text-anchor="middle" font-family="sans-serif" font-weight="800" font-size="32" fill="#312e81">${String(label || '').replace(/[<>&]/g, '')}</text>
+      </svg>`;
+      return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+    }
+
+    function handleImgError(el) {
+      el.onerror = null;
+      el.src = makeSvgFallback(el.alt, el.dataset.icon || '🖼️');
+    }
+
+    // Tab Navigation
+    function switchTab(tabId) {
+      stopAudio();
+      activeTab = tabId;
+      for (let i = 1; i <= 5; i++) {
+        const btn = document.getElementById('tab-btn-' + i);
+        if (btn) {
+          if (i === tabId) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        }
+      }
+      renderContent();
+    }
+
+    // TAB 1: 60 VOCABULARY METHODS
+    function getFilteredVocab() {
+      if (vocabSubFilter === 'all') return VOCAB_DATA;
+      if (vocabSubFilter === 'u1_5') return VOCAB_DATA.filter(v => v.unit >= 1 && v.unit <= 5);
+      if (vocabSubFilter === 'u6_10') return VOCAB_DATA.filter(v => v.unit >= 6 && v.unit <= 10);
+      return VOCAB_DATA.filter(v => v.unit === parseInt(vocabSubFilter));
+    }
+
+    function selectSubFilter(filterVal) {
+      vocabSubFilter = filterVal;
+      currentVocabIdx = 0;
+      renderContent();
+    }
+
+    function nextVocab() {
+      const list = getFilteredVocab();
+      if (currentVocabIdx < list.length - 1) {
+        currentVocabIdx++;
+      } else {
+        currentVocabIdx = 0;
+      }
+      renderContent();
+      playCurrentVocab();
+    }
+
+    function prevVocab() {
+      const list = getFilteredVocab();
+      if (currentVocabIdx > 0) {
+        currentVocabIdx--;
+      } else {
+        currentVocabIdx = list.length - 1;
+      }
+      renderContent();
+      playCurrentVocab();
+    }
+
+    // KEYBOARD NAVIGATION FOR CLICKER
+    document.addEventListener('keydown', function(e) {
+      if (activeTab === 1 && vocabViewMode === 'card') {
+        if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+          e.preventDefault();
+          nextVocab();
+        } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+          e.preventDefault();
+          prevVocab();
+        } else if (e.key === ' ' || e.code === 'Space') {
+          e.preventDefault();
+          playCurrentVocab();
+        }
+      }
+    });
+
+    // TAB 4 PRACTICE METHODS
+    function getFilteredPractice() {
+      if (practiceFilter === 'all') return PRACTICE_DATA;
+      if (practiceFilter === 'u1_5') return PRACTICE_DATA.filter(p => p.unit >= 1 && p.unit <= 5);
+      if (practiceFilter === 'u6_10') return PRACTICE_DATA.filter(p => p.unit >= 6 && p.unit <= 10);
+      return PRACTICE_DATA.filter(p => p.unit === parseInt(practiceFilter));
+    }
+
+    function setPracticeFilter(val) {
+      practiceFilter = val;
+      renderContent();
+    }
+
+    function togglePracticeAnswer(id) {
+      revealedPractice[id] = !revealedPractice[id];
+      renderContent();
+    }
+
+    function revealAllPractice() {
+      getFilteredPractice().forEach(p => revealedPractice[p.id] = true);
+      renderContent();
+    }
+
+    function hideAllPractice() {
+      revealedPractice = {};
+      renderContent();
+    }
+
+    // TAB 5 EXAM LOGIC
+    function selectExam(examId) {
+      activeExamId = examId;
+      examActive = false;
+      currentExamQIdx = 0;
+      examUserAnswers = {};
+      if (examTimerInterval) clearInterval(examTimerInterval);
+      renderContent();
+    }
+
+    function startExam() {
+      examActive = true;
+      currentExamQIdx = 0;
+      examUserAnswers = {};
+      examTimeLeft = 900;
+      if (examTimerInterval) clearInterval(examTimerInterval);
+      examTimerInterval = setInterval(function() {
+        examTimeLeft--;
+        const timerEl = document.getElementById('exam-countdown');
+        if (timerEl) {
+          const m = Math.floor(examTimeLeft / 60);
+          const s = examTimeLeft % 60;
+          timerEl.textContent = (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+        }
+        if (examTimeLeft <= 0) {
+          clearInterval(examTimerInterval);
+          finishExam();
+        }
+      }, 1000);
+      renderContent();
+    }
+
+    function chooseExamAnswer(qIdx, optIdx) {
+      if (examUserAnswers[qIdx] !== undefined) return;
+      examUserAnswers[qIdx] = optIdx;
+      
+      const exam = EXAMS_DATA.find(e => e.id === activeExamId);
+      const q = exam.questions[qIdx];
+      if (q && q.audio) {
+        playAudio(q.audio);
+      }
+      renderContent();
+    }
+
+    function nextExamQ() {
+      const exam = EXAMS_DATA.find(e => e.id === activeExamId);
+      if (currentExamQIdx < exam.questions.length - 1) {
+        currentExamQIdx++;
+        renderContent();
+      }
+    }
+
+    function prevExamQ() {
+      if (currentExamQIdx > 0) {
+        currentExamQIdx--;
+        renderContent();
+      }
+    }
+
+    function finishExam() {
+      if (examTimerInterval) clearInterval(examTimerInterval);
+      examActive = false;
+      
+      const exam = EXAMS_DATA.find(e => e.id === activeExamId);
+      let score = 0;
+      exam.questions.forEach((q, idx) => {
+        if (examUserAnswers[idx] === q.ans) score++;
+      });
+      
+      renderExamScoreModal(score, exam.questions.length);
+    }
+
+    function renderExamScoreModal(score, total) {
+      const percent = Math.round((score / total) * 100);
+      let stars = '⭐⭐⭐⭐⭐';
+      let title = 'Xuất Sắc! Điểm Tuyệt Đối 🎉';
+      if (score <= 5) {
+        stars = '⭐⭐';
+        title = 'Cần Cố Gắng Thêm Nhé! 💪';
+      } else if (score <= 7) {
+        stars = '⭐⭐⭐';
+        title = 'Khá Tốt! Ôn Luyện Thêm Nhé! 🌟';
+      } else if (score <= 9) {
+        stars = '⭐⭐⭐⭐';
+        title = 'Giỏi Lắm! Làm Rất Tốt! 👏';
+      }
+
+      const modalHtml = `
+        <div id="exam-result-overlay" class="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-md flex items-center justify-center p-4">
+          <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 text-center shadow-2xl border border-slate-200 animate-in fade-in zoom-in duration-300">
+            <div class="text-4xl mb-2">${stars}</div>
+            <h3 class="text-xl sm:text-2xl font-black text-slate-900 mb-1">${title}</h3>
+            <p class="text-sm text-slate-500 mb-6">Kết quả Đề ${activeExamId}: ${EXAMS_DATA.find(e => e.id === activeExamId).title}</p>
+            
+            <div class="bg-indigo-50 border-2 border-indigo-200 rounded-2xl p-5 mb-6">
+              <div class="text-4xl sm:text-5xl font-black text-indigo-700 mb-1">${score} / ${total}</div>
+              <p class="text-xs font-bold text-indigo-900 uppercase tracking-wider">Đạt ${percent}% tổng số điểm</p>
+            </div>
+
+            <div class="flex flex-col gap-2.5">
+              <button onclick="closeExamModalAndReview()" class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-black text-sm rounded-xl shadow-md transition-all">
+                🔍 Xem Lại Đáp Án &amp; Lời Giải Chi Tiết
+              </button>
+              <button onclick="startExam()" class="w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl transition-all">
+                🔄 Làm Lại Đề Này
+              </button>
+              <button onclick="selectExam(${activeExamId < 10 ? activeExamId + 1 : 1})" class="w-full py-2.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold text-xs rounded-xl border border-emerald-200 transition-all">
+                ${activeExamId < 10 ? '➡️ Làm Tiếp Đề ' + (activeExamId + 1) : '🏆 Làm Lại Từ Đề 1'}
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+      document.body.insertAdjacentHTML('beforeend', modalHtml);
+    }
+
+    function closeExamModalAndReview() {
+      const overlay = document.getElementById('exam-result-overlay');
+      if (overlay) overlay.remove();
+      examActive = true;
+      renderContent();
+    }
+
+    // RENDER MAIN CONTENT
+    function renderContent() {
+      const container = document.getElementById('tab-content');
+      if (!container) return;
+
+      if (activeTab === 1) {
+        renderTab1Vocab(container);
+      } else if (activeTab === 2) {
+        renderTab2Sentences(container);
+      } else if (activeTab === 3) {
+        renderTab3Grammar(container);
+      } else if (activeTab === 4) {
+        renderTab4Practice(container);
+      } else if (activeTab === 5) {
+        renderTab5Exams(container);
+      }
+    }
+
+    // TAB 1 RENDERER
+    function renderTab1Vocab(container) {
+      const list = getFilteredVocab();
+      if (currentVocabIdx >= list.length) currentVocabIdx = 0;
+      const cur = list[currentVocabIdx] || list[0];
+      const learned = cur ? isLearned(cur.id) : false;
+
+      let html = `
+        <div class="space-y-6">
+          
+          <!-- SUB-FILTERS & VIEW MODE -->
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white p-3 sm:p-4 rounded-2xl border border-slate-200/80 shadow-sm">
+            
+            <!-- Filters -->
+            <div class="flex items-center gap-2 overflow-x-auto w-full sm:w-auto custom-scroll pb-1 sm:pb-0">
+              <button onclick="selectSubFilter('all')" class="sub-filter-pill ${vocabSubFilter === 'all' ? 'active' : ''} px-3 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap">
+                🌟 Toàn Bộ (60 Từ)
+              </button>
+              <button onclick="selectSubFilter('u1_5')" class="sub-filter-pill ${vocabSubFilter === 'u1_5' ? 'active' : ''} px-3 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap">
+                📘 Review 1 (U1–U5 · 30 từ)
+              </button>
+              <button onclick="selectSubFilter('u6_10')" class="sub-filter-pill ${vocabSubFilter === 'u6_10' ? 'active' : ''} px-3 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap">
+                📙 Review 2 (U6–U10 · 30 từ)
+              </button>
+            </div>
+
+            <!-- View mode toggle -->
+            <div class="flex items-center gap-2 self-end sm:self-auto">
+              <div class="inline-flex p-0.5 bg-slate-100 rounded-xl border border-slate-200 text-xs font-bold">
+                <button onclick="vocabViewMode = 'card'; renderContent();" class="px-2.5 py-1 rounded-lg transition-all ${vocabViewMode === 'card' ? 'bg-white text-indigo-600 shadow-sm' : 'text-slate-500'}">
+                  🃏 Thẻ Lớn
+                </button>
+                <button onclick="vocabViewMode = 'grid'; renderContent();" class="px-2.5 py-1 rounded-lg transition-all ${vocabViewMode === 'grid' ? 'bg-white text-indigo-600 shadow-sm' : 'text-slate-500'}">
+                  📋 Lưới 60
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Unit Filter Pills (Grid Wrap) -->
+          <div class="bg-white p-3 rounded-2xl sm:rounded-3xl border border-slate-200 shadow-sm space-y-2">
+            <div class="text-[11px] font-black uppercase text-slate-400 px-1 tracking-wider">
+              📌 Chọn nhanh Unit (Học kỳ 1):
+            </div>
+            <div class="grid grid-cols-5 sm:grid-cols-10 gap-1.5">
+              ${[1,2,3,4,5,6,7,8,9,10].map(u => `
+                <button onclick="selectSubFilter('${u}')" class="py-2 px-1 rounded-xl text-xs font-extrabold transition-all text-center ${vocabSubFilter === String(u) ? 'bg-indigo-600 text-white shadow-sm ring-2 ring-indigo-400' : 'bg-slate-50 text-slate-700 hover:bg-slate-100 border border-slate-200/80'}">
+                  Unit ${u}
+                </button>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- Word Quick Selector Box (Xếp tầng như các Lesson - Không bị cắt chữ) -->
+          <div class="bg-white rounded-2xl sm:rounded-3xl p-3.5 sm:p-4 shadow-sm border border-slate-200 space-y-2.5">
+            <div class="flex items-center justify-between text-xs font-black text-slate-500 uppercase tracking-wider px-1">
+              <span>👉 Chọn nhanh từ vựng (${list.length} từ):</span>
+              <span class="text-indigo-700 font-bold">${currentVocabIdx + 1} / ${list.length} từ</span>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              ${list.map((v, idx) => `
+                <button onclick="selectVocabByIndex(${idx})" class="px-3 py-2 rounded-xl text-xs sm:text-sm font-extrabold flex items-center gap-1.5 border-2 transition-all ${idx === currentVocabIdx ? 'bg-indigo-600 text-white border-indigo-600 shadow-md scale-102 ring-2 ring-indigo-300' : 'bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200'}">
+                  <span>${v.icon}</span>
+                  <span>${v.word}</span>
+                  ${isLearned(v.id) ? '<span class="text-amber-400">★</span>' : ''}
+                </button>
+              `).join('')}
+            </div>
+          </div>
+
+      `;
+
+      if (vocabViewMode === 'card' && cur) {
+        html += `
+          <!-- MAIN PRESENTATION FLASHCARD -->
+          <div class="hero-card bg-white rounded-3xl border border-slate-200/90 overflow-hidden grid grid-cols-1 lg:grid-cols-12 max-w-5xl mx-auto transition-all">
+            
+            <!-- Left: Cultural Image -->
+            <div class="lg:col-span-6 relative bg-slate-900 flex items-center justify-center min-h-[300px] lg:min-h-[460px] overflow-hidden group">
+              <img src="${cur.img}" alt="${cur.word}" data-icon="${cur.icon}" onerror="handleImgError(this)" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="eager" />
+              
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/20 pointer-events-none"></div>
+
+              <!-- Top Unit Badge -->
+              <div class="absolute top-4 left-4 z-10 flex items-center gap-2">
+                <span class="px-3 py-1 bg-black/60 backdrop-blur-md text-white rounded-full text-xs font-black uppercase tracking-wider border border-white/20">
+                  ${cur.unitTitle}
+                </span>
+                <span class="px-2.5 py-1 bg-indigo-600/90 text-white rounded-full text-xs font-extrabold uppercase">
+                  ${cur.pos}
+                </span>
+              </div>
+
+              <!-- Bottom Cultural Spec Caption -->
+              <div class="absolute bottom-4 left-4 right-4 z-10 text-white space-y-1">
+                <p class="text-xs font-bold text-amber-300 flex items-center gap-1.5">
+                  <span>💡</span> ${cur.tip}
+                </p>
+                <p class="text-[11px] text-slate-200 line-clamp-1 italic opacity-90">${cur.visualSpec}</p>
+              </div>
+            </div>
+
+            <!-- Right: Linguistic and Learning Details -->
+            <div class="lg:col-span-6 p-6 sm:p-8 flex flex-col justify-between space-y-5 bg-gradient-to-b from-white to-slate-50/50">
+              
+              <!-- Top Bar: Index & Bookmark -->
+              <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <span class="text-xs font-extrabold text-slate-400 tracking-wider">
+                  THẺ ${currentVocabIdx + 1} / ${list.length}
+                </span>
+                <button onclick="toggleLearned('${cur.id}')" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black transition-all ${learned ? 'bg-amber-100 text-amber-800 border border-amber-300' : 'bg-slate-100 text-slate-500 hover:bg-slate-200'}">
+                  <span>${learned ? '⭐ Đã thuộc' : '☆ Đánh dấu thuộc'}</span>
+                </button>
+              </div>
+
+              <!-- Word, 100% IPA, and Meaning -->
+              <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                  <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight flex items-center gap-2">
+                    ${cur.word}
+                    <span class="text-2xl">${cur.icon}</span>
+                  </h2>
+                </div>
+                
+                <!-- 100% Standard IPA -->
+                <div class="inline-block px-3 py-1 bg-indigo-50 border border-indigo-200/80 rounded-xl">
+                  <span class="text-base sm:text-lg font-mono font-bold text-indigo-700 tracking-wide">${cur.ipa}</span>
+                </div>
+
+                <!-- Vietnamese Meaning -->
+                <p class="text-lg sm:text-xl font-bold text-slate-700 pt-1">
+                  ${cur.meaning}
+                </p>
+              </div>
+
+              <!-- Luc Bat Poem & Mnemonic Box -->
+              <div class="bg-amber-50/80 border border-amber-200/80 rounded-2xl p-4 space-y-2 shadow-sm">
+                <div class="flex items-center gap-1.5 text-xs font-extrabold text-amber-800 uppercase tracking-wider">
+                  <span>📜</span> Thơ Lục Bát Nhớ Từ:
+                </div>
+                <p class="text-xs sm:text-sm font-semibold text-slate-800 italic leading-relaxed whitespace-pre-line pl-2 border-l-2 border-amber-400">
+                  ${cur.rhyme}
+                </p>
+                <div class="text-[11px] text-amber-900/90 leading-tight pt-1">
+                  ${cur.mnemonic}
+                </div>
+              </div>
+
+              <!-- Real-Life Example Box -->
+              <div class="bg-slate-100/90 border border-slate-200 rounded-2xl p-4 space-y-1.5">
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-black uppercase tracking-wider text-slate-500">Câu ví dụ thực tế:</span>
+                  <button onclick="playCurrentVocabExample()" class="text-indigo-600 hover:text-indigo-800 text-xs font-bold flex items-center gap-1">
+                    🔊 Nghe câu
+                  </button>
+                </div>
+                <p class="text-sm font-extrabold text-slate-900">${cur.example}</p>
+                <p class="text-xs font-mono font-semibold text-indigo-600">${cur.exampleIpa}</p>
+                <p class="text-xs text-slate-600 italic">${cur.exampleVi}</p>
+              </div>
+
+              <!-- Audio Buttons (Normal & Slow) -->
+              <div class="grid grid-cols-2 gap-3 pt-2">
+                <button onclick="playCurrentVocab(1.0)" class="py-3 px-4 bg-indigo-600 hover:bg-indigo-700 active:scale-98 text-white font-black text-sm rounded-2xl shadow-md hover:shadow-indigo-500/25 transition-all flex items-center justify-center gap-2">
+                  <span>🔊</span> Đọc từ (1.0x)
+                </button>
+                <button onclick="playCurrentVocab(0.75)" class="py-3 px-4 bg-white hover:bg-indigo-50 active:scale-98 text-indigo-700 font-extrabold text-sm rounded-2xl border-2 border-indigo-200 transition-all flex items-center justify-center gap-2">
+                  <span>🎧</span> Đọc chậm (0.75x)
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Bottom Navigation Bar & Word Pills -->
+          <div class="max-w-5xl mx-auto flex items-center justify-between gap-4 pt-2">
+            <button onclick="prevVocab()" class="px-5 py-2.5 bg-white hover:bg-slate-50 active:scale-95 text-slate-700 font-bold text-sm rounded-2xl border border-slate-200 shadow-sm transition-all flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
+              <span>Từ trước (←)</span>
+            </button>
+
+            <!-- Keyboard shortcut hint -->
+            <div class="hidden md:flex items-center gap-1.5 text-xs text-slate-400 font-semibold">
+              <kbd class="px-2 py-0.5 bg-slate-200 text-slate-700 rounded text-[10px]">Phím Space</kbd> để nghe phát âm ·
+              <kbd class="px-2 py-0.5 bg-slate-200 text-slate-700 rounded text-[10px]">Phím ← / →</kbd> chuyển thẻ
+            </div>
+
+            <button onclick="nextVocab()" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white font-bold text-sm rounded-2xl shadow-md transition-all flex items-center gap-2">
+              <span>Từ tiếp (→)</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+          </div>
+
+          <!-- Horizontal Word Pills Bar -->
+          <div class="max-w-5xl mx-auto bg-white p-3 rounded-2xl border border-slate-200 overflow-x-auto custom-scroll flex items-center gap-1.5">
+            ${list.map((v, i) => `
+              <button onclick="selectVocabByIndex(${i})" class="px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${i === currentVocabIdx ? 'bg-indigo-600 text-white shadow-sm' : 'bg-slate-50 text-slate-700 hover:bg-slate-100'} flex items-center gap-1">
+                <span>${v.icon}</span>
+                <span>${v.word}</span>
+                ${isLearned(v.id) ? '<span class="text-amber-300">★</span>' : ''}
+              </button>
+            `).join('')}
+          </div>
+        `;
+      } else if (vocabViewMode === 'grid') {
+        html += `
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            ${list.map((v) => `
+              <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-xl bg-slate-100 overflow-hidden flex-shrink-0">
+                    <img src="${v.img}" alt="${v.word}" data-icon="${v.icon}" onerror="handleImgError(this)" class="w-full h-full object-cover" />
+                  </div>
+                  <div>
+                    <h4 class="font-black text-slate-900 text-base leading-tight">${v.word}</h4>
+                    <span class="text-xs font-mono font-bold text-indigo-600">${v.ipa}</span>
+                  </div>
+                </div>
+                <p class="text-xs font-bold text-slate-600 line-clamp-1">${v.meaning}</p>
+                <div class="flex items-center justify-between pt-2 border-t border-slate-100">
+                  <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md">U${v.unit}</span>
+                  <button onclick="playVocabWordById('${v.id}')" class="p-1.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 rounded-lg text-xs font-bold">
+                    🔊 Nghe
+                  </button>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      }
+
+      html += `</div>`;
+      container.innerHTML = html;
+    }
+
+    // TAB 2 RENDERER (10 MẪU CÂU CÓ TÁCH 3 CỤM)
+    function renderTab2Sentences(container) {
+      let html = `
+        <div class="space-y-6 max-w-5xl mx-auto">
+          <div class="text-center space-y-1">
+            <span class="px-3 py-1 bg-sky-100 text-sky-800 font-extrabold text-xs rounded-full uppercase tracking-wider">🗣️ Luyện Phản Xạ Giao Tiếp Học Kỳ 1</span>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">10 Mẫu Câu Then Chốt (Tách 3 Cụm Chunks)</h2>
+            <p class="text-xs sm:text-sm text-slate-500">Mỗi Unit đại diện 1 mẫu câu trọng tâm trong đề thi. Bấm nghe cả câu hoặc từng cụm nhỏ để luyện phát âm chuẩn ngữ điệu.</p>
+          </div>
+
+          <div class="space-y-4">
+            ${SENTENCES_DATA.map((s, i) => `
+              <div class="bg-white rounded-3xl border border-slate-200/90 p-5 sm:p-7 shadow-sm hover:shadow-md transition-all space-y-4">
+                
+                <!-- Header -->
+                <div class="flex items-center justify-between flex-wrap gap-2 border-b border-slate-100 pb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-black text-sm">
+                      ${s.unit}
+                    </span>
+                    <h3 class="text-sm sm:text-base font-black text-slate-900">${s.title}</h3>
+                  </div>
+                  <span class="text-xl">${s.icon}</span>
+                </div>
+
+                <!-- Full Sentence & Audio -->
+                <div class="bg-gradient-to-r from-indigo-50/70 to-sky-50/70 border border-indigo-100 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                  <div class="space-y-1">
+                    <p class="text-base sm:text-lg font-black text-slate-900 tracking-tight">${s.sentence}</p>
+                    <p class="text-xs sm:text-sm font-mono font-semibold text-indigo-700">${s.ipa}</p>
+                    <p class="text-xs sm:text-sm font-bold text-slate-600">${s.meaning}</p>
+                  </div>
+                  <button onclick="playSentenceByIndex(${i})" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white font-extrabold text-xs sm:text-sm rounded-xl shadow-sm transition-all flex items-center gap-1.5 flex-shrink-0">
+                    <span>🔊</span> Nghe Cả Câu
+                  </button>
+                </div>
+
+                <!-- 3 Chunks Breakdown Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                  ${s.chunks.map((c, ci) => `
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-3.5 flex flex-col justify-between space-y-2">
+                      <div class="space-y-1">
+                        <div class="flex items-center justify-between">
+                          <span class="text-[10px] font-black uppercase tracking-wider text-slate-400">Cụm ${ci + 1}</span>
+                          <button onclick="playChunkByIndex(${i}, ${ci})" class="p-1 bg-white hover:bg-indigo-50 text-indigo-600 rounded-lg text-xs font-bold border border-slate-200 shadow-sm">
+                            🔊
+                          </button>
+                        </div>
+                        <p class="font-extrabold text-slate-900 text-sm leading-snug">${c.en}</p>
+                        <p class="text-[11px] font-mono text-indigo-600">${c.ipa}</p>
+                      </div>
+                      <p class="text-xs font-bold text-slate-500 pt-1 border-t border-slate-200/60">${c.vi}</p>
+                    </div>
+                  `).join('')}
+                </div>
+
+                <!-- Teacher Intonation Tip -->
+                <div class="bg-amber-50/70 border border-amber-200/70 rounded-xl px-3.5 py-2 text-[11px] text-amber-900 font-semibold flex items-center gap-2">
+                  <span>💡</span>
+                  <span><strong>Mẹo ngữ điệu:</strong> ${s.tip}</span>
+                </div>
+
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+      container.innerHTML = html;
+    }
+
+    // TAB 3 RENDERER (5 CẨM NANG NGỮ PHÁP INFOGRAPHIC)
+    function renderTab3Grammar(container) {
+      let html = `
+        <div class="space-y-6 max-w-5xl mx-auto">
+          <div class="text-center space-y-1">
+            <span class="px-3 py-1 bg-purple-100 text-purple-800 font-extrabold text-xs rounded-full uppercase tracking-wider">💡 Sơ Đồ Tư Duy Ngữ Pháp Trọng Tâm</span>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">5 Cẩm Nang Ngữ Pháp &amp; Trọng Âm</h2>
+            <p class="text-xs sm:text-sm text-slate-500">Tổng hợp 5 điểm ngữ pháp mấu chốt xuất hiện trong toàn bộ các đề thi học kỳ 1.</p>
+          </div>
+
+          <!-- Infographic Tab Pills -->
+          <div class="flex items-center gap-2 overflow-x-auto custom-scroll bg-white p-2.5 rounded-2xl border border-slate-200">
+            <button onclick="activeInfographicId = 1; renderContent();" class="px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${activeInfographicId === 1 ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-600 hover:bg-slate-100'}">
+              1. Phễu Giới Từ IN – ON – AT
+            </button>
+            <button onclick="activeInfographicId = 2; renderContent();" class="px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${activeInfographicId === 2 ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-600 hover:bg-slate-100'}">
+              2. Thang Đo Tần Suất 100% ➔ 0%
+            </button>
+            <button onclick="activeInfographicId = 3; renderContent();" class="px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${activeInfographicId === 3 ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-600 hover:bg-slate-100'}">
+              3. Cấu Trúc Why – Because
+            </button>
+            <button onclick="activeInfographicId = 4; renderContent();" class="px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${activeInfographicId === 4 ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-600 hover:bg-slate-100'}">
+              4. Quá Khứ Đơn (Was/Were &amp; Did)
+            </button>
+            <button onclick="activeInfographicId = 5; renderContent();" class="px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${activeInfographicId === 5 ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-600 hover:bg-slate-100'}">
+              5. Bản Đồ Trọng Âm (Word Stress)
+            </button>
+          </div>
+
+          <!-- Infographic Content Container -->
+          <div class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+      `;
+
+      if (activeInfographicId === 1) {
+        html += `
+          <div class="space-y-6">
+            <div class="text-center">
+              <span class="text-xs font-black text-indigo-600 uppercase tracking-widest">Sơ Đồ Phễu Giới Từ Nơi Chốn</span>
+              <h3 class="text-xl sm:text-2xl font-black text-slate-900">Quy Tắc Vàng: IN (Lớn) ➔ ON (Vừa) ➔ AT (Chính xác)</h3>
+            </div>
+
+            <div class="max-w-2xl mx-auto space-y-3">
+              <div class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-5 rounded-2xl shadow-md space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-lg font-black tracking-wide">🔵 IN · Không gian rộng lớn, bao quát</span>
+                  <span class="text-xs font-bold bg-white/20 px-2 py-0.5 rounded-full">Đất nước, Thành phố, Quê hương, Căn hộ</span>
+                </div>
+                <p class="text-xs text-blue-100 leading-relaxed">
+                  <strong>Ví dụ:</strong> in Vietnam, in Ha Noi, in the countryside, in the mountains, in Flat 23.
+                </p>
+                <div class="flex gap-2 pt-1">
+                  <button onclick="playAudio('in Vietnam, in the countryside, in Flat 23')" class="px-2.5 py-1 bg-white/20 hover:bg-white/30 rounded-lg text-xs font-bold">🔊 Nghe ví dụ</button>
+                </div>
+              </div>
+
+              <div class="bg-gradient-to-r from-emerald-500 to-teal-600 text-white p-5 rounded-2xl shadow-md space-y-2 mx-4 sm:mx-8">
+                <div class="flex items-center justify-between">
+                  <span class="text-lg font-black tracking-wide">🟢 ON · Bề mặt, Tên đường, Tầng lầu</span>
+                  <span class="text-xs font-bold bg-white/20 px-2 py-0.5 rounded-full">Tên đường, Tầng nhà</span>
+                </div>
+                <p class="text-xs text-emerald-100 leading-relaxed">
+                  <strong>Ví dụ:</strong> on Tran Phu Street, on Le Loi Road, on the ground floor, on the second floor.
+                </p>
+                <div class="flex gap-2 pt-1">
+                  <button onclick="playAudio('on Tran Phu Street, on the second floor')" class="px-2.5 py-1 bg-white/20 hover:bg-white/30 rounded-lg text-xs font-bold">🔊 Nghe ví dụ</button>
+                </div>
+              </div>
+
+              <div class="bg-gradient-to-r from-amber-500 to-rose-600 text-white p-5 rounded-2xl shadow-md space-y-2 mx-8 sm:mx-16">
+                <div class="flex items-center justify-between">
+                  <span class="text-lg font-black tracking-wide">🎯 AT · Địa chỉ chính xác, Điểm cụ thể</span>
+                  <span class="text-xs font-bold bg-white/20 px-2 py-0.5 rounded-full">Số nhà, Địa điểm</span>
+                </div>
+                <p class="text-xs text-amber-100 leading-relaxed">
+                  <strong>Ví dụ:</strong> at 81 Tran Phu Street, at 105 Hoa Binh Lane, at school, at the campsite.
+                </p>
+                <div class="flex gap-2 pt-1">
+                  <button onclick="playAudio('at 81 Tran Phu Street, at school, at the campsite')" class="px-2.5 py-1 bg-white/20 hover:bg-white/30 rounded-lg text-xs font-bold">🔊 Nghe ví dụ</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-4 text-xs text-indigo-900 leading-relaxed space-y-1">
+              <p>📌 <strong>Mẹo thi Học kỳ 1:</strong> Nếu câu có <em>số nhà</em> (ví dụ: <em>... 23 Tran Phu Street</em>), luôn chọn <strong>at</strong>. Nếu chỉ có <em>tên đường</em> (ví dụ: <em>... Tran Phu Street</em>), luôn chọn <strong>on</strong>. Nếu là <em>tầng lầu</em> (ví dụ: <em>... the first floor</em>), luôn chọn <strong>on</strong>!</p>
+            </div>
+          </div>
+        `;
+      } else if (activeInfographicId === 2) {
+        html += `
+          <div class="space-y-6">
+            <div class="text-center">
+              <span class="text-xs font-black text-indigo-600 uppercase tracking-widest">Thước Đo Tần Suất &amp; Vị Trí Trong Câu</span>
+              <h3 class="text-xl sm:text-2xl font-black text-slate-900">Thang Đo Từ 100% Đến 0% (Unit 4)</h3>
+            </div>
+
+            <div class="space-y-3">
+              <div class="flex items-center gap-3 bg-emerald-50 border border-emerald-200 p-3 rounded-2xl">
+                <span class="w-16 text-center font-black text-emerald-700 text-lg">100%</span>
+                <div class="flex-1">
+                  <p class="font-black text-slate-900">ALWAYS · Luôn luôn</p>
+                  <p class="text-xs text-slate-600">I always brush my teeth in the morning. (Ngày nào cũng làm)</p>
+                </div>
+                <button onclick="playAudio('I always brush my teeth in the morning')" class="px-3 py-1 bg-emerald-600 text-white rounded-lg text-xs font-bold">🔊 Nghe</button>
+              </div>
+
+              <div class="flex items-center gap-3 bg-sky-50 border border-sky-200 p-3 rounded-2xl">
+                <span class="w-16 text-center font-black text-sky-700 text-lg">80%</span>
+                <div class="flex-1">
+                  <p class="font-black text-slate-900">USUALLY · Thường xuyên</p>
+                  <p class="text-xs text-slate-600">She usually rides a bike after school. (Hầu hết các ngày trong tuần)</p>
+                </div>
+                <button onclick="playAudio('She usually rides a bike after school')" class="px-3 py-1 bg-sky-600 text-white rounded-lg text-xs font-bold">🔊 Nghe</button>
+              </div>
+
+              <div class="flex items-center gap-3 bg-indigo-50 border border-indigo-200 p-3 rounded-2xl">
+                <span class="w-16 text-center font-black text-indigo-700 text-lg">60%</span>
+                <div class="flex-1">
+                  <p class="font-black text-slate-900">OFTEN · Thường lệ</p>
+                  <p class="text-xs text-slate-600">We often do martial arts on Sunday. (Khoảng 4-5 ngày/tuần, phát âm âm t câm /ˈɒfn/)</p>
+                </div>
+                <button onclick="playAudio('We often do martial arts on Sunday')" class="px-3 py-1 bg-indigo-600 text-white rounded-lg text-xs font-bold">🔊 Nghe</button>
+              </div>
+
+              <div class="flex items-center gap-3 bg-amber-50 border border-amber-200 p-3 rounded-2xl">
+                <span class="w-16 text-center font-black text-amber-700 text-lg">40%</span>
+                <div class="flex-1">
+                  <p class="font-black text-slate-900">SOMETIMES · Thỉnh thoảng</p>
+                  <p class="text-xs text-slate-600">He sometimes surfs the Internet. (1-2 ngày/tuần khi rảnh rỗi)</p>
+                </div>
+                <button onclick="playAudio('He sometimes surfs the Internet')" class="px-3 py-1 bg-amber-600 text-white rounded-lg text-xs font-bold">🔊 Nghe</button>
+              </div>
+
+              <div class="flex items-center gap-3 bg-rose-50 border border-rose-200 p-3 rounded-2xl">
+                <span class="w-16 text-center font-black text-rose-700 text-lg">0%</span>
+                <div class="flex-1">
+                  <p class="font-black text-slate-900">NEVER · Không bao giờ</p>
+                  <p class="text-xs text-slate-600">I never skip breakfast. (Không bao giờ xảy ra)</p>
+                </div>
+                <button onclick="playAudio('I never skip breakfast')" class="px-3 py-1 bg-rose-600 text-white rounded-lg text-xs font-bold">🔊 Nghe</button>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl space-y-1">
+                <span class="text-xs font-black text-indigo-700 uppercase">Vị trí 1: Đứng TRƯỚC Động Từ Thường</span>
+                <p class="text-xs font-bold text-slate-900">S + <span class="text-indigo-600 font-black">always / usually / often</span> + V</p>
+                <p class="text-xs text-slate-600 italic">I <span class="font-bold text-indigo-600">always</span> get up early.</p>
+              </div>
+              <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl space-y-1">
+                <span class="text-xs font-black text-indigo-700 uppercase">Vị trí 2: Đứng SAU Động Từ To Be</span>
+                <p class="text-xs font-bold text-slate-900">S + <strong>am / is / are</strong> + <span class="text-indigo-600 font-black">always / usually</span></p>
+                <p class="text-xs text-slate-600 italic">She is <span class="font-bold text-indigo-600">always</span> friendly and helpful.</p>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (activeInfographicId === 3) {
+        html += `
+          <div class="space-y-6">
+            <div class="text-center">
+              <span class="text-xs font-black text-indigo-600 uppercase tracking-widest">Cấu Trúc Lý Do Học Kỳ 1</span>
+              <h3 class="text-xl sm:text-2xl font-black text-slate-900">Hai Mẫu Câu WHY ➔ Trả Lời Bằng BECAUSE</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              
+              <div class="bg-indigo-50/60 border-2 border-indigo-200 rounded-3xl p-5 space-y-3">
+                <span class="px-3 py-1 bg-indigo-600 text-white rounded-full text-xs font-black uppercase">Mẫu 1: Nghề Nghiệp Tương Lai (Unit 5)</span>
+                <div class="space-y-1.5 text-xs sm:text-sm">
+                  <p class="font-extrabold text-slate-900">❓ <strong>Hỏi:</strong> Why would you like to be a [Job]?</p>
+                  <p class="font-mono text-indigo-700 text-xs">/waɪ wʊd juː laɪk tuː biː ə.../</p>
+                  <p class="font-extrabold text-indigo-900">💡 <strong>Đáp:</strong> Because I'd like to [Action].</p>
+                </div>
+                <div class="bg-white p-3 rounded-xl border border-indigo-100 text-xs space-y-1">
+                  <p>• <strong>Firefighter:</strong> ...because I'd like to put out fires.</p>
+                  <p>• <strong>Doctor:</strong> ...because I'd like to look after patients.</p>
+                  <p>• <strong>Writer:</strong> ...because I'd like to write stories.</p>
+                  <p>• <strong>Gardener:</strong> ...because I'd like to grow flowers.</p>
+                </div>
+              </div>
+
+              <div class="bg-amber-50/60 border-2 border-amber-200 rounded-3xl p-5 space-y-3">
+                <span class="px-3 py-1 bg-amber-600 text-white rounded-full text-xs font-black uppercase">Mẫu 2: Hoạt Động Yêu Thích (Unit 7)</span>
+                <div class="space-y-1.5 text-xs sm:text-sm">
+                  <p class="font-extrabold text-slate-900">❓ <strong>Hỏi:</strong> Why do you like [V-ing]?</p>
+                  <p class="font-mono text-amber-700 text-xs">/waɪ duː juː laɪk ˈduːɪŋ.../</p>
+                  <p class="font-extrabold text-amber-900">💡 <strong>Đáp:</strong> Because it is [Adjective].</p>
+                </div>
+                <div class="bg-white p-3 rounded-xl border border-amber-100 text-xs space-y-1">
+                  <p>• <strong>Doing projects:</strong> ...because it is fun &amp; useful.</p>
+                  <p>• <strong>Solving maths problems:</strong> ...because it is interesting.</p>
+                  <p>• <strong>Reading books:</strong> ...because it provides knowledge.</p>
+                  <p>• <strong>Playing English games:</strong> ...because it is exciting.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        `;
+      } else if (activeInfographicId === 4) {
+        html += `
+          <div class="space-y-6">
+            <div class="text-center">
+              <span class="text-xs font-black text-indigo-600 uppercase tracking-widest">Ngữ Pháp Thì Quá Khứ Đơn (Unit 9–10)</span>
+              <h3 class="text-xl sm:text-2xl font-black text-slate-900">Động Từ To Be (Was / Were) &amp; Động Từ Thường (Did / V-ed)</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              
+              <div class="bg-slate-50 border border-slate-200 rounded-3xl p-5 space-y-3">
+                <h4 class="font-black text-slate-900 text-sm flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-lg bg-blue-600 text-white flex items-center justify-center text-xs">1</span>
+                  Động Từ To Be (WAS / WERE)
+                </h4>
+                <div class="space-y-2 text-xs">
+                  <div class="p-2.5 bg-white rounded-xl border border-slate-200">
+                    <p class="font-bold text-indigo-700">I / He / She / It / Danh từ số ít ➔ WAS / WASN'T</p>
+                    <p class="text-slate-500 italic">I was at home yesterday. (Hôm qua mình ở nhà)</p>
+                  </div>
+                  <div class="p-2.5 bg-white rounded-xl border border-slate-200">
+                    <p class="font-bold text-indigo-700">You / We / They / Danh từ số nhiều ➔ WERE / WEREN'T</p>
+                    <p class="text-slate-500 italic">Were you at the campsite? - Yes, we were.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-slate-50 border border-slate-200 rounded-3xl p-5 space-y-3">
+                <h4 class="font-black text-slate-900 text-sm flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-lg bg-emerald-600 text-white flex items-center justify-center text-xs">2</span>
+                  Động Từ Thường (Trợ động từ DID)
+                </h4>
+                <div class="space-y-2 text-xs">
+                  <div class="p-2.5 bg-white rounded-xl border border-slate-200">
+                    <p class="font-bold text-emerald-800">Khẳng định: S + V-ed / V2</p>
+                    <p class="text-slate-600 italic">We <span class="font-bold text-emerald-700">visited</span> Bai Dinh Pagoda and <span class="font-bold text-emerald-700">planted</span> trees.</p>
+                  </div>
+                  <div class="p-2.5 bg-white rounded-xl border border-slate-200">
+                    <p class="font-bold text-emerald-800">Câu hỏi với DID: Did + S + V nguyên mẫu?</p>
+                    <p class="text-slate-600 italic">Did you <span class="font-bold text-emerald-700">buy</span> souvenirs? - Yes, I did.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="bg-indigo-50/70 border border-indigo-200 rounded-2xl p-4">
+              <span class="text-xs font-black text-indigo-900 uppercase">📌 4 Động Từ Bất Quy Tắc Hay Thi Nhất Học Kỳ 1:</span>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 text-xs">
+                <div class="bg-white p-2 rounded-xl text-center font-bold">go ➔ <span class="text-indigo-600">went</span></div>
+                <div class="bg-white p-2 rounded-xl text-center font-bold">see ➔ <span class="text-indigo-600">saw</span></div>
+                <div class="bg-white p-2 rounded-xl text-center font-bold">buy ➔ <span class="text-indigo-600">bought</span></div>
+                <div class="bg-white p-2 rounded-xl text-center font-bold">have ➔ <span class="text-indigo-600">had</span></div>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (activeInfographicId === 5) {
+        html += `
+          <div class="space-y-6">
+            <div class="text-center">
+              <span class="text-xs font-black text-indigo-600 uppercase tracking-widest">Quy Tắc Trọng Âm Tiếng Anh Lớp 5</span>
+              <h3 class="text-xl sm:text-2xl font-black text-slate-900">Bản Đồ Trọng Âm (Word Stress &amp; Phonics)</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              
+              <div class="bg-sky-50/70 border border-sky-200 rounded-3xl p-5 space-y-3">
+                <span class="px-3 py-1 bg-sky-600 text-white rounded-full text-xs font-black uppercase">Quy Tắc 1: Từ 2 Âm Tiết</span>
+                <div class="space-y-2 text-xs">
+                  <div class="p-3 bg-white rounded-xl border border-sky-100">
+                    <p class="font-black text-sky-900">📌 Danh từ &amp; Tính từ ➔ Nhấn Âm 1</p>
+                    <p class="text-slate-600 pt-1"><strong>'clever</strong> (/ˈklevər/), <strong>'helpful</strong> (/ˈhelpfl/), <strong>'campsite</strong> (/ˈkæmpsaɪt/), <strong>'building</strong> (/ˈbɪldɪŋ/).</p>
+                  </div>
+                  <div class="p-3 bg-white rounded-xl border border-sky-100">
+                    <p class="font-black text-sky-900">📌 Giới từ &amp; Động từ ➔ Thường nhấn Âm 2</p>
+                    <p class="text-slate-600 pt-1"><strong>a'bove</strong> (/əˈbʌv/), <strong>be'hind</strong> (/bɪˈhaɪnd/), <strong>be'tween</strong> (/bɪˈtwiːn/), <strong>re'port</strong> (/rɪˈpɔːt/).</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-purple-50/70 border border-purple-200 rounded-3xl p-5 space-y-3">
+                <span class="px-3 py-1 bg-purple-600 text-white rounded-full text-xs font-black uppercase">Quy Tắc 2: Đuôi -TEEN vs -TY</span>
+                <div class="space-y-2 text-xs">
+                  <div class="p-3 bg-white rounded-xl border border-purple-100">
+                    <p class="font-black text-purple-900">📌 Đuôi -TEEN ➔ Nhấn vào chính đuôi -TEEN (Âm 2)</p>
+                    <p class="text-slate-600 pt-1">thir'<strong>teen</strong> (/ˌθɜːˈtiːn/), four'<strong>teen</strong>, fif'<strong>teen</strong>.</p>
+                  </div>
+                  <div class="p-3 bg-white rounded-xl border border-purple-100">
+                    <p class="font-black text-purple-900">📌 Đuôi -TY ➔ Nhấn vào Âm Đầu (Âm 1)</p>
+                    <p class="text-slate-600 pt-1"><strong>'thir</strong>ty (/ˈθɜːti/), <strong>'for</strong>ty, <strong>'fif</strong>ty.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        `;
+      }
+
+      html += `
+          </div>
+        </div>
+      `;
+      container.innerHTML = html;
+    }
+
+    // TAB 4 RENDERER (40 CÂU LUYỆN DỊCH CÓ TRANH PHẢN XẠ)
+    function renderTab4Practice(container) {
+      const list = getFilteredPractice();
+      const learnedCount = PRACTICE_DATA.filter(p => isPracticeLearned(p.id)).length;
+
+      let html = `
+        <div class="space-y-6 max-w-6xl mx-auto">
+          
+          <!-- Header Banner -->
+          <div class="text-center space-y-1">
+            <span class="px-3 py-1 bg-amber-100 text-amber-900 font-extrabold text-xs rounded-full uppercase tracking-wider">🎯 Thử Thách Phản Xạ Học Kỳ 1</span>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">40 Câu Luyện Dịch &amp; Viết Câu (Unit 1–10)</h2>
+            <p class="text-xs sm:text-sm text-slate-500 max-w-2xl mx-auto">Mỗi Unit 4 câu trọng tâm có tranh minh họa. Học sinh nhìn tranh, phản xạ câu tiếng Anh trước khi bấm xem đáp án mẫu và nghe phát âm chuẩn.</p>
+          </div>
+
+          <!-- Controls Bar (Unit Filter + Batch Reveal) -->
+          <div class="bg-white p-3 sm:p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
+            
+            <!-- Filters -->
+            <div class="flex items-center gap-2 overflow-x-auto custom-scroll w-full md:w-auto pb-1 md:pb-0">
+              <button onclick="setPracticeFilter('all')" class="sub-filter-pill ${practiceFilter === 'all' ? 'active' : ''} px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap">
+                🌟 Tất Cả (40 Câu)
+              </button>
+              <button onclick="setPracticeFilter('u1_5')" class="sub-filter-pill ${practiceFilter === 'u1_5' ? 'active' : ''} px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap">
+                📘 Review 1 (U1–U5 · 20 câu)
+              </button>
+              <button onclick="setPracticeFilter('u6_10')" class="sub-filter-pill ${practiceFilter === 'u6_10' ? 'active' : ''} px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap">
+                📙 Review 2 (U6–U10 · 20 câu)
+              </button>
+            </div>
+
+            <!-- Actions -->
+            <div class="flex items-center gap-2 self-end md:self-auto flex-shrink-0">
+              <span class="text-xs text-slate-500 font-bold hidden sm:inline">Thuộc: <strong class="text-indigo-600 font-black">${learnedCount}</strong>/40 câu</span>
+              <button onclick="revealAllPractice()" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl transition-all">
+                👁️ Mở hết
+              </button>
+              <button onclick="hideAllPractice()" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl transition-all">
+                🙈 Ẩn hết
+              </button>
+            </div>
+
+          </div>
+
+          <!-- Unit Pills Bar (Grid Wrap) -->
+          <div class="bg-white p-3 rounded-2xl sm:rounded-3xl border border-slate-200 shadow-sm space-y-1.5">
+            <div class="text-[11px] font-black uppercase text-slate-400 px-1 tracking-wider">
+              📌 Lọc câu luyện dịch theo Unit:
+            </div>
+            <div class="grid grid-cols-5 sm:grid-cols-10 gap-1.5">
+              ${[1,2,3,4,5,6,7,8,9,10].map(u => `
+                <button onclick="setPracticeFilter('${u}')" class="py-2 px-1 rounded-xl text-xs font-extrabold transition-all text-center ${practiceFilter === String(u) ? 'bg-indigo-600 text-white shadow-sm ring-2 ring-indigo-400' : 'bg-slate-50 text-slate-700 hover:bg-slate-100 border border-slate-200'}">
+                  Unit ${u}
+                </button>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- Practice Grid (2 Columns) -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            ${list.map((p) => `
+              <div class="bg-white rounded-3xl p-4 sm:p-5 border border-slate-200 shadow-sm space-y-3.5 flex flex-col justify-between hover:shadow-md transition-all">
+                
+                <div class="space-y-3">
+                  <!-- Card Header: Unit & Learned Star -->
+                  <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+                    <div class="flex items-center gap-2">
+                      <span class="px-2.5 py-0.5 bg-indigo-50 text-indigo-700 rounded-md text-xs font-black uppercase">
+                        Unit ${p.unit} · Câu ${p.id}
+                      </span>
+                    </div>
+                    <button onclick="togglePracticeLearned(${p.id})" class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold transition-all ${isPracticeLearned(p.id) ? 'bg-amber-100 text-amber-800' : 'bg-slate-100 text-slate-400 hover:text-amber-500'}">
+                      ${isPracticeLearned(p.id) ? '⭐ Đã thuộc' : '☆ Đánh dấu'}
+                    </button>
+                  </div>
+
+                  <!-- Tranh gợi ý phản xạ -->
+                  <div class="w-full h-44 rounded-2xl overflow-hidden shadow-sm border border-slate-200 bg-slate-100 relative group">
+                    <img src="${p.img}" alt="${p.en}" data-icon="🎯" onerror="handleImgError(this)" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+                  </div>
+
+                  <!-- Câu hỏi Tiếng Việt -->
+                  <div class="text-base sm:text-lg font-black text-slate-900 leading-snug">
+                    🇻🇳 ${p.vi}
+                  </div>
+
+                  <!-- Student practice input -->
+                  <input type="text" placeholder="Tự gõ câu tiếng Anh của em..." class="w-full px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+                </div>
+
+                <!-- Reveal Box / Button -->
+                <div class="pt-2 border-t border-slate-100">
+                  ${revealedPractice[p.id] ? `
+                    <div class="bg-indigo-50/80 border border-indigo-200 rounded-2xl p-4 space-y-2 animate-in fade-in duration-200">
+                      <div class="flex items-start justify-between gap-2">
+                        <div>
+                          <p class="text-base sm:text-lg font-black text-slate-900 leading-snug">${p.en}</p>
+                          <p class="text-xs sm:text-sm font-mono font-bold text-indigo-700 pt-0.5">${p.ipa}</p>
+                        </div>
+                        <button onclick="playPracticeById(${p.id})" class="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-black shadow-sm flex items-center gap-1 flex-shrink-0">
+                          <span>🔊</span> Nghe
+                        </button>
+                      </div>
+
+                      <div class="bg-amber-50/80 border border-amber-200 rounded-xl p-2.5 text-xs text-amber-900 font-semibold leading-relaxed">
+                        💡 <strong>Mẹo ngữ pháp:</strong> ${p.tip}
+                      </div>
+
+                      <button onclick="togglePracticeAnswer(${p.id})" class="text-[11px] font-bold text-slate-400 hover:text-slate-600 underline block text-center pt-1">
+                        Ẩn đáp án này
+                      </button>
+                    </div>
+                  ` : `
+                    <button onclick="togglePracticeAnswer(${p.id})" class="w-full py-2.5 bg-indigo-50 hover:bg-indigo-100 active:scale-98 text-indigo-700 font-extrabold text-xs sm:text-sm rounded-xl border border-indigo-200 transition-all flex items-center justify-center gap-1.5 shadow-2xs">
+                      <span>👁️</span> Xem Đáp Án &amp; IPA &amp; Nghe Phát Âm
+                    </button>
+                  `}
+                </div>
+
+              </div>
+            `).join('')}
+          </div>
+
+        </div>
+      `;
+      container.innerHTML = html;
+    }
+
+    // TAB 5 RENDERER (10 ĐỀ THI HỌC KỲ 1)
+    function renderTab5Exams(container) {
+      const exam = EXAMS_DATA.find(e => e.id === activeExamId) || EXAMS_DATA[0];
+
+      let html = `
+        <div class="space-y-6 max-w-5xl mx-auto">
+          
+          <!-- EXAM SELECTOR CAROUSEL -->
+          <div class="bg-white p-4 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-black text-slate-400 uppercase tracking-wider">Chọn Đề Thi Học Kỳ 1 (Đề 1 đến 10)</span>
+              <span class="text-xs font-bold text-indigo-600">Đang chọn: Đề ${activeExamId} / 10</span>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-2">
+              ${EXAMS_DATA.map(e => `
+                <button onclick="selectExam(${e.id})" class="p-2.5 rounded-2xl text-left border transition-all ${e.id === activeExamId ? 'bg-indigo-600 text-white border-indigo-600 shadow-sm' : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'}">
+                  <div class="text-xs font-black">Đề ${e.id}</div>
+                  <div class="text-[10px] truncate opacity-90">${e.title.split(':')[1] || e.title}</div>
+                </button>
+              `).join('')}
+            </div>
+          </div>
+      `;
+
+      if (!examActive) {
+        html += `
+          <div class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-md text-center max-w-2xl mx-auto space-y-6">
+            <div class="w-16 h-16 rounded-3xl bg-amber-100 text-amber-700 text-3xl flex items-center justify-center mx-auto shadow-sm">
+              🏆
+            </div>
+            <div class="space-y-2">
+              <span class="px-3 py-1 bg-indigo-50 text-indigo-700 font-extrabold text-xs rounded-full uppercase">Đề Thi Học Kỳ 1</span>
+              <h3 class="text-2xl sm:text-3xl font-black text-slate-900">${exam.title}</h3>
+              <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">${exam.desc}</p>
+            </div>
+
+            <!-- Exam Specs -->
+            <div class="grid grid-cols-3 gap-3 text-center py-2 border-y border-slate-100">
+              <div>
+                <span class="text-xs text-slate-400 block font-semibold">Số câu</span>
+                <span class="text-lg font-black text-slate-900">10 Câu</span>
+              </div>
+              <div>
+                <span class="text-xs text-slate-400 block font-semibold">Thời gian</span>
+                <span class="text-lg font-black text-slate-900">15 Phút</span>
+              </div>
+              <div>
+                <span class="text-xs text-slate-400 block font-semibold">Cấu trúc</span>
+                <span class="text-lg font-black text-indigo-600">Ma trận 4 Kỹ Năng</span>
+              </div>
+            </div>
+
+            <button onclick="startExam()" class="w-full sm:w-auto px-8 py-3.5 bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white font-black text-base rounded-2xl shadow-lg hover:shadow-indigo-500/25 transition-all">
+              🚀 Bắt Đầu Làm Đề Thi Số ${exam.id}
+            </button>
+          </div>
+        `;
+      } else {
+        const q = exam.questions[currentExamQIdx];
+        const userChoice = examUserAnswers[currentExamQIdx];
+        const answered = userChoice !== undefined;
+
+        html += `
+          <div class="bg-white rounded-3xl border border-slate-200 shadow-md p-6 sm:p-8 space-y-6">
+            
+            <!-- Exam Top Bar -->
+            <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+              <div>
+                <h3 class="text-base sm:text-lg font-black text-slate-900">${exam.title}</h3>
+                <span class="text-xs text-slate-400 font-bold">Câu hỏi ${currentExamQIdx + 1} / ${exam.questions.length}</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-500">Thời gian:</span>
+                <span id="exam-countdown" class="px-3 py-1 bg-amber-50 text-amber-800 border border-amber-300 font-mono font-black text-sm rounded-xl">
+                  15:00
+                </span>
+              </div>
+            </div>
+
+            <!-- Question Numbers Navigator -->
+            <div class="flex items-center gap-1.5 overflow-x-auto custom-scroll pb-1">
+              ${exam.questions.map((item, idx) => `
+                <button onclick="currentExamQIdx = ${idx}; renderContent();" class="w-8 h-8 rounded-xl text-xs font-black transition-all flex items-center justify-center ${idx === currentExamQIdx ? 'bg-indigo-600 text-white shadow-sm' : (examUserAnswers[idx] !== undefined ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-100 text-slate-600')}">
+                  ${idx + 1}
+                </button>
+              `).join('')}
+            </div>
+
+            <!-- Question Display -->
+            <div class="space-y-4">
+              
+              <!-- Question Category Badge -->
+              <div class="flex items-center gap-2">
+                <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs font-black rounded-lg uppercase tracking-wider">
+                  ${q.type === 'listening' ? '🎧 Nghe & Chọn' : (q.type === 'stress' ? '🔍 Trọng Âm & Phát Âm' : (q.type === 'grammar' ? '✏️ Ngữ Pháp & Giới Từ' : '📖 Đọc Hiểu & Hoàn Thành Câu'))}
+                </span>
+              </div>
+
+              <!-- Question Prompt -->
+              <h4 class="text-lg sm:text-xl font-black text-slate-900 leading-snug">
+                ${q.question}
+              </h4>
+
+              <!-- If listening: Audio play button -->
+              ${q.audio ? `
+                <div class="p-4 bg-sky-50 border border-sky-200 rounded-2xl flex items-center justify-between gap-3">
+                  <div class="flex items-center gap-2">
+                    <span class="text-2xl">🎧</span>
+                    <span class="text-xs font-bold text-sky-900">Bấm nghe đoạn âm thanh để trả lời câu hỏi:</span>
+                  </div>
+                  <button onclick="playCurrentExamAudio()" class="px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white font-extrabold text-xs rounded-xl shadow-sm transition-all">
+                    🔊 Phát Âm Thanh
+                  </button>
+                </div>
+              ` : ''}
+
+              <!-- 4 Options Grid -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                ${q.options.map((opt, optIdx) => {
+                  let optStyle = 'bg-slate-50 hover:bg-slate-100 text-slate-800 border-slate-200';
+                  if (answered) {
+                    if (optIdx === q.ans) {
+                      optStyle = 'bg-emerald-50 text-emerald-900 border-emerald-400 font-black ring-2 ring-emerald-500';
+                    } else if (optIdx === userChoice) {
+                      optStyle = 'bg-rose-50 text-rose-900 border-rose-400 font-bold';
+                    } else {
+                      optStyle = 'bg-slate-50/50 text-slate-400 border-slate-100';
+                    }
+                  }
+                  return `
+                    <button onclick="chooseExamAnswer(${currentExamQIdx}, ${optIdx})" class="p-4 rounded-2xl border text-left transition-all flex items-start gap-3 ${optStyle}">
+                      <span class="w-6 h-6 rounded-lg bg-white border border-current flex items-center justify-center text-xs font-black flex-shrink-0">
+                        ${String.fromCharCode(65 + optIdx)}
+                      </span>
+                      <span class="text-sm font-semibold">${opt}</span>
+                    </button>
+                  `;
+                }).join('')}
+              </div>
+
+              <!-- Explanation Box -->
+              ${answered ? `
+                <div class="bg-indigo-50/80 border border-indigo-200 rounded-2xl p-4 space-y-1.5 animate-in fade-in duration-200">
+                  <div class="flex items-center gap-1.5 text-xs font-black uppercase text-indigo-900">
+                    <span>💡</span> Lời giải chi tiết:
+                  </div>
+                  <p class="text-xs sm:text-sm text-slate-800 font-semibold leading-relaxed">${q.explanation}</p>
+                </div>
+              ` : ''}
+
+            </div>
+
+            <!-- Exam Navigation Buttons -->
+            <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+              <button onclick="prevExamQ()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl transition-all" ${currentExamQIdx === 0 ? 'disabled class="opacity-40 cursor-not-allowed"' : ''}>
+                ← Câu trước
+              </button>
+
+              <div class="flex items-center gap-2">
+                ${currentExamQIdx < exam.questions.length - 1 ? `
+                  <button onclick="nextExamQ()" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs sm:text-sm rounded-xl shadow-sm transition-all">
+                    Câu tiếp theo →
+                  </button>
+                ` : `
+                  <button onclick="finishExam()" class="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs sm:text-sm rounded-xl shadow-md transition-all">
+                    🏁 Nộp Bài &amp; Chấm Điểm
+                  </button>
+                `}
+              </div>
+            </div>
+
+          </div>
+        `;
+      }
+
+      html += `</div>`;
+      container.innerHTML = html;
+    }
+
+    // TEACHER AUDIT MODAL RENDERER
+    function openImageAuditModal() {
+      const grid = document.getElementById('audit-grid');
+      if (grid) {
+        grid.innerHTML = VOCAB_DATA.map((v, i) => `
+          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-3 flex items-start gap-3">
+            <div class="w-16 h-16 rounded-xl overflow-hidden bg-slate-200 flex-shrink-0">
+              <img src="${v.img}" alt="${v.word}" data-icon="${v.icon}" onerror="handleImgError(this)" class="w-full h-full object-cover" />
+            </div>
+            <div class="flex-1 space-y-1">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-slate-900">${i + 1}. ${v.word}</span>
+                <span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 bg-indigo-100 text-indigo-700 rounded">U${v.unit}</span>
+              </div>
+              <p class="text-[11px] font-mono text-indigo-600 font-bold">${v.ipa}</p>
+              <p class="text-[11px] text-slate-600 line-clamp-1">${v.meaning}</p>
+              <p class="text-[10px] text-slate-400 line-clamp-1 italic">${v.visualSpec}</p>
+              <button onclick="playVocabWordById('${v.id}')" class="text-[10px] font-bold text-indigo-600 hover:underline">🔊 Thử đọc</button>
+            </div>
+          </div>
+        `).join('');
+      }
+      document.getElementById('image-audit-modal').classList.remove('hidden');
+    }
+
+    function closeImageAuditModal() {
+      document.getElementById('image-audit-modal').classList.add('hidden');
+    }
+
+    // INITIALIZATION
+    window.addEventListener('DOMContentLoaded', () => {
+      updateLearnedDisplay();
+      renderContent();
+    });
+  </script>
+</body>
+</html>

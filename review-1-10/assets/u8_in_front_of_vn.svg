@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540">
+  <rect width="960" height="540" fill="#fdf2f8"/>
+  <rect x="40" y="32" width="880" height="476" rx="32" fill="#ffffff" stroke="#ec4899" stroke-width="6"/>
+  <!-- Green Classroom Board in the back -->
+  <rect x="190" y="75" width="580" height="230" rx="14" fill="#166534" stroke="#92400e" stroke-width="12"/>
+  <text x="480" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="36" fill="#ffffff">CLASSROOM BOARD</text>
+  <text x="480" y="198" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="22" fill="#bbf7d0">(Bảng ở phía sau)</text>
+  <!-- Teacher's Desk clearly IN FRONT OF the board -->
+  <rect x="315" y="255" width="330" height="162" rx="16" fill="#f59e0b" stroke="#92400e" stroke-width="6"/>
+  <rect x="338" y="280" width="284" height="110" rx="10" fill="#fef3c7"/>
+  <text x="480" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="28" fill="#92400e">TEACHER'S DESK</text>
+  <text x="480" y="366" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="20" fill="#db2777">(Đặt ở PHÍA TRƯỚC bảng)</text>
+  <!-- Badge -->
+  <rect x="210" y="438" width="540" height="56" rx="16" fill="#db2777"/>
+  <text x="480" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="28" fill="#ffffff">⬆️ IN FRONT OF · Ở phía trước</text>
+</svg>

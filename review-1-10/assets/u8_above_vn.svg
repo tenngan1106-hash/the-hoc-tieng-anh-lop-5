@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540">
+  <rect width="960" height="540" fill="#fefce8"/>
+  <rect x="40" y="32" width="880" height="476" rx="32" fill="#ffffff" stroke="#f59e0b" stroke-width="6"/>
+  <!-- Picture Frame ABOVE the bookcase (clearly NOT touching!) -->
+  <rect x="355" y="68" width="250" height="120" rx="14" fill="#dbeafe" stroke="#d97706" stroke-width="8"/>
+  <circle cx="420" cy="112" r="22" fill="#facc15"/>
+  <polygon points="370,180 445,118 510,180" fill="#22c55e"/>
+  <polygon points="465,180 535,105 595,180" fill="#16a34a"/>
+  <!-- Clear gap arrow between picture and bookcase -->
+  <line x1="480" y1="198" x2="480" y2="250" stroke="#ef4444" stroke-width="6" stroke-dasharray="10 8"/>
+  <polygon points="480,192 466,214 494,214" fill="#ef4444"/>
+  <!-- Wooden Bookcase below -->
+  <rect x="275" y="262" width="410" height="165" rx="12" fill="#b45309" stroke="#78350f" stroke-width="5"/>
+  <rect x="295" y="280" width="370" height="58" rx="6" fill="#fef3c7"/>
+  <rect x="295" y="352" width="370" height="58" rx="6" fill="#fef3c7"/>
+  <!-- Colorful books -->
+  <rect x="310" y="290" width="24" height="48" rx="3" fill="#ef4444"/>
+  <rect x="338" y="295" width="22" height="43" rx="3" fill="#3b82f6"/>
+  <rect x="364" y="288" width="26" height="50" rx="3" fill="#10b981"/>
+  <rect x="394" y="293" width="22" height="45" rx="3" fill="#8b5cf6"/>
+  <rect x="420" y="290" width="24" height="48" rx="3" fill="#f59e0b"/>
+  <rect x="315" y="362" width="28" height="48" rx="3" fill="#06b6d4"/>
+  <rect x="348" y="366" width="24" height="44" rx="3" fill="#ec4899"/>
+  <rect x="378" y="360" width="26" height="50" rx="3" fill="#22c55e"/>
+  <!-- Badge -->
+  <rect x="190" y="440" width="580" height="54" rx="16" fill="#d97706"/>
+  <text x="480" y="476" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="28" fill="#ffffff">⬆️ ABOVE · Ở phía trên (không chạm vào)</text>
+</svg>

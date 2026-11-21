@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540">
+  <rect width="960" height="540" fill="#eff6ff"/>
+  <rect x="40" y="32" width="880" height="476" rx="32" fill="#ffffff" stroke="#3b82f6" stroke-width="6"/>
+  <!-- Classroom Desk -->
+  <rect x="180" y="130" width="600" height="42" rx="12" fill="#d97706" stroke="#92400e" stroke-width="5"/>
+  <rect x="220" y="172" width="38" height="245" fill="#b45309" stroke="#78350f" stroke-width="4"/>
+  <rect x="702" y="172" width="38" height="245" fill="#b45309" stroke="#78350f" stroke-width="4"/>
+  <!-- Floor line -->
+  <line x1="120" y1="417" x2="840" y2="417" stroke="#94a3b8" stroke-width="6"/>
+  <!-- Downward pointer arrow -->
+  <line x1="480" y1="185" x2="480" y2="250" stroke="#2563eb" stroke-width="14" stroke-linecap="round"/>
+  <polygon points="480,275 452,235 508,235" fill="#2563eb"/>
+  <!-- School Bag UNDER the desk -->
+  <rect x="395" y="285" width="170" height="130" rx="28" fill="#2563eb" stroke="#1e3a8a" stroke-width="6"/>
+  <path d="M 445 285 Q 480 248 515 285" fill="none" stroke="#1e3a8a" stroke-width="10"/>
+  <rect x="425" y="340" width="110" height="56" rx="12" fill="#60a5fa" stroke="#1e3a8a" stroke-width="4"/>
+  <text x="480" y="376" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="20" fill="#ffffff">BAG</text>
+  <!-- Badge -->
+  <rect x="235" y="438" width="490" height="56" rx="16" fill="#2563eb"/>
+  <text x="480" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="28" fill="#ffffff">⬇️ UNDER · Ở phía dưới gầm bàn</text>
+</svg>

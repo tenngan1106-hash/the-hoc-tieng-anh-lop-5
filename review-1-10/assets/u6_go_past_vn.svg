@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540">
+  <rect width="960" height="540" fill="#eff6ff"/>
+  <rect x="40" y="35" width="880" height="470" rx="32" fill="#ffffff" stroke="#3b82f6" stroke-width="6"/>
+  <!-- Hallway Room Door -->
+  <rect x="360" y="75" width="240" height="220" rx="14" fill="#fef3c7" stroke="#d97706" stroke-width="5"/>
+  <rect x="395" y="100" width="170" height="50" rx="8" fill="#1d4ed8"/>
+  <text x="480" y="133" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="24" fill="#ffffff">LIBRARY</text>
+  <rect x="425" y="168" width="110" height="125" rx="6" fill="#92400e"/>
+  <circle cx="518" cy="235" r="6" fill="#fde047"/>
+  <!-- Hallway Path -->
+  <rect x="80" y="305" width="800" height="100" rx="18" fill="#dbeafe"/>
+  <!-- Straight Arrow Going Past -->
+  <line x1="130" y1="355" x2="770" y2="355" stroke="#2563eb" stroke-width="26" stroke-linecap="round"/>
+  <polygon points="835,355 755,310 755,400" fill="#2563eb"/>
+  <!-- Badge -->
+  <rect x="275" y="420" width="410" height="68" rx="18" fill="#1d4ed8"/>
+  <text x="480" y="463" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="28" fill="#ffffff">GO PAST ➡️ Đi ngang qua</text>
+</svg>

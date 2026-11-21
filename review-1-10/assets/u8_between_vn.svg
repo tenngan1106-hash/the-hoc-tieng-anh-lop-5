@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540">
+  <rect width="960" height="540" fill="#fdf2f8"/>
+  <rect x="40" y="32" width="880" height="476" rx="32" fill="#ffffff" stroke="#ec4899" stroke-width="6"/>
+  <!-- Left Box -->
+  <rect x="150" y="160" width="180" height="240" rx="16" fill="#3b82f6" stroke="#1d4ed8" stroke-width="6"/>
+  <text x="240" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="32" fill="#ffffff">BOX A</text>
+  <!-- Right Box -->
+  <rect x="630" y="160" width="180" height="240" rx="16" fill="#10b981" stroke="#047857" stroke-width="6"/>
+  <text x="720" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="32" fill="#ffffff">BOX B</text>
+  <!-- Soccer Ball in BETWEEN -->
+  <circle cx="480" cy="280" r="75" fill="#facc15" stroke="#ca8a04" stroke-width="6"/>
+  <text x="480" y="295" text-anchor="middle" font-size="70">⚽</text>
+  <!-- Arrows pointing to the middle -->
+  <line x1="340" y1="280" x2="395" y2="280" stroke="#dc2626" stroke-width="6"/>
+  <polygon points="395,272 410,280 395,288" fill="#dc2626"/>
+  <line x1="620" y1="280" x2="565" y2="280" stroke="#dc2626" stroke-width="6"/>
+  <polygon points="565,272 550,280 565,288" fill="#dc2626"/>
+  <!-- Badge -->
+  <rect x="180" y="440" width="600" height="54" rx="16" fill="#db2777"/>
+  <text x="480" y="476" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="28" fill="#ffffff">↔️ BETWEEN · Ở chính giữa hai vật</text>
+</svg>
